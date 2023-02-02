@@ -1,0 +1,53 @@
+@use "../../../../styles/helpers/components/layouts/modalWindowSm" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/abstract/animation" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.postOptionsModal {
+  position: absolute;
+  z-index: 99;
+  right: 1rem;
+  top: 3rem;
+  min-height: 6rem;
+  min-width: 20rem;
+  @include modalWindowSm;
+
+  .postOptBtnDelete:hover {
+    color: color("redColor");
+  }
+
+  & span {
+    align-self: flex-end;
+    margin-top: 0.25rem;
+  }
+
+  .bookmark svg {
+    font-size: size("regullarSize");
+  }
+
+  .audienceBox {
+    width: 100%;
+    @include flexBox(column);
+    @include flexProperty(center, flex-start);
+
+    .audienceMainBtn {
+      .arrowIndicator {
+        margin-left: auto;
+        transition: all 0.2s;
+      }
+
+      .arrowIndicatorActive {
+        transform: rotate(180deg);
+      }
+    }
+
+    .audienceOptionsList {
+      width: 85%;
+      align-self: flex-end;
+      @include flexBox(column);
+      @include flexProperty(center, flex-start);
+      gap: $modal-list-gap;
+      @include animateMoveBottom(0.2s);
+    }
+  }
+}

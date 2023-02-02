@@ -1,0 +1,24 @@
+@use "../../styles/helpers/variables/variables" as *;
+@use "../../styles/helpers/abstract/functions" as *;
+@use "../../styles/helpers/abstract/mixins" as *;
+@use "../../styles/helpers/abstract/media" as *;
+
+.newVersionContainer {
+  position: relative;
+  background: $bg-light;
+  min-height: $nested-page-min-h;
+  width: min(100%, $container-width);
+  margin: 0 auto;
+  margin-top: $space-top-under-user-cover;
+  margin-bottom: $space-bottom-under-user-cover;
+  box-shadow: $shadow-base;
+  border-radius: $rounded-nested-page;
+  padding: 1.5rem;
+  @include flexBox(column);
+  gap: 2rem;
+
+  @include media-960 {
+    margin-top: $space-top-under-user-cover-sm;
+    margin-bottom: $space-bottom-under-user-cover-sm;
+  }
+}

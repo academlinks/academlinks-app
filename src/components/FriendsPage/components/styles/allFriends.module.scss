@@ -1,0 +1,57 @@
+@use "../../../../styles/helpers/components/friends-page" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.allFriends {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  @include allFriendsPage;
+
+  .emptyFriendsMessage {
+    grid-column: 1/-1;
+  }
+
+  @include media-680 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-480 {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+  }
+
+  .friend {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: repeat(2, 4rem);
+    justify-items: start;
+    align-items: center;
+
+    &:hover button[data-friend-opt-btn] {
+      opacity: 1;
+    }
+  }
+
+  .friendImg {
+    grid-row: 1/-1;
+    height: 100%;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+
+    & img {
+      @include fitImage;
+    }
+  }
+
+  .friendName {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .muntuals {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

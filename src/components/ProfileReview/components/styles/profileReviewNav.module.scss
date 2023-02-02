@@ -1,0 +1,8 @@
+@use "../../../../styles/helpers/components/profile-review" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.profileReviewNav {
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  @include profileReviewNav;
+}

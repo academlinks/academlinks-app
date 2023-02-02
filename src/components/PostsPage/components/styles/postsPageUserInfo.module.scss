@@ -1,0 +1,19 @@
+@use "../../../../styles/helpers/components/posts-page" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.postsPageUserShortInfoList {
+  @include flexBox(column);
+  @include postsPageUserInfo;
+
+  & li {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    justify-items: start;
+    align-items: center;
+
+    & svg {
+      grid-column: 1;
+      align-self: start;
+    }
+  }
+}

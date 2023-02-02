@@ -1,0 +1,28 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers/abstract/media" as *;
+
+.logo {
+  height: 100%;
+  padding: 1rem;
+  font-size: size("headingSmallSize");
+  font-weight: weight("boldWeight");
+
+  figure {
+    width: 4rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  @include media-480 {
+    font-size: size("headingSecondarySize");
+  }
+}

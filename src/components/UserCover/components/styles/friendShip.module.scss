@@ -1,0 +1,27 @@
+@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.friendShipBTNBox {
+  grid-row: 4/6;
+  grid-column: 3/4;
+  justify-self: end;
+  @include flexBox;
+  @include flexProperty(flex-end, center);
+  flex-wrap: wrap;
+  width: 60%;
+  height: 100%;
+  @include friendShip;
+
+  @include media-1280 {
+    transform: translateX(-3rem);
+  }
+
+  @include media-680 {
+    grid-column: 1;
+    grid-row: 6/7;
+    width: max-content;
+    justify-self: center;
+    transform: translateX(0);
+  }
+}

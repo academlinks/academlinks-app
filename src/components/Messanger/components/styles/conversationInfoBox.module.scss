@@ -1,0 +1,20 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.infoBox {
+  @include flexBox(column);
+  @include conversationBoxInfo;
+
+  .conversationAuthor {
+    text-transform: capitalize;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .miniBox {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+  }
+}

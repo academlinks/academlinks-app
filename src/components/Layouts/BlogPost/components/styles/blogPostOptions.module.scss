@@ -1,0 +1,7 @@
+@use "../../../../../styles/helpers/components/blog-post" as *;
+
+.blogPostOptions {
+  align-self: flex-end;
+  position: relative;
+  @include blogPostOptions;
+}

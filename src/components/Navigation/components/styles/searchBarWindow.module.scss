@@ -1,0 +1,27 @@
+@use "../../../../styles/helpers/components/navigation" as *;
+@use "../../../../styles/helpers/abstract/components" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/variables/variables" as *;
+
+.searchWindow {
+  position: absolute;
+  text-transform: capitalize;
+  @include searchWindow;
+
+  .resultsList {
+    position: absolute;
+    @include flexBox(column);
+    overflow: auto;
+    @include scrollBar("&");
+
+    &Item {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+    }
+  }
+
+  .searchError {
+    position: relative;
+    top: $nav-height;
+  }
+}

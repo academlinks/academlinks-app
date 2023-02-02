@@ -1,0 +1,13 @@
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/components/blog-page" as *;
+
+.topRatedPosts {
+  @include flexBox(column);
+  @include topRatedPosts;
+
+  .topRatedBlogPost {
+    [data-categories-list] {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use "../../../../../styles/helpers/components/blog-post" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.blogPost {
+  position: relative;
+  @include blogPostContainer;
+
+  .blogPostMedia {
+    overflow: hidden;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+
+    & img {
+      @include fitImage;
+    }
+  }
+
+  .blogPostInfo {
+    flex: 5;
+  }
+
+  .blogPostShortDesc {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .devideRow {
+    @include flexBox;
+    @include flexProperty(space-between, flex-start);
+    flex-wrap: wrap;
+  }
+}

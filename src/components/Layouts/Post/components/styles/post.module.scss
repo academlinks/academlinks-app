@@ -1,0 +1,10 @@
+@use "../../../../../styles/helpers/components/post" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.post {
+  position: relative;
+  margin: 0 auto;
+  @include flexBox(column);
+  @include post;
+}

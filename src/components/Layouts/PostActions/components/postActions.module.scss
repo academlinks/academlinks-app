@@ -1,0 +1,13 @@
+@use "../../../../styles/helpers/components/layouts/postActions" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.postActions {
+  @include flexBox;
+  @include postActions;
+
+  & button a,
+  & button {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+  }
+}

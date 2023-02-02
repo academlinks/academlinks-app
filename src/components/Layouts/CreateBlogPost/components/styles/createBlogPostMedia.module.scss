@@ -1,0 +1,51 @@
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.blogPostMediaBox {
+  margin: 0 1rem;
+  @include flexBox(column);
+  gap: 1.5rem;
+  width: calc(100% - 2rem);
+
+  .mediaLabel {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 0.5rem;
+    cursor: pointer;
+
+    & svg {
+      color: green;
+    }
+  }
+
+  .blogPostFigure {
+    width: 20rem;
+    aspect-ratio: 1/1;
+    position: relative;
+
+    @include media-1280 {
+      width: 15rem;
+    }
+
+    & button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      @include flexBox;
+      @include flexProperty(center, center);
+      border-radius: 100%;
+      padding: 0.2rem;
+      background: rgba(color("darkGreyColor"), 0.7);
+      color: color("whiteColor");
+
+      & svg {
+        font-size: size("regullarSize");
+      }
+    }
+
+    & img {
+      @include fitImage;
+    }
+  }
+}

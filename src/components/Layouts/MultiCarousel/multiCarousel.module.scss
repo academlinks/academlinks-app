@@ -1,0 +1,19 @@
+@use '../../../styles/helpers/abstract/mixins' as *;
+@use '../../../styles/helpers/abstract/functions' as *;
+
+.btn {
+  position: absolute;
+  height: 100%;
+  width: 5rem;
+  @include flexBox;
+  @include flexProperty(center, center);
+  background: color('whiteColor');
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}

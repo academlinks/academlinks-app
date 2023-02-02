@@ -1,0 +1,7 @@
+@use "../../../../styles/helpers/components/profile-review" as *;
+
+.profileReviewContainer {
+  margin: 0 auto;
+  position: relative;
+  @include profileReviewContainer;
+}

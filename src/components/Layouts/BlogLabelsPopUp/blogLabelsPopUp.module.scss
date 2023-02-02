@@ -1,0 +1,141 @@
+@use "../../../styles/helpers/helpers" as *;
+
+$black: #2d3137;
+$blue: #3785bc;
+$green: #329e78;
+$grey: #d6d6d6;
+$red: #dd3c3a;
+$white: #ffffff;
+
+.popup {
+  @include CenterAbsPos;
+  z-index: 99;
+  width: 50vw;
+  height: 15vw;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: color("whiteColor");
+  @include boxShadowBlack(0, 1rem, 0.2);
+  @include animatePopUp;
+
+  .popUpTitle {
+    font-size: size("largeSize");
+    text-transform: capitalize;
+    color: color("darkLightGreyColor");
+    display: inline-block;
+    width: 100%;
+  }
+
+  .categoriesList {
+    width: 100%;
+    padding-right: 0.5rem;
+    height: 65%;
+    @include scrollBar("&", 0.7rem, 0.5rem, 0.5rem);
+    @include flexBox;
+    @include flexProperty(flex-start);
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  .categoryItem {
+    align-self: flex-start;
+    width: max-content;
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 0.4rem;
+    padding: 0.4rem;
+    font-size: size("smallSize");
+    text-transform: capitalize;
+    border: 1px solid color("darkGreyColor");
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    .checkbox {
+      display: none;
+    }
+
+    .indicator {
+      width: 1.1rem;
+      height: 1.1rem;
+      background: $grey;
+      border-radius: 50%;
+      position: relative;
+      transition: all 0.15s;
+
+      &:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        @include boxShadowBlack(0, 0.25rem, 0.4);
+        transition: all 0.15s;
+      }
+
+      &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 0rem;
+        height: 0rem;
+        -webkit-clip-path: polygon(50% 75%, 100% 20%, 55% 100%, 15% 50%);
+        clip-path: polygon(50% 75%, 100% 20%, 55% 100%, 15% 50%);
+        left: 45%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        background-color: color("blueColor");
+        transition: background-color 0.15s, width 0.15, height 0.15s;
+        backface-visibility: hidden;
+        border: none;
+      }
+    }
+
+    .checkbox:checked ~ .indicator {
+      background: $green;
+      width: 1.6rem;
+      height: 1.6rem;
+
+      &:before {
+        width: 1.15rem;
+        height: 1.15rem;
+      }
+
+      &:after {
+        width: 2rem;
+        height: 2rem;
+        // animation: popUp 0.15s ease forwards;
+        animation-delay: 0.15s;
+      }
+    }
+  }
+
+  .popUpBtns {
+    @include flexBox;
+    @include flexProperty(flex-end, center);
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 3rem;
+    background: color("whiteColor");
+
+    .cancelBtn {
+      background: color("whiteShadeColor");
+      color: color("darkGreyColor");
+    }
+
+    & label {
+      font-size: size("smallerSize");
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+
+      & span {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

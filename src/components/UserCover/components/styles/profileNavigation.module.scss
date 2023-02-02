@@ -1,0 +1,19 @@
+@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.nav {
+  grid-column: 2/4;
+  grid-row: 7/8;
+  @include profileNavigation;
+
+  .navList {
+    height: 100%;
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+  }
+
+  @include media-680 {
+    grid-column: 1/1;
+  }
+}

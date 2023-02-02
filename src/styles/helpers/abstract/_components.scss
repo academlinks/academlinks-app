@@ -1,0 +1,39 @@
+@use './functions' as *;
+@use './animation' as *;
+
+@mixin scrollBar($element, $width: 1rem, $radius: 2rem, $blockStart: 0rem, $blockEnd: 0rem) {
+  #{$element} {
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #{$element}::-webkit-scrollbar {
+    width: $width;
+  }
+
+  #{$element}::-webkit-scrollbar-thumb {
+    background: color("blackColor");
+    border-radius: $radius;
+  }
+
+  #{$element}::-webkit-scrollbar-thumb:hover {
+    background: color("darkGreyColor");
+  }
+
+  #{$element}::-webkit-scrollbar-track {
+    background: color("whiteShadeColor");
+    border-radius: $radius;
+    margin-block-start: $blockStart;
+    margin-block-end: $blockEnd;
+  }
+}
+
+@mixin spinner {
+  animation: spinner 1s infinite;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}

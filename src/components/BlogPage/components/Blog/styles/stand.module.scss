@@ -1,0 +1,65 @@
+@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.stand {
+  grid-row: 1;
+  grid-column: 1/3;
+  @include blogPageStand;
+
+  @include media-960 {
+    align-self: stretch;
+  }
+
+  .standCarousel,
+  .slider,
+  .slide {
+    height: 100%;
+  }
+
+  .slide {
+    width: 100%;
+    position: relative;
+  }
+
+  .standFig {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .standTitle {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    font-size: 2.4rem;
+    width: 50rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    border-radius: 0.5rem;
+
+    @include media-1280 {
+      font-size: 2.2rem;
+    }
+
+    @include media-960 {
+      width: 40rem;
+      font-size: 2rem;
+    }
+
+    @include media-480 {
+      width: 30rem;
+      font-size: 1.6rem;
+      right: 1rem;
+      bottom: 1rem;
+    }
+  }
+}

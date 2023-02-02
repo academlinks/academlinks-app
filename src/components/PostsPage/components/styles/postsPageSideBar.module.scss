@@ -1,0 +1,18 @@
+@use "../../../../styles/helpers/components/posts-page" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.postsPageSideBar {
+  position: sticky;
+  flex: 2;
+  max-width: 38rem;
+  align-self: flex-start;
+  @include flexBox(column);
+  @include postsPageSideBar;
+
+  @include media-680 {
+    position: relative;
+    flex: 1;
+    align-self: center;
+  }
+}

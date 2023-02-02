@@ -1,0 +1,64 @@
+@use "../../../styles//helpers/abstract/animation" as *;
+@use "../../../styles//helpers/abstract/mixins" as *;
+@use "../../../styles//helpers/abstract/functions" as *;
+
+.tagsList {
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  flex-wrap: wrap;
+
+  .tagKeyWord {
+    font-weight: weight("regullarWeight");
+  }
+
+  .tagLink {
+    display: inline-block;
+    text-transform: capitalize;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .extraTags {
+    position: relative;
+  }
+
+  .extraTagsList {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    width: 12rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    font-weight: weight("mediumWeight");
+    background: color("whiteColor");
+    @include animateMoveTop;
+    display: none;
+
+    & a {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .extraTags:hover .extraTagsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  & strong {
+    font-weight: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

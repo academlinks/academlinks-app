@@ -1,0 +1,18 @@
+@use "../../../../../styles/helpers/components/blog-post" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.blogPostUserInteractionsBox {
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  @include blogPostUserInteractionReview;
+
+  .blogPostInteractions {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+
+    span {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+    }
+  }
+}

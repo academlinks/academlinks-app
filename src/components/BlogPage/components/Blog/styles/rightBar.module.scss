@@ -1,0 +1,40 @@
+@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.rightBar {
+  position: sticky;
+  grid-row: 3;
+  grid-column: 2;
+  align-self: start;
+  @include flexBox(column);
+  @include blogPageRightBar;
+
+  .rightBarBox {
+    position: relative;
+    @include flexBox(column);
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .rightBarTitle {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+  }
+
+  @include media-960 {
+    position: relative;
+    flex-direction: row;
+    align-self: center;
+    width: 100%;
+    top: 0;
+  }
+
+  @include media-480 {
+    flex-direction: column;
+  }
+}

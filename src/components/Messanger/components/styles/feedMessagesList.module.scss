@@ -1,0 +1,28 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/abstract/components" as *;
+@use "../../../../styles/helpers/abstract/animation" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.feedContentBox {
+  height: 100%;
+  @include flexBox(column);
+  @include msgList;
+
+  @include scrollBar("&", 1rem, 2rem, 1rem, 1rem);
+
+  .isReadLabel {
+    margin-left: auto;
+    position: relative;
+    @include flexBox;
+    @include flexProperty(flex-start,center);
+    @include animateMoveBottom(0.2s, -0.5rem);
+    @include isReadLabel;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background-position: center;
+      background-size: 100%;
+    }
+  }
+}

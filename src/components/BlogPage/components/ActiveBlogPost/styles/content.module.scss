@@ -1,0 +1,12 @@
+@use "../../../../../styles/helpers/components/active-blog-post" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.actionsBox {
+  grid-column: 2;
+
+  @include blogPostActionsBox;
+
+  @include media-1280 {
+    order: 5;
+  }
+}

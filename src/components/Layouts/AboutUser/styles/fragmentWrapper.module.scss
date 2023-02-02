@@ -1,0 +1,59 @@
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.fragmentWrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  column-gap: 0.25rem;
+
+  .fragmentIcon {
+    @include flexBox;
+    @include flexProperty(center, flex-start);
+    font-size: 2rem;
+  }
+
+  .fragmentChildren {
+    &.isEditable {
+      width: calc(100% - 10rem);
+    }
+
+    strong {
+      text-transform: capitalize;
+    }
+
+    .lower {
+      text-transform: none;
+    }
+  }
+
+  .fragmentBtnsBox {
+    visibility: hidden;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    @include flexBox;
+    @include flexProperty(center, center);
+    gap: 1rem;
+
+    @include media-480 {
+      visibility: visible;
+    }
+  }
+
+  &:hover .fragmentBtnsBox {
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .editableBtn {
+    background: color("blueTintColor");
+    width: 3.5rem;
+    height: 3.5rem;
+    aspect-ratio: 1/1;
+    @include flexBox;
+    @include flexProperty(center, center);
+    border-radius: 100%;
+  }
+}

@@ -1,0 +1,43 @@
+@use "../../../../styles/helpers/variables/variables" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.editableNavList {
+  $top-space: 2.5rem;
+
+  @include flexBox(column);
+  gap: 0.2rem;
+  margin-top: $top-space;
+  padding-top: 1rem;
+  height: 100%;
+  overflow: auto;
+  font-weight: weight("mediumWeight");
+  text-transform: capitalize;
+  border-top: 1px solid color("darkGrayColor");
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & button {
+    transition: all 0.2s;
+    width: 100%;
+    text-align: start;
+    padding: 0.75rem 0.75rem;
+    border-radius: 0.5rem;
+
+    &:not(.active):hover {
+      background: color("blueTintColor");
+    }
+
+    &.active {
+      background: color("blueColor");
+      color: $txt-light;
+    }
+
+    @include media-680 {
+      text-align: center;
+    }
+  }
+}

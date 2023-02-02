@@ -1,0 +1,28 @@
+@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/components/blog-page" as *;
+
+.categories {
+  height: 100%;
+  grid-row: 2;
+  grid-column: 1/3;
+  @include blogPageCategoriesNav;
+
+  @include media-960 {
+    align-self: stretch;
+  }
+
+  .slider {
+    height: 100%;
+  }
+
+  .listItemLink,
+  .listItem {
+    height: 100%;
+    display: block;
+  }
+
+  .listItem {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

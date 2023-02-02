@@ -1,0 +1,115 @@
+@use "../variables/variables" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/media" as *;
+
+$space-around: 1rem;
+$header-h: 8rem;
+$footer-h: 6rem;
+$max-modal-h: 40vw;
+$max-modal-h-md: 50vw;
+$max-modal-h-tablet: calc(100vh - $nav-height);
+
+@mixin mediaPortal {
+  width: 90vw;
+  height: 80vh;
+
+  @include media-960 {
+    height: calc(100vh - $nav-height + 1.5rem);
+    width: 100vw;
+  }
+}
+.modalMain {
+  border-radius: 1.2rem;
+  overflow: hidden;
+
+  @include media-960 {
+    border-radius: 0rem;
+  }
+
+  & [data-modal-close-btn] svg {
+    color: color("darkGreyColor");
+  }
+}
+
+%modalWrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 42vw;
+  max-height: $max-modal-h;
+  gap: 1rem;
+  padding: $space-around;
+  padding-top: $header-h;
+  padding-bottom: $footer-h;
+  background: color("whiteColor");
+
+  %wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: calc(100% - 1rem);
+  }
+
+  @include media-1280 {
+    width: 52vw;
+    max-height: $max-modal-h-md;
+  }
+
+  @include media-960 {
+    max-height: none;
+    width: 100vw;
+    height: $max-modal-h-tablet;
+    margin: 0;
+  }
+
+  .shareIdentifier {
+    @extend %wrapper;
+    z-index: 99;
+    top: 0;
+    height: $header-h;
+    padding: $space-around;
+    align-items: flex-start;
+    background: color("whiteColor");
+  }
+
+  .descriptionField {
+    border-radius: 0rem;
+    border: none;
+    min-height: 10rem;
+    font-size: size("smallSize");
+    margin-top: 5rem;
+  }
+
+  .btnWrapper {
+    @extend %wrapper;
+    height: $footer-h;
+    bottom: 0;
+    padding: $space-around;
+    background: color("whiteColor");
+    outline: none;
+
+    @include media-480 {
+      top: calc(100% - $footer-h * 2);
+    }
+  }
+
+  .confirmShareBtn {
+    width: 100%;
+    padding: $space-around;
+  }
+}
+
+@mixin sharePortal {
+  @extend %modalWrapper;
+
+  .shareSelectAudience {
+    left: 6rem;
+    top: 3.2rem;
+  }
+}
+
+@mixin updatePortal {
+  @extend %modalWrapper;
+}

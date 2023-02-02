@@ -1,0 +1,37 @@
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/functions" as *;
+
+.comment {
+  position: relative;
+
+  .commentHeader {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 1rem;
+    width: max-content;
+  }
+
+  .commentUserIdentifier {
+    column-gap: 0.75rem;
+
+    & [data-identifier-child],
+    & [data-identifier-username] {
+      grid-row: 1/3;
+      align-self: center;
+    }
+
+    & [data-identifier-child] {
+      margin-top: -0.1rem;
+    }
+  }
+
+  .commentUserIdentifier figure[data-img] {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .pinIcon {
+    color: color("blueColor");
+    margin-right: -2rem;
+  }
+}

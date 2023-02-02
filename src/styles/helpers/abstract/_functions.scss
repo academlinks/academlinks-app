@@ -1,0 +1,20 @@
+@use '../variables/colors' as *;
+@use '../variables/fontSize' as *;
+@use '../variables/fontWeight' as *;
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+@function color-U($color) {
+  @return map-get($utility-colors, $color);
+}
+
+@function size($size) {
+  @return map-get($fontSize, $size);
+}
+
+@function weight($weight) {
+  @return map-get($fontWeight, $weight);
+}
+ 

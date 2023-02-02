@@ -1,0 +1,137 @@
+@use "../../styles/helpers/variables/variables" as *;
+@use "../../styles/helpers/abstract/mixins" as *;
+@use "../../styles/helpers/abstract/media" as *;
+@use "../../styles/helpers/abstract/functions" as *;
+
+$nav-from-right: 18rem;
+$nav-w: 22rem;
+$gap-between-nav: 10rem;
+
+.wellComeContainer {
+  height: calc(100vh - $nav-height);
+  margin-top: $nav-height;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: max-content;
+  align-items: center;
+  align-content: center;
+  column-gap: 28rem;
+  row-gap: 8rem;
+  background: color("blueColor");
+  color: color("whiteColor");
+
+  @include media-1280 {
+    column-gap: 10rem;
+  }
+
+  @include media-960 {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, max-content);
+    row-gap: 4rem;
+  }
+
+  .logoFig {
+    max-width: 30rem;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @include media-1280 {
+      max-width: 25rem;
+    }
+
+    @include media-960 {
+      justify-self: center;
+    }
+  }
+
+  .punchBox {
+    grid-column: 2;
+    grid-row: 1/3;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.2rem;
+    transform: translateY(-100%);
+
+    .userIcon,
+    .publicIcon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .userIcon {
+      font-size: 3rem;
+    }
+
+    .punch {
+      font-weight: weight("boldWeight");
+    }
+
+    @include media-960 {
+      display: none;
+    }
+  }
+
+  .aboutText {
+    grid-column: 2;
+    grid-row: 1/3;
+    max-width: 60rem;
+    font-style: italic;
+    font-size: 2.8rem;
+    transform: translateY(70%);
+
+    @include media-1280 {
+      font-size: 2.2rem;
+      font-size: 2.4;
+    }
+
+    @include media-960 {
+      grid-column: 1;
+      grid-row: 2;
+      transform: translateY(0);
+      justify-self: center;
+      text-align: center;
+    }
+
+    @include media-480 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .registerBtn {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    background: color("orangeColor");
+    padding: 2rem 6rem;
+    font-size: 2.6rem;
+    border-radius: 12rem;
+
+    @include media-1280 {
+      font-size: 2.2rem;
+    }
+
+    @include media-960 {
+      grid-row: 3;
+      justify-self: center;
+    }
+  }
+
+  .registerBtn,
+  .logoFig {
+    margin-right: 10rem;
+
+    @include media-960 {
+      margin: 0;
+    }
+  }
+}

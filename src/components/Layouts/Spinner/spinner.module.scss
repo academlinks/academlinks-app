@@ -1,0 +1,78 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers/abstract/animation" as *;
+@use "../../../styles/helpers/abstract/mixins" as *;
+
+%spinner {
+  display: block;
+  font-size: 3.5rem;
+  color: color("blueColor");
+}
+
+.spinnerBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .spinner {
+    @extend %spinner;
+    @include animateSpinnerFixed;
+  }
+}
+
+.inlineSpinnerBox {
+  position: absolute;
+  z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .spinner {
+    @extend %spinner;
+    @include CenterAbsPos;
+    @include animateSpinner;
+  }
+}
+
+.standSpinnerBox {
+  background: rgba(color(darkGreyColor), 0.5);
+  backdrop-filter: blur(1px);
+  position: fixed;
+  width: 100%;
+  height: calc(100vh);
+  top: 6rem;
+  z-index: 9999;
+
+  .spinner {
+    @extend %spinner;
+    @include CenterAbsPos;
+    @include animateSpinner;
+  }
+}
+
+.inlineStandSpinnerBox {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background: rgba(color(darkGreyColor), 0.5);
+  backdrop-filter: blur(1px);
+
+  .spinner {
+    @extend %spinner;
+    @include CenterAbsPos;
+    @include animateSpinner;
+  }
+}
+
+.blockSpinnerBox {
+  text-align: center;
+  font-size: size("extraLargeSize");
+  color: color("blueColor");
+
+  .spinner {
+    @include animateSpinnerFixed;
+  }
+}

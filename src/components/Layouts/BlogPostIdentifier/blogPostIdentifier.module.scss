@@ -1,0 +1,37 @@
+@use "../../../styles/helpers/components/blog-post" as *;
+@use "../../../styles/helpers/abstract/mixins" as *;
+
+.reviewDetails {
+  @include flexBox(column);
+  width: 100%;
+  @include blogPostReviewDetails;
+
+  .publisher {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+
+    .blogPostUserName {
+      text-transform: capitalize;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    [data-img] {
+      border-radius: 50%;
+      overflow: hidden !important;
+    }
+  }
+
+  .blogPostLabels {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    flex-wrap: wrap;
+  }
+
+  .categoryBox {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+  }
+}

@@ -1,0 +1,41 @@
+@use "../../../../styles/helpers/components/posts-page" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.postsPageUserFriends {
+  width: 100%;
+  @include postsPageUserFriends;
+
+  .userFriendsIntro {
+    display: grid;
+    grid-template: repeat(2, min-content) / repeat(2, 1fr);
+  }
+
+  .showAll {
+    justify-self: end;
+  }
+
+  .friendsList {
+    display: grid;
+    grid-template: repeat(3, 10rem) / repeat(3, 10rem);
+    justify-content: center;
+    justify-items: center;
+
+    @include media-680 {
+      grid-template: repeat(3, 13rem) / repeat(3, 1fr);
+    }
+
+    @include media-480 {
+      grid-template: repeat(3, 10rem) / repeat(3, 1fr);
+    }
+  }
+
+  .friend {
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    justify-items: center;
+  }
+
+  .friendName {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,20 @@
+@use "../../../../styles/helpers/components/navigation" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.mainNavList {
+  flex: 4;
+  text-transform: uppercase;
+  @include flexBox;
+  @include navList;
+
+  @include media-960 {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+
+    &.activeNav {
+      display: flex;
+    }
+  }
+}

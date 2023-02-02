@@ -1,0 +1,87 @@
+@use "../../../../styles/helpers/components/settings" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/variables/variables" as *;
+@use "../../../../styles/helpers/components/layouts/inp" as *;
+
+.settingsHeading {
+  @include settingsHeading;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+}
+
+.settingsHeadingSecondary {
+  @include settingsHeadingSecondary;
+}
+
+.listedContent {
+  @include flexBox(column);
+  @include listedContent;
+}
+
+.fragmentsContainer {
+  @include fragmentsContainer;
+}
+
+.allDetailsContainer {
+  @include flexBox(column);
+  @include allDetailsContainer;
+}
+
+.updateBtnBox {
+  display: flex;
+  justify-content: flex-end;
+  @include updateBtnBox;
+}
+
+.formsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include formsContainer;
+
+  .form {
+    display: flex;
+    justify-content: center;
+  }
+
+  [data-user-info-error-box] {
+    @include errMsg;
+  }
+
+  [data-select-box] {
+    width: 100%;
+  }
+}
+
+.passForm,
+.livingPlaceForm,
+.workplaceForm,
+.educationForm {
+  display: flex;
+  flex-direction: column;
+
+  .inpField {
+    width: 100%;
+  }
+
+  .dateBox {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.addBTN {
+  background: color("blueColor");
+  color: color("whiteColor");
+  width: calc(100% - 2rem);
+  display: block;
+  margin: 0 auto;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  padding: 1.2rem 0;
+  border-radius: $rounded-sm;
+  text-transform: capitalize;
+}

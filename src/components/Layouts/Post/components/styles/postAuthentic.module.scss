@@ -1,0 +1,30 @@
+@use "../../../../../styles/helpers/components/post" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+// all elements selected under the .shareAuthentic defines different order of post elements if post is shared--> you can see more information in jsx code !!!
+.shareAuthentic {
+  @include flexBox(column);
+  @include authenticPost;
+
+  .media {
+    margin: 0;
+  }
+
+  [data-deleted-post] {
+    width: 100%;
+
+    & [data-opt-btn] {
+      display: none;
+    }
+  }
+}
+
+.postBody .postAuthenticIdentifier {
+  // align-items: flex-start;
+  @include postBodyUserIdentifier;
+}
+
+.shareAuthentic .referencedBlogPost,
+.postBody .referencedBlogPost {
+  @include sharedBlogPost;
+}

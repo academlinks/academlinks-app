@@ -1,0 +1,29 @@
+// PREFIXED RULES
+@mixin clipText {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -ms-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin clipPathPolygon($lt, $rt, $rb, $lb) {
+  -webkit-clip-path: polygon($lt, $rt, $rb, $lb);
+  -moz-clip-path: polygon($lt, $rt, $rb, $lb);
+  -ms-clip-path: polygon($lt, $rt, $rb, $lb);
+  clip-path: polygon($lt, $rt, $rb, $lb);
+}
+
+@mixin clipPathCircle($radius, $x, $y) {
+  -webkit-clip-path: circle($radius at $x $y);
+  -moz-clip-path: circle($radius at $x $y);
+  -ms-clip-path: circle($radius at $x $y);
+  clip-path: circle($radius at $x $y);
+}
+
+@mixin hyphens {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}

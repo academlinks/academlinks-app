@@ -1,0 +1,7 @@
+@use "../../../../styles/helpers/components/friends-page" as *;
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  @include friendsPageContainer;
+}

@@ -1,0 +1,36 @@
+@use "../../../../styles/helpers/variables/variables" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+
+.contentContainer {
+  position: relative;
+  flex: 5;
+  background: $bg-light;
+
+  @include media-680 {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .content {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 3.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .settingsGoBackBtn {
+    display: none;
+
+    @include media-680 {
+      display: block;
+    }
+  }
+}

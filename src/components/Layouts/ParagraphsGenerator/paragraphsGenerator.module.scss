@@ -1,0 +1,13 @@
+.generatorContainer {
+  display: inline;
+}
+
+.pParent {
+  display: inline;
+}
+
+.pChild {
+  &:last-child {
+    display: inline;
+  }
+}

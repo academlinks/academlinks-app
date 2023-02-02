@@ -1,0 +1,32 @@
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.categoriesBox {
+  .labelField {
+    width: 100%;
+  }
+
+  .labelsList {
+    @include flexBox;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    span {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      border-radius: 0.5rem;
+      background: color("blueColor");
+      color: color("whiteColor");
+
+      & button {
+        @include flexBox;
+        @include flexProperty(flex-start, center);
+        margin-top: -0.2rem;
+        font-size: size("bigSize");
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+$container-h: 42vw;
+$container-h-md: 48vw;
+$container-h-tablet: 55vw;
+$container-h-mobile-lg: 70vw;
+$container-h-mobile: 50vh;
+
+.landscape {
+  position: relative;
+  width: 100%;
+  height: 42vw;
+  @include userCoverContainer;
+
+  @include media-1280 {
+    height: $container-h-md;
+  }
+
+  @include media-960 {
+    height: $container-h-tablet;
+  }
+
+  @include media-680 {
+    height: $container-h-mobile-lg;
+  }
+
+  @include media-480 {
+    height: $container-h-mobile;
+  }
+}
+
+$space-for-content: 13vw;
+$space-for-content-on-md: 20rem;
+$space-for-content-on-mobile: 30rem;
+
+$rows-for-content: 5;
+
+$nav-height: 5rem;
+
+$profile-img-w: 16rem;
+$profile-img-w-on-md: 13rem;
+
+.content {
+  height: 100%;
+  display: grid;
+  @include userCoverContent;
+  grid-template-rows:
+    calc(100% - $space-for-content) repeat(
+      $rows-for-content,
+      calc(($space-for-content - $nav-height) / $rows-for-content)
+    )
+    $nav-height;
+
+  grid-template-columns:
+    1fr $profile-img-w minmax(
+      max-content,
+      calc($container-width - $profile-img-w)
+    )
+    1fr;
+
+  @include media-1280 {
+    grid-template-rows:
+      calc(100% - $space-for-content-on-md) repeat(
+        $rows-for-content,
+        calc(($space-for-content-on-md - $nav-height) / $rows-for-content)
+      )
+      $nav-height;
+
+    grid-template-columns:
+      1fr $profile-img-w-on-md minmax(
+        max-content,
+        calc($container-width - $profile-img-w-on-md)
+      )
+      1fr;
+  }
+
+  @include media-680 {
+    grid-template-rows:
+      calc(100% - $space-for-content-on-mobile) repeat(
+        $rows-for-content,
+        calc(($space-for-content-on-mobile - $nav-height) / $rows-for-content)
+      )
+      $nav-height;
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,0 +1,15 @@
+@use "../../../../styles/helpers/components/posts-page" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.postsPageContainer {
+  margin: 0 auto;
+  @include flexBox;
+  @include flexProperty(space-between, flex-start);
+  @include postsPageContainer;
+
+  @include media-680 {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}

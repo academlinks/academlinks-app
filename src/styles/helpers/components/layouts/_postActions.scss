@@ -1,0 +1,29 @@
+@use "../../abstract/functions" as *;
+@use "../../variables/variables" as *;
+
+@mixin postActions {
+  gap: 1rem;
+  border-top: 1px solid color("blackColor");
+  padding: 1rem 0.5rem 0;
+
+  & button a,
+  & button {
+    gap: 0.4rem;
+  }
+
+  & button span {
+    font-size: $txt-base-sm;
+  }
+
+  & button svg {
+    font-size: $txt-big;
+  }
+
+  & button:nth-child(3) {
+    margin-left: auto;
+  }
+
+  [data-user-liked] svg {
+    color: color("blueColor");
+  }
+}

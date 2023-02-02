@@ -1,0 +1,66 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers/variables/variables" as *;
+
+.error {
+  color: color("darkLightGreyColor");
+  // opacity: 0.6;
+  font-weight: weight("mediumWeight");
+  font-size: size("smallerSize");
+  text-align: center;
+  word-wrap: break-word;
+
+  .innerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+  }
+
+  svg {
+    font-size: size("bigSize");
+    color: color("redColor");
+    margin-top: -0.1rem;
+  }
+
+  .closeBtn {
+    display: none;
+  }
+
+  &.asModal {
+    position: fixed;
+    z-index: 99;
+    top: $nav-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+
+    $btn-pad-y: 0.75rem;
+    $btn-space-y: 1rem;
+
+    .innerContainer {
+      width: min(100%, 35rem);
+      padding: calc(($btn-pad-y * 2) + ($btn-space-y * 2) + 3rem) 1rem;
+      border-radius: $rounded-sm;
+      box-shadow: $shadow-base;
+      background: color("whiteColor");
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .closeBtn {
+      display: block;
+      position: absolute;
+      background: color("redColor");
+      color: color("whiteColor");
+      padding: $btn-pad-y 3rem;
+      border-radius: $rounded-md;
+      bottom: $btn-space-y;
+      right: 1rem;
+    }
+  }
+}

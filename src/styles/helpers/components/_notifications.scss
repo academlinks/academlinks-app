@@ -1,0 +1,110 @@
+@use "../variables/variables" as *;
+@use "../abstract/functions" as *;
+@use "../abstract/animation" as *;
+// @use "../abstract/components" as *;
+
+@mixin notificationsModal {
+  right: 2rem;
+  top: calc($nav-height + 2rem);
+  width: 30rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
+  font-size: size("smallerSize");
+  border-radius: $rounded-md;
+  // border-bottom-left-radius:$rounded-md;
+  // border-bottom-right-radius: $rounded-md;
+  background: color("whiteColor");
+  box-shadow: $shadow-base-v-lg;
+  // @include scrollBar("&");
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  transition: all 0.3s ease-out;
+  @include animateMoveBottom(0.3s, 3rem);
+
+  &.expanded {
+    max-height: 40rem;
+  }
+
+  .cleanerBtnsBox {
+    margin: 0.75rem 0;
+    text-transform: capitalize;
+    color: color("blueColor");
+
+    & button:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .message {
+    padding: 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: color("darkLightGreyColor");
+  }
+}
+
+@mixin notificationItem {
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: $rounded-sm;
+  transition: all 0.2s;
+
+  &.unRead {
+    background: color(blueTintColor);
+  }
+
+  &:not(.unRead):hover {
+    background: color(whiteShadeColor);
+  }
+
+  .notifyFig {
+    min-width: 4rem;
+    max-width: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+
+  .notifyTime {
+    font-size: size(smallestSize);
+  }
+
+  .notifyOptBtn {
+    font-size: size(regullarSize);
+  }
+}
+
+@mixin notificationOptionsList {
+  right: 0;
+  top: 1.5rem;
+  width: 13rem;
+  padding: 0.5rem;
+  gap: 0.25rem;
+  border-radius: $rounded-xsm;
+  text-transform: capitalize;
+  background: color("whiteColor");
+  color: color("darkLightGreyColor");
+  box-shadow: $shadow-base-v;
+  @include animateMoveTop(0.2s);
+
+  & button {
+    gap: 0.35rem;
+    transition: all 0.2s;
+
+    & svg {
+      font-size: size("regullarSize");
+    }
+
+    &:hover {
+      color: color("darkGreyColor");
+    }
+
+    &:last-child:hover {
+      color: color("redColor");
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "../../../../styles/helpers/components/navigation" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.navAvatarBox {
+  position: relative;
+  cursor: pointer;
+  @include avatar;
+
+  .navAvatarModal {
+    position: absolute;
+    @include flexBox(column);
+    text-transform: capitalize;
+
+    a {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}

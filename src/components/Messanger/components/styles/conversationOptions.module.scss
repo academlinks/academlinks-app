@@ -1,0 +1,16 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.conversationOptions {
+  position: absolute;
+  display: none;
+  @include conversationOptions;
+
+  @include media-680 {
+    display: block;
+  }
+}
+
+[data-conversation-box]:hover .conversationOptions {
+  display: block;
+}

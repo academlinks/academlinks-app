@@ -1,0 +1,6 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+
+.messangerContainer {
+  display: flex;
+  @include messanger;
+}

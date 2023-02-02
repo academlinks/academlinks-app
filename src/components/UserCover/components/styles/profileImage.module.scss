@@ -1,0 +1,23 @@
+@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.profile {
+  grid-row: 2/5;
+  grid-column: 2/3;
+  justify-self: start;
+  align-self: center;
+  position: relative;
+  @include profileImage;
+
+  @include media-1280 {
+    grid-row: 3/5;
+    transform: translateX(3rem);
+  }
+
+  @include media-680 {
+    grid-column: 1/1;
+    width: 13rem;
+    justify-self: center;
+    transform: translateX(0);
+  }
+}

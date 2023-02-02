@@ -1,0 +1,22 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/abstract/components" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+
+.sideBar {
+  flex: 1;
+  @include sideBarContainer;
+  border-right: 1px solid color("darkGrayColor");
+
+  @include media-680 {
+    &.isActiveConversation {
+      display: none;
+    }
+  }
+
+  .contentBox {
+    @include flexBox(column);
+    @include scrollBar("&");
+  }
+}

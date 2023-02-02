@@ -1,0 +1,6 @@
+@use "../../../styles/helpers/components/feed" as *;
+
+.feedContainer {
+  display: flex;
+  @include feedContainer;
+}

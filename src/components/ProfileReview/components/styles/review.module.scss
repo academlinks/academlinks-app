@@ -1,0 +1,7 @@
+@use "../../../../styles/helpers/components/profile-review" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.reviewContainer {
+  @include flexBox(column);
+  @include profileReviewInnerContainer;
+}

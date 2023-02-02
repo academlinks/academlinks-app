@@ -1,0 +1,73 @@
+@use "../abstract/functions" as *;
+@use "../variables/variables" as *;
+@use "../abstract/media" as *;
+
+@mixin profileReviewContainer {
+  width: min(100%, $container-width);
+  min-height: $nested-page-min-h;
+  margin-top: $space-top-under-user-cover;
+  margin-bottom: $space-bottom-under-user-cover;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
+  background: color("whiteColor");
+  box-shadow: $shadow-base;
+  overflow: hidden;
+
+  @include media-960 {
+    margin-top: $space-top-under-user-cover-sm;
+    margin-bottom: $space-bottom-under-user-cover-sm;
+  }
+}
+
+@mixin profileReviewNav {
+  gap: 2rem;
+  font-size: size("smallSize");
+  font-weight: weight("boldWeight");
+  text-transform: capitalize;
+  border-bottom: 1px solid color("darkGreyColor");
+  color: color("darkGreyColor");
+
+  & a {
+    padding: 1rem 2rem;
+
+    &:hover {
+      background-color: color("blueTintColor");
+      color: color("blueColor");
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid color("blueColor");
+    color: color("blueColor");
+  }
+}
+
+@mixin profileReviewInnerContainer {
+  margin-top: 4rem;
+  padding: 0 2rem;
+  gap: 4rem;
+
+  @include media-680 {
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+}
+
+@mixin reviewBtnBox {
+  .reviewBtnBox {
+    width: min(100%, $post-w);
+    margin-top: 1rem;
+    gap: 2rem;
+  }
+
+  .removeTagBtn {
+    background: none;
+    color: color("darkGreyColor");
+    box-shadow: none;
+  }
+
+  .hideBtn {
+    background: color("whiteShaderColor");
+    color: color("darkGreyColor");
+  }
+}

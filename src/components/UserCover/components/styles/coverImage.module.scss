@@ -1,0 +1,29 @@
+@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.cover {
+  grid-row: 1/4;
+  grid-column: 1/-1;
+  position: relative;
+  @include coverImage;
+
+  .coverImg {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2/1;
+
+    & img {
+      @include fitImage;
+      border-radius: inherit;
+    }
+  }
+
+  @include media-680 {
+    grid-column: 1/1;
+
+    .coverImg {
+      aspect-ratio: unset;
+    }
+  }
+}

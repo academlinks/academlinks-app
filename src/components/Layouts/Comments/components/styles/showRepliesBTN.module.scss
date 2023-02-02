@@ -1,0 +1,15 @@
+@use '../../../../../styles/helpers/abstract/functions' as *;
+@use '../../../../../styles/helpers/abstract/media' as *;
+
+.showRepliesBtn {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: -3.5rem;
+  font-size: size('smallerSize');
+  color: color('blackColor');
+
+  @include media-960 {
+    margin-top: -1.2em;
+  }
+}

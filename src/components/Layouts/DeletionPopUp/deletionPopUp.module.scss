@@ -1,0 +1,40 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+
+.confirmationPopUp {
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50rem;
+  min-width: 30rem;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background: color("whiteColor");
+  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+
+  .message {
+    margin-bottom: 1rem;
+    text-transform: none;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .btn {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .btnCancel {
+    background: color("whiteShadeColor");
+    color: color("darkGreyColor");
+    margin-right: 1rem;
+  }
+
+  .btnDelete {
+    background: color("redColor");
+  }
+}

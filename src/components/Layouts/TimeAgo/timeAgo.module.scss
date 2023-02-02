@@ -1,0 +1,5 @@
+@use "../../../styles//helpers/components/layouts/timeAgo" as *;
+
+.timeAgo {
+  @include timeAgo;
+}

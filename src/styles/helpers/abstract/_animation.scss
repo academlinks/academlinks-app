@@ -1,0 +1,100 @@
+@mixin animateMoveInRight(
+  $duration: 0.2s,
+  $edge: 1rem,
+  $fn: ease-out,
+  $loop: forwards
+) {
+  animation: moveInRight $duration $fn $loop;
+
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX($edge);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin animateMoveTop(
+  $duration: 0.2s,
+  $fromTop: 1rem,
+  $fn: ease-out,
+  $loop: forwards
+) {
+  animation: moveTop $duration $fn $loop;
+
+  @keyframes moveTop {
+    0% {
+      opacity: 0;
+      transform: translateY($fromTop);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin animateMoveBottom(
+  $duration: 0.5s,
+  $fromTop: -1rem,
+  $fn: ease-out,
+  $loop: forwards
+) {
+  animation: moveBottom $duration $fn $loop;
+
+  @keyframes moveBottom {
+    0% {
+      opacity: 0;
+      transform: translateY($fromTop);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin animatePopUp($duration: 0.3s, $fn: ease, $loop: forwards) {
+  animation: popUp $duration $fn $loop;
+  
+  @keyframes popUp {
+    0% {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animateSpinner($duration: 1s, $fn: ease, $loop: infinite) {
+  animation: spinner $duration $fn $loop;
+
+  @keyframes spinner {
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
+
+@mixin animateSpinnerFixed($duration: 1s, $fn: ease, $loop: infinite) {
+  animation: spinnerFixed $duration $fn $loop;
+
+  @keyframes spinnerFixed {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

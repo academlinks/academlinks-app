@@ -1,0 +1,42 @@
+@use "../../../styles/helpers/components/notifications" as *;
+@use "../../../styles/helpers/abstract/mixins" as *;
+
+.notifyBody {
+  @include flexBox;
+  @include flexProperty(flex-start, flex-start);
+  cursor: pointer;
+  @include notificationItem;
+
+  figure[data-img] {
+    min-width: 4rem;
+    max-width: 4rem;
+    min-height: 4rem;
+    max-height: 4rem;
+  }
+
+  .userName {
+    text-transform: capitalize;
+  }
+
+  .notifyTime {
+    display: block;
+  }
+
+  .notifyPopUpBox {
+    position: relative;
+    margin-left: auto;
+  }
+
+  .notifyOptionsList {
+    position: absolute;
+    @include flexBox(column);
+    @include flexProperty(center, flex-start);
+    @include notificationOptionsList;
+
+    & button {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+      width: 100%;
+    }
+  }
+}

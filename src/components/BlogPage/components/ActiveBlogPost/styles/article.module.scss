@@ -1,0 +1,25 @@
+@use "../../../../../styles/helpers/components/active-blog-post" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.postIntro {
+  @include blogPostArticle;
+  grid-column: 2;
+
+  @include media-1280 {
+    order: 2;
+  }
+
+  .articleHead {
+    position: relative;
+    padding: 2rem 0;
+
+    @include media-680 {
+      padding: 0;
+    }
+  }
+
+  .article {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}

@@ -1,0 +1,25 @@
+@use "../../../../styles/helpers/variables/variables" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.sideBarContainer {
+  flex: 1;
+  min-width: 25rem;
+  max-width: 30rem;
+  @include flexBox(column);
+  gap: 1rem;
+  padding: 1rem;
+  background: $bg-light;
+
+  @include media-680 {
+    &.active {
+      display: none;
+    }
+  }
+
+  @include media-480{
+    width: 100%;
+    max-width: 100%;
+  }
+}

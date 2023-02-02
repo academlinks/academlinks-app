@@ -1,0 +1,12 @@
+@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.chatMessageGroupBox {
+  @include flexBox(column);
+  @include msgGroup;
+
+  .messageText {
+    display: inline-block;
+    @include msgGroupItem;
+  }
+}

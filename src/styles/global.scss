@@ -1,0 +1,117 @@
+@use "./helpers/abstract/functions" as *;
+@use "./helpers/abstract/media" as *;
+@use "./helpers/abstract/components" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem === 10px
+  scroll-behavior: smooth;
+
+  @include media-680 {
+    font-size: 56.25%; // 1rem === 9px
+  }
+}
+
+html body {
+  font-size: size("regullarSize");
+  font-weight: weight("regullarWeight");
+  line-height: 1.4;
+  font-family: "Poppins", sans-serif;
+  background: color("whiteShadeColor");
+  color: color("lightGrey");
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+@include scrollBar("body");
+
+html body a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+html body a:hover {
+  color: unset;
+}
+
+html body button {
+  display: unset;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+html body p {
+  margin: 0;
+}
+
+html body figure {
+  padding: 0;
+  margin: 0;
+}
+
+html body a,
+html body input,
+html body textarea,
+html body button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+}
+
+html body ul {
+  list-style: none;
+}
+
+html body ul li {
+  cursor: unset;
+}
+
+*::selection,
+html body a::selection,
+html body input::selection,
+html body textarea::selection {
+  background: color("blueColor");
+  color: color("whiteColor");
+}
+
+img {
+  font-size: size("smallerSize");
+  text-align: center;
+}
+
+html body a:focus,
+html body a:active,
+html body a:hover,
+html body a:visited,
+html body input:focus,
+html body input:active,
+html body input:hover,
+html body input:visited,
+html body textarea:focus,
+html body textarea:active,
+html body textarea:hover,
+html body textarea:visited,
+html body button:focus,
+html body button:active,
+html body button:hover,
+html body button:visited {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

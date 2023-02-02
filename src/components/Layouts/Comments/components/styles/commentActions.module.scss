@@ -1,0 +1,19 @@
+@use '../../../../../styles/helpers/abstract/mixins' as *;
+@use '../../../../../styles/helpers/abstract/functions' as *;
+
+.commentActions {
+  @include flexBox;
+  @include flexProperty(flex-end, center);
+  gap: 1.5rem;
+  width: max-content;
+  padding-left: 4rem;
+  padding-top: 0.2rem;
+
+  .commentTimeAgo {
+    font-size: size('smallestSize');
+  }
+
+  .userLiked svg {
+    color: color(blueColor);
+  }
+}

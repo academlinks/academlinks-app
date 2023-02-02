@@ -1,0 +1,14 @@
+@use "../../../../styles/helpers/components/profile-review" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.postWrapper {
+  @include flexBox(column);
+  @include flexProperty(center, center);
+  width: 100%;
+  @include reviewBtnBox;
+
+  .reviewBtnBox {
+    @include flexBox;
+    @include flexProperty(flex-end, center);
+  }
+}

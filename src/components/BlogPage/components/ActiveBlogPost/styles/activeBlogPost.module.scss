@@ -1,0 +1,15 @@
+@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/components/active-blog-post" as *;
+
+.activeBlogPostBox {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32rem 1fr 32rem;
+  grid-template-rows: repeat(4, max-content);
+  @include activeBlogPostContainer;
+
+  @include media-1280 {
+    @include flexBox(column);
+  }
+}

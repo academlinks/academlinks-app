@@ -1,0 +1,11 @@
+@use "../../styles/helpers/variables/variables" as *;
+@use "../../styles/helpers/abstract/media" as *;
+
+.singlePost {
+  margin-top: $nav-height;
+  padding-top: 6rem;
+
+  @include media-680 {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+}

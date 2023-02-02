@@ -1,0 +1,17 @@
+@use '../../../../../styles/helpers/abstract/media' as *;
+
+.nestedList {
+  width: calc(100% - 4rem);
+  margin-left: 4rem;
+
+  .commentRepliesTextArea {
+    width: calc(100% - 4rem);
+  }
+
+  @include media-480 {
+    [data-text-area-with-tag] {
+      margin-right: 0.75rem;
+      padding: 0.5rem 0;
+    }
+  }
+}

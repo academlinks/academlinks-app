@@ -1,0 +1,9 @@
+@use "../../../../../styles/helpers/components/blog-page" as *;
+
+.blog-page--container .infinite-scroll-component__outerdiv {
+  grid-row: 4;
+  grid-column: 1;
+  justify-self: center;
+  width: 100%;
+  @include blogPageInfiniteScroll;
+}

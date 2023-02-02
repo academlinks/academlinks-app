@@ -1,0 +1,38 @@
+@use "../../../../../styles/helpers/components/active-blog-post" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.blogPostsRelated {
+  grid-column: 2;
+  display: flex;
+  padding-top: 2rem;
+  @include relatedPostsContainer;
+
+  @include media-1280 {
+    order: 4;
+  }
+
+  @include media-680 {
+  flex-direction: column;
+  }
+
+  .relatedBlogPost {
+    flex: 1;
+
+    & > [data-img] {
+      // width: 100%;
+      // aspect-ratio: 2/1;
+      // border-radius: 0;
+      // margin: 0;
+      display: none;
+    }
+
+    [data-categories-list] {
+      justify-content: center;
+    }
+  }
+
+  .relatedPostsError {
+    grid-column: span 2;
+  }
+}

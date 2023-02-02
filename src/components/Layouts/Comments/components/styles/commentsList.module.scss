@@ -1,0 +1,19 @@
+@use "../../../../../styles/helpers/abstract/components" as *;
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/variables/variables" as *;
+
+.commentsList {
+  position: relative;
+  @include flexBox(column);
+  gap: 1.5rem;
+  border-top: 1px solid color("darkGreyColor");
+  padding-top: 2rem;
+  margin-top: 1rem;
+  max-height: 45rem;
+  @include scrollBar("&", 1rem, 1rem, 1rem, 5.5rem);
+
+  .commentTextArea {
+    width: calc(100% - 6rem);
+  }
+}

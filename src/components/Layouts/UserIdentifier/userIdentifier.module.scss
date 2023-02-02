@@ -1,0 +1,34 @@
+@use "../../../styles/helpers/components/layouts/userIdentifier" as *;
+@use "../../../styles/helpers/abstract/mixins" as *;
+
+.userIdentifierRe {
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  gap: 0.5rem;
+  @include userIdentifier;
+
+  .identifierInlineContainer {
+    @include flexBox(column);
+
+    .userAndTags {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+  }
+
+  .identifierUserName {
+    text-transform: capitalize;
+
+
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.deletedLink:hover {
+      text-decoration: none;
+    }
+  }
+}

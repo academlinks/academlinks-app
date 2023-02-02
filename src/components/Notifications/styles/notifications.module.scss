@@ -1,0 +1,14 @@
+@use "../../../styles/helpers/components/notifications" as *;
+@use "../../../styles/helpers/abstract/mixins" as *;
+
+.notificationPopUp {
+  position: fixed;
+  z-index: 99;
+  @include flexBox(column);
+  @include notificationsModal;
+
+  .cleanerBtnsBox {
+    @include flexBox;
+    @include flexProperty(space-between, center);
+  }
+}

@@ -1,0 +1,55 @@
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.commentOptBox {
+  position: relative;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: 1rem;
+
+  .commentOptMainBtn {
+    @include flexBox;
+    @include flexProperty(center, center);
+    color: color("darkLightGreyColor");
+
+    & svg {
+      font-size: size("bigSize");
+    }
+  }
+
+  .commentOptionsModal {
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    top: 1.5rem;
+    width: 13rem;
+    @include flexBox(column);
+    @include flexProperty(flex-start, flex-start);
+    gap: 0.5rem;
+    padding: 1rem;
+    font-size: size("regullarSize");
+    text-transform: capitalize;
+    background: color("whiteColor");
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+
+    & .optBtn {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+      gap: 0.25rem;
+      width: 100%;
+      transition: all 0.2s ease-out;
+    }
+
+    & .optBtn:hover {
+      color: color("blackColor");
+    }
+
+    & .deleteBtn.deleteBtn:hover {
+      color: color("redColor");
+    }
+
+    & svg {
+      font-size: size("bigSize");
+    }
+  }
+}

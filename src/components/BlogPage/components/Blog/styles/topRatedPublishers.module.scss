@@ -1,0 +1,26 @@
+@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+
+.topRatedPublishers {
+  @include flexBox(column);
+  @include topRatedPublishers;
+
+  .topRatedPublisher a {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    cursor: pointer;
+  }
+
+  .userImg {
+    overflow: hidden;
+    position: relative;
+
+    & img {
+      @include fitImage;
+    }
+  }
+
+  .details {
+    @include flexBox(column);
+  }
+}

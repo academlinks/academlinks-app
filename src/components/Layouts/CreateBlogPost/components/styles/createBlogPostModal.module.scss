@@ -1,0 +1,164 @@
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/variables/variables" as *;
+@use "../../../../../styles/helpers/components/layouts/inp" as *;
+
+.createBlogPostModal {
+  $modal-w: 70vw;
+
+  $modal-h: 35vw;
+  $modal-h-md: 40vw;
+  $modal-h-tablet: calc(100vh - $nav-height);
+
+  $header-h: 9rem;
+  $footer-h: 6.5rem;
+
+  $inner-container-h: calc($modal-h - $header-h - $footer-h);
+  $inner-container-h-md: calc($modal-h-md - $header-h - $footer-h);
+  $inner-container-h-tablet: calc($modal-h-tablet - $header-h - $footer-h);
+
+  $space-around: 1rem;
+
+  $radius: 0.5rem;
+
+  width: $modal-w;
+  height: 100%;
+  max-height: $modal-h;
+  background: color("whiteColor");
+  border-radius: $radius !important;
+  overflow: hidden;
+
+  @include media-1280 {
+    max-height: $modal-h-md;
+  }
+
+  @include media-960 {
+    max-height: none;
+    height: $modal-h-tablet;
+    width: 100vw;
+  }
+
+  [data-modal-close-btn] svg {
+    fill: color("darkGreyColor");
+  }
+
+  .fields {
+    position: relative;
+    width: 100%;
+    max-height: $inner-container-h;
+    margin-top: calc($header-h + 2rem);
+    margin-bottom: calc($footer-h + 2rem);
+    padding: 1rem;
+    @include flexBox(column);
+    gap: 2rem;
+
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include media-1280 {
+      max-height: $inner-container-h-md;
+    }
+
+    @include media-960 {
+      max-height: $inner-container-h-tablet;
+    }
+  }
+
+  .blogPostIdentifier {
+    position: fixed;
+    height: $header-h;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: $space-around;
+    border-radius: $radius;
+    background: color("whiteColor");
+
+    @include media-960 {
+      border-radius: 0;
+    }
+  }
+
+  .titleAndCategoryBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-around;
+
+    .titleField,
+    [data-blog-post-field],
+    [data-select-box] {
+      width: 100%;
+    }
+
+    @include media-680 {
+      padding: $space-around;
+    }
+
+    @include media-480 {
+      @include flexBox(column);
+      gap: 1.5rem;
+    }
+  }
+
+  .blogPostAudience {
+    position: absolute;
+    left: 5.5rem;
+    top: 5rem;
+
+    @include media-480 {
+      left: 6rem;
+      top: 5.5rem;
+    }
+  }
+
+  .articleField {
+    width: calc(100% - 1rem);
+    border-bottom: 1px solid color("darkGreyColor");
+
+    .articleFieldHead {
+      label {
+        @include label;
+      }
+
+      .articleError {
+        @include errMsg;
+      }
+    }
+
+    .blogPostTextField {
+      min-height: 5rem;
+      margin: 0 auto;
+      border-radius: 0rem !important;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  .publishBtnBox {
+    position: fixed;
+    height: $footer-h;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $space-around;
+    background: color("whiteColor");
+    border-radius: $radius;
+
+    .publishBlogPostBtn {
+      width: 100%;
+      padding: 1.25rem 0;
+    }
+
+    @include media-960 {
+      border-radius: 0;
+    }
+
+    @include media-480 {
+      top: calc(100% - $footer-h * 2);
+    }
+  }
+}

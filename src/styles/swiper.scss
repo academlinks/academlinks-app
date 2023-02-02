@@ -1,0 +1,121 @@
+@use "./helpers/abstract/mixins" as *;
+@use "./helpers/abstract/functions" as *;
+@use "./helpers/abstract/media" as *;
+
+$swiper-gap: 2rem;
+$thumb-item-w: 10rem;
+$thumb-item-w-m: 5rem;
+$active-media-h: calc(100% - $thumb-item-w - ($swiper-gap * 2));
+$active-media-h-m: calc(100% - $thumb-item-w-m - ($swiper-gap * 2));
+
+.swiperLocale {
+  width: 100%;
+  height: $active-media-h;
+  position: relative;
+  z-index: auto;
+
+  @include media-480 {
+    height: $active-media-h-m;
+  }
+
+  .swiper-wrapper {
+    position: absolute;
+    z-index: auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  .swiper-slide {
+    height: 100%;
+  }
+
+  &.swiperLocaleFull {
+    height: 100%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: translateY(50%);
+
+    @include media-480 {
+      &:after {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  .activeMedia {
+    height: 100%;
+    width: 100%;
+
+    & img {
+      @include fitImage(contain);
+    }
+  }
+}
+
+.swiperThumbsLocale {
+  margin-top: $swiper-gap;
+  height: $thumb-item-w;
+  max-width: 80%;
+
+  @include media-480 {
+    height: $thumb-item-w-m;
+  }
+
+  .swiper-wrapper {
+    height: 100%;
+    width: max-content;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .thumbItem {
+    min-height: $thumb-item-w;
+    max-height: $thumb-item-w;
+    min-width: $thumb-item-w;
+    max-width: $thumb-item-w;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    & img:hover {
+      transform: scale(1.4);
+    }
+
+    @include media-480 {
+      border-radius: 0.5rem;
+      min-height: $thumb-item-w-m;
+      max-height: $thumb-item-w-m;
+      min-width: $thumb-item-w-m;
+      max-width: $thumb-item-w-m;
+    }
+  }
+
+  .thumbItem.swiper-slide-thumb-active {
+    border: 3px solid color("blueColor");
+
+    @include media-480 {
+      border-width: 2px;
+    }
+  }
+
+  .thumbItem img {
+    transition: transform 0.3s ease;
+    backface-visibility: none;
+  }
+
+  .thumbItem.swiper-slide-thumb-active img {
+    transform: scale(1.4);
+  }
+
+  .thumbMedia {
+    width: 100%;
+    height: 100%;
+
+    & img {
+      @include fitImage;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.blogPage {
+  display: grid;
+  grid-template: 30vw 6rem 24rem 1fr / 1fr 40rem;
+  position: relative;
+  @include blogPageContainer;
+
+  @include media-960 {
+    @include flexBox(column);
+    @include flexProperty(flex-start, center);
+  }
+
+  .blogPageCreateBlogPostTouch {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .blogPostsScrollBox {
+    @include flexBox(column);
+  }
+}

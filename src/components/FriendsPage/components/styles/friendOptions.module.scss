@@ -1,0 +1,23 @@
+@use "../../../../styles/helpers/components/friends-page" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+
+.friendOptBox {
+  position: relative;
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+  @include friendOptions;
+
+  .optBtn {
+    opacity: 0;
+  }
+
+  .friendOptWindow {
+    position: absolute;
+
+    button {
+      @include flexBox;
+      @include flexProperty(flex-start, center);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@use '../../../styles/helpers/abstract/functions' as *;
+
+.dtPckrBoxRe {
+  &SelectedDate {
+    display: none;
+  }
+
+  &Placeholder {
+    display: none;
+    pointer-events: none;
+  }
+
+  &Labbel {
+    display: inline-block;
+    background: color('whiteColor');
+    color: color('blackColor');
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &Picker {
+    color: color('darkGreyColor');
+    display: none;
+    position: absolute;
+  }
+
+  &SelectedDate:checked ~ &Picker {
+    display: block;
+  }
+}

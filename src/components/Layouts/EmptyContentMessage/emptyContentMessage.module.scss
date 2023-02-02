@@ -1,0 +1,9 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+
+.message {
+  font-weight: weight("boldWeight");
+  text-transform: capitalize;
+  text-align: center;
+  color: color("darkLightGreyColor");
+  width: 100%;
+}

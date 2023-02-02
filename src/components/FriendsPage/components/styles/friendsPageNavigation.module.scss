@@ -1,0 +1,21 @@
+@use "../../../../styles/helpers/components/friends-page" as *;
+@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
+
+.friendsNav {
+  @include flexBox;
+  @include flexProperty(space-between, center);
+  @include friendsPageNavigation;
+
+  .friendsSearch {
+    width: max-content;
+
+    @include media-680 {
+      display: none;
+    }
+  }
+
+  & a {
+    display: inline-block;
+  }
+}

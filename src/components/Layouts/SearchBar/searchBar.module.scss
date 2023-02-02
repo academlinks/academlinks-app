@@ -1,0 +1,45 @@
+@use '../../../styles/helpers/abstract/mixins' as *;
+@use '../../../styles/helpers/abstract/functions' as *;
+@use '../../../styles/helpers/abstract/media' as *;
+
+.searchField {
+  background: color('whiteShadeColor');
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border-radius: 0.25rem;
+  text-transform: none;
+  min-width: 18rem;
+
+  .searchFieldLabel {
+    color: color('darkGreyColor');
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+  }
+
+  .searchFieldInp {
+    outline: none;
+    border: none;
+    background: inherit;
+    color: color('darkGreyColor');
+    font-size: size('smallSize');
+    width: 100%;
+
+    &::placeholder {
+      font-weight: weight('thinWeight');
+      font-style: italic;
+    }
+  }
+
+  @include media-680 {
+    .searchFieldInp {
+      display: none;
+    }
+
+    .searchFieldInp.active {
+      display: block;
+    }
+  }
+}

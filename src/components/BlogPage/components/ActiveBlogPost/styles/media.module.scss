@@ -1,0 +1,13 @@
+@use "../../../../../styles/helpers/components/active-blog-post" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.media {
+  @include blogPostMedia;
+  grid-column: 2;
+
+  @include media-1280 {
+    width: 100%;
+    aspect-ratio: 3/1;
+    order: 1;
+  }
+}

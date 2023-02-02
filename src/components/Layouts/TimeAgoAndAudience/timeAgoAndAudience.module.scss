@@ -1,0 +1,14 @@
+@use "../../../styles/helpers/variables/variables" as *;
+
+.timeAndAudience {
+  grid-column: 2/4;
+  grid-row: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+
+  & svg {
+    font-size: $txt-thumbnail;
+  }
+}

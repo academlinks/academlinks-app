@@ -1,0 +1,45 @@
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
+
+.commentContent {
+  @include flexBox;
+  gap: 5rem;
+
+  @include media-960 {
+    gap: 2rem;
+  }
+
+  .commentText {
+    margin-left: 4rem;
+    color: color("darkGreyColor");
+    font-size: size("smallSize");
+    max-width: calc(85% - 4rem);
+  }
+
+  .commentReactions {
+    position: absolute;
+    right: 3rem;
+    bottom: 0;
+    @include flexBox;
+    gap: 0.25rem;
+    padding: 0 0.5rem;
+    border-radius: 5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
+    background: color("whiteColor");
+    cursor: pointer;
+
+    & span {
+      font-size: size("smallSize");
+    }
+  }
+
+  .showMoreBtn {
+    cursor: pointer;
+    background: color("whiteShadeColor");
+    color: color("blackColor");
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+    font-size: size("smallerSize");
+  }
+}
