@@ -50,10 +50,17 @@ function tokenExchange({ config }) {
 
   if (Math.floor(Date.now() / 1000) > exp) {
     if (!refreshTokenPromise)
-      refreshTokenPromise = refresher().then(({ data }) => {
-        refreshTokenPromise = null;
-        return data.accessToken;
-      });
+      refreshTokenPromise = refresher()
+        .then(({ data }) => {
+          refreshTokenPromise = null;
+          return data.accessToken;
+        })
+        .catch((err) => {
+          if (err.response.status === 401)
+            localStorage.removeItem("academind_passport");
+          refreshTokenPromise = null;
+          return "";
+        });
 
     return refreshTokenPromise.then((token) => {
       localStorage.setItem("academind_passport", JSON.stringify(token));

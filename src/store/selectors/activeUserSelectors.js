@@ -24,3 +24,6 @@ export const selectActiveUserShortInfo = ({ activeUser }) => ({
   image: activeUser.user.profileImg,
   _id: activeUser.user._id,
 });
+
+export const selectIsAuthenticated = ({ activeUser }) =>
+  activeUser.user.isAuthenticated;

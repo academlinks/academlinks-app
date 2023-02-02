@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { useForeignUser, useFriendsQuery, useScroll } from "../../hooks";
 import { selectAllFriendsPageState } from "../../store/selectors/friendsSelector";
+import { extractRootEndPointFromImg } from "../../lib";
 
 import styles from "./components/styles/allFriends.module.scss";
 import FriendOptions from "./components/FriendOptions";
@@ -32,7 +33,10 @@ function AllFriends() {
           })
           .map((friend) => (
             <div className={styles.friend} key={friend._id}>
-              <Image src={friend.profileImg} className={styles.friendImg} />
+              <Image
+                src={extractRootEndPointFromImg(friend.profileImg)}
+                className={styles.friendImg}
+              />
               <Link
                 to={`/profile/${friend._id}/posts`}
                 className={styles.friendName}

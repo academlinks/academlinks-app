@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import { extractRootEndPointFromImg } from "../../../lib";
+
 import { Image } from "../../Layouts";
 import styles from "./styles/request.module.scss";
 
 function RequestItemBody({ children, img, userName, userId, muntuals }) {
   return (
     <div className={styles.requestItem}>
-      <Image src={img} className={styles.friendImg} />
+      <Image
+        src={extractRootEndPointFromImg(img)}
+        className={styles.friendImg}
+      />
       <Link to={`/profile/${userId}/posts`} className={styles.friendName}>
         {userName}
       </Link>
