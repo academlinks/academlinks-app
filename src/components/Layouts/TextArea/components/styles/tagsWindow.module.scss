@@ -3,9 +3,9 @@
 @use "../../../../../styles//helpers/abstract/mixins" as *;
 
 .tagsWindow {
-  position: absolute;
-  z-index: 999 !important;
-  bottom: 85%;
+  // position: absolute;
+  // z-index: 999 !important;
+  // bottom: 85%;
   width: 20rem;
   height: auto;
   max-height: 20rem;
@@ -22,6 +22,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
+    text-transform: capitalize;
     cursor: pointer;
   }
 

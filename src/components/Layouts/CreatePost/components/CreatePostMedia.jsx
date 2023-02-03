@@ -1,3 +1,5 @@
+import { extractRootEndPointFromImg } from "../../../../lib";
+
 import styles from "./styles/createPostMedia.module.scss";
 import { CloseXIcon, CloseIcon } from "../../Icons/icons";
 import { Image } from "../../../Layouts";
@@ -18,7 +20,11 @@ function CreatePostMedia({ files, handleDiscardMedia }) {
             className={styles.imgBox}
           >
             <Image
-              src={typeof img === "string" ? img : URL.createObjectURL(img)}
+              src={
+                typeof img === "string"
+                  ? extractRootEndPointFromImg(img)
+                  : URL.createObjectURL(img)
+              }
               className={styles.postMedia}
             />
             {i < 5 && (
