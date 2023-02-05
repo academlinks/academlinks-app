@@ -38,9 +38,10 @@ function Input({
           onChange={onChange}
           name={name}
           className={styles.inp}
-          value={value}
           // value={defaultValue ? defaultValue : value}
-          defaultValue={defaultValue || ""}
+          // value={value}
+          // defaultValue={defaultValue || ""}
+          {...(defaultValue ? { defaultValue } : { value })}
         />
 
         {type === "password" && (

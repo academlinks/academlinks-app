@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 
 import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
+import { VALID_BLOG_POST_CATEGORIES } from "../../../lib/config";
 
 import {
   UserIdentifier,
@@ -113,22 +114,11 @@ function CreateBlogPost({
             message={validationError.category.message}
             handler={handleCategory}
             data={{
+              values: VALID_BLOG_POST_CATEGORIES,
               default: {
                 label: category || "category",
                 value: category || "category",
               },
-              values: [
-                "economics",
-                "business",
-                "law",
-                "medicine",
-                "psychology",
-                "philosophy",
-                "politics",
-                "natural sciences",
-                "exact sciences",
-                "other",
-              ],
             }}
           />
         </div>
@@ -142,7 +132,7 @@ function CreateBlogPost({
               </p>
             )}
           </div>
-          
+
           <TextAreaWithTag
             submitHandler={publishPost}
             text={text}
