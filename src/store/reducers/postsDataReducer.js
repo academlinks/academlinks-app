@@ -352,7 +352,7 @@ const postsDataSlice = createSlice({
           title: blogPost.title,
           _id: blogPost._id,
         }));
-        
+
       state.sliderBlogPosts = [...sliderPosts];
     },
   },

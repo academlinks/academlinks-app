@@ -45,17 +45,7 @@ const activeUserSlice = createSlice({
       state.loadingState.message = "";
     },
 
-    logOut() {},
-
-    deleteAccount(state) {
-      state.loadingState = {
-        loading: true,
-        error: false,
-        message: "",
-      };
-    },
-
-    setLogout(state) {
+    logOut(state) {
       const temp = {
         _id: "",
         email: "",
@@ -79,6 +69,14 @@ const activeUserSlice = createSlice({
           message: "",
         };
       }
+    },
+
+    deleteAccount(state) {
+      state.loadingState = {
+        loading: true,
+        error: false,
+        message: "",
+      };
     },
 
     // SECTION: User
