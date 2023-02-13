@@ -239,7 +239,12 @@ export default function useAuthenticationQuery() {
 
     if (error.error) return setUpdateForgotPasswordError(error);
 
-    dispatch(updateForgotPassword(data));
+    dispatch(
+      updateForgotPassword({
+        token: data.passwordReset,
+        password: data.password,
+      })
+    );
   }
 
   // SECTION: Error Reseters
