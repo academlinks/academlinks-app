@@ -110,7 +110,7 @@ const settingsSlice = createSlice({
 
     setIsEditing(state, { payload }) {
       state.editableTarget = payload.key;
-      state.headingTitle = `update ${payload.label}`;
+      state.headingTitle = `update ${payload.label}`.replace(/change/gi, "");
       state.isEditing = true;
     },
 

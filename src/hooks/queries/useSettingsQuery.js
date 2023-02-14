@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
 
-import { ValidateUserInfo, destructureFormData } from "../../lib";
+import {
+  ValidateUserInfo,
+  destructureFormData,
+  generateLowerCaseData,
+} from "../../lib";
 
 import {
   addUserInfo,
@@ -84,7 +88,7 @@ export default function useSettingsQuery() {
 
     addUserInfoQuery({
       field: "from",
-      data: output,
+      data: generateLowerCaseData(output),
     });
   }
 
@@ -101,7 +105,7 @@ export default function useSettingsQuery() {
 
     addUserInfoQuery({
       field: "currentLivingPlace",
-      data: output,
+      data: generateLowerCaseData(output),
     });
   }
 
@@ -141,9 +145,17 @@ export default function useSettingsQuery() {
 
     if (educationError.error) return setEducationError(educationError);
 
-    if (operation === "add") addUserInfoQuery({ field: "education", data });
+    if (operation === "add")
+      addUserInfoQuery({
+        field: "education",
+        data: generateLowerCaseData(data, ["description"]),
+      });
     else if (operation === "update")
-      updateNestedUserInfoQuery({ field: "education", data, docId });
+      updateNestedUserInfoQuery({
+        field: "education",
+        data: generateLowerCaseData(data, ["description"]),
+        docId,
+      });
   }
 
   const [workplaceError, setWorkplaceError] = useState({
@@ -178,9 +190,17 @@ export default function useSettingsQuery() {
 
     if (workPlcError.error) return setWorkplaceError(workPlcError);
 
-    if (operation === "add") addUserInfoQuery({ field: "workplace", data });
+    if (operation === "add")
+      addUserInfoQuery({
+        field: "workplace",
+        data: generateLowerCaseData(data, ["description"]),
+      });
     else if (operation === "update")
-      updateNestedUserInfoQuery({ field: "workplace", data, docId });
+      updateNestedUserInfoQuery({
+        field: "workplace",
+        data: generateLowerCaseData(data, ["description"]),
+        docId,
+      });
   }
 
   const [currentWorkPlaceError, setCurrentWorkPlaceError] = useState({
@@ -216,7 +236,7 @@ export default function useSettingsQuery() {
 
     addUserInfoQuery({
       field: "currentWorkplace",
-      data: output,
+      data: generateLowerCaseData(output, ["description"]),
     });
   }
 
@@ -284,7 +304,7 @@ export default function useSettingsQuery() {
     dispatch(
       updateEmail({
         userId: activeUserId,
-        body: output,
+        body: generateLowerCaseData(output),
       })
     );
   }

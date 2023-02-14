@@ -1,5 +1,6 @@
 @use "../../../../styles/helpers/abstract/functions" as *;
 @use "../../../../styles/helpers/abstract/animation" as *;
+@use "../../../../styles/helpers/abstract/media" as *;
 
 $bar-p: 0.5rem;
 
@@ -7,6 +8,14 @@ $bar-p: 0.5rem;
   position: relative;
   background: color("whiteColor");
   padding: $bar-p;
+
+  @include media-680 {
+    .searchField {
+      input {
+        display: unset;
+      }
+    }
+  }
 
   .userSearchBarModal {
     position: absolute;

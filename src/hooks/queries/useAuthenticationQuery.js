@@ -33,6 +33,7 @@ import {
   ValidateConfirmRegistration,
   ValidateForgotPassword,
   ValidateUpdateForgotPassword,
+  generateLowerCaseData,
 } from "../../lib";
 
 export default function useAuthenticationQuery() {
@@ -127,7 +128,9 @@ export default function useAuthenticationQuery() {
 
     if (error.error) return setRegError(error);
 
-    dispatch(sendRegistrationRequest(formData));
+    dispatch(
+      sendRegistrationRequest(generateLowerCaseData(formData, ["description"]))
+    );
   }
 
   // SECTION: Confirm Registration

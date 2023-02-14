@@ -36,12 +36,13 @@ function UserSearchBar() {
   return (
     <div className={styles.userSearchBar}>
       <SearchBar
-        allowToggle={true}
+        allowToggle={false}
         accumulator={activeWindow}
         setAccumulator={setActiveWindow}
         onFocus={onFocus}
         onChange={(e) => setKey(e.target.value)}
         value={key}
+        className={styles.searchField}
       />
 
       {activeWindow && !blur && (
