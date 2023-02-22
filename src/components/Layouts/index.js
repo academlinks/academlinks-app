@@ -29,6 +29,8 @@ export { default as ParagraphsGenerator } from "./ParagraphsGenerator/Paragraphs
 export { default as TextArea } from "./TextArea/TextArea";
 export { default as TextAreaWithTag } from "./TextArea/TextAreaWithTag";
 export { default as TextField } from "./TextField/TextField";
+export { default as DraftEditor } from "./TextArea/DraftEditor";
+export { default as DraftReader } from "./TextArea/DraftReader";
 
 export { default as MultiCarousel } from "./MultiCarousel/MultiCarousel";
 export { default as SwiperSlider } from "./SwiperSlider/SwiperSlider";

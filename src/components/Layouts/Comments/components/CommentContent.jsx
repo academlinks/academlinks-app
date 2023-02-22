@@ -1,11 +1,9 @@
-import { useState } from "react";
-
 import { useForeignUser } from "../../../../hooks";
 
 import styles from "./styles/commentContent.module.scss";
 import CommentOptions from "./CommentOptions";
 import { LikeIcon } from "../../../Layouts/Icons/icons";
-import { ParagraphsGenerator } from "../../../Layouts";
+import { DraftReader } from "../../../Layouts";
 
 /**
  * renders comment text and options
@@ -19,23 +17,6 @@ function CommentContent({
   handleUpdateCredentials,
   handleDeleteComment,
 }) {
-  const [showMore, setShowMore] = useState(false);
-
-  const commentText =
-    text?.length > 350 && !showMore ? (
-      <>
-        <ParagraphsGenerator text={text?.slice(0, 350).concat("...")} />
-        <button
-          onClick={() => setShowMore(true)}
-          className={styles.showMoreBtn}
-        >
-          show more
-        </button>
-      </>
-    ) : (
-      <ParagraphsGenerator text={text} />
-    );
-
   const { isActiveUser: postBelongsToActiveUser } = useForeignUser(
     "basedOnId",
     postAuthorId
@@ -47,7 +28,9 @@ function CommentContent({
 
   return (
     <div className={styles.commentContent}>
-      <div className={styles.commentText}>{commentText}</div>
+      <div className={styles.commentText}>
+        <DraftReader text={text} limit={100} />
+      </div>
       {likesCount > 0 && (
         <p className={styles.commentReactions}>
           <LikeIcon />

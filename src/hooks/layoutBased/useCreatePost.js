@@ -16,8 +16,6 @@ import {
   ///////////
   // crossOver CRUD
   setAudience,
-  addTag,
-  removeTag,
   setFile,
   removeFiles,
   // blog post CRUD
@@ -74,16 +72,6 @@ export default function useCreatePost({ key, error }) {
     dispatch(setAudience(audience));
   }
 
-  function addTagHandler(tag) {
-    dispatch(addTag(tag));
-    if (key === "post" && error.error)
-      dispatch(resetCreatePostValidationError());
-  }
-
-  function removeTagHandler(id) {
-    dispatch(removeTag(id));
-  }
-
   function addMediaHandler(files) {
     dispatch(setFile(files));
 
@@ -97,7 +85,7 @@ export default function useCreatePost({ key, error }) {
 
   // post CRUD
   function handleDescription(text) {
-    dispatch(setDescription(text));
+    dispatch(setDescription(JSON.stringify(text)));
     if (key === "post" && error.error)
       dispatch(resetCreatePostValidationError());
   }
@@ -139,7 +127,7 @@ export default function useCreatePost({ key, error }) {
   const handleRemoveLabel = (category) => dispatch(removeLabel(category));
 
   function handleArticle(text) {
-    dispatch(setArticle(text));
+    dispatch(setArticle(JSON.stringify(text)));
     if (key === "blogPost" && error.article && error.article.hasError)
       dispatch(
         resetCreateBlogPostValidationErrorFragment({ target: "article" })
@@ -161,8 +149,6 @@ export default function useCreatePost({ key, error }) {
     ///////////
     // crossOver CRUD
     audienceHandler,
-    addTagHandler,
-    removeTagHandler,
     addMediaHandler,
     discardMediaHandler,
     // post CRUD

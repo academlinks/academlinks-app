@@ -1,5 +1,7 @@
-@use "../../../../../styles/helpers/components/post" as *;
+@use "../../../../../styles/helpers/variables/variables" as *;
 
 .postDescription {
-  @include postDescription;
+  font-size: $txt-base-sm;
+  margin: 1rem 0 0.5rem 0.75rem;
+  color: $txt-dark;
 }

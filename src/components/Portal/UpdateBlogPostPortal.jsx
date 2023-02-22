@@ -10,8 +10,6 @@ import {
 } from "../../hooks";
 import { selectCreatePost } from "../../store/selectors/createPostSelectors";
 
-import { fixLineBreaks, inverseLineBreaks } from "../../lib";
-
 import { CreateBlogPostModal } from "../Layouts";
 
 function UpdateBlogPostPortal() {
@@ -32,8 +30,6 @@ function UpdateBlogPostPortal() {
     handleAddLabel,
     handleRemoveLabel,
     handleCategory,
-    addTagHandler,
-    removeTagHandler,
     addMediaHandler,
     discardMediaHandler,
   } = useCreatePost({
@@ -51,10 +47,9 @@ function UpdateBlogPostPortal() {
       },
       credentials: {
         title: postData.title,
-        article: fixLineBreaks(postData.article),
+        article: postData.article,
         audience: postData.audience,
         media: [...postData.media, ...postData.files],
-        tags: JSON.stringify(postData.tags.map((tag) => tag._id)),
         labels: JSON.stringify(postData.labels),
         category: postData.category,
         postId: postData._id,
@@ -87,7 +82,7 @@ function UpdateBlogPostPortal() {
         title={postData.title}
         handleTitle={handleTitle}
         // article
-        text={inverseLineBreaks(postData.article)}
+        text={postData.article}
         handleText={handleArticle}
         // labels
         label={label}
@@ -98,10 +93,6 @@ function UpdateBlogPostPortal() {
         // category
         category={postData.category}
         handleCategory={handleCategory}
-        // tags
-        tags={postData.tags}
-        handleAddTag={addTagHandler}
-        handleRemoveTag={removeTagHandler}
         // media files
         handleMediaFiles={(e) => addMediaHandler(e.target.files)}
         handleRemoveMediaFile={discardMediaHandler}

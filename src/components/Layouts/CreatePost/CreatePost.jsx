@@ -25,8 +25,6 @@ const CreatePost = memo(({ className }) => {
   const {
     openCreatePostModal,
     handleDescription,
-    addTagHandler,
-    removeTagHandler,
     discardMediaHandler,
     audienceHandler,
   } = useCreatePost({ key: "post", error: createPostError });
@@ -68,13 +66,10 @@ const CreatePost = memo(({ className }) => {
           validationError={createPostError}
           isOpen={createPostIsOpen}
           setIsOpen={openCreatePostModal}
-          text={postData.description}
+          text={createPostIsOpen ? postData.description : ""}
           setText={handleDescription}
-          tags={postData.tags}
-          handleTag={addTagHandler}
           audience={postData.audience}
           handleAudience={audienceHandler}
-          handleRemoveTag={removeTagHandler}
           files={postData.files}
           handleDiscardMedia={discardMediaHandler}
           handlePost={publishPost}

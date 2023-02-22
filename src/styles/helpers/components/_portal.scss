@@ -18,6 +18,7 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
     width: 100vw;
   }
 }
+
 .modalMain {
   border-radius: 1.2rem;
   overflow: hidden;
@@ -72,14 +73,6 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
     padding: $space-around;
     align-items: flex-start;
     background: color("whiteColor");
-  }
-
-  .descriptionField {
-    border-radius: 0rem;
-    border: none;
-    min-height: 10rem;
-    font-size: size("smallSize");
-    margin-top: 5rem;
   }
 
   .btnWrapper {

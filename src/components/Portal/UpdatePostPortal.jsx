@@ -8,7 +8,6 @@ import {
   useCreatePost,
 } from "../../hooks";
 import { selectCreatePost } from "../../store/selectors/createPostSelectors";
-import { fixLineBreaks } from "../../lib";
 
 import { CreatePostModal } from "../Layouts";
 
@@ -23,8 +22,6 @@ function UpdatePostPortal() {
   const {
     handleCloseUpdatePostModal,
     handleDescription,
-    addTagHandler,
-    removeTagHandler,
     discardMediaHandler,
     audienceHandler,
   } = useCreatePost({ key: "post", error: createPostError });
@@ -39,9 +36,8 @@ function UpdatePostPortal() {
       },
       credentials: {
         audience: postData.audience,
-        description: fixLineBreaks(postData.description),
+        description: postData.description,
         media: [...postData.media, ...postData.files],
-        tags: JSON.stringify(postData.tags.map((tag) => tag._id)),
         postId: postData._id,
       },
     });
@@ -65,13 +61,10 @@ function UpdatePostPortal() {
         validationError={createPostError}
         isOpen={updatePostModalIsOpen}
         setIsOpen={handleCloseUpdatePostModal}
-        text={postData.description}
+        text={updatePostModalIsOpen ? postData.description : ""}
         setText={handleDescription}
         handleAudience={audienceHandler}
         audience={postData.audience}
-        tags={postData.tags}
-        handleTag={addTagHandler}
-        handleRemoveTag={removeTagHandler}
         files={[...postData.media, ...postData.files]}
         handleDiscardMedia={discardMediaHandler}
         updateCredentials={postData}

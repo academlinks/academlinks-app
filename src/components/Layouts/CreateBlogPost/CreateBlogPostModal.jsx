@@ -5,17 +5,17 @@ import { VALID_BLOG_POST_CATEGORIES } from "../../../lib/config";
 
 import {
   UserIdentifier,
-  TextAreaWithTag,
+  DraftEditor,
   SelectAudience,
   Modal,
   BTN,
   InlineStandSpinner,
   Error,
   Select,
+  Input,
 } from "../";
 import styles from "./components/styles/createBlogPostModal.module.scss";
 import { Labels, CreateBlogPostMedia } from "./components";
-import { Input } from "../../Layouts";
 
 function CreateBlogPost({
   //loading state
@@ -45,10 +45,6 @@ function CreateBlogPost({
   // category
   category,
   handleCategory,
-  // tags
-  tags,
-  handleAddTag,
-  handleRemoveTag,
   // media files
   files,
   handleMediaFiles,
@@ -133,17 +129,7 @@ function CreateBlogPost({
             )}
           </div>
 
-          <TextAreaWithTag
-            submitHandler={publishPost}
-            text={text}
-            setText={handleText}
-            tags={tags}
-            setTag={handleAddTag}
-            removeTag={handleRemoveTag}
-            className={styles.blogPostTextField}
-            placeholder="article"
-            maxRows={8}
-          />
+          <DraftEditor setText={handleText} placeholder="article" text={text} />
         </div>
 
         <CreateBlogPostMedia

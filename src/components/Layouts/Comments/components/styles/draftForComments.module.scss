@@ -1,0 +1,28 @@
+@use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/components" as *;
+
+.draftForCommentsForm {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  .draft {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    max-height: 10rem;
+    overflow: auto;
+
+    @include scrollBar("&", 1rem, 1rem, 0.5rem, 0.5rem);
+  }
+
+  .sendBtn {
+    transform: translateY(0.25rem);
+
+    svg {
+      color: color("secondaryBlueColor");
+      font-size: 3rem;
+    }
+  }
+}

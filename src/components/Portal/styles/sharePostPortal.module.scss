@@ -1,11 +1,25 @@
 @use "../../../styles/helpers/components/portal" as *;
 @use "../../../styles/helpers/abstract/components" as *;
 @use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers/abstract/functions" as *;
 
 .sharePostModal {
-  @include flexBox(column);
-  @include scrollBar("&", 1rem, 1rem, 2rem, 2rem);
   @include sharePortal;
+  // @include scrollBar("&", 1rem, 1rem, 2rem, 2rem);
+  @include flexBox(column);
+  padding-top: 4rem;
+
+  .descriptionField {
+    border-radius: 0rem;
+    border: none;
+    font-size: size("smallSize");
+    margin-top: 5rem;
+    min-height: 8rem;
+    max-height: 20rem;
+    overflow: auto;
+
+    @include scrollBar("&");
+  }
 
   .shareSelectAudience {
     position: absolute;

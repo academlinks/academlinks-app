@@ -1,5 +1,6 @@
 import { useLocation, NavLink } from "react-router-dom";
 import { uid } from "uid";
+import { VALID_BLOG_POST_CATEGORIES } from "../../../../lib/config";
 
 import styles from "./styles/categoriesNav.module.scss";
 import { MultiCarousel } from "../../../Layouts";
@@ -27,19 +28,6 @@ const responsive = {
   },
 };
 
-const routes = [
-  "economics",
-  "business",
-  "law",
-  "medicine",
-  "psychology",
-  "philosophy",
-  "politics",
-  "natural sciences",
-  "exact sciences",
-  "other",
-];
-
 function CategoriesNav() {
   const { state: pathState } = useLocation();
 
@@ -53,7 +41,7 @@ function CategoriesNav() {
         swipeable={true}
         className={styles.slider}
       >
-        {routes.map((route) => (
+        {VALID_BLOG_POST_CATEGORIES.map((route) => (
           <NavLink
             className={styles.listItemLink}
             state={{

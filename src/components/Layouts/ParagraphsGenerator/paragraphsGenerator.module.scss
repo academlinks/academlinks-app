@@ -4,6 +4,15 @@
 
 .pParent {
   display: inline;
+
+  a {
+    color: royalblue;
+
+    &:hover {
+      text-decoration: underline;
+      color: royalblue;
+    }
+  }
 }
 
 .pChild {

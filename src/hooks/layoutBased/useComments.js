@@ -13,15 +13,6 @@ function useComments() {
     showReplies: false,
   });
 
-  const setTag = ({ _id, userName }) =>
-    dispatch({
-      type: "SET_TAG",
-      payload: { _id, userName },
-    });
-
-  const removeTag = (adressatId) =>
-    dispatch({ type: "REMOVE_TAG", payload: { _id: adressatId } });
-
   const setCommentReply = ({ commentId, tag }) =>
     dispatch({
       type: "SET_COMMENT_REPLY",
@@ -51,16 +42,16 @@ function useComments() {
   }
 
   const setCommentText = (txt) =>
-    dispatch({ type: "SET_COMMENT_TEXT", payload: txt });
+    dispatch({ type: "SET_COMMENT_TEXT", payload: JSON.stringify(txt) });
 
   return {
     state,
     setCommentReply,
-    removeTag,
+    // removeTag,
     setUpdateComment,
     resetCommentCredentials,
     handleShowReplies,
-    setTag,
+    // setTag,
     setCommentText,
   };
 }
@@ -88,22 +79,6 @@ function threadReducer(state, { type, payload }) {
         ...state,
         showReplies: payload.open,
         parentAuthor: payload.open ? payload.parentAuthor : {},
-      };
-
-    case "SET_TAG": {
-      const draft = fillUpTags(payload);
-      return {
-        ...state,
-        tags: [...draft],
-      };
-    }
-
-    case "REMOVE_TAG":
-      const allAdressat = state.tags.filter((tag) => tag._id !== payload?._id);
-      return {
-        ...state,
-        activeReply: allAdressat.length > 0 ? true : false,
-        tags: [...allAdressat],
       };
 
     case "SET_COMMENT_REPLY": {

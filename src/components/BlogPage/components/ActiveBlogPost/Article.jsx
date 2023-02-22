@@ -5,14 +5,9 @@ import {
   useProfileReviewQuery,
   useCreatePost,
 } from "../../../../hooks";
-import { destructurePostUpdateData } from "../../../../lib/destructurers";
-
 import styles from "./styles/article.module.scss";
-import {
-  BlogPostIdentifier,
-  PostOptions,
-  ParagraphsGenerator,
-} from "../../../Layouts";
+import { destructurePostUpdateData } from "../../../../lib/destructurers";
+import { BlogPostIdentifier, PostOptions, DraftReader } from "../../../Layouts";
 
 function Article({ post }) {
   const navigate = useNavigate();
@@ -54,9 +49,9 @@ function Article({ post }) {
           }
         />
       </div>
-      
+
       <div className={styles.article}>
-        <ParagraphsGenerator text={post.article} />
+        <DraftReader text={post.article} />
       </div>
     </div>
   );

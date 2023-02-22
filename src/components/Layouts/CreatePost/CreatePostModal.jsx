@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
 
 import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
-import { inverseLineBreaks } from "../../../lib";
 
 import styles from "./components/styles/createPostModal.module.scss";
 import {
   Modal,
   UserIdentifier,
   PostAuthentic,
-  TextAreaWithTag,
+  DraftEditor,
   SelectAudience,
   BTN,
   InlineStandSpinner,
@@ -21,9 +20,6 @@ function CreatePostModal({
   setIsOpen,
   text,
   setText,
-  tags,
-  handleTag,
-  handleRemoveTag,
   files,
   handleDiscardMedia,
   handleAudience,
@@ -83,15 +79,11 @@ function CreatePostModal({
         )}
 
         <div className={styles.content}>
-          <TextAreaWithTag
-            text={inverseLineBreaks(text)}
+          <DraftEditor
+            text={text}
             setText={setText}
+            className={styles.draftPost}
             placeholder="what's on your mind ?"
-            className={styles.postTextField}
-            tags={tags}
-            setTag={handleTag}
-            removeTag={handleRemoveTag}
-            maxRows={8}
           />
 
           {!shared && (

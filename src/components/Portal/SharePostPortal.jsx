@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import {
   resetSharePostModal,
-  addShareTag,
-  removeShareTag,
   setShareAudience,
 } from "../../store/reducers/portalReducer";
 import { useRestrictBodyOverflow, usePostQuery } from "../../hooks";
@@ -17,7 +15,7 @@ import {
   Modal,
   PostAuthentic,
   UserIdentifier,
-  TextAreaWithTag,
+  DraftEditor,
   SelectAudience,
   BTN,
   InlineStandSpinner,
@@ -37,10 +35,6 @@ function SharePostPortal() {
   const { userName, image } = useSelector(selectActiveUserShortInfo);
 
   const [text, setText] = useState("");
-
-  const handleTag = (tag) => dispatch(addShareTag(tag));
-
-  const handleRemoveTag = (id) => dispatch(removeShareTag(id));
 
   const deactivateHandler = () => dispatch(resetSharePostModal());
 
@@ -80,12 +74,8 @@ function SharePostPortal() {
 
         {error && <Error msg={message} />}
 
-        <TextAreaWithTag
-          text={text}
+        <DraftEditor
           setText={setText}
-          tags={sharePostData.tags}
-          setTag={handleTag}
-          removeTag={handleRemoveTag}
           placeholder="description"
           className={styles.descriptionField}
         />
@@ -104,8 +94,7 @@ function SharePostPortal() {
             onClick={() =>
               sharePostQuery(sharePostData._id, {
                 audience: shareAudience,
-                tags: sharePostData?.tags,
-                description: fixLineBreaks(text),
+                description: text,
               })
             }
           >

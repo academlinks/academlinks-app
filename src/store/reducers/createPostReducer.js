@@ -179,16 +179,6 @@ const createPostSlice = createSlice({
       state.postData.audience = payload;
     },
 
-    addTag(state, { payload }) {
-      state.postData.tags = [...state.postData.tags, payload];
-    },
-
-    removeTag(state, { payload }) {
-      state.postData.tags = state.postData.tags.filter(
-        (tag) => tag._id !== payload
-      );
-    },
-
     setFile(state, { payload }) {
       Object.values(payload)
         .filter(
@@ -281,8 +271,6 @@ export const {
   ///////////
   // crossOver CRUD
   setAudience,
-  addTag,
-  removeTag,
   setFile,
   removeFiles,
   // post Crud

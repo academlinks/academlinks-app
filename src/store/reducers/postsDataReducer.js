@@ -187,7 +187,6 @@ const postsDataSlice = createSlice({
     // --> trigger is called in portal reducer
     setUpdatedPost(state, { payload }) {
       const { params, data } = payload;
-
       const i = state.posts.findIndex((post) => post._id === params.postId);
       state.posts[i] = { ...state.posts[i], ...data };
     },
@@ -352,7 +351,7 @@ const postsDataSlice = createSlice({
           title: blogPost.title,
           _id: blogPost._id,
         }));
-        
+
       state.sliderBlogPosts = [...sliderPosts];
     },
   },

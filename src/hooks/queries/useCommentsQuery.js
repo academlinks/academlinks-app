@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 
 import {
   addComment,
@@ -17,24 +16,29 @@ import {
   resetComments,
 } from "../../store/reducers/commentsDataReducer";
 
-import { fixLineBreaks } from "../../lib";
+import { extractTagsFromDraft } from "../../lib";
 
 function useCommentsQuery(thread, options, conditions) {
-  const { id } = useParams();
   const dispatch = useDispatch();
 
   const getPostCommentsQuery = () => dispatch(getPostComments(options.postId));
 
   function submitCommentQuery() {
-    const tags = options.tags.map((tag) => tag._id).filter((tag) => tag !== id);
+    const tags = JSON.parse(extractTagsFromDraft(options?.text || ""));
+    const text = options.text
+      ? JSON.parse(options.text || "")
+          .blocks.map((block) => block.text)
+          .join("")
+          .trim()
+      : "";
 
-    if (!options.text.trim() && !tags[0]) return;
+    if (!text && !tags?.[0]) return;
 
     if (conditions.updateParent || conditions.updateReply) {
       if (thread === "MAIN_THREAD") {
         dispatch(
           updateComment({
-            body: { tags, text: fixLineBreaks(options.text) },
+            body: { tags, text: options.text },
             params: {
               postId: options.postId,
               commentId: options.commentId,
@@ -44,7 +48,7 @@ function useCommentsQuery(thread, options, conditions) {
       } else if (thread === "REPLIES_THREAD") {
         dispatch(
           updateCommentReply({
-            body: { tags, text: fixLineBreaks(options.text) },
+            body: { tags, text: options.text },
             params: {
               postId: options.postId,
               commentId: options.commentId,
@@ -58,14 +62,14 @@ function useCommentsQuery(thread, options, conditions) {
         dispatch(
           addComment({
             postId: options.postId,
-            body: { tags, text: fixLineBreaks(options.text) },
+            body: { tags, text: options.text },
           })
         );
       } else if (thread === "REPLIES_THREAD") {
         dispatch(
           addCommentReply({
             params: { commentId: options.commentId, postId: options.postId },
-            body: { tags, text: fixLineBreaks(options.text) },
+            body: { tags, text: options.text },
           })
         );
       }
