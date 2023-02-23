@@ -9,7 +9,6 @@ import {
 import { useRestrictBodyOverflow, usePostQuery } from "../../hooks";
 import { selectSharePostPortal } from "../../store/selectors/portalSelectors";
 import { selectActiveUserShortInfo } from "../../store/selectors/activeUserSelectors";
-import { fixLineBreaks } from "../../lib";
 
 import {
   Modal,
