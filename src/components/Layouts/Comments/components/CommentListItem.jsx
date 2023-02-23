@@ -22,8 +22,6 @@ function CommentListItem({
   const {
     state,
     setCommentText,
-    setTag,
-    removeTag,
     setCommentReply,
     setUpdateComment,
     handleShowReplies,
@@ -54,8 +52,6 @@ function CommentListItem({
           handlers={{
             setCommentText,
             handleShowReplies,
-            setTag,
-            removeTag,
             resetCommentCredentials,
             setUpdateComment,
           }}

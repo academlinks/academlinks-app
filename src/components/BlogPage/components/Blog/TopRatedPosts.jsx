@@ -21,7 +21,7 @@ function TopRatedPosts() {
         posts?.map((post) => (
           <BlogPost
             post={post}
-            limitation={350}
+            limitation={70}
             className={styles.topRatedBlogPost}
             key={post._id}
           />

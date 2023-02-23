@@ -1,0 +1,73 @@
+@use "./helpers/abstract/functions" as *;
+
+// editor root
+div.DraftEditor-root {
+  height: max-content;
+  max-height: 100%;
+  display: inline-block;
+
+  div.DraftEditor-editorContainer,
+  div.public-DraftEditor-content {
+    height: max-content;
+    max-height: 100%;
+    padding: 0;
+    display: inline-block;
+  }
+
+  div[data-contents] {
+    display: inline-block;
+    padding: 0;
+  }
+
+  [data-testid="mentionLink"] {
+    text-transform: capitalize;
+  }
+
+  #placeholder-editor {
+    opacity: 0.5;
+    font-size: 1.4rem;
+    position: absolute;
+  }
+}
+
+// mentions popup
+div[data-popper-escaped] {
+  padding: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-height: 25rem;
+  overflow: auto;
+  box-shadow: none;
+  box-shadow: 0px 8px 15px 3px rgba(0, 0, 0, 0.5);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > div:first-child {
+    :hover {
+      background: color("secondaryBlueTintColor");
+    }
+  }
+
+  & div[aria-selected] {
+    background: color("secondaryBlueTintColor");
+  }
+
+  div[role="option"] {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+    }
+
+    span {
+      text-transform: capitalize;
+      font-size: 1.6rem;
+    }
+  }
+}

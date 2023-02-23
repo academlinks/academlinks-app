@@ -1,11 +1,12 @@
 @use "../../../../../styles/helpers/abstract/media" as *;
 @use "../../../../../styles/helpers/abstract/functions" as *;
 @use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/abstract/components" as *;
 @use "../../../../../styles/helpers/variables/variables" as *;
 
 .modalMain {
   border-radius: 1.2rem;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .createPostModal {
@@ -15,6 +16,7 @@
   $max-modal-h: 40vw;
   $max-modal-h-md: 50vw;
   $max-modal-h-tablet: calc(100vh - $nav-height);
+  border-radius: inherit;
 
   [data-modal-close-btn] svg {
     fill: color("darkGreyColor");
@@ -32,6 +34,7 @@
     padding-top: $header-h;
     padding-bottom: $footer-h;
     background: color("whiteColor");
+    border-radius: inherit;
 
     @include media-1280 {
       width: 52vw;
@@ -109,17 +112,15 @@
     }
   }
 
-  .postTextField {
+  .draftPost {
     display: inline-block;
     border: none;
     font-size: size("smallSize");
     border-radius: 0rem;
+    max-height: 20rem;
+    overflow: auto;
 
-    &::placeholder {
-      opacity: 0.5;
-      font-style: italic;
-      font-size: size("smallSize");
-    }
+    @include scrollBar("&");
   }
 
   .creationError {

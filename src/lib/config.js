@@ -25,6 +25,7 @@ export const USER_WORKPLACE_POSITIONS = [
 export const USER_GENDER = ["male", "female"];
 
 export const VALID_BLOG_POST_CATEGORIES = [
+  "education",
   "economics",
   "business",
   "law",

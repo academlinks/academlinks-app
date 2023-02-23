@@ -50,6 +50,11 @@ export default class ValidateCreatePost extends Validator {
   }
 
   validateDescription() {
-    return this.checkStrSize({ value: this.credentials.description, min: 2 });
+    const postDescription = JSON.parse(this.credentials.description)
+      .blocks.map((block) => block.text)
+      .join("")
+      .trim();
+
+    return this.checkStrSize({ value: postDescription, min: 2 });
   }
 }

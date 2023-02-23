@@ -25,14 +25,17 @@ function TextAreaWithTag({
   placeholder,
   focus,
   maxRows,
+  submitOnEnter = true,
 }) {
   const dispatch = useDispatch();
 
   function textAreaSubmit(e) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      submitHandler();
-      setText("");
+      if (submitOnEnter) {
+        submitHandler();
+        setText("");
+      }
     }
   }
 

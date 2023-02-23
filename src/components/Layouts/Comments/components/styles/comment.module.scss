@@ -1,5 +1,6 @@
 @use "../../../../../styles/helpers/abstract/mixins" as *;
 @use "../../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../../styles/helpers/abstract/media" as *;
 
 .comment {
   position: relative;
@@ -9,6 +10,10 @@
     @include flexProperty(flex-start, center);
     gap: 1rem;
     width: max-content;
+
+    @include media-960 {
+      width: 100%;
+    }
   }
 
   .commentUserIdentifier {
@@ -18,10 +23,6 @@
     & [data-identifier-username] {
       grid-row: 1/3;
       align-self: center;
-    }
-
-    & [data-identifier-child] {
-      margin-top: -0.1rem;
     }
   }
 

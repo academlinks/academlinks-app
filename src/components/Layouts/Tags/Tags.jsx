@@ -6,7 +6,7 @@ function Tags({ tags, keyWord = "with" }) {
 
   return (
     <div className={styles.tagsList} data-tags>
-      <span className={styles.tagKeyWord}>{keyWord} - </span>
+      <span className={styles.tagKeyWord}>{keyWord}&nbsp;-&nbsp;</span>
       {length === 1 && (
         <Link
           to={`/profile/${tags[0].user?._id || tags[0]._id}/posts`}

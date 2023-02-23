@@ -36,8 +36,6 @@ function CreateBlogPostTouch({ className }) {
     handleAddLabel,
     handleRemoveLabel,
     handleCategory,
-    addTagHandler,
-    removeTagHandler,
     addMediaHandler,
     discardMediaHandler,
   } = useCreatePost({
@@ -118,10 +116,6 @@ function CreateBlogPostTouch({ className }) {
           // category
           category={postData.category}
           handleCategory={handleCategory}
-          // tags
-          tags={postData.tags}
-          handleAddTag={addTagHandler}
-          handleRemoveTag={removeTagHandler}
           // media files
           handleMediaFiles={(e) => addMediaHandler(e.target.files)}
           handleRemoveMediaFile={discardMediaHandler}

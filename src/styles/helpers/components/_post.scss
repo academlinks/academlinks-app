@@ -17,12 +17,6 @@
   }
 }
 
-@mixin postDescription {
-  font-size: $txt-base-sm;
-  margin: 1rem 0 0.5rem 0.75rem;
-  color: $txt-dark;
-}
-
 @mixin postMedia {
   order: -1;
 

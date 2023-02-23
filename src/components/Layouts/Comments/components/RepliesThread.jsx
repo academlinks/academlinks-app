@@ -5,16 +5,14 @@ import { selectCommentsLoadingState } from "../../../../store/selectors/comments
 import { useCommentPin, useCommentsQuery } from "../../../../hooks";
 
 import styles from "./styles/repliesThread.module.scss";
-import { TextAreaWithTag, Error } from "../..";
-import { Comment, ShowRepliesBTN } from ".";
+import { Error } from "../..";
+import { Comment, ShowRepliesBTN, DraftForComments } from ".";
 
 function RepliesThread({ state, data, handlers }) {
   const {
     setCommentText,
     handleShowReplies,
     setCommentReply,
-    setTag,
-    removeTag,
     resetCommentCredentials,
     setUpdateComment,
   } = handlers;
@@ -73,6 +71,7 @@ function RepliesThread({ state, data, handlers }) {
         }}
         handleShowReplies={handleShowReplies}
       />
+      
       {(showReplies || activeReply || updateReply) && (
         <div className={styles.nestedList}>
           {commentReplies?.map((reply) => (
@@ -84,20 +83,15 @@ function RepliesThread({ state, data, handlers }) {
               key={reply._id}
             />
           ))}
+
           {error &&
             target === "reply" &&
             (task === "add" || task === "update") && <Error msg={message} />}
-          <TextAreaWithTag
-            text={text}
-            setText={setCommentText}
-            tags={tags}
-            setTag={setTag}
-            removeTag={(adressatId) => removeTag(adressatId)}
-            defaultValue={updateReply ? updateText : ""}
-            focus={activeReply}
-            submitHandler={submitCommentQuery}
-            placeholder="write your comment reply..."
-            className={styles.commentRepliesTextArea}
+
+          <DraftForComments
+            submitCommentQuery={submitCommentQuery}
+            setCommentText={setCommentText}
+            text={updateReply ? updateText : ""}
           />
         </div>
       )}

@@ -102,14 +102,6 @@ const portalSlice = createSlice({
       state.shareAudience = payload;
     },
 
-    addShareTag(state, { payload }) {
-      addTag(state, "sharePostData", payload);
-    },
-
-    removeShareTag(state, { payload }) {
-      removeTag(state, "sharePostData", payload);
-    },
-
     resetSharePostModal(state) {
       state.sharePostModalIsOpen = false;
 
@@ -140,15 +132,5 @@ export const {
   sharePost,
   setSharePostModalOpen,
   setShareAudience,
-  addShareTag,
-  removeShareTag,
   resetSharePostModal,
 } = portalSlice.actions;
-
-function addTag(state, key, payload) {
-  state[key].tags = [...state[key].tags, payload];
-}
-
-function removeTag(state, key, payload) {
-  state[key].tags = state[key].tags.filter((tag) => tag._id !== payload);
-}

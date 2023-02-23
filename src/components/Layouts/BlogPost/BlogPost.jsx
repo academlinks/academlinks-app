@@ -1,24 +1,9 @@
-import { useMemo } from "react";
-import { extractRootEndPointFromImg } from "../../../lib";
-
 import styles from "./components/styles/blogPost.module.scss";
 import { ReviewUserInteraction } from "./components";
-import {
-  BlogPostIdentifier,
-  ShowMoreInlineBTN,
-  Image,
-  ParagraphsGenerator,
-} from "../../Layouts";
+import { BlogPostIdentifier, Image, DraftReader } from "../../Layouts";
+import { extractRootEndPointFromImg } from "../../../lib";
 
-function BlogPost({ post, limitation = 1500, className, referenced, id }) {
-  const article = useMemo(
-    () =>
-      post?.article?.length > limitation
-        ? `${post.article?.slice(0, limitation)}...`
-        : post?.article,
-    [limitation, post.article]
-  );
-
+function BlogPost({ post, limitation = 170, className, referenced, id }) {
   return (
     <div className={`${styles.blogPost} ${className || ""}`} id={id ? id : ""}>
       {post?.media?.[0] && (
@@ -49,14 +34,12 @@ function BlogPost({ post, limitation = 1500, className, referenced, id }) {
           )}
         </div>
         <div className={styles.blogPostShortDesc} data-article-text>
-          <ParagraphsGenerator text={article} />
-          {post?.article?.length > limitation && (
-            <ShowMoreInlineBTN
-              path={`/blog/${post._id}`}
-              query={{ user: post.userName }}
-              asLink={true}
-            />
-          )}
+          <DraftReader
+            text={post.article}
+            limit={limitation}
+            asLink={true}
+            path={`/blog/${post._id}`}
+          />
         </div>
       </div>
     </div>

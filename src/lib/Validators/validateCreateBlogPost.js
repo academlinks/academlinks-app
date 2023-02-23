@@ -67,7 +67,9 @@ export default class ValidateBlogPostCreate extends Validator {
   }
 
   validateCategory() {
-    const { isValid } = this.checkValidBlogPostCategory(this.credentials.category);
+    const { isValid } = this.checkValidBlogPostCategory(
+      this.credentials.category
+    );
 
     if (!isValid) {
       this.createError.error = true;
@@ -81,8 +83,13 @@ export default class ValidateBlogPostCreate extends Validator {
   }
 
   validateArticle() {
+    const postArticle = JSON.parse(this.credentials.article)
+      .blocks.map((block) => block.text)
+      .join("")
+      .trim();
+
     const { isEmpty, isValid, isLeft } = this.checkWordCount({
-      data: this.credentials.article,
+      data: postArticle,
       min: this._blogPostMinWordCount,
     });
 

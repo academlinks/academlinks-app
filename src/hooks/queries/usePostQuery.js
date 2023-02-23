@@ -21,6 +21,8 @@ import {
 
 import { useValidateCreatePost } from "../";
 
+import { extractTagsFromDraft } from "../../lib";
+
 function usePostQuery() {
   const dispatch = useDispatch();
 
@@ -29,13 +31,19 @@ function usePostQuery() {
 
   const [startDeletion, setStartDeletion] = useState(false);
 
-  // includes post publish and update requests
-  // const handlePostPublish = ({ operationType, type, description, media, tags, postId }) => {}
+  /** includes post publish and update requests */
   const publishPostQuery = ({ params, credentials }) => {
-    credentials.type = params.type;
+    credentials = {
+      ...credentials,
+      type: params.type,
+      tags: extractTagsFromDraft(
+        credentials.description ? credentials.description : credentials.article
+      ),
+    };
 
     configureMediasFiles({ credentials });
 
+    /** call post create/update query */
     function publisher() {
       if (params.operationType === "update")
         dispatch(
@@ -85,7 +93,7 @@ function usePostQuery() {
     const body = {
       description: credentials.description,
       audience: credentials.audience,
-      tags: JSON.stringify(credentials.tags?.map((tag) => tag._id)),
+      tags: extractTagsFromDraft(credentials.description),
     };
 
     dispatch(sharePost({ postId, body }));
@@ -119,6 +127,7 @@ function usePostQuery() {
 
 export default usePostQuery;
 
+/**devide post old and new media files from each other and create specific fields for each */
 function configureMediasFiles({ credentials }) {
   /*
     when user tries to update post which one already has media files, we need to separate old and new media files in different properties. images variable will hold new media files which will be uploaded on db and media property will hold the existng media files, even if user deletes on the post all old media files, we need to send empty array on db and then db will compare each other old and new media properties and files which will not be matched will be deleted from db 

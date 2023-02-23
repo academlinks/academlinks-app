@@ -4,7 +4,7 @@ export default function destructureFormData(target) {
   const output = {};
 
   for (const [key, value] of formData) {
-    output[key] = value?.trim();
+    output[key] = value;
   }
 
   return output;

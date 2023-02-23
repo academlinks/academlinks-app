@@ -14,8 +14,8 @@ import {
 } from "../../../store/selectors/commentsSelector";
 
 import styles from "./components/styles/commentsList.module.scss";
-import { TextAreaWithTag, BlockSpinner, Error, EmptyContentMessage } from "../";
-import { CommentListItem } from "./components";
+import { BlockSpinner, Error, EmptyContentMessage } from "../";
+import { CommentListItem, DraftForComments } from "./components";
 
 function CommentsList({ postId, postAuthorId, notifyOnComment }) {
   const { loading, error, message, target, task } = useSelector(
@@ -30,8 +30,6 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
   const {
     state,
     resetCommentCredentials,
-    setTag,
-    removeTag,
     setCommentText,
     setUpdateComment: setUpdateParentComment,
   } = useComments();
@@ -54,6 +52,7 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
   return (
     <div className={styles.commentsList}>
       {loading && <BlockSpinner />}
+
       {!loading &&
         (!error || (error && target !== "global")) &&
         comments?.map((comment) => (
@@ -66,25 +65,23 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
             key={comment._id}
           />
         ))}
+
       {!loading && !error && !comments[0] && (
         <EmptyContentMessage message="there are no comments yet" />
       )}
+
       {error && target === "global" && task === "get" && (
         <Error msg={message} />
       )}
+
       {error &&
         target === "parent" &&
         (task === "add" || task === "update") && <Error msg={message} />}
-      <TextAreaWithTag
-        text={state.text}
-        setText={setCommentText}
-        tags={state.tags}
-        setTag={setTag}
-        removeTag={removeTag}
-        submitHandler={submitCommentQuery}
-        defaultValue={state.updateParent ? state.text : ""}
-        placeholder="write your comment..."
-        className={styles.commentTextArea}
+
+      <DraftForComments
+        submitCommentQuery={submitCommentQuery}
+        setCommentText={setCommentText}
+        text={state.updateParent ? state.text : ""}
       />
     </div>
   );
