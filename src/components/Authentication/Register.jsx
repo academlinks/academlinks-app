@@ -8,7 +8,11 @@ import {
   selectRegistrationLoadingState,
 } from "../../store/selectors/authenticationSelectors";
 import { useAuthenticationQuery } from "../../hooks";
-import { USER_WORKPLACE_POSITIONS, USER_GENDER } from "../../lib/config";
+import {
+  USER_WORKPLACE_POSITIONS,
+  USER_GENDER,
+  VALID_COUNTRIES,
+} from "../../lib/config";
 
 import {
   Input,
@@ -151,15 +155,20 @@ function Register() {
           <span className={styles.formHeading}>From</span>
 
           <div className={styles.livingPlaceFields}>
-            <Input
+            <Select
               name="countryFrom"
               label="country"
-              placeholder="country"
-              className={styles.inpField}
               error={regError.from.country.hasError}
               message={regError.from.country.message}
-              onChange={() => {
-                regError.from.country.hasError &&
+              data={{
+                values: VALID_COUNTRIES,
+                default: {
+                  label: "country",
+                  value: "country",
+                },
+              }}
+              handler={() => {
+                regError.from.country &&
                   resetFieldError("from", "country", true);
               }}
             />
@@ -183,15 +192,20 @@ function Register() {
           <span className={styles.formHeading}>Currently Live In</span>
 
           <div className={styles.livingPlaceFields}>
-            <Input
+            <Select
               name="currCountry"
               label="country"
-              placeholder="country"
-              className={styles.inpField}
               error={regError.livingPlace.country.hasError}
               message={regError.livingPlace.country.message}
-              onChange={() => {
-                regError.livingPlace.country.hasError &&
+              data={{
+                values: VALID_COUNTRIES,
+                default: {
+                  label: "country",
+                  value: "country",
+                },
+              }}
+              handler={() => {
+                regError.from.country &&
                   resetFieldError("livingPlace", "country", true);
               }}
             />

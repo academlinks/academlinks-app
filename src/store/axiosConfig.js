@@ -45,7 +45,9 @@ axiosFormDataQuery.interceptors.request.use(async (config) =>
 function tokenExchange({ config }) {
   const token = getJWT();
 
-  const decodedUser = token && decode(token);
+  if (!token) return;
+
+  const decodedUser = decode(token);
   const exp = decodedUser?.exp;
 
   if (Math.floor(Date.now() / 1000) > exp) {
@@ -56,8 +58,8 @@ function tokenExchange({ config }) {
           return data.accessToken;
         })
         .catch((err) => {
-          if (err.response.status === 401)
-            localStorage.removeItem("academind_passport");
+          // if (err.response.status === 401)
+          //   localStorage.removeItem("academind_passport");
           refreshTokenPromise = null;
           return "";
         });

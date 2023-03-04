@@ -1,5 +1,7 @@
 @use "../../../../styles/helpers/components/user-cover" as *;
 @use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/variables/variables" as *;
 
 .profile {
   grid-row: 2/5;
@@ -19,5 +21,101 @@
     width: 13rem;
     justify-self: center;
     transform: translateX(0);
+  }
+}
+
+.cropModal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+
+  .cropWindow {
+    width: 80rem;
+    height: 70rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transform: translateY($nav-height / 2);
+    background: color("whiteColor");
+    border-radius: 1rem;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+
+    @include media-1680 {
+      width: 65rem;
+      height: 52rem;
+    }
+  }
+
+  .cropWrapper {
+    position: relative;
+    height: calc(100% - 5rem - 2rem);
+    width: 100%;
+    border-radius: inherit;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    overflow: hidden;
+
+    .cropContainer {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cropMedia {
+    }
+
+    .cropArea {
+    }
+  }
+
+  .cropControllerBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    input {
+      -webkit-appearance: none;
+      width: 80%;
+      height: 1.2rem;
+      border-radius: 1rem;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: 0.2s;
+      transition: opacity 0.2s;
+      background: color("whiteShaderColor");
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 100%;
+        background: color("blueColor");
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .saveActions {
+    height: 5rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
   }
 }

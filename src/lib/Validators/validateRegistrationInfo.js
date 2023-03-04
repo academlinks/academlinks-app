@@ -78,6 +78,7 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateFirstName() {
+    // execute validations
     const { hasError, message } = this.executeStrSizeAndLatinLetters({
       value: this.credentials.firstName,
       key: "firstname",
@@ -88,6 +89,7 @@ export default class ValidateRegistrationInfo extends Validator {
       value: this.credentials.firstName,
     });
 
+    // set messages and error
     if (hasWhiteSpace)
       this.error.firstName = {
         hasError: true,
@@ -105,6 +107,7 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateLastName() {
+    // execute validations
     const { hasError, message } = this.executeStrSizeAndLatinLetters({
       value: this.credentials.lastName,
       key: "lastname",
@@ -115,6 +118,7 @@ export default class ValidateRegistrationInfo extends Validator {
       value: this.credentials.lastName,
     });
 
+    // set messages and error
     if (hasWhiteSpace)
       this.error.lastName = {
         hasError: true,
@@ -132,10 +136,12 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateEmail() {
+    // execute validations
     const { hasError, message } = this.executeEmailValidation(
       this.credentials.email
     );
 
+    // set messages and error
     if (hasError)
       this.error.email = {
         hasError,
@@ -146,10 +152,12 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateBirthDate() {
+    // execute validations
     const { hasError, message } = this.executeDateValidation(
       this.credentials.birthDate
     );
 
+    // set messages and error
     if (hasError)
       this.error.birthDate = {
         hasError,
@@ -160,8 +168,10 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateGender() {
+    // execute validations
     const isValid = this.checkIsValidGender({ value: this.credentials.gender });
 
+    // set messages and error
     if (!isValid)
       this.error.gender = {
         hasError: true,
@@ -173,13 +183,10 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateFrom() {
-    const { hasError: countryHasError, message: countryMessage } =
-      this.executeStrSizeAndLatinLetters({
-        value: this.credentials.from.country,
-        min: 2,
-        key: "country",
-        withDash: true,
-      });
+    // execute validations
+    const countryHasError = this.checkCountry({
+      value: this.credentials.from.country,
+    });
 
     const { hasError: cityHasError, message: cityMessage } =
       this.executeStrSizeAndLatinLetters({
@@ -189,10 +196,11 @@ export default class ValidateRegistrationInfo extends Validator {
         withDash: true,
       });
 
+    // set messages and error
     if (countryHasError)
       this.error.from.country = {
         hasError: countryHasError,
-        message: countryMessage,
+        message: "please enter valid country",
       };
 
     if (cityHasError)
@@ -206,13 +214,10 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateLivingPlace() {
-    const { hasError: countryHasError, message: countryMessage } =
-      this.executeStrSizeAndLatinLetters({
-        value: this.credentials.currentLivingPlace.country,
-        min: 2,
-        key: "country",
-        withDash: true,
-      });
+    // execute validations
+    const countryHasError = this.checkCountry({
+      value: this.credentials.currentLivingPlace.country,
+    });
 
     const { hasError: cityHasError, message: cityMessage } =
       this.executeStrSizeAndLatinLetters({
@@ -222,10 +227,11 @@ export default class ValidateRegistrationInfo extends Validator {
         withDash: true,
       });
 
+    // set messages and error
     if (countryHasError)
       this.error.livingPlace.country = {
         hasError: countryHasError,
-        message: countryMessage,
+        message: "please enter valid country",
       };
 
     if (cityHasError)
@@ -239,6 +245,7 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateCompany() {
+    // execute validations
     const { institutionHasError, institutionMessage } =
       this.executeValidateInstitution(
         this.credentials.registrationBio.institution
@@ -250,14 +257,17 @@ export default class ValidateRegistrationInfo extends Validator {
         message: institutionMessage,
       };
 
+    // set messages and error
     if (!this.error.error && institutionHasError) this.error.error = true;
   }
 
   validatePosition() {
+    // execute validations
     const isValidPoition = this.executeValidatePosition(
       this.credentials.registrationBio.position
     );
 
+    // set messages and error
     if (!isValidPoition)
       this.error.position = {
         hasError: true,
@@ -269,11 +279,13 @@ export default class ValidateRegistrationInfo extends Validator {
   }
 
   validateDescription() {
+    // execute validations
     const { isEmptyDescription, isValidDescription, descriptionHasLeft } =
       this.executeValidateCurrentWorkplaceDescription(
         this.credentials.registrationBio.description
       );
 
+    // set messages and error
     if (isEmptyDescription || !isValidDescription)
       this.error.description = {
         hasError: true,

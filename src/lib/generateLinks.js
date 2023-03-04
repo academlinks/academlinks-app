@@ -13,7 +13,7 @@ export default function generateLinks(val) {
             rel="noreferrer"
             key={`generated-link--${i}`}
           >
-            {fr.replace(/[http:\// | https:\//]/g, "")}
+            {fr.replace(/[http:// | https://]/g, "")}
           </a>
         );
       else return <span key={`generated-span--${i}`}>{fr}</span>;

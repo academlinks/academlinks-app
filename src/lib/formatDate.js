@@ -9,6 +9,13 @@ const configs = {
     year: "numeric",
     day: "numeric",
   },
+  verbalWithHours: {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  },
   long: {},
 };
 

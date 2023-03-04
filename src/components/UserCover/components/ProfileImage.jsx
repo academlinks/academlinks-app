@@ -1,8 +1,11 @@
+// import { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
-import { useUpdateUserCover, useForeignUser } from "../../../hooks";
-import { extractRootEndPointFromImg } from "../../../lib";
+// import Cropper from "react-easy-crop";
+// import getCroppedImg from "../../../lib/cropImage";
 
 import { selectUserCover } from "../../../store/selectors/userSelectors";
+import { useUpdateUserCover, useForeignUser } from "../../../hooks";
+import { extractRootEndPointFromImg } from "../../../lib";
 
 import styles from "./styles/profileImage.module.scss";
 import { Image, Spinner } from "../../Layouts";
@@ -22,6 +25,22 @@ function ProfileImage({ mediaHandler }) {
     cancelChangeHandler,
     loading,
   } = useUpdateUserCover("profileImg");
+
+  // const [crop, setCrop] = useState({ x: 0, y: 0 });
+  // const [zoom, setZoom] = useState(1);
+  // const [cropedAreaPixels, setCropedAreaPixels] = useState(null);
+
+  // const onCropComplete = (croppedArea, croppedAreaPixels) => {
+  //   console.log(croppedArea, croppedAreaPixels);
+  //   setCropedAreaPixels(croppedAreaPixels);
+  // };
+
+  // const cropImage = async () => {
+  //   try {
+  //     const res = await getCroppedImg(file, cropedAreaPixels);
+  //     console.log(res);
+  //   } catch (error) {}
+  // };
 
   return (
     <>
@@ -58,12 +77,59 @@ function ProfileImage({ mediaHandler }) {
           </label>
         )}
       </div>
+
       {file && (
         <UpdateUserCoverBTN
           cancelHandler={cancelChangeHandler}
           submitHandler={saveChangeHandler}
         />
       )}
+
+      {/* {file && (
+        <div className={styles.cropModal}>
+          <div className={styles.cropWindow}>
+            <div className={styles.cropWrapper}>
+              <Cropper
+                image={URL.createObjectURL(file)}
+                crop={crop}
+                zoom={zoom}
+                aspect={1 / 1}
+                onZoomChange={setZoom}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+                cropShape="round"
+                zoomWithScroll={true}
+                objectFit="contain"
+                classes={{
+                  containerClassName: styles.cropContainer,
+                  mediaClassName: styles.cropMedia,
+                  cropAreaClassName: styles.cropArea,
+                }}
+              />
+            </div>
+            <div className={styles.cropControllerBox}>
+              <span>zoom {zoom}x/5x</span>
+              <input
+                type="range"
+                min="1"
+                max="5"
+                value={zoom}
+                step={1}
+                onChange={(e) => {
+                  setZoom(e.target.value);
+                }}
+              />
+            </div>
+            <div className={styles.saveActions}>
+              <button onClick={cropImage}>crop</button>
+              <UpdateUserCoverBTN
+                cancelHandler={cancelChangeHandler}
+                submitHandler={saveChangeHandler}
+              />
+            </div>
+          </div>
+        </div>
+      )} */}
     </>
   );
 }

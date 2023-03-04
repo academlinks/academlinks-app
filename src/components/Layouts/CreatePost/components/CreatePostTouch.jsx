@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useSelector } from "react-redux";
 
 import { selectActiveUserShortInfo } from "../../../../store/selectors/activeUserSelectors";
@@ -15,9 +14,12 @@ import { useCreatePost } from "../../../../hooks";
  * @param {boolean} withTextField by default true. if true returns component with textfield if false returns only the media button, actually footer of itself
  * @returns
  */
-function CreatePostTouch({ setIsOpen, withTextField = true }) {
-  const filesRef = useRef();
-
+function CreatePostTouch({
+  setIsOpen,
+  isOpen,
+  withTextField = true,
+  filesRef,
+}) {
   // const activeSelectedMedia = useSelector(selectActiveSelectedMedia);
   const { userName, image, _id } = useSelector(selectActiveUserShortInfo);
 
@@ -29,10 +31,6 @@ function CreatePostTouch({ setIsOpen, withTextField = true }) {
   const selectFiles = (e) => {
     addMediaHandler(e.target.files);
   };
-
-  // useEffect(() => {
-  //   if (!activeSelectedMedia) filesRef.current.value = null;
-  // }, [activeSelectedMedia]);
 
   return (
     <>
@@ -53,7 +51,12 @@ function CreatePostTouch({ setIsOpen, withTextField = true }) {
           />
         </>
       )}
-      <label className={styles.createPostFooter} htmlFor="postMediaFile" title="create post with media files">
+      <label
+        className={styles.createPostFooter}
+        htmlFor="postMediaFile"
+        title="create post with media files"
+        onClick={() => (isOpen ? null : setIsOpen(true))}
+      >
         <MultiMediaIcon /> / Media
         <input
           ref={filesRef}
