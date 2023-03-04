@@ -114,13 +114,9 @@ export default class ValidateUserInfo extends Validator {
   }
 
   validateLivingplace() {
-    const { hasError: countryHasError, message: countryMessage } =
-      this.executeStrSizeAndLatinLetters({
-        value: this.credentials.country,
-        min: 2,
-        key: "country",
-        withDash: true,
-      });
+    const countryHasError = this.checkCountry({
+      value: this.credentials.country,
+    });
 
     const { hasError: cityHasError, message: cityMessage } =
       this.executeStrSizeAndLatinLetters({
@@ -133,7 +129,7 @@ export default class ValidateUserInfo extends Validator {
     if (countryHasError)
       this.livingPlaceError.country = {
         hasError: countryHasError,
-        message: countryMessage,
+        message: "please enter valid country",
       };
 
     if (cityHasError)

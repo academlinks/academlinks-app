@@ -42,6 +42,10 @@
   align-items: center;
   @include formsContainer;
 
+  [data-select-box] {
+    font-size: size("smallSize");
+  }
+
   .form {
     display: flex;
     justify-content: center;

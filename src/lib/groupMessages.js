@@ -12,21 +12,54 @@ export default function groupMessages(messages) {
     return groupedChat;
   }
 
-  return messages
+  const followingMsgAuthorIsSame = (chat, msg, i) =>
+    chat[i + 1] && msg?.author === chat[i + 1]?.author;
+
+  const prevMsgAuthorIsSame = (chat, msg, i) =>
+    msg?.author === chat[i - 1]?.author;
+
+  const prevMsgAuthorIsDifferent = (chat, msg, i) =>
+    msg?.author !== chat[i - 1]?.author;
+
+  const isGroupedDifferentAuthor = (msg) => group[0].author !== msg.author;
+
+  const dateDifferenceIsGreaterThenAnHour = (chat, msg, i) => {
+    const anHour = 1000 * 60 * 60;
+
+    const prevMsg = i - 1 > 0 ? chat[i - 1] : null;
+    const prevMsgDate = prevMsg
+      ? new Date(prevMsg.createdAt).getTime()
+      : undefined;
+
+    const currMsgDate = new Date(msg.createdAt).getTime();
+
+    const dateDifferenceBetweenCurrAndPrev = currMsgDate - prevMsgDate;
+    const diffIsGreaterThenHour = dateDifferenceBetweenCurrAndPrev > anHour;
+
+    return { diffIsGreaterThenHour, startDate: msg.createdAt };
+  };
+
+  const configuredMessagesGroup = messages
+    .flatMap((msg, i, chat) => {
+      const { diffIsGreaterThenHour, startDate } =
+        dateDifferenceIsGreaterThenAnHour(chat, msg, i);
+      if (diffIsGreaterThenHour || i === 0) return [{ startDate }, msg];
+      else return msg;
+    })
     .map((msg, i, chat) => {
       if (
-        (chat[i + 1] && msg?.author === chat[i + 1]?.author) ||
-        msg?.author === chat[i - 1]?.author
+        followingMsgAuthorIsSame(chat, msg, i) ||
+        prevMsgAuthorIsSame(chat, msg, i)
       ) {
-        if (group[0] && group[0].author !== msg.author) return copyAndDelete(msg);
+        if (group[0] && isGroupedDifferentAuthor(msg))
+          return copyAndDelete(msg);
         else group.push(msg);
-      } else if (msg.author !== chat[i - 1]?.author && group[0]) return copyAndDelete(msg);
+      } else if (prevMsgAuthorIsDifferent(chat, msg, i) && group[0])
+        return copyAndDelete(msg);
       else return copyAndDelete(msg);
-      // else if (group[0] && group[0].author === msg.author) {
-      //   group.push(msg);
-      //   return copyAndDelete();
-      // }
     })
     .filter((msgBlock) => Array.isArray(msgBlock) && msgBlock.length >= 1)
     .concat([group]);
+
+  return configuredMessagesGroup;
 }

@@ -2,6 +2,18 @@
 @use "../../../../styles/helpers/abstract/components" as *;
 @use "../../../../styles/helpers/abstract/animation" as *;
 @use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/abstract/functions" as *;
+
+%psd {
+  content: "";
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0.5px;
+  width: 100%;
+  background: color("darkGreyColor");
+}
 
 .feedContentBox {
   height: 100%;
@@ -10,11 +22,32 @@
 
   @include scrollBar("&", 1rem, 2rem, 1rem, 1rem);
 
+  .dateDevider {
+    position: relative;
+    margin: 0 auto;
+    font-weight: 500;
+
+    &::after,
+    &::before {
+      @extend %psd;
+    }
+
+    &::after {
+      left: 100%;
+      margin-left: 1rem;
+    }
+
+    &::before {
+      right: 100%;
+      margin-right: 1rem;
+    }
+  }
+
   .isReadLabel {
     margin-left: auto;
     position: relative;
     @include flexBox;
-    @include flexProperty(flex-start,center);
+    @include flexProperty(flex-start, center);
     @include animateMoveBottom(0.2s, -0.5rem);
     @include isReadLabel;
 

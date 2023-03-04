@@ -20,14 +20,12 @@ export { default as IsFriendBTN } from "./RequestBTN/IsFriendBTN";
 export { default as GoBackBTN } from "./GoBackBTN/GoBackBTN";
 
 export { default as TimeAgo } from "./TimeAgo/TimeAgo";
-// export { default as TimeAgoLong } from "./TimeAgo/TimeAgoLong";
 export { default as TimeAgoAndAudience } from "./TimeAgoAndAudience/TimeAgoAndAudience";
 export { default as Audience } from "./Audience/Audience";
 export { default as SelectAudience } from "./SelectAudience/SelectAudience";
 
 export { default as ParagraphsGenerator } from "./ParagraphsGenerator/ParagraphsGenerator";
 export { default as TextArea } from "./TextArea/TextArea";
-export { default as TextAreaWithTag } from "./TextArea/TextAreaWithTag";
 export { default as TextField } from "./TextField/TextField";
 export { default as DraftEditor } from "./TextArea/DraftEditor";
 export { default as DraftReader } from "./TextArea/DraftReader";
@@ -68,8 +66,6 @@ export { default as Tags } from "./Tags/Tags";
 
 export { default as SearchBar } from "./SearchBar/SearchBar";
 
-export { default as SelectCountry } from "./SelectCountry/SelectCountry";
-
 /* ============================== */
 /* ========== various ========== */
 /* ============================ */
@@ -81,6 +77,5 @@ export { default as BTN } from "./BTN/BTN";
 export { default as ShowMoreInlineBTN } from "./ShowMoreInlineBTN/ShowMoreInlineBTN";
 export { default as Image } from "./Image/Image";
 export { default as Avatar } from "./Avatar/Avatar";
-// export { default as DatePicker } from "./DatePicker/DatePicker";
 export { default as Input } from "./Input/Input";
 export { default as Select } from "./Select/Select";

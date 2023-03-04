@@ -7,18 +7,17 @@
   grid-column: 3/4;
   width: 40%;
   @include userNameAndEmail;
-  
+
   @include media-1280 {
     transform: translateX(3rem);
   }
-  
+
   @include media-680 {
     grid-column: 1/1;
     grid-row: 5/6;
     justify-self: center;
+    text-align: center;
     width: max-content;
-    transform: translateX(0);
-    padding: 1rem;
-    padding-top: 1.5rem;
+    transform: translate(0, 1.25rem);
   }
 }

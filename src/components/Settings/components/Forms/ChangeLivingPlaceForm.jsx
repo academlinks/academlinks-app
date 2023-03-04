@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 
 import { selectUpdateableLivingPlace } from "../../../../store/selectors/settingsSelector";
 import { useSettings, useSettingsQuery } from "../../../../hooks";
+import { VALID_COUNTRIES } from "../../../../lib/config";
 
-import { Input, Error, BlockSpinner } from "../../../Layouts";
-import UpdateButtons from "./UpdateButtons";
 import styles from "../styles/detailed.module.scss";
+import UpdateButtons from "./UpdateButtons";
+import { Input, Error, BlockSpinner, Select } from "../../../Layouts";
 
 function ChangeLivingPlaceForm() {
   const {
@@ -26,26 +27,29 @@ function ChangeLivingPlaceForm() {
   return (
     <form className={styles.formsContainer} onSubmit={addLivingPlaceQuery}>
       <div className={`${styles.form} ${styles.livingPlaceForm}`}>
-        <Input
-          type="text"
+        <Select
           name="country"
           label="country"
-          placeholder="country"
-          defaultValue={livingPlace.country}
+          id="country"
           error={livingPlaceError.country.hasError}
           message={livingPlaceError.country.message}
-          onChange={() =>
+          data={{
+            values: VALID_COUNTRIES,
+            default: {
+              label: livingPlace.country || "country",
+              value: livingPlace.country || "country",
+            },
+          }}
+          handler={() => {
             livingPlaceError.country.hasError &&
-            setLivingPlaceError((prev) => ({
-              ...prev,
-              country: {
-                hasError: false,
-                message: "",
-              },
-            }))
-          }
-          className={styles.inpField}
-          id="country"
+              setLivingPlaceError((prev) => ({
+                ...prev,
+                country: {
+                  hasError: false,
+                  message: "",
+                },
+              }));
+          }}
         />
 
         <Input

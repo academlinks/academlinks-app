@@ -24,9 +24,6 @@ function DraftEditor({ placeholder, text, setText, className }) {
 
   const ref = useRef(null);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  // text && JSON.parse(text || "")
-  //   ? EditorState.createWithContent(convertFromRaw(JSON.parse(text || "")))
-  //   : EditorState.createEmpty()
 
   const [defaultTextIsSet, setDefaultTextIsSet] = useState(false);
 

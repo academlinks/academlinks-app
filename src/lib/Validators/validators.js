@@ -4,6 +4,7 @@ import {
   USER_GENDER,
   USER_WORKPLACE_POSITIONS,
   VALID_DEGREES,
+  VALID_COUNTRIES,
 } from "../config";
 
 export class Validator {
@@ -12,6 +13,8 @@ export class Validator {
   _blogPostMinWordCount = 300;
 
   _avalableBlogPostCategories = VALID_BLOG_POST_CATEGORIES;
+
+  _validCountries = VALID_COUNTRIES;
 
   availableGenders = USER_GENDER;
 
@@ -80,6 +83,10 @@ export class Validator {
 
   checkDegree({ value }) {
     return this.availableDegress.includes(value);
+  }
+
+  checkCountry({ value }) {
+    return !this._validCountries.includes(value);
   }
 
   checkOnlyLatinLetters({ value }) {

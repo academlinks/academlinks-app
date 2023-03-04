@@ -32,5 +32,5 @@ function convertArrayType(data, excludeFields) {
 }
 
 function convertToLowerCase(val) {
-  return val.toLowerCase();
+  return val.toLowerCase().trim();
 }

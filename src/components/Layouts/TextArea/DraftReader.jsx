@@ -8,7 +8,7 @@ import Editor from "@draft-js-plugins/editor";
 import createLinkifyPlugin from "@draft-js-plugins/linkify";
 import createMentionsPlugin from "@draft-js-plugins/mention";
 
-import styles from "./components/styles/draftReader.module.scss";
+import styles from "./styles/draftReader.module.scss";
 
 function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
   const { plugins, decorator } = useMemo(() => {
@@ -30,23 +30,30 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
   const editorRef = useRef(null);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
 
+  const [showMore, setShowMore] = useState(limit ? true : false);
+  const [overlapsLimit, setOverlapsLimit] = useState(false);
+
   function createEditorState(stringifiedData, showMore = false) {
     if (!stringifiedData) return;
 
     const reservedContentState = JSON.parse(stringifiedData || "");
+    const exceedsLimit =
+      getWordCountsFromBlocks(reservedContentState.blocks) > limit;
 
-    if (!limit || showMore)
+    setOverlapsLimit(exceedsLimit);
+
+    if (!limit || showMore || !exceedsLimit) {
       return EditorState.createWithContent(
         convertFromRaw(reservedContentState),
         decorator
       );
-    else
+    } else {
       return EditorState.createWithContent(
-        convertFromRaw(createLimitedEditorState(reservedContentState, limit))
+        convertFromRaw(createLimitedEditorState(reservedContentState, limit)),
+        decorator
       );
+    }
   }
-
-  const [showMore, setShowMore] = useState(limit ? true : false);
 
   function handleShowMore() {
     setEditorState(createEditorState(text, true));
@@ -77,12 +84,18 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
             // query: query,
           }}
           target="_blank"
+          data-draft-show-more-btn
         >
           show more
         </Link>
       ) : (
-        showMore && (
-          <button className={styles.showMoreBtn} onClick={handleShowMore}>
+        showMore &&
+        overlapsLimit && (
+          <button
+            className={styles.showMoreBtn}
+            onClick={handleShowMore}
+            data-draft-show-more-btn
+          >
             show more
           </button>
         )
@@ -93,6 +106,13 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
 
 export default DraftReader;
 
+function getWordCountsFromBlocks(blocks) {
+  return blocks.reduce(
+    (acc, block) => (acc += block.text?.split(" ").length),
+    0
+  );
+}
+
 /** have to get raw state and max word count */
 function createLimitedEditorState(convertedState, limit) {
   const blocksToRender = {
@@ -102,11 +122,6 @@ function createLimitedEditorState(convertedState, limit) {
   };
 
   const getWordCount = (block) => block.split(" ").length;
-  const getWordCountsFromBlocksToRender = () =>
-    blocksToRender.blocks.reduce(
-      (acc, block) => (acc += block.text?.split(" ").length),
-      0
-    );
 
   convertedState.blocks.forEach((block) => {
     if (!blocksToRender.blocks[0]) {
@@ -115,20 +130,22 @@ function createLimitedEditorState(convertedState, limit) {
 
         blocksToRender.blocks.push(block);
         return;
-      } else blocksToRender.blocks.push(block);
+      } else {
+        blocksToRender.blocks.push(block);
+      }
     } else {
-      const existingWordCount = getWordCountsFromBlocksToRender();
+      const existingWordCount = getWordCountsFromBlocks(blocksToRender.blocks);
 
       if (existingWordCount > limit) return;
 
       const freeSpace = limit - existingWordCount;
 
-      if (freeSpace > getWordCount(block.text))
+      if (freeSpace > getWordCount(block.text)) {
         blocksToRender.blocks.push(block);
-      else {
+      } else {
         block.text = block.text.split(" ").slice(0, freeSpace).join(" ");
-
         blocksToRender.blocks.push(block);
+
         return;
       }
     }

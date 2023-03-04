@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
-import styles from "./components/styles/textArea.module.scss";
+import styles from "./styles/textArea.module.scss";
 import { SendIcon } from "../Icons/icons";
 
 function TextArea({

@@ -1,5 +1,5 @@
 import { useLocation, NavLink } from "react-router-dom";
-import { uid } from "uid";
+import { nanoid } from "@reduxjs/toolkit";
 import { VALID_BLOG_POST_CATEGORIES } from "../../../../lib/config";
 
 import styles from "./styles/categoriesNav.module.scss";
@@ -53,7 +53,7 @@ function CategoriesNav() {
                 : [route],
             }}
             to={""}
-            key={uid(16)}
+            key={nanoid()}
           >
             <span
               className={`${styles.listItem}   ${

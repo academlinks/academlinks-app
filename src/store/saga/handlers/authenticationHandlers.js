@@ -4,7 +4,7 @@ import { showError, errorMessages } from "./errorHandler";
 import {
   setActiveUser,
   setLoadingStateError,
-  setLogout,
+  logOut,
 } from "../../reducers/activeUserReducer";
 
 import {
@@ -47,7 +47,6 @@ export function* loginHandler({ payload }) {
 export function* logOutHandler({ payload }) {
   try {
     yield call(logOutQuery);
-    yield put(setLogout());
   } catch (error) {
     yield showError({ error, location: "logOutHandler" });
   }
@@ -142,7 +141,7 @@ export function* sendUpdateForgotPasswordHandler({ payload }) {
 export function* deleteAccountHandler({ payload }) {
   try {
     yield call(deleteAccountQuery, payload);
-    yield put(setLogout());
+    yield put(logOut());
   } catch (error) {
     yield showError({
       error,
