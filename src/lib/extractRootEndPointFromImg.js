@@ -10,7 +10,7 @@ export default function extractRootEndPointFromImg(src) {
     ? DEV_END_POINT_ORIGIN.concat(`/${location}`)
     : ENV_MODE === "TEST_PROD"
     ? TEST_PROD_END_POINT_ORIGIN.concat(`/${location}`)
-    : ENV_MODE === "TEST_PROD"
+    : ENV_MODE === "PROD"
     ? src
     : "";
 }
