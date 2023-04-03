@@ -101,7 +101,9 @@ export default class ValidateBlogPostCreate extends Validator {
     if (!isValid)
       this.createError.article = {
         hasError: true,
-        message: `article must contain min ${this._blogPostMinWordCount} word. Left ${isLeft} word.`,
+        message: `article must contain min ${
+          this._blogPostMinWordCount
+        } word. Left ${isLeft || this._blogPostMinWordCount} word.`,
       };
 
     if (isEmpty || !isValid) this.createError.error = true;
