@@ -1,4 +1,4 @@
-import { axiosQuery, axiosFormDataQuery } from "../../axiosConfig";
+import { axiosQuery, axiosFormDataQuery, axioss } from "../../axiosConfig";
 
 // SECTION: ========== 1.0) CREATE UPADATE SHARE ==========
 
@@ -45,9 +45,7 @@ export async function queryTopRatedPublishers(limit) {
 }
 
 export async function queryRelatedPosts(postId, limit) {
-  return await axiosQuery(
-    `/posts/blogPosts/relatedPosts/${postId}?limit=${limit}`
-  );
+  return await axioss(`/posts/blogPosts/relatedPosts/${postId}?limit=${limit}`);
 }
 
 // SECTION: ======= 4.0) Profile-Review ======== //
@@ -106,4 +104,8 @@ export async function queryPostReaction({ postId, body }) {
 
 export async function queryGetPost(postId) {
   return await axiosQuery(`/posts/${postId}`);
+}
+
+export async function queryGetBlogPost(postId) {
+  return await axiosQuery(`/posts/blogPosts/${postId}`);
 }

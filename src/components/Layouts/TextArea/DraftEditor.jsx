@@ -7,8 +7,8 @@ import Editor from "@draft-js-plugins/editor";
 import createLinkifyPlugin from "@draft-js-plugins/linkify";
 import { axiosQuery } from "../../../store/axiosConfig";
 
-function DraftEditor({ placeholder, text, setText, className }) {
-  // create and destructure plugins
+function DraftEditor({ text, setText, className, placeholder }) {
+  // configure plugins
   const { MentionSuggestions, plugins } = useMemo(() => {
     const mentionPlugin = createMentionsPlugin();
     const linkifyPlugin = createLinkifyPlugin({
@@ -22,22 +22,44 @@ function DraftEditor({ placeholder, text, setText, className }) {
     return { plugins, MentionSuggestions };
   }, []);
 
-  const ref = useRef(null);
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
-  const [defaultTextIsSet, setDefaultTextIsSet] = useState(false);
 
   // handle editor change
   function handleChange(es) {
-    const convertedEditor = convertToRaw(editorState.getCurrentContent());
-    if (!text || (text && defaultTextIsSet)) setText(convertedEditor);
     setEditorState(es);
+    const convertedEditor = convertToRaw(es.getCurrentContent());
+    if (editorState.getCurrentContent().hasText()) setText(convertedEditor);
   }
 
+  /**
+   * if default text is passed during update, editor state will be created from this text for the first time.
+   * after first time text will be set by "handleChange" function.
+   */
+  const [defaultTextIsSet, setDefaultTextIsSet] = useState(false);
+
+  useEffect(() => {
+    if (text && !defaultTextIsSet) {
+      setEditorState(
+        EditorState.createWithContent(convertFromRaw(JSON.parse(text || "")))
+      );
+      setDefaultTextIsSet(true);
+    } else if (!text && defaultTextIsSet) {
+      setEditorState(EditorState.createEmpty());
+      setDefaultTextIsSet(false);
+    }
+  }, [text]);
+
+  // reset defaultTextIsSet on unmount component
+  useEffect(() => {
+    return () => {
+      setDefaultTextIsSet(false);
+    };
+  }, []);
+
   // open suggestion popup
-  const [open, setOpen] = useState(false);
-  const onOpenChange = useCallback((_open) => {
-    setOpen(_open);
+  const [openSuggestions, setOpenSuggestions] = useState(false);
+  const onOpenSuggestionChange = useCallback((_open) => {
+    setOpenSuggestions(_open);
   }, []);
 
   // handle mention suggestions
@@ -57,28 +79,15 @@ function DraftEditor({ placeholder, text, setText, className }) {
     setSuggestions(customSuggestionsFilter(value, fitResultToDraft()));
   }, []);
 
-  // clean up editor
-
-  useEffect(() => {
-    if (text && !defaultTextIsSet) {
-      setEditorState(
-        EditorState.createWithContent(convertFromRaw(JSON.parse(text || "")))
-      );
-      setDefaultTextIsSet(true);
-    } else if (!text && defaultTextIsSet) {
-      setEditorState(EditorState.createEmpty());
-      setDefaultTextIsSet(false);
-    }
-  }, [text]);
-
-  useEffect(() => {
-    return () => {
-      setDefaultTextIsSet(false);
-    };
-  }, []);
+  // focus editor onClick
+  const ref = useRef(null);
 
   return (
-    <div onClick={() => ref.current.focus()} className={className || ""}>
+    <div
+      onClick={() => ref.current.focus()}
+      className={className || ""}
+      style={{ cursor: "text" }}
+    >
       <Editor
         editorKey="editor"
         editorState={editorState}
@@ -88,8 +97,8 @@ function DraftEditor({ placeholder, text, setText, className }) {
         placeholder={placeholder}
       />
       <MentionSuggestions
-        open={open}
-        onOpenChange={onOpenChange}
+        open={openSuggestions}
+        onOpenChange={onOpenSuggestionChange}
         suggestions={suggestions}
         onSearchChange={onSearchChange}
       />

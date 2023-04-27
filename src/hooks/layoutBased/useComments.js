@@ -3,7 +3,6 @@ import { useReducer } from "react";
 function useComments() {
   const [state, dispatch] = useReducer(threadReducer, {
     parentAuthor: {},
-    tags: [],
     commentId: "",
     replyId: "",
     text: "",
@@ -130,7 +129,6 @@ function threadReducer(state, { type, payload }) {
       return {
         ...state,
         replyId: "",
-        tags: [],
         commentId: "",
         text: "",
         updateParent: false,

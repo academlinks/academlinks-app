@@ -11,6 +11,7 @@ import {
   getFeedPosts,
   // SECTION: ======= 3.0) BlogPosts ======== //
   getBlogPosts,
+  getBlogPost,
   getTopRatedBlogPosts,
   getTopRatedPublishers,
   getRelatedPosts,
@@ -45,6 +46,7 @@ import {
   getTopRatedBlogPostsHandler,
   getTopRatedPublishersHandler,
   getRelatedPostsHandler,
+  getBlogPostHandler,
   // SECTION-RELATED: ======= 4.0) Profile-Review ======== //
   getPendingPostsHandler,
   getHiddenPostsHandler,
@@ -73,6 +75,7 @@ export default function* postsSaga() {
   yield takeLatest(getFeedPosts, getUserFeedHandler);
   // SECTION-SUB-RELATED: ======= 3.0) BlogPosts ======== //
   yield takeLatest(getBlogPosts, getBlogPostsHandler);
+  yield takeLatest(getBlogPost, getBlogPostHandler);
   yield takeLatest(getTopRatedBlogPosts, getTopRatedBlogPostsHandler);
   yield takeLatest(getTopRatedPublishers, getTopRatedPublishersHandler);
   yield takeLatest(getRelatedPosts, getRelatedPostsHandler);

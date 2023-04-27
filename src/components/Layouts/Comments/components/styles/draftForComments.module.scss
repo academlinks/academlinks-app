@@ -8,11 +8,11 @@
 
   .draft {
     width: 100%;
-    border: 1px solid gray;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
     max-height: 10rem;
     overflow: auto;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
 
     @include scrollBar("&", 1rem, 1rem, 0.5rem, 0.5rem);
   }

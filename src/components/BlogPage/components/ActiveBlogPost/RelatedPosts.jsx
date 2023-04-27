@@ -20,7 +20,7 @@ function RelatedPosts() {
         !error &&
         relatedPosts?.map((post) => (
           <BlogPost
-            limitation={500}
+            limitation={50}
             post={post}
             key={post._id}
             className={styles.relatedBlogPost}

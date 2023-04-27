@@ -45,7 +45,7 @@ axiosFormDataQuery.interceptors.request.use(async (config) =>
 function tokenExchange({ config }) {
   const token = getJWT();
 
-  if (!token) return;
+  if (!token) return config;
 
   const decodedUser = decode(token);
   const exp = decodedUser?.exp;

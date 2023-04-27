@@ -42,3 +42,4 @@ export { default as useAuthValidation } from "./auth/useAuthValidation";
 export { default as useRestrictAuthenticated } from "./auth/useRestrictAuthenticated";
 export { default as useForeignUser } from "./auth/useForeignUser";
 export { default as useRestrictPrivateRoute } from "./auth/useRestrictPrivateRoute";
+export { default as useIsAuthenticatedUser } from "./auth/useIsAuthenticatedUser";

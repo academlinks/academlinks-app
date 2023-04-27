@@ -1,7 +1,7 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery, axioss } from "../../axiosConfig";
 
 export async function queryPostComments(postId) {
-  return await axiosQuery(`/posts/${postId}/comments`);
+  return await axioss(`/posts/${postId}/comments`);
 }
 
 export async function queryAddComment({ postId, body }) {

@@ -4,12 +4,15 @@ import {
   usePostQuery,
   useProfileReviewQuery,
   useCreatePost,
+  useIsAuthenticatedUser,
 } from "../../../../hooks";
 import styles from "./styles/article.module.scss";
 import { destructurePostUpdateData } from "../../../../lib/destructurers";
 import { BlogPostIdentifier, PostOptions, DraftReader } from "../../../Layouts";
 
 function Article({ post }) {
+  const { isAuthenticatedUser } = useIsAuthenticatedUser();
+
   const navigate = useNavigate();
 
   const { deletePostQuery, savePostQuery } = usePostQuery();
@@ -37,17 +40,19 @@ function Article({ post }) {
           postId={post._id}
           createdAt={post.createdAt}
         />
-        <PostOptions
-          audience={post.audience}
-          isBlogPostOptions={true}
-          postId={post._id}
-          savePostHandler={() => savePostQuery(post._id)}
-          deleteHandler={deleteHandler}
-          removeTagHandler={() => removeTagQuery(post._id)}
-          updateHandler={() =>
-            handleUpdateBlogPostData(destructurePostUpdateData(post))
-          }
-        />
+        {isAuthenticatedUser && (
+          <PostOptions
+            audience={post.audience}
+            isBlogPostOptions={true}
+            postId={post._id}
+            savePostHandler={() => savePostQuery(post._id)}
+            deleteHandler={deleteHandler}
+            removeTagHandler={() => removeTagQuery(post._id)}
+            updateHandler={() =>
+              handleUpdateBlogPostData(destructurePostUpdateData(post))
+            }
+          />
+        )}
       </div>
 
       <div className={styles.article}>

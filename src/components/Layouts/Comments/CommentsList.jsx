@@ -7,6 +7,7 @@ import {
   useComments,
   useCommentsQuery,
   useScrollOnNotifyAtComment,
+  useIsAuthenticatedUser,
 } from "../../../hooks";
 import {
   selectPostCommentsById,
@@ -18,6 +19,8 @@ import { BlockSpinner, Error, EmptyContentMessage } from "../";
 import { CommentListItem, DraftForComments } from "./components";
 
 function CommentsList({ postId, postAuthorId, notifyOnComment }) {
+  const { isAuthenticatedUser } = useIsAuthenticatedUser();
+
   const { loading, error, message, target, task } = useSelector(
     selectCommentsLoadingState
   );
@@ -39,7 +42,7 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
 
   const { getPostCommentsQuery, submitCommentQuery } = useCommentsQuery(
     "MAIN_THREAD",
-    { postId, commentId: state.commentId, text: state.text, tags: state.tags },
+    { postId, commentId: state.commentId, text: state.text },
     { updateParent: state.updateParent, resetHandler: reseter }
   );
 
@@ -78,11 +81,13 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
         target === "parent" &&
         (task === "add" || task === "update") && <Error msg={message} />}
 
-      <DraftForComments
-        submitCommentQuery={submitCommentQuery}
-        setCommentText={setCommentText}
-        text={state.updateParent ? state.text : ""}
-      />
+      {isAuthenticatedUser && (
+          <DraftForComments
+            submitCommentQuery={submitCommentQuery}
+            setCommentText={setCommentText}
+            text={state.text}
+          />
+      )}
     </div>
   );
 }

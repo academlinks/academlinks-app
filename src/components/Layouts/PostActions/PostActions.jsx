@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
-import { usePostQuery, usePost } from "../../../hooks";
+import { usePostQuery, usePost, useIsAuthenticatedUser } from "../../../hooks";
 import { destructurePostShareData } from "../../../lib/destructurers";
 
 import styles from "./components/postActions.module.scss";
@@ -18,6 +18,7 @@ import { ReactionBTN, CommentBTN, ShareBTN } from "./components";
  */
 function PostActions({ className, setShowCommnents, data, redirect }) {
   const activeUserId = useSelector(selectActiveUserId);
+  const { isAuthenticatedUser } = useIsAuthenticatedUser();
 
   const { reactOnPostQuery } = usePostQuery();
   const { activateSharePostModal } = usePost();
@@ -46,25 +47,29 @@ function PostActions({ className, setShowCommnents, data, redirect }) {
 
   return (
     <form className={`${styles.postActions} ${className || ""}`}>
-      <ReactionBTN
-        reactOnPostHandler={reactionHandler}
-        reactionsAmount={data?.likesAmount}
-        reaction={true}
-        isUserInteracted={isUserInteracted?.reaction}
-      />
-      <ReactionBTN
-        reactOnPostHandler={reactionHandler}
-        reactionsAmount={data?.dislikesAmount}
-        reaction={false}
-        isUserInteracted={isUserInteracted?.reaction}
-      />
+      {isAuthenticatedUser && (
+        <>
+          <ReactionBTN
+            reactOnPostHandler={reactionHandler}
+            reactionsAmount={data?.likesAmount}
+            reaction={true}
+            isUserInteracted={isUserInteracted?.reaction}
+          />
+          <ReactionBTN
+            reactOnPostHandler={reactionHandler}
+            reactionsAmount={data?.dislikesAmount}
+            reaction={false}
+            isUserInteracted={isUserInteracted?.reaction}
+          />
+        </>
+      )}
       <CommentBTN
         redirect={redirect}
         commentsAmount={data?.commentsAmount}
         setShowCommnents={setShowCommnents}
         handleShowComment={handleShowComment}
       />
-      <ShareBTN shareHandler={shareHandler} />
+      {isAuthenticatedUser && <ShareBTN shareHandler={shareHandler} />}
     </form>
   );
 }

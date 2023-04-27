@@ -107,6 +107,10 @@ const postsDataSlice = createSlice({
       updateLoadingState({ state, key: "loadingState" });
     },
 
+    getBlogPost(state) {
+      updateLoadingState({ state, key: "loadingState" });
+    },
+
     setPosts(state, { payload }) {
       const { data, results } = payload;
 
@@ -404,6 +408,7 @@ export const {
   setRemovedTag,
   // SECTION-RELATED: ======= BlogPosts ======== //
   getBlogPosts,
+  getBlogPost,
   getTopRatedPublishers,
   setTopRatedPublishers,
   getTopRatedBlogPosts,

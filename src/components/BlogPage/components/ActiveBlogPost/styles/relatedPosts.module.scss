@@ -18,6 +18,7 @@
 
   .relatedBlogPost {
     flex: 1;
+    max-width: 50%;
 
     & > [data-img] {
       // width: 100%;

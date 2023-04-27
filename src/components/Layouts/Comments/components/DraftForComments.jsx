@@ -12,11 +12,12 @@ function DraftForComments({ submitCommentQuery, setCommentText, text }) {
       }}
     >
       <DraftEditor
-        placeholder="write comment..."
-        setText={setCommentText}
         text={text}
+        setText={setCommentText}
         className={styles.draft}
+        placeholder="write comment..."
       />
+
       <button className={styles.sendBtn} type="submit">
         <SendIcon />
       </button>
@@ -25,4 +26,3 @@ function DraftForComments({ submitCommentQuery, setCommentText, text }) {
 }
 
 export default DraftForComments;
-// 

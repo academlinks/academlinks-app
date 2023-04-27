@@ -1,8 +1,21 @@
-import styles from './styles/reviewUserInteraction.module.scss';
-import { LikeIcon, DislikeIcon, CommentIcon } from '../../../Layouts/Icons/icons';
-import BlogPostOptions from './BlogPostOptions';
+import { useIsAuthenticatedUser } from "../../../../hooks";
 
-function ReviewUserInteraction({ commentsAmount, likesAmount, dislikesAmount, postId }) {
+import styles from "./styles/reviewUserInteraction.module.scss";
+import {
+  LikeIcon,
+  DislikeIcon,
+  CommentIcon,
+} from "../../../Layouts/Icons/icons";
+import BlogPostOptions from "./BlogPostOptions";
+
+function ReviewUserInteraction({
+  commentsAmount,
+  likesAmount,
+  dislikesAmount,
+  postId,
+}) {
+  const { isAuthenticatedUser } = useIsAuthenticatedUser();
+
   return (
     <div data-user-interacion className={styles.blogPostUserInteractionsBox}>
       <div className={styles.blogPostInteractions}>
@@ -16,7 +29,7 @@ function ReviewUserInteraction({ commentsAmount, likesAmount, dislikesAmount, po
           <CommentIcon />({commentsAmount})
         </span>
       </div>
-      <BlogPostOptions postId={postId} />
+      {isAuthenticatedUser && <BlogPostOptions postId={postId} />}
     </div>
   );
 }

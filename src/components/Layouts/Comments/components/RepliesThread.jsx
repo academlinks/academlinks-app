@@ -1,14 +1,19 @@
-// import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { selectCommentsLoadingState } from "../../../../store/selectors/commentsSelector";
-import { useCommentPin, useCommentsQuery } from "../../../../hooks";
+import {
+  useCommentPin,
+  useCommentsQuery,
+  useIsAuthenticatedUser,
+} from "../../../../hooks";
 
 import styles from "./styles/repliesThread.module.scss";
 import { Error } from "../..";
 import { Comment, ShowRepliesBTN, DraftForComments } from ".";
 
 function RepliesThread({ state, data, handlers }) {
+  const { isAuthenticatedUser } = useIsAuthenticatedUser();
+
   const {
     setCommentText,
     handleShowReplies,
@@ -27,15 +32,7 @@ function RepliesThread({ state, data, handlers }) {
     repliesAmount,
   } = data;
 
-  const {
-    activeReply,
-    updateReply,
-    showReplies,
-    tags,
-    text: updateText,
-    parentAuthor,
-    text,
-  } = state;
+  const { activeReply, updateReply, showReplies, parentAuthor, text } = state;
 
   const reseter = () => resetCommentCredentials();
 
@@ -44,11 +41,10 @@ function RepliesThread({ state, data, handlers }) {
     {
       postId: postId,
       commentId: parentId,
-      adressatId: tags || [{ authorId: authorId, adressatName: authorName }],
+      adressatId: [{ authorId: authorId, adressatName: authorName }],
       replyId: state.replyId,
       parentAuthor,
       text,
-      tags,
     },
     { updateReply, activeReply, resetHandler: reseter }
   );
@@ -71,7 +67,7 @@ function RepliesThread({ state, data, handlers }) {
         }}
         handleShowReplies={handleShowReplies}
       />
-      
+
       {(showReplies || activeReply || updateReply) && (
         <div className={styles.nestedList}>
           {commentReplies?.map((reply) => (
@@ -88,11 +84,13 @@ function RepliesThread({ state, data, handlers }) {
             target === "reply" &&
             (task === "add" || task === "update") && <Error msg={message} />}
 
-          <DraftForComments
-            submitCommentQuery={submitCommentQuery}
-            setCommentText={setCommentText}
-            text={updateReply ? updateText : ""}
-          />
+          {isAuthenticatedUser && (
+            <DraftForComments
+              submitCommentQuery={submitCommentQuery}
+              setCommentText={setCommentText}
+              text={text}
+            />
+          )}
         </div>
       )}
     </>

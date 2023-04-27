@@ -7,9 +7,9 @@
   position: relative;
   @include flexBox(column);
   gap: 1.5rem;
-  border-top: 1px solid color("darkGreyColor");
-  padding-top: 2rem;
-  margin-top: 1rem;
   max-height: 45rem;
   @include scrollBar("&", 1rem, 1rem, 1rem, 5.5rem);
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid color("darkGreyColor");
 }

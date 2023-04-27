@@ -1,5 +1,5 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery, axioss } from "../../axiosConfig";
 
 export async function getCommercialsQuery(location) {
-  return await axiosQuery(`/commercials?location=${location}`);
+  return await axioss(`/commercials?location=${location}`);
 }

@@ -95,6 +95,7 @@ function App() {
               element={<RegistrationConfirmPasswordPage />}
             />
           </Route>
+          <Route path="/blog/:id" element={<ActiveBlogPost />} />
           <Route element={<RestrictionUnAuthorised />}>
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile/:id" element={<UserPage />}>
@@ -113,7 +114,7 @@ function App() {
             </Route>
             <Route path="/post/:id" element={<Post />} />
             <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:id" element={<ActiveBlogPost />} />
+
             <Route path="/messanger" element={<Messanger />}>
               <Route path=":id" element={<MessangerFeed />} />
             </Route>

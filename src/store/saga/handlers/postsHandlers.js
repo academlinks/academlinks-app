@@ -53,6 +53,7 @@ import {
   queryTopRatedBlogPosts,
   queryTopRatedPublishers,
   queryRelatedPosts,
+  queryGetBlogPost,
   // SECTION-RELATED: ======= 4.0) Profile-Review ======== //
   queryGetHiddenPosts,
   queryGetPendingPosts,
@@ -233,7 +234,7 @@ export function* getRelatedPostsHandler({ payload: { postId, limit } }) {
   } catch (error) {
     yield showError({
       error,
-      location: "getPostHandler",
+      location: "getRelatedPostsHandler",
       setter: setErrorOnRelatedBlogPosts,
       setterParams: {
         message: errorMessages.post.load,
@@ -437,7 +438,6 @@ export function* reactOnPostHandler({ payload: { postId, body } }) {
 }
 
 // SECTION-SUB-RELATED: ======= 7.0) Global Setters And Getters ======== //
-
 export function* getPostHandler({ payload: postId }) {
   try {
     const { data } = yield call(queryGetPost, postId);
@@ -446,6 +446,23 @@ export function* getPostHandler({ payload: postId }) {
     yield showError({
       error,
       location: "getPostHandler",
+      setter: setErrorOnLoadingState,
+      setterParams: {
+        message: errorMessages.post.load,
+        task: "get",
+      },
+    });
+  }
+}
+
+export function* getBlogPostHandler({ payload: postId }) {
+  try {
+    const { data } = yield call(queryGetBlogPost, postId);
+    yield put(setSinglePost(data));
+  } catch (error) {
+    yield showError({
+      error,
+      location: "getBlogPostHandler",
       setter: setErrorOnLoadingState,
       setterParams: {
         message: errorMessages.post.load,

@@ -3,7 +3,7 @@ import {
   getBlogPosts,
   getTopRatedPublishers,
   getTopRatedBlogPosts,
-  getPost,
+  getBlogPost,
   getRelatedPosts,
   // NaN API Handlers
   resetPosts,
@@ -42,7 +42,7 @@ export default function useBlogQuery() {
   }
 
   function getPostQuery({ postId }) {
-    dispatch(getPost(postId));
+    dispatch(getBlogPost(postId));
   }
 
   // NaN API Handlers

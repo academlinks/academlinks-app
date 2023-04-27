@@ -114,11 +114,14 @@
 
   .draftPost {
     display: inline-block;
+    width: 100%;
+    min-height: 4rem;
+    max-height: 20rem;
+    overflow: auto;
+    padding: 0.5rem;
     border: none;
     font-size: size("smallSize");
     border-radius: 0rem;
-    max-height: 20rem;
-    overflow: auto;
 
     @include scrollBar("&");
   }
