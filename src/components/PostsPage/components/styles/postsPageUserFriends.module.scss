@@ -3,6 +3,7 @@
 
 .postsPageUserFriends {
   width: 100%;
+  overflow: hidden;
   @include postsPageUserFriends;
 
   .userFriendsIntro {
@@ -17,8 +18,9 @@
   .friendsList {
     display: grid;
     grid-template: repeat(3, 10rem) / repeat(3, 10rem);
-    justify-content: center;
+    justify-content: space-between;
     justify-items: center;
+    gap: 1rem;
 
     @include media-680 {
       grid-template: repeat(3, 13rem) / repeat(3, 1fr);
@@ -33,9 +35,17 @@
     display: grid;
     grid-template-rows: 1fr min-content;
     justify-items: center;
+    row-gap: 0.35rem;
   }
 
   .friendName {
     display: inline-block;
+    color: color("blackColor");
+    text-transform: capitalize;
+    font-weight: weight("mediumWeight");
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

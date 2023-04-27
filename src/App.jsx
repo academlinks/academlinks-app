@@ -6,6 +6,7 @@ import { Navigation } from "./components";
 
 import RestrictionAuthorised from "./pages/authentication/RestrictionAuthorised";
 import RestrictionUnAuthorised from "./pages/authentication/RestrictionUnAuthorised";
+import UnauthorisedPortals from "./pages/authentication/UnauthorisedPortals";
 
 // SECTION: > Wellcome Page
 const WellcomePage = lazy(() => import("./pages/WellcomePage"));
@@ -76,8 +77,10 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation />
+      <UnauthorisedPortals />
       <Suspense fallback={<StandSpinner />}>
         <Routes>
+          <Route path="/blog/:id" element={<ActiveBlogPost />} />
           <Route element={<RestrictionAuthorised />}>
             <Route path="/" element={<WellcomePage />} />
             <Route path="/authentication/login" element={<LoginPage />} />
@@ -95,7 +98,6 @@ function App() {
               element={<RegistrationConfirmPasswordPage />}
             />
           </Route>
-          <Route path="/blog/:id" element={<ActiveBlogPost />} />
           <Route element={<RestrictionUnAuthorised />}>
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile/:id" element={<UserPage />}>

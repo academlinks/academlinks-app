@@ -83,10 +83,12 @@ export default class ValidateBlogPostCreate extends Validator {
   }
 
   validateArticle() {
-    const postArticle = JSON.parse(this.credentials.article)
-      .blocks.map((block) => block.text)
-      .join("")
-      .trim();
+    const postArticle = this.credentials.article
+      ? JSON.parse(this.credentials.article)
+          .blocks.map((block) => block.text)
+          .join("")
+          .trim()
+      : "";
 
     const { isEmpty, isValid, isLeft } = this.checkWordCount({
       data: postArticle,

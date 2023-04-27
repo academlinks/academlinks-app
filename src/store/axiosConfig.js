@@ -45,12 +45,10 @@ axiosFormDataQuery.interceptors.request.use(async (config) =>
 function tokenExchange({ config }) {
   const token = getJWT();
 
-  if (!token) return config;
-
-  const decodedUser = decode(token);
+  const decodedUser = token ? decode(token) : null;
   const exp = decodedUser?.exp;
 
-  if (Math.floor(Date.now() / 1000) > exp) {
+  if (exp && Math.floor(Date.now() / 1000) > exp) {
     if (!refreshTokenPromise)
       refreshTokenPromise = refresher()
         .then(({ data }) => {
@@ -69,7 +67,7 @@ function tokenExchange({ config }) {
       config.headers.authorization = `Bearer ${token}`;
       return config;
     });
-  } else {
+  } else if (token) {
     config.headers.authorization = `Bearer ${getJWT()}`;
   }
 

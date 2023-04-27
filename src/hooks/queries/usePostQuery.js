@@ -93,7 +93,9 @@ function usePostQuery() {
     const body = {
       description: credentials.description,
       audience: credentials.audience,
-      tags: extractTagsFromDraft(credentials.description),
+      tags: extractTagsFromDraft(
+        credentials.description ? credentials.description : credentials.article
+      ),
     };
 
     dispatch(sharePost({ postId, body }));

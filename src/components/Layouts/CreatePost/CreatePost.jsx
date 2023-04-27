@@ -7,7 +7,6 @@ import {
   useRestrictBodyOverflow,
   useCreatePost,
 } from "../../../hooks";
-import { fixLineBreaks } from "../../../lib";
 import { selectCreatePost } from "../../../store/selectors/createPostSelectors";
 
 import styles from "./components/styles/createPost.module.scss";
@@ -50,7 +49,7 @@ const CreatePost = memo(({ className }) => {
       },
       credentials: {
         audience: postData.audience,
-        description: fixLineBreaks(postData.description),
+        description: postData.description,
         media: postData.files,
         tags: JSON.stringify(postData.tags.map((tag) => tag._id)),
       },

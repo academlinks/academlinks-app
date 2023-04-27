@@ -10,7 +10,7 @@ import {
 export class Validator {
   _blogPostTitleMinLetterCount = 3;
 
-  _blogPostMinWordCount = 2;
+  _blogPostMinWordCount = 300;
 
   _avalableBlogPostCategories = VALID_BLOG_POST_CATEGORIES;
 

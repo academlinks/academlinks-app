@@ -5,7 +5,7 @@ export default function extractTagsFromDraft(reservedContentState) {
 
   const draftState = JSON.parse(reservedContentState || "");
 
-  if (!draftState) return [];
+  if (!draftState) return JSON.stringify([]);
 
   const tags = [];
   for (const key in draftState.entityMap) {

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useWindowDimention } from "../../../hooks";
+// import { useEffect, useState } from "react";
+// import { useWindowDimention } from "../../../hooks";
 
 import styles from "./components/styles/postAuthentic.module.scss";
 import { PostDescription, PostMedia } from "./components";
@@ -31,15 +31,15 @@ function PostAuthentic({
 }) {
   const tgs = shared ? data.authenticTags : data.tags;
 
-  const [limit, setLimit] = useState(550);
-  const { width } = useWindowDimention();
+  // const [limit, setLimit] = useState(550);
+  // const { width } = useWindowDimention();
 
-  useEffect(() => {
-    if (width <= 480) setLimit(250);
-    else if (width <= 680) setLimit(300);
-    else if (width <= 960) setLimit(400);
-    else setLimit(550);
-  }, [width]);
+  // useEffect(() => {
+  //   if (width <= 480) setLimit(250);
+  //   else if (width <= 680) setLimit(300);
+  //   else if (width <= 960) setLimit(400);
+  //   else setLimit(550);
+  // }, [width]);
 
   return (
     <div
@@ -87,7 +87,7 @@ function PostAuthentic({
                 }
               : data
           }
-          limitation={limit}
+          limitation={150}
           options={false}
           referenced={referencedPost}
           className={styles.referencedBlogPost}

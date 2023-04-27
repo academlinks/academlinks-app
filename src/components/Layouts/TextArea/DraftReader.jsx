@@ -36,7 +36,7 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
   function createEditorState(stringifiedData, showMore = false) {
     if (!stringifiedData) return;
 
-    const reservedContentState = JSON.parse(stringifiedData || "");
+    const reservedContentState = JSON.parse(stringifiedData);
     const exceedsLimit =
       getWordCountsFromBlocks(reservedContentState.blocks) > limit;
 
@@ -64,6 +64,7 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
 
   useEffect(() => {
     if (!text) return;
+
     setEditorState(createEditorState(text));
   }, [text, limit]);
 
@@ -107,9 +108,9 @@ function DraftReader({ text, limit, showMoreHandler, asLink = false, path }) {
 export default DraftReader;
 
 function getWordCountsFromBlocks(blocks) {
-  return blocks.reduce(
-    (acc, block) => (acc += block.text?.split(" ").length),
-    0
+  return (
+    blocks?.reduce((acc, block) => (acc += block.text?.split(" ").length), 0) ||
+    NaN
   );
 }
 
