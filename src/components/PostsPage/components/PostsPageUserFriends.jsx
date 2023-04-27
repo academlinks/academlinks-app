@@ -35,7 +35,7 @@ function PostsPageUserFriends() {
 
             <Link to={`/profile/${friend._id}/posts`}>
               <h4 className={styles.friendName} title={friend.userName}>
-                {friend.userName?.length > 16
+                {friend.userName?.length > 14
                   ? friend.userName.split(" ")[0].concat("...")
                   : friend.userName}
               </h4>
