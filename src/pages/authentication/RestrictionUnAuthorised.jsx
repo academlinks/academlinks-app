@@ -18,12 +18,12 @@ const MediaPortal = lazy(() => import("../../components/Portal/MediaPortal"));
 const UpdatePostPortal = lazy(() =>
   import("../../components/Portal/UpdatePostPortal")
 );
-const UpdateBlogPostPortal = lazy(() =>
-  import("../../components/Portal/UpdateBlogPostPortal")
-);
-const SharePostPortal = lazy(() =>
-  import("../../components/Portal/SharePostPortal")
-);
+// const UpdateBlogPostPortal = lazy(() =>
+//   import("../../components/Portal/UpdateBlogPostPortal")
+// );
+// const SharePostPortal = lazy(() =>
+//   import("../../components/Portal/SharePostPortal")
+// );
 
 function RestrictionUnAuthorised() {
   useAuthValidation();
@@ -50,8 +50,8 @@ function RestrictionUnAuthorised() {
       <Suspense fallback={<StandSpinner />}>
         {mediaModalIsOpen && <MediaPortal />}
         {updatePostModalIsOpen && <UpdatePostPortal />}
-        {updateBlogPostModalIsOpen && <UpdateBlogPostPortal />}
-        {sharePostModalIsOpen && <SharePostPortal />}
+        {/* {updateBlogPostModalIsOpen && <UpdateBlogPostPortal />} */}
+        {/* {sharePostModalIsOpen && <SharePostPortal />} */}
       </Suspense>
       {activeNotifications && <Notifications />}
       <Outlet />

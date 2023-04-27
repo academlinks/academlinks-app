@@ -104,10 +104,6 @@ $space-x-md: 2rem;
     color: color("blueColor");
   }
 
-  .friendsList {
-    row-gap: 0.5rem;
-  }
-
   .friendImg {
     height: 8.5rem;
     border-radius: $rounded-sm;
@@ -124,16 +120,6 @@ $space-x-md: 2rem;
 
     & img {
       @include fitImage;
-    }
-  }
-
-  .friendName {
-    color: color("blackColor");
-    text-transform: capitalize;
-    font-weight: weight("boldWeight");
-
-    &:hover {
-      text-decoration: underline;
     }
   }
 }
