@@ -10,7 +10,7 @@ import {
 export class Validator {
   _blogPostTitleMinLetterCount = 3;
 
-  _blogPostMinWordCount = 300;
+  _blogPostMinWordCount = 2;
 
   _avalableBlogPostCategories = VALID_BLOG_POST_CATEGORIES;
 
@@ -58,15 +58,15 @@ export class Validator {
   }
 
   checkWordCount({ data, min }) {
-    if (!data || typeof data !== "string" || !data.trim())
+    if (typeof data !== "string" || !data.trim())
       return { isEmpty: true, isValid: false, isLeft: NaN };
 
     const fragments = data
       .trim()
       .split(" ")
-      .filter((w) => this.regs.isWord.test(w));
+      .filter((w) => w.trim() !== "");
 
-    if ((Array.isArray(fragments) && !fragments[0]) || !data.trim())
+    if (Array.isArray(fragments) && !fragments[0])
       return { isEmpty: true, isValid: false, isLeft: NaN };
     else if (Array.isArray(fragments) && fragments.length < min)
       return {

@@ -93,7 +93,7 @@ function SharePostPortal() {
             onClick={() =>
               sharePostQuery(sharePostData._id, {
                 audience: shareAudience,
-                description: text,
+                description: JSON.stringify(text),
               })
             }
           >
