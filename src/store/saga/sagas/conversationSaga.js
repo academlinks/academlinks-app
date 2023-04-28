@@ -8,7 +8,7 @@ import {
   sendMessage,
   markAsRead,
   getNewConversation,
-} from "../../reducers/conversationReducer";
+} from "store/reducers/conversationReducer";
 
 import {
   getAllConversationsHandler,
@@ -18,7 +18,7 @@ import {
   deleteConversationHandler,
   sendMessageHandler,
   markAsReadHandler,
-} from "../handlers/conversationHandlers";
+} from "store/saga/handlers/conversationHandlers";
 
 export default function* converastionSaga() {
   yield takeLatest(getAllConversations, getAllConversationsHandler);

@@ -5,9 +5,9 @@ import {
   destructurePostAuthenticData,
   destructurePostUpdateData,
   destructureSharedPostHeaderData,
-} from "../../../lib/destructurers";
-import { usePostQuery, useProfileReviewQuery } from "../../../hooks";
-import { selectOperationalPostsLoadingState } from "../../../store/selectors/postSelectors";
+} from "lib/destructurers";
+import { usePostQuery, useProfileReviewQuery } from "hooks/queries";
+import { selectOperationalPostsLoadingState } from "store/selectors/postSelectors";
 
 import {
   PostActions,
@@ -15,10 +15,10 @@ import {
   InlineSpinner,
   InlineStandSpinner,
   Error,
-} from "../";
-import styles from "./components/styles/post.module.scss";
+} from "components/Layouts";
 import { SharedPostHeader } from "./components";
 import PostAuthentic from "./PostAuthentic";
+import styles from "./components/styles/post.module.scss";
 
 const CommentsList = lazy(() => import("../Comments/CommentsList"), {
   suspense: true,

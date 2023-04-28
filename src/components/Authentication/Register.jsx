@@ -4,15 +4,17 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import {
-  selectSentRegistrationStatus,
-  selectRegistrationLoadingState,
-} from "../../store/selectors/authenticationSelectors";
-import { useAuthenticationQuery } from "../../hooks";
-import {
   USER_WORKPLACE_POSITIONS,
   USER_GENDER,
   VALID_COUNTRIES,
-} from "../../lib/config";
+} from "lib/config";
+
+import {
+  selectSentRegistrationStatus,
+  selectRegistrationLoadingState,
+} from "store/selectors/authenticationSelectors";
+
+import { useAuthenticationQuery } from "hooks/queries";
 
 import {
   Input,
@@ -22,7 +24,7 @@ import {
   BTN,
   Error,
   StandSpinner,
-} from "../Layouts";
+} from "components/Layouts";
 import styles from "./styles/reg.module.scss";
 
 function Register() {

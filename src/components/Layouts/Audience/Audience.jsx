@@ -1,4 +1,4 @@
-import { FriendIcon, PublicIcon, LockIcon, GroupIcon } from "../Icons/icons";
+import { FriendIcon, PublicIcon, LockIcon, GroupIcon } from "components/Layouts/Icons";
 
 const audienceBlock = {
   public: <PublicIcon />,

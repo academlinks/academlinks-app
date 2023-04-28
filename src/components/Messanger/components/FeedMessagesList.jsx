@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 
+import { formatDate } from "lib";
+
 import styles from "./styles/feedMessagesList.module.scss";
 import Message from "./Message";
-import { formatDate } from "../../../lib";
 
 function FeedMessagesList({
   groupedMessages,
@@ -21,12 +22,12 @@ function FeedMessagesList({
     <div className={styles.feedContentBox} ref={containerRef}>
       {groupedMessages.map((msgGroup, i) => {
         return msgGroup[0].startDate ? (
-          <p className={styles.dateDevider}>
+          <p className={styles.dateDevider} key={`msg-group--${i}`}>
             {formatDate(msgGroup[0].startDate, "verbalWithHours")}
           </p>
         ) : (
           <Message
-            key={`message ${i}`}
+            key={`message-${i}`}
             msgGroup={msgGroup}
             activeUserId={activeUserId}
             adressatImage={adressat.profileImg}

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { useRestrictBodyOverflow } from "../../../hooks";
 
+import { useRestrictBodyOverflow } from "hooks/util";
+
+import { ErrorIcon } from "components/Layouts/Icons";
 import styles from "./error.module.scss";
-import { ErrorIcon } from "../Icons/icons";
 
 function Error({ msg, asModal = false, onClose = () => {}, className }) {
   const { restrictScroll } = useRestrictBodyOverflow();

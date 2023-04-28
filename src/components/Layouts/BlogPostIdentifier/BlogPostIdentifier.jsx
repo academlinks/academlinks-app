@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+
+import { TimeAgoAndAudience, Tags, Avatar } from "components/Layouts";
 import styles from "./blogPostIdentifier.module.scss";
-import { TimeAgoAndAudience, Tags, Avatar } from "../../Layouts";
 
 function BlogPostIdentifier({
   createdAt,

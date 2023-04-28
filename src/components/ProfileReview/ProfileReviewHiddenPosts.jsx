@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { useProfileReviewQuery } from "../../hooks";
-import { selectPosts } from "../../store/selectors/postSelectors";
+import { useProfileReviewQuery } from "hooks/queries";
+import { selectPosts } from "store/selectors/postSelectors";
 
 import styles from "./components/styles/review.module.scss";
 import ReviewPostBody from "./components/ReviewPostBody";

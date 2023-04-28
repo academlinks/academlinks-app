@@ -6,15 +6,16 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import {
   selectActiveConversation,
   selectAllConversations,
-} from "../../store/selectors/conversationSelectors";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { useConversationQuery } from "../../hooks";
+} from "store/selectors/conversationSelectors";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
-import Feed from "../../components/Messanger/Feed";
+import { useConversationQuery } from "hooks/queries";
+
+import Feed from "components/Messanger/Feed";
 
 let isValidConversation = true;
 
-function MessangerFeed() {
+function MessangerFeedPage() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { id: conversationRoute } = useParams();
@@ -77,4 +78,4 @@ function MessangerFeed() {
   return <Feed />;
 }
 
-export default MessangerFeed;
+export default MessangerFeedPage;

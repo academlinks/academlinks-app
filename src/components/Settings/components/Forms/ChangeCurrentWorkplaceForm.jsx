@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 
-import { selectUpdateableCurrentWorkplace } from "../../../../store/selectors/settingsSelector";
-import { useSettings, useSettingsQuery } from "../../../../hooks";
-import { USER_WORKPLACE_POSITIONS } from "../../../../lib/config";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { USER_WORKPLACE_POSITIONS } from "lib/config";
+import { selectUpdateableCurrentWorkplace } from "store/selectors/settingsSelector";
 
 import {
   Input,
@@ -10,7 +11,7 @@ import {
   TextField,
   BlockSpinner,
   Error,
-} from "../../../Layouts";
+} from "components/Layouts";
 import UpdateButtons from "./UpdateButtons";
 import styles from "../styles/detailed.module.scss";
 

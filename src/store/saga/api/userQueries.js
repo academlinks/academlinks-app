@@ -1,4 +1,4 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery } from "store/axiosConfig";
 
 export async function queryUserProfile(userId) {
   return await axiosQuery(`/user/${userId}/profile`);

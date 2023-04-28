@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { extractRootEndPointFromImg } from "../../../lib";
-
-import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
-import { useBlurOnBody, useAuthenticationQuery } from "../../../hooks";
+import { extractRootEndPointFromImg } from "lib";
+import { useBlurOnBody } from "hooks/util";
+import { useAuthenticationQuery } from "hooks/queries";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
 import styles from "./styles/navAvatar.module.scss";
 

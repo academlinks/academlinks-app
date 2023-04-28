@@ -2,19 +2,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  useRestrictPrivateRoute,
-  useFriendsQuery,
-  useDocTitle,
-} from "../../../hooks";
-import { selectPendingRequestsPageState } from "../../../store/selectors/friendsSelector";
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
-import { resetFriends } from "../../../store/reducers/friendsReducer";
+import { useDocTitle } from "hooks/layoutBased";
+import { useFriendsQuery } from "hooks/queries";
+import { useRestrictPrivateRoute } from "hooks/auth";
 
-import { PendingRequests } from "../../../components/FriendsPage";
-import { Spinner, Error } from "../../../components/Layouts";
+import { selectPendingRequestsPageState } from "store/selectors/friendsSelector";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { resetFriends } from "store/reducers/friendsReducer";
 
-function PendingRequest() {
+import { PendingRequests } from "components/FriendsPage";
+import { Spinner, Error } from "components/Layouts";
+
+function PendingRequestPage() {
   useDocTitle("Friends | Pending Requests");
 
   useRestrictPrivateRoute();
@@ -42,4 +41,4 @@ function PendingRequest() {
   );
 }
 
-export default PendingRequest;
+export default PendingRequestPage;

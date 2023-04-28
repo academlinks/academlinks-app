@@ -7,7 +7,7 @@ import {
   resetUnseenConversationsCount,
   getUnseenNotificationsCount,
   resetUnseenNotificationsCount,
-} from "../../reducers/badgeReducer";
+} from "store/reducers/badgeReducer";
 
 import {
   getUnseenRequestCountHandler,
@@ -16,7 +16,7 @@ import {
   markConversationsAsSeenHandler,
   getUnseenNotificationsCountHandler,
   markNotificationsAsSeenHandler,
-} from "../handlers/badgeHandlers";
+} from "store/saga/handlers/badgeHandlers";
 
 export default function* badgeSaga() {
   yield takeLatest(getUnseenRequestsCount, getUnseenRequestCountHandler);

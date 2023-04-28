@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectSettingsStatus } from "../../../store/selectors/settingsSelector";
 
-import { useSettings } from "../../../hooks";
+import { useSettings } from "hooks/layoutBased";
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
 
+import { GoBackBTN } from "components/Layouts";
 import styles from "./styles/content.module.scss";
-import { GoBackBTN } from "../../Layouts";
 
 function ContentContainer({ children }) {
   const { target } = useSelector(selectSettingsStatus);

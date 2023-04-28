@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-import styles from "./selectAudience.module.scss";
-import Audience from "../Audience/Audience";
 import {
   ArrowDownRectingle,
   PublicIcon,
   LockIcon,
   FriendIcon,
   GroupIcon,
-} from "../Icons/icons";
+} from "components/Layouts/Icons";
+import { Audience } from "components/Layouts";
+import styles from "./selectAudience.module.scss";
 
 function SelectAudience({
   handleAudience,

@@ -1,6 +1,7 @@
+import { formatDate } from "lib";
+
 import FragmentWrapper from "./FragmentWrapper";
-import { CaseIcon } from "../Icons/icons";
-import { formatDate } from "../../../lib";
+import { CaseIcon } from "components/Layouts/Icons";
 
 function WorkplaceFragment({
   data,

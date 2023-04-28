@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectSliderBlogPosts } from "../../../../store/selectors/postSelectors";
+
+import { extractRootEndPointFromImg } from "lib";
+import { selectSliderBlogPosts } from "store/selectors/postSelectors";
 
 import styles from "./styles/stand.module.scss";
-import { MultiCarousel } from "../../../Layouts";
-import { extractRootEndPointFromImg } from "../../../../lib";
+import { MultiCarousel } from "components/Layouts";
 
 function Stand() {
   const sliderBlogPosts = useSelector(selectSliderBlogPosts);

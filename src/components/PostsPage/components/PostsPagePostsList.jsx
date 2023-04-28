@@ -1,13 +1,18 @@
 import { useSelector } from "react-redux";
-
-import { selectPostsLoadingState } from "../../../store/selectors/postSelectors";
-import { usePost } from "../../../hooks";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { usePost } from "hooks/layoutBased";
+import { selectPostsLoadingState } from "store/selectors/postSelectors";
+
+import {
+  Post,
+  ScrollEnd,
+  BlockSpinner,
+  Spinner,
+  Error,
+} from "components/Layouts";
 import "./styles/postsPageInfiniteScroll.scss";
 import styles from "./styles/postsPageContent.module.scss";
-import { Post, ScrollEnd, BlockSpinner, Spinner, Error } from "../../Layouts";
 
 function PostsPagePostsList({ children, data, infinite }) {
   const { activatePostMediaHandler, activateUpdatePostModal } = usePost();

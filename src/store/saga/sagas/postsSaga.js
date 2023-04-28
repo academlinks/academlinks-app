@@ -1,9 +1,9 @@
 import { takeLatest } from "redux-saga/effects";
 
 // SECTION: ========== 1.0) CREATE UPADATE SHARE ========== //
-import { createPost, updatePost } from "../../reducers/createPostReducer";
+import { createPost, updatePost } from "store/reducers/createPostReducer";
 
-import { sharePost } from "../../reducers/portalReducer";
+import { sharePost } from "store/reducers/portalReducer";
 
 import {
   // SECTION: ======= 2.0) User Related ======== //
@@ -31,7 +31,7 @@ import {
   reactOnPost,
   // SECTION: ======= 7.0) Global Setters And Getters ======== //
   getPost,
-} from "../../reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
 
 import {
   // SECTION-RELATED: ========== 1.0) CREATE UPADATE SHARE ========== //
@@ -63,7 +63,7 @@ import {
   reactOnPostHandler,
   // SECTION-RELATED: ======= 7.0) Global Setters And Getters ======== //
   getPostHandler,
-} from "../handlers/postsHandlers";
+} from "store/saga/handlers/postsHandlers";
 
 export default function* postsSaga() {
   // SECTION-SUB-RELATED: ========== 1.0) CREATE UPADATE SHARE ==========

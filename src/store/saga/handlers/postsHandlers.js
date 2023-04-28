@@ -1,5 +1,7 @@
 import { call, put, select } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { allowNewPostSet, isRoute } from "lib/window-location";
+
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   // SECTION: ======= Error Setters And Reseters ======== //
@@ -28,17 +30,17 @@ import {
   setRemovedTag,
   // SECTION: ======= Bookmarks ======== //
   setBookmarkedPosts,
-} from "../../reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
 
 import {
   resetCreatePost,
   setCreatePostError,
-} from "../../reducers/createPostReducer";
+} from "store/reducers/createPostReducer";
 
 import {
   resetSharePostModal,
   setSharePostError,
-} from "../../reducers/portalReducer";
+} from "store/reducers/portalReducer";
 
 import {
   // SECTION-RELATED: ========== 1.0) CREATE UPADATE SHARE ========== //
@@ -70,9 +72,7 @@ import {
   queryPostReaction,
   // SECTION-RELATED: ======= 7.0) Global Setters And Getters ======== //
   queryGetPost,
-} from "../api/postQueries";
-
-import { allowNewPostSet, isRoute } from "../../../lib/window-location";
+} from "store/saga/api/postQueries";
 
 // SECTION-SUB-RELATED: ========== 1.0) CREATE UPADATE SHARE ==========
 

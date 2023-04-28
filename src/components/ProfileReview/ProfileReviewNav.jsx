@@ -1,5 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
-import { useScroll } from "../../hooks";
+
+import { useScroll } from "hooks/util";
+
 import styles from "./components/styles/profileReviewNav.module.scss";
 
 function ProfileReviewNav() {

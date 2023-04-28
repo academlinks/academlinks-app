@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import {
   selectRelatedPosts,
   selectRelatedPostsLoadingState,
-} from "../../../../store/selectors/postSelectors";
+} from "store/selectors/postSelectors";
 
 import styles from "./styles/relatedPosts.module.scss";
-import { BlogPost, Error } from "../../../Layouts";
+import { BlogPost, Error } from "components/Layouts";
 
 function RelatedPosts() {
   const relatedPosts = useSelector(selectRelatedPosts);

@@ -1,4 +1,4 @@
-import { axiosQuery, axiosFormDataQuery, axioss } from "../../axiosConfig";
+import { axiosQuery, axiosFormDataQuery, axioss } from "store/axiosConfig";
 
 // SECTION: ========== 1.0) CREATE UPADATE SHARE ==========
 

@@ -3,14 +3,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { resetFriends } from "../../../store/reducers/friendsReducer";
-import { useFriendsQuery, useDocTitle } from "../../../hooks";
-import { selectAllFriendsPageState } from "../../../store/selectors/friendsSelector";
+import { useDocTitle } from "hooks/layoutBased";
+import { useFriendsQuery } from "hooks/queries";
+import { resetFriends } from "store/reducers/friendsReducer";
+import { selectAllFriendsPageState } from "store/selectors/friendsSelector";
 
-import { AllFriends as Friends } from "../../../components/FriendsPage";
-import { Spinner, Error } from "../../../components/Layouts";
+import { AllFriends as Friends } from "components/FriendsPage";
+import { Spinner, Error } from "components/Layouts";
 
-function AllFriends() {
+function AllFriendsPage() {
   useDocTitle("Friends");
 
   const dispatch = useDispatch();
@@ -35,4 +36,4 @@ function AllFriends() {
   );
 }
 
-export default AllFriends;
+export default AllFriendsPage;

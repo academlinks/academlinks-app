@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { FriendIcon, ArrowDownRectingle, DeleteFriendIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { FriendIcon, ArrowDownRectingle, DeleteFriendIcon } from '../Icons/icons';
 
 function IsFriendBTN({ deleteHanlder }) {
   const [open, setOpen] = useState(false);

@@ -1,14 +1,14 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setUserError,
   setSearchError,
   setUserProfile,
   setSearchResult,
-} from "../../reducers/userReducer";
+} from "store/reducers/userReducer";
 
-import { queryUserProfile, queryUserSearch } from "../api/userQueries";
+import { queryUserProfile, queryUserSearch } from "store/saga/api/userQueries";
 
 export function* searchUserHandler({ payload: key }) {
   try {

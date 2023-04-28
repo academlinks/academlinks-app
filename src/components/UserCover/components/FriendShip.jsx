@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 
-import { useFriendsQuery, useConversationQuery } from "../../../hooks";
-import { selectRequestError } from "../../../store/selectors/friendsSelector";
+import { useFriendsQuery, useConversationQuery } from "hooks/queries";
+import { selectRequestError } from "store/selectors/friendsSelector";
 
-import styles from "./styles/friendShip.module.scss";
 import {
   DeleteRequestBTN,
   CancelRequestBTN,
@@ -12,7 +11,8 @@ import {
   IsFriendBTN,
   SendMessageBTN,
   Error,
-} from "../../Layouts";
+} from "components/Layouts";
+import styles from "./styles/friendShip.module.scss";
 
 function FriendShip({ friendShip, profileId, setFriendShip }) {
   const {

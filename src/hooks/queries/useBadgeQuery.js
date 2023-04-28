@@ -9,7 +9,7 @@ import {
   getUnseenNotificationsCount,
   resetUnseenNotificationsCount,
   encreaseUnseenNotificationsCount,
-} from "../../store/reducers/badgeReducer";
+} from "store/reducers/badgeReducer";
 
 export default function useBadgeQuery() {
   const dispatch = useDispatch();

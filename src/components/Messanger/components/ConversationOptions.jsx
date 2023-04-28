@@ -1,5 +1,5 @@
+import { DotsHorizontalIcon } from "components/Layouts/Icons";
 import styles from "./styles/conversationOptions.module.scss";
-import { DotsHorizontalIcon } from "../../Layouts/Icons/icons";
 import ConversationOptionsList from "./ConversationOptionsList";
 
 function ConversationOptions({

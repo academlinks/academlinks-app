@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectActiveUser } from "../../../store/selectors/activeUserSelectors";
-import { formatDate } from "../../../lib";
 
+import { formatDate } from "lib";
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
+
+import { Avatar } from "components/Layouts";
 import styles from "./styles/userConstantInfo.module.scss";
-import { Avatar } from "../../Layouts";
 
 function UserConstantInfo() {
   const user = useSelector(selectActiveUser);

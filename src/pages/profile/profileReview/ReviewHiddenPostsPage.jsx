@@ -5,17 +5,18 @@ import { useSelector } from "react-redux";
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../../store/selectors/postSelectors";
-import { useProfileReviewQuery, useDocTitle } from "../../../hooks";
+} from "store/selectors/postSelectors";
+import { useDocTitle } from "hooks/layoutBased";
+import { useProfileReviewQuery } from "hooks/queries";
 
 import {
   Spinner,
   Error,
   EmptyContentMessage,
-} from "../../../components/Layouts";
-import ProfileReviewHiddenPosts from "../../../components/ProfileReview/ProfileReviewHiddenPosts";
+} from "components/Layouts";
+import ProfileReviewHiddenPosts from "components/ProfileReview/ProfileReviewHiddenPosts";
 
-function ReviewHiddenPosts() {
+function ReviewHiddenPostsPage() {
   useDocTitle("Profile | Hidden Posts");
 
   const { posts } = useSelector(selectPosts);
@@ -41,4 +42,4 @@ function ReviewHiddenPosts() {
   );
 }
 
-export default ReviewHiddenPosts;
+export default ReviewHiddenPostsPage;

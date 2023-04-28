@@ -5,13 +5,13 @@ import {
   selectAllConversations,
   selectAllConversationLoadingState,
   selectConversationChatLoadingState,
-} from "../../store/selectors/conversationSelectors.js";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { useConversationQuery } from "../../hooks/index.js";
-import { getConversationLastMsg } from "../../lib";
+} from "store/selectors/conversationSelectors.js";
+import { getConversationLastMsg } from "lib";
+import { useConversationQuery } from "hooks/queries";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
+import { Error, BlockSpinner } from "components/Layouts";
 import styles from "./components/styles/sideBar.module.scss";
-import { Error, BlockSpinner } from "../Layouts";
 import Conversation from "./components/Conversation";
 import UserSearchBar from "./components/UserSearchBar.jsx";
 

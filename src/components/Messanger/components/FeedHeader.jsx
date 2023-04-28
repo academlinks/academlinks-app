@@ -1,7 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 
-import { Avatar, GoBackBTN } from "../../Layouts";
 import styles from "./styles/feedHeader.module.scss";
+import { Avatar, GoBackBTN } from "components/Layouts";
 
 function FeedHeader({ adressat }) {
   const navigate = useNavigate();

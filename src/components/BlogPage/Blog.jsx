@@ -1,4 +1,4 @@
-import { useScroll } from "../../hooks";
+import { useScroll } from "hooks/util";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import "./components/Blog/styles/blogPageInfiniteScroll.scss";
@@ -9,7 +9,7 @@ import {
   CreateBlogPostTouch,
   ScrollEnd,
   BlockSpinner,
-} from "../Layouts";
+} from "components/Layouts";
 import { Stand, RightBar, CategoriesNav } from "./components/Blog";
 
 function Blog({ posts, hasMore, handleNext }) {

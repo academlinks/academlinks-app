@@ -1,8 +1,9 @@
-import { useRestrictBodyOverflow } from "../../../hooks";
-
 import Modal from "react-modal";
+
+import { useRestrictBodyOverflow } from "hooks/util";
+
+import { CloseIcon } from "components/Layouts/Icons";
 import styles from "./modal.module.scss";
-import { CloseIcon } from "../Icons/icons";
 
 Modal.setAppElement("#root");
 

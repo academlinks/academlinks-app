@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { TimeAgoAndAudience, Avatar } from "components/Layouts";
 import styles from "./userIdentifier.module.scss";
-import { TimeAgoAndAudience, Avatar } from "../";
 
 /**
  * shows user image||avatar, userName and timeAgo Text

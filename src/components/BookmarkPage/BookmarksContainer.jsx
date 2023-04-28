@@ -1,4 +1,4 @@
-import { useScroll } from "../../hooks";
+import { useScroll } from "hooks/util";
 import styles from "./styles/bookmarksContainer.module.scss";
 
 function BookmarksContainer({ children }) {

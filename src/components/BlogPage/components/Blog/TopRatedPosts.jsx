@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux";
+
 import {
   selectTopRatedBlogPosts,
   selectTopRatedBlogPostsLoadingState,
-} from "../../../../store/selectors/postSelectors";
+} from "store/selectors/postSelectors";
 
 import styles from "./styles/topRatedPosts.module.scss";
-import { BlogPost, Spinner, Error } from "../../../Layouts";
+import { BlogPost, Spinner, Error } from "components/Layouts";
 
 function TopRatedPosts() {
   const posts = useSelector(selectTopRatedBlogPosts);

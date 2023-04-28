@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { useRestrictAuthenticated } from '../../hooks';
+import { useRestrictAuthenticated } from 'hooks/auth';
 
 function RestrictionAuthorised() {
   useRestrictAuthenticated();

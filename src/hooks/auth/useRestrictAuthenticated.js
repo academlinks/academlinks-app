@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
 
 function useRestrictAuthenticated() {
   const { pathname } = useLocation();

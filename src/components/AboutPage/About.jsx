@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectAboutUserData } from "../../store/selectors/aboutPageSelectors";
+import { selectAboutUserData } from "store/selectors/aboutPageSelectors";
 
 import styles from "./about.module.scss";
 import {
@@ -11,7 +11,7 @@ import {
   RegisterFragment,
   EmailFragment,
   GenderFragment,
-} from "../Layouts";
+} from "components/Layouts";
 
 function NewVersion() {
   const data = useSelector(selectAboutUserData);

@@ -3,12 +3,13 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { useAboutUserQuery, useDocTitle } from "../../hooks";
-import { selectAboutPageState } from "../../store/selectors/aboutPageSelectors";
+import { useDocTitle } from "hooks/layoutBased";
+import { useAboutUserQuery } from "hooks/queries";
+import { selectAboutPageState } from "store/selectors/aboutPageSelectors";
 
-import About from "../../components/AboutPage/About";
-import AboutContainer from "../../components/AboutPage/AboutContainer";
-import { Spinner, Error } from "../../components/Layouts";
+import About from "components/AboutPage/About";
+import AboutContainer from "components/AboutPage/AboutContainer";
+import { Spinner, Error } from "components/Layouts";
 
 function AboutPage() {
   useDocTitle("Profile | About");

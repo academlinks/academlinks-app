@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
 
-import { selectCommentsLoadingState } from "../../../../store/selectors/commentsSelector";
-import {
-  useCommentPin,
-  useCommentsQuery,
-  useIsAuthenticatedUser,
-} from "../../../../hooks";
+import { useCommentPin } from "hooks/util";
+import { useCommentsQuery } from "hooks/queries";
+import { useIsAuthenticatedUser } from "hooks/auth";
+import { selectCommentsLoadingState } from "store/selectors/commentsSelector";
 
-import styles from "./styles/repliesThread.module.scss";
-import { Error } from "../..";
+import { Error } from "components/Layouts";
 import { Comment, ShowRepliesBTN, DraftForComments } from ".";
+import styles from "./styles/repliesThread.module.scss";
 
 function RepliesThread({ state, data, handlers }) {
   const { isAuthenticatedUser } = useIsAuthenticatedUser();

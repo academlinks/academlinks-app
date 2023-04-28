@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { selectUpdateableBirthDate } from "../../../../store/selectors/settingsSelector";
-import { useSettings, useSettingsQuery } from "../../../../hooks";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { selectUpdateableBirthDate } from "store/selectors/settingsSelector";
 
 import UpdateButtons from "./UpdateButtons";
-import { DateForm, Error, BlockSpinner } from "../../../Layouts";
+import { DateForm, Error, BlockSpinner } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function ChangeBirthDateForm() {

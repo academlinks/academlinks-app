@@ -2,13 +2,13 @@
 import { useEffect, Suspense } from "react";
 import { useSelector } from "react-redux";
 
-import { selectSettingsStatus } from "../../store/selectors/settingsSelector";
-import { useSettings } from "../../hooks";
+import { useSettings } from "hooks/layoutBased";
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
 
 import { toRender } from "./config";
+import { Spinner } from "components/Layouts";
 import ContentContainer from "./components/ContentContainer";
 import styles from "./components/styles/detailed.module.scss";
-import { Spinner } from "../Layouts";
 
 function ReadableContent() {
   const { target, isEditing, headingTitle } = useSelector(selectSettingsStatus);

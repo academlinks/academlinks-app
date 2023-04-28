@@ -5,17 +5,15 @@ import { useSelector } from "react-redux";
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../store/selectors/postSelectors";
+} from "store/selectors/postSelectors";
 
-import {
-  useRestrictPrivateRoute,
-  useBookmarksQuery,
-  useDocTitle,
-} from "../../hooks";
+import { useDocTitle } from "hooks/layoutBased";
+import { useBookmarksQuery } from "hooks/queries";
+import { useRestrictPrivateRoute } from "hooks/auth";
 
-import Bookmarks from "../../components/BookmarkPage/Bookmarks";
-import BookmarksContainer from "../../components/BookmarkPage/BookmarksContainer";
-import { Spinner, Error, EmptyContentMessage } from "../../components/Layouts";
+import Bookmarks from "components/BookmarkPage/Bookmarks";
+import BookmarksContainer from "components/BookmarkPage/BookmarksContainer";
+import { Spinner, Error, EmptyContentMessage } from "components/Layouts";
 
 function BookmarksPage() {
   useDocTitle("Profile | Bookmarks");

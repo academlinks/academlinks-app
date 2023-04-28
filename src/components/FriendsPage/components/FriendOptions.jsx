@@ -1,10 +1,7 @@
 import { useState } from "react";
 
+import { DotsHorizontalIcon, DeleteFriendIcon } from "components/Layouts/Icons";
 import styles from "./styles/friendOptions.module.scss";
-import {
-  DotsHorizontalIcon,
-  DeleteFriendIcon,
-} from "../../Layouts/Icons/icons";
 
 function FriendOptions({ deleteFriendHandler }) {
   const [open, setOpen] = useState(false);

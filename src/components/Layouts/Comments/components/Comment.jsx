@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 
-import { useCommentsQuery } from "../../../../hooks";
-import { selectActiveUserId } from "../../../../store/selectors/activeUserSelectors";
-import { selectCommentsLoadingState } from "../../../../store/selectors/commentsSelector";
-import { inverseLineBreaks } from "../../../../lib";
+import { inverseLineBreaks } from "lib";
+import { useCommentsQuery } from "hooks/queries";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { selectCommentsLoadingState } from "store/selectors/commentsSelector";
 
 import styles from "./styles/comment.module.scss";
-import { UserIdentifier, Tags, Error } from "../../";
-import { PinIcon } from "../../Icons/icons";
+import { UserIdentifier, Tags, Error } from "components/Layouts";
+import { PinIcon } from "components/Layouts/Icons";
 import { CommentContent, CommentActions } from "./";
 
 /**
@@ -74,7 +74,7 @@ function Comment({ type, data, handlers, className }) {
           </UserIdentifier>
           {comment.pin && <PinIcon className={styles.pinIcon} />}
         </div>
-        
+
         <CommentContent
           text={comment.text}
           likesCount={comment.likesAmount}

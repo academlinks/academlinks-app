@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
 import {
   ArrowLeftRectingle,
   HomeIcon,
   FeedIcon,
   TagIcon,
-} from "../Icons/icons";
-import { Avatar } from "../";
+} from "components/Layouts/Icons";
+import { Avatar } from "components/Layouts";
 import styles from "./sideBar.module.scss";
 
 function SideBar({ className, children }) {

@@ -7,12 +7,12 @@ import {
   useBlogQuery,
   useCommentsQuery,
   useCommercialQuery,
-  useDocTitle,
-} from "../../hooks";
-import { selectPostsLoadingState } from "../../store/selectors/postSelectors";
+} from "hooks/queries";
+import { useDocTitle } from "hooks/layoutBased";
+import { selectPostsLoadingState } from "store/selectors/postSelectors";
 
-import { ActiveBlogPost } from "../../components/BlogPage";
-import { StandSpinner, Error } from "../../components/Layouts";
+import { ActiveBlogPost } from "components/BlogPage";
+import { StandSpinner, Error } from "components/Layouts";
 
 function ActiveBlogPostPage() {
   useDocTitle("Blog | Article");

@@ -1,5 +1,5 @@
 import styles from "./styles/chatMessage.module.scss";
-import { Avatar,ParagraphsGenerator } from "../../Layouts";
+import { Avatar,ParagraphsGenerator } from "components/Layouts";
 
 function ChatMessage({ msgGroup, activeUserId, adressatImage }) {
   return (

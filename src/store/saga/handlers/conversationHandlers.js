@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setConversationError,
@@ -9,7 +9,9 @@ import {
   setDeletedConversation,
   setNewMessage,
   setMarkAsRead,
-} from "../../reducers/conversationReducer";
+} from "store/reducers/conversationReducer";
+
+import { setMarkedConversation } from "store/reducers/badgeReducer";
 
 import {
   queryGetAllConversations,
@@ -18,9 +20,8 @@ import {
   queryDeleteConversation,
   sendMessageQuery,
   markAsReadQuery,
-} from "../api/conversationQueries";
+} from "store/saga/api/conversationQueries";
 
-import { setMarkedConversation } from "../../reducers/badgeReducer";
 
 export function* getAllConversationsHandler({ payload: userId }) {
   try {

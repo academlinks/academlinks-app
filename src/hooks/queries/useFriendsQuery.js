@@ -11,7 +11,7 @@ import {
   getAllFriends,
   // NaN API Tasks
   resetRequestError,
-} from "../../store/reducers/friendsReducer";
+} from "store/reducers/friendsReducer";
 
 function useFriendsQuery() {
   const dispatch = useDispatch();

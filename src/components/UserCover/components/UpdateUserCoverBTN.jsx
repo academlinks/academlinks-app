@@ -1,5 +1,5 @@
+import { BTN } from "components/Layouts";
 import styles from "./styles/updateUserCoverBtn.module.scss";
-import { BTN } from "../../Layouts";
 
 function UpdateUserCoverBTN({ cancelHandler, submitHandler }) {
   return (

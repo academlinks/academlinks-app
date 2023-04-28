@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
+
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
 
 export default function useIsAuthenticatedUser() {
   const [isAuthenticatedUser, setIsAuthenticatedUser] = useState(false);

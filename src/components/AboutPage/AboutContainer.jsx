@@ -1,4 +1,4 @@
-import { useScroll } from "../../hooks";
+import { useScroll } from "hooks/util";
 import styles from "./aboutContainer.module.scss";
 
 function NewVersionContainer({ children }) {

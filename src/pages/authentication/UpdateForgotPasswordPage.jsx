@@ -1,5 +1,5 @@
-import UpdateForgotPassword from "../../components/Authentication/UpdateForgotPassword";
-import { useDocTitle } from "../../hooks";
+import UpdateForgotPassword from "components/Authentication/UpdateForgotPassword";
+import { useDocTitle } from "hooks/layoutBased";
 
 function UpdateForgotPasswordPage() {
   useDocTitle("");

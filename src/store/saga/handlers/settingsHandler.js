@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setUserInfo,
@@ -9,9 +9,9 @@ import {
   setDeletedUserInfo,
   setUpdatedPassword,
   setUpdatedEmail,
-} from "../../reducers/settingsReducer";
+} from "store/reducers/settingsReducer";
 
-import { setUserNewEmail } from "../../reducers/activeUserReducer";
+import { setUserNewEmail } from "store/reducers/activeUserReducer";
 
 import {
   addUserInfoQuery,
@@ -21,7 +21,7 @@ import {
   getUserInfoQuery,
   updateEmailQuery,
   updatePasswordQuery,
-} from "../api/settingsQueries";
+} from "store/saga/api/settingsQueries";
 
 export function* getUserInfoHandler({ payload }) {
   try {

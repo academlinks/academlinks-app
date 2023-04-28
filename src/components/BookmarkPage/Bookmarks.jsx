@@ -1,9 +1,10 @@
-import { usePost, useScroll } from "../../hooks";
+import { useScroll } from "hooks/util";
+import { usePost } from "hooks/layoutBased";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import "./styles/bookmarksInfiniteScroll.scss";
-import { Post, DeletedPost, ScrollEnd, BlockSpinner } from "../Layouts";
+import { Post, DeletedPost, ScrollEnd, BlockSpinner } from "components/Layouts";
 
 function Bookmarks({ hasMore, handleNext, posts }) {
   useScroll({

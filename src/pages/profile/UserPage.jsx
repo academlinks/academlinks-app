@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Outlet, useParams } from "react-router-dom";
 
-import { selectUserLoadingState } from "../../store/selectors/userSelectors";
-import { useUserProfileQuery, useDocTitle } from "../../hooks";
+import { useDocTitle } from "hooks/layoutBased";
+import { useUserProfileQuery } from "hooks/queries";
+import { selectUserLoadingState } from "store/selectors/userSelectors";
 
-import UserCover from "../../components/UserCover/UserCover";
-import { Error, StandSpinner } from "../../components/Layouts";
+import UserCover from "components/UserCover/UserCover";
+import { Error, StandSpinner } from "components/Layouts";
 
 function UserPage() {
   useDocTitle("Profile");

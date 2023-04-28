@@ -2,16 +2,14 @@
 import { useEffect, memo, useRef } from "react";
 import { useSelector } from "react-redux";
 
-import {
-  usePostQuery,
-  useRestrictBodyOverflow,
-  useCreatePost,
-} from "../../../hooks";
-import { selectCreatePost } from "../../../store/selectors/createPostSelectors";
+import { usePostQuery } from "hooks/queries";
+import { useCreatePost } from "hooks/layoutBased";
+import { useRestrictBodyOverflow } from "hooks/util";
+import { selectCreatePost } from "store/selectors/createPostSelectors";
 
-import styles from "./components/styles/createPost.module.scss";
 import { CreatePostTouch } from "./components";
 import CreatePostModal from "./CreatePostModal";
+import styles from "./components/styles/createPost.module.scss";
 
 const CreatePost = memo(({ className }) => {
   const {

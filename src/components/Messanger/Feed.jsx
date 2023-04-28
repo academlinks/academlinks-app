@@ -6,18 +6,17 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   selectActiveConversation,
   selectConversationChatLoadingState,
-} from "../../store/selectors/conversationSelectors";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { useConversationQuery } from "../../hooks";
+} from "store/selectors/conversationSelectors";
+import { useConversationQuery } from "hooks/queries";
+import { groupMessages, fixLineBreaks } from "lib";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
-import { groupMessages, fixLineBreaks } from "../../lib";
-
-import styles from "./components/styles/feed.module.scss";
-import FeedHeader from "./components/FeedHeader";
-import FeedMessagesList from "./components/FeedMessagesList";
-import { TextArea, Spinner, Error } from "../Layouts";
 
 import { checkDeletedUser } from "./SideBar";
+import FeedHeader from "./components/FeedHeader";
+import FeedMessagesList from "./components/FeedMessagesList";
+import { TextArea, Spinner, Error } from "components/Layouts";
+import styles from "./components/styles/feed.module.scss";
 
 function Feed() {
   const { pathname } = useLocation();

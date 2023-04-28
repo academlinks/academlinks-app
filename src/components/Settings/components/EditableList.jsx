@@ -2,8 +2,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { useSettings, useWindowDimention } from "../../../hooks";
-import { selectSettingsStatus } from "../../../store/selectors/settingsSelector";
+import { useSettings } from "hooks/layoutBased";
+import { useWindowDimention } from "hooks/util";
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
+
 import { editableKeysShort, detailedKeys } from "../config";
 
 import styles from "./styles/editableList.module.scss";

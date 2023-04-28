@@ -2,7 +2,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
+
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
 
 function useRestrictPrivateRoute() {
   const navigate = useNavigate();

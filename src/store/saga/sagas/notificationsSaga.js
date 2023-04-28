@@ -6,7 +6,7 @@ import {
   deleteAllNotification,
   markNotificationAsRead,
   markAllNotificationAsRead,
-} from "../../reducers/notificationReducer";
+} from "store/reducers/notificationReducer";
 
 import {
   getUserNotificationsHandler,
@@ -14,7 +14,7 @@ import {
   deleteAllUserNotificationHandler,
   markNotificationAsReadHandler,
   markAllNotificationAsReadHandler,
-} from "../handlers/notificationHandlers";
+} from "store/saga/handlers/notificationHandlers";
 
 export default function* notificationsSaga() {
   yield takeLatest(getNotifications, getUserNotificationsHandler);

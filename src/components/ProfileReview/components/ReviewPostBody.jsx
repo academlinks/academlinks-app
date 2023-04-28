@@ -1,7 +1,7 @@
-import { usePost } from "../../../hooks";
+import { usePost } from "hooks/layoutBased";
 
+import { Post, BTN } from "components/Layouts";
 import styles from "./styles/tagReviewPostBody.module.scss";
-import { Post, BTN } from "../../Layouts";
 
 function ReviewPostBody({
   onHiddens,

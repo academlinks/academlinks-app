@@ -3,19 +3,21 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
-import { selectAllBadgeCount } from "../../../store/selectors/badgeSelectors";
+import { useBlurOnBody } from "hooks/util";
+import { useBadgeQuery } from "hooks/queries";
+import { useNotifications } from "hooks/layoutBased";
 
-import { useBlurOnBody, useBadgeQuery, useNotifications } from "../../../hooks";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { selectAllBadgeCount } from "store/selectors/badgeSelectors";
 
-import styles from "./styles/navActions.module.scss";
-import { NavAvatar, NavSearchBar } from "./";
 import {
   UserFriendRequestsIcon,
   EmailIcon,
   NotificationIcon,
   BurgerIcon,
-} from "../../Layouts/Icons/icons";
+} from "components/Layouts/Icons";
+import { NavAvatar, NavSearchBar } from "./";
+import styles from "./styles/navActions.module.scss";
 
 function NavActions({ activateNav }) {
   const activeUserId = useSelector(selectActiveUserId);

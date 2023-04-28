@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleWare from 'redux-saga';
 import { persistStore } from 'redux-persist';
-import { rootReducer } from './reducers';
-import { initSagas } from './saga/initSagas';
+import { rootReducer } from 'store/reducers';
+import { initSagas } from 'store/saga/initSagas';
 
 const sagaMidleware = createSagaMiddleWare();
 

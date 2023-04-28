@@ -1,6 +1,6 @@
 import { useLocation, useParams, Link } from "react-router-dom";
 
-import { useForeignUser } from "../../../hooks";
+import { useForeignUser } from "hooks/auth";
 
 import styles from "./styles/profileNavigation.module.scss";
 

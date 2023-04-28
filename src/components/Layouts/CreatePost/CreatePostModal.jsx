@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
-import styles from "./components/styles/createPostModal.module.scss";
 import {
   Modal,
   UserIdentifier,
@@ -12,8 +11,9 @@ import {
   BTN,
   InlineStandSpinner,
   Error,
-} from "../";
+} from "components/Layouts";
 import { CreatePostMedia, CreatePostTouch } from "./components";
+import styles from "./components/styles/createPostModal.module.scss";
 
 function CreatePostModal({
   isOpen,

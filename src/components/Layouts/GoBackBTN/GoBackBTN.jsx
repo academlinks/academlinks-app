@@ -1,5 +1,5 @@
+import { ArrowLeftRectingle } from "components/Layouts/Icons";
 import styles from "./goBackBTN.module.scss";
-import { ArrowLeftRectingle } from "../Icons/icons";
 
 function GoBackBTN({ handler, className }) {
   return (

@@ -1,6 +1,6 @@
-import { extractRootEndPointFromImg } from "../../../../lib";
+import { extractRootEndPointFromImg } from "lib";
 
-import { Image } from "../../../Layouts";
+import { Image } from "components/Layouts";
 import styles from "./styles/postMedia.module.scss";
 
 function PostMedia({ activateMedia, media, className }) {

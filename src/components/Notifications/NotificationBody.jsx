@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import styles from "./styles/notificationBody.module.scss";
 import {
   DotsHorizontalIcon,
   DeleteIcon,
   ReadIcon,
-} from "../Layouts/Icons/icons";
-import { TimeAgo, Avatar } from "../Layouts";
+} from "components/Layouts/Icons";
+import { TimeAgo, Avatar } from "components/Layouts";
+import styles from "./styles/notificationBody.module.scss";
 
 function NotificationBody({
   notify,

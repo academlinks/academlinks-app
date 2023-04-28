@@ -1,6 +1,6 @@
-import styles from "./styles/sharePostHeader.module.scss";
 import { PostDescription } from "./";
-import { UserIdentifier, Tags } from "../../";
+import { UserIdentifier, Tags } from "components/Layouts";
+import styles from "./styles/sharePostHeader.module.scss";
 
 /**
  * if post is shared, here will be shown current user avatar and userName

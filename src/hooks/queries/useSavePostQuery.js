@@ -1,12 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import useHelperQuery from "./useHelperQuery";
 
-import { removeBookmark } from "../../store/reducers/postsDataReducer";
-import usePostQuery from "./usePostQuery";
+import { removeBookmark } from "store/reducers/postsDataReducer";
+import { usePostQuery, useHelperQuery } from "hooks/queries";
 
 function useSavePostQuery(postId) {
   const dispatch = useDispatch();

@@ -1,6 +1,7 @@
+import { extractRootEndPointFromImg } from "lib";
+
+import { Image } from "components/Layouts";
 import styles from "./avatar.module.scss";
-import { Image } from "../../Layouts";
-import { extractRootEndPointFromImg } from "../../../lib";
 
 function Avatar({
   img = "/img/profile-default.webp",

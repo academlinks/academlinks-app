@@ -4,7 +4,7 @@ import {
   searchUser,
   resetSearchResult,
   resetSearchError,
-} from "../../store/reducers/userReducer";
+} from "store/reducers/userReducer";
 
 export default function useSearchQuery() {
   const dispatch = useDispatch();

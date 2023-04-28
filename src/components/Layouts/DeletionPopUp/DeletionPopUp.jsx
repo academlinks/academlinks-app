@@ -1,5 +1,5 @@
+import { BTN } from "components/Layouts";
 import styles from "./deletionPopUp.module.scss";
-import { BTN } from "../../Layouts";
 
 function DeletionPopUp({ setDeletion, deleteHandler, keyWord, className }) {
   return (

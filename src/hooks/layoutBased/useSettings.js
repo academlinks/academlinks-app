@@ -20,7 +20,7 @@ import {
   resetWorkplace,
   updateCurrentWorkplace,
   resetCurrentWorkplace,
-} from "../../store/reducers/settingsReducer";
+} from "store/reducers/settingsReducer";
 
 export default function useSettings() {
   const dispatch = useDispatch();

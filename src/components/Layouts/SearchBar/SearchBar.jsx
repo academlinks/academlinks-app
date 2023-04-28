@@ -1,5 +1,5 @@
+import { SearchIcon } from "components/Layouts/Icons";
 import styles from "./searchBar.module.scss";
-import { SearchIcon } from "../Icons/icons";
 
 function SearchBar({
   value,

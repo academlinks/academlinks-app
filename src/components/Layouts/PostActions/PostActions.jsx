@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux";
 
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
-import { usePostQuery, usePost, useIsAuthenticatedUser } from "../../../hooks";
-import { destructurePostShareData } from "../../../lib/destructurers";
+import { usePost } from "hooks/layoutBased";
+import { usePostQuery } from "hooks/queries";
+import { useIsAuthenticatedUser } from "hooks/auth";
+import { destructurePostShareData } from "lib/destructurers";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
-import styles from "./components/postActions.module.scss";
 import { ReactionBTN, CommentBTN, ShareBTN } from "./components";
+import styles from "./components/postActions.module.scss";
 
 /**
  * is user in Post component as well as BlogPost component

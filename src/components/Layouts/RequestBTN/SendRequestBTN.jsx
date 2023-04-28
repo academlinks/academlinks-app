@@ -1,5 +1,5 @@
+import { AddToFriendsIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { AddToFriendsIcon } from '../Icons/icons';
 
 function SendRequestBTN({ onClick }) {
   return (

@@ -8,7 +8,7 @@ import {
   getUserInfo,
   updatePassword,
   updateEmail,
-} from "../../reducers/settingsReducer";
+} from "store/reducers/settingsReducer";
 
 import {
   addUserInfoHandler,
@@ -18,7 +18,7 @@ import {
   getUserInfoHandler,
   updatePasswordHandler,
   updateEmailHandler,
-} from "../handlers/settingsHandler";
+} from "store/saga/handlers/settingsHandler";
 
 export default function* settingsSaga() {
   yield takeLatest(getUserInfo, getUserInfoHandler);

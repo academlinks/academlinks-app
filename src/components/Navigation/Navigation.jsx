@@ -3,14 +3,14 @@ import { useEffect, useContext, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { IoContext } from "../../store/Io";
+import { IoContext } from "store/Io";
+import { useBlurOnBody } from "hooks/util";
+import { useBadgeQuery } from "hooks/queries";
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
 
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
-import { useBadgeQuery, useBlurOnBody } from "../../hooks";
-
-import styles from "./components/styles/navigation.module.scss";
+import { Logo } from "components/Layouts";
 import { NavActions, NavList } from "./components";
-import { Logo } from "../Layouts";
+import styles from "./components/styles/navigation.module.scss";
 
 function Navigation() {
   const { pathname } = useLocation();

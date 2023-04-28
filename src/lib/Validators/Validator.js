@@ -7,7 +7,7 @@ import {
   VALID_COUNTRIES,
 } from "../config";
 
-export class Validator {
+class Validator {
   _blogPostTitleMinLetterCount = 3;
 
   _blogPostMinWordCount = 300;
@@ -228,3 +228,5 @@ export class Validator {
     return { isEmptyDescription, isValidDescription, descriptionHasLeft };
   }
 }
+
+export default Validator;

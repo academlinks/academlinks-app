@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
-import { VALID_BLOG_POST_CATEGORIES } from "../../../lib/config";
+import { VALID_BLOG_POST_CATEGORIES } from "lib/config";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
 import {
   UserIdentifier,
@@ -13,7 +13,7 @@ import {
   Error,
   Select,
   Input,
-} from "../";
+} from "components/Layouts";
 import styles from "./components/styles/createBlogPostModal.module.scss";
 import { Labels, CreateBlogPostMedia } from "./components";
 

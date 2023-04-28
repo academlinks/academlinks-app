@@ -4,11 +4,11 @@ import {
   selectMediaModalIsOpen,
   selectActiveMediaIndex,
   selectMediaFiles,
-} from "../../store/selectors/portalSelectors";
-import { deactivateMediaModal } from "../../store/reducers/portalReducer";
+} from "store/selectors/portalSelectors";
+import { deactivateMediaModal } from "store/reducers/portalReducer";
 
 import styles from "./styles/mediaPortal.module.scss";
-import { Modal, SwiperSlider } from "../Layouts";
+import { Modal, SwiperSlider } from "components/Layouts";
 
 function MediaPortal() {
   const dispatch = useDispatch();

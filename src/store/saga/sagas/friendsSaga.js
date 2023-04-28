@@ -9,7 +9,7 @@ import {
   getAllFriends,
   getPendingRequests,
   getSentRequests,
-} from "../../reducers/friendsReducer";
+} from "store/reducers/friendsReducer";
 
 import {
   sendRequestHandler,
@@ -20,7 +20,7 @@ import {
   getAllFriendsHandler,
   getPendingRequestsHandler,
   getSentRequestsHandler,
-} from "../handlers/friendsHandlers";
+} from "store/saga/handlers/friendsHandlers";
 
 export default function* friendsSaga() {
   yield takeLatest(sendFriendRequest, sendRequestHandler);

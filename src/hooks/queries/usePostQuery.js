@@ -6,9 +6,9 @@ import {
   updatePost,
   setCreateBlogPostValidationError,
   setCreatePostValidationError,
-} from "../../store/reducers/createPostReducer";
+} from "store/reducers/createPostReducer";
 
-import { sharePost } from "../../store/reducers/portalReducer";
+import { sharePost } from "store/reducers/portalReducer";
 
 import {
   deletePost,
@@ -17,11 +17,11 @@ import {
   changePostAudience,
   // NaN API Tasks
   resetErrorOnPostOperation,
-} from "../../store/reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
 
-import { useValidateCreatePost } from "../";
+import { useValidateCreatePost } from "hooks/layoutBased";
 
-import { extractTagsFromDraft } from "../../lib";
+import { extractTagsFromDraft } from "lib";
 
 function usePostQuery() {
   const dispatch = useDispatch();

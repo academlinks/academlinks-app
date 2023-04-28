@@ -1,7 +1,8 @@
-import styles from "./components/styles/blogPost.module.scss";
+import { extractRootEndPointFromImg } from "lib";
+
 import { ReviewUserInteraction } from "./components";
-import { BlogPostIdentifier, Image, DraftReader } from "../../Layouts";
-import { extractRootEndPointFromImg } from "../../../lib";
+import { BlogPostIdentifier, Image, DraftReader } from "components/Layouts";
+import styles from "./components/styles/blogPost.module.scss";
 
 function BlogPost({ post, limitation = 170, className, referenced, id }) {
   return (

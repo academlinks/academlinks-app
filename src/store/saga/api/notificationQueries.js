@@ -1,4 +1,4 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery } from "store/axiosConfig";
 
 export async function queryUserNotifications(userId) {
   return await axiosQuery(`/notifications/${userId}`);

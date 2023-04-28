@@ -3,16 +3,14 @@ import { useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import {
-  useSettingsQuery,
-  useRestrictPrivateRoute,
-  useDocTitle,
-} from "../../hooks";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { selectSettingsStatus } from "../../store/selectors/settingsSelector";
+import { useDocTitle } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { useRestrictPrivateRoute } from "hooks/auth";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
 
-import { SettingsContainer, SideBar } from "../../components/Settings";
-import { Spinner, Error } from "../../components/Layouts";
+import { SettingsContainer, SideBar } from "components/Settings";
+import { Spinner, Error } from "components/Layouts";
 
 function Settings() {
   useDocTitle("Settings");

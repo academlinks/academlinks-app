@@ -7,12 +7,12 @@ import {
   selectAuthLoadingState,
   selectRegistrationLoadingState,
   selectIsExistingRequestAndSuccessMessage,
-} from "../../store/selectors/authenticationSelectors";
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
-import { useAuthenticationQuery } from "../../hooks";
+} from "store/selectors/authenticationSelectors";
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
+import { useAuthenticationQuery } from "hooks/queries";
 
 import styles from "./styles/auth.module.scss";
-import { BTN, Input, StandSpinner, Error } from "../Layouts";
+import { BTN, Input, StandSpinner, Error } from "components/Layouts";
 
 function RegistrationConfirmPassword() {
   const { registrationId, tokenId } = useParams();

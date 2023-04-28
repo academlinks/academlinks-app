@@ -1,7 +1,7 @@
-import { DeleteIcon, ReadIcon } from "../../Layouts/Icons/icons";
-import { useConversationQuery } from "../../../hooks";
+import { useConversationQuery } from "hooks/queries";
 
 import styles from "./styles/conversationOptionsList.module.scss";
+import { DeleteIcon, ReadIcon } from "components/Layouts/Icons";
 
 function ConversationOptionsList({
   setOpenConversationOption,

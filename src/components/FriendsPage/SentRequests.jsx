@@ -1,12 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from "react-redux";
 
-import { useFriendsQuery, useScroll } from "../../hooks";
-import { selectSentRequestsPageState } from "../../store/selectors/friendsSelector";
+import { useScroll } from "hooks/util";
+import { useFriendsQuery } from "hooks/queries";
+import { selectSentRequestsPageState } from "store/selectors/friendsSelector";
 
-import styles from "./components/styles/request.module.scss";
-import { CancelRequestBTN, Error, EmptyContentMessage } from "../Layouts";
+import {
+  CancelRequestBTN,
+  Error,
+  EmptyContentMessage,
+} from "components/Layouts";
 import RequestItemBody from "./components/RequestItemBody";
+import styles from "./components/styles/request.module.scss";
 
 function SentRequests() {
   const {

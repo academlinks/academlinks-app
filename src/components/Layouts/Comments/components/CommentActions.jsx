@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
-import { selectActiveUserId } from "../../../../store/selectors/activeUserSelectors";
-import { useIsAuthenticatedUser } from "../../../../hooks";
 
+import { useIsAuthenticatedUser } from "hooks/auth";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+
+import { TimeAgo } from "components/Layouts";
+import { LikeIcon, ReplyIcon } from "components/Layouts/Icons";
 import styles from "./styles/commentActions.module.scss";
-import { LikeIcon, ReplyIcon } from "../../Icons/icons";
-import { TimeAgo } from "../..";
 
 function CommentActions({ createdAt, reactions, handleReaction, handleReply }) {
   const { isAuthenticatedUser } = useIsAuthenticatedUser();

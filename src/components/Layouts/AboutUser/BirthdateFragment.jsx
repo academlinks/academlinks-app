@@ -1,6 +1,7 @@
+import { formatDate } from "lib";
+
 import { CalendarIcon } from "../Icons/icons";
 import FragmentWrapper from "./FragmentWrapper";
-import { formatDate } from "../../../lib";
 
 function BirthdateFragment({
   data,

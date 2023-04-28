@@ -1,16 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-
 import { useSelector } from "react-redux";
 
-import {
-  usePostQuery,
-  useRestrictBodyOverflow,
-  useCreatePost,
-} from "../../hooks";
-import { selectCreatePost } from "../../store/selectors/createPostSelectors";
+import { usePostQuery } from "hooks/queries";
+import { useCreatePost } from "hooks/layoutBased";
+import { useRestrictBodyOverflow } from "hooks/util";
+import { selectCreatePost } from "store/selectors/createPostSelectors";
 
-import { CreateBlogPostModal } from "../Layouts";
+import { CreateBlogPostModal } from "components/Layouts";
 
 function UpdateBlogPostPortal() {
   const {

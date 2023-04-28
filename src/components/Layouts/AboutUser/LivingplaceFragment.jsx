@@ -1,5 +1,5 @@
 import FragmentWrapper from "./FragmentWrapper";
-import { LocationIcon } from "../Icons/icons";
+import { LocationIcon } from "components/Layouts/Icons";
 
 function LivingplaceFragment({
   data,

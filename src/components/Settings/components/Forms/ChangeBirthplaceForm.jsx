@@ -2,13 +2,14 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { selectUpdateableBirthPlace } from "../../../../store/selectors/settingsSelector";
-import { useSettings, useSettingsQuery } from "../../../../hooks";
-import { VALID_COUNTRIES } from "../../../../lib/config";
+import { VALID_COUNTRIES } from "lib/config";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { selectUpdateableBirthPlace } from "store/selectors/settingsSelector";
 
-import styles from "../styles/detailed.module.scss";
 import UpdateButtons from "./UpdateButtons";
-import { Input, Error, BlockSpinner, Select } from "../../../Layouts";
+import { Input, Error, BlockSpinner, Select } from "components/Layouts";
+import styles from "../styles/detailed.module.scss";
 
 function ChangeBirthplaceForm() {
   const {

@@ -1,14 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { showError } from "./errorHandler";
-
-import {
-  getUnseenRequestsCountQuery,
-  markRequestsAsSeenQuery,
-  getUnseenConversationsCountQuery,
-  markConversationsAsSeenQuery,
-  getNotificationCountQuery,
-  markNotificationsAsSeenQuery,
-} from "../api/badgeQueries";
+import { showError } from "store/saga/handlers/errorHandler";
 
 import {
   setUnseenRequestsCount,
@@ -17,7 +8,16 @@ import {
   setResetedConversationsCount,
   setUnseenNotificationsCount,
   setResetedNotificationsCount,
-} from "../../reducers/badgeReducer";
+} from "store/reducers/badgeReducer";
+
+import {
+  getUnseenRequestsCountQuery,
+  markRequestsAsSeenQuery,
+  getUnseenConversationsCountQuery,
+  markConversationsAsSeenQuery,
+  getNotificationCountQuery,
+  markNotificationsAsSeenQuery,
+} from "store/saga/api/badgeQueries";
 
 export function* getUnseenRequestCountHandler({ payload: userId }) {
   try {

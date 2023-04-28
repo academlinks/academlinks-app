@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 
-import { useSettings, useSettingsQuery } from "../../../../hooks";
 import { editableKeys } from "../../config";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
 
-import { WorkplaceFragment } from "../../../Layouts";
 import AddBTN from "./AddBTN";
+import { WorkplaceFragment } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function WorkplaceDetails({ editable, withBtn = true }) {

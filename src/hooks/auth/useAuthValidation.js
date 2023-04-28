@@ -2,8 +2,8 @@ import { useEffect, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { selectActiveUser } from "../../store/selectors/activeUserSelectors";
-import { resetActiveUser } from "../../store/reducers/activeUserReducer";
+import { selectActiveUser } from "store/selectors/activeUserSelectors";
+import { resetActiveUser } from "store/reducers/activeUserReducer";
 
 function useAuthValidation() {
   const navigate = useNavigate();

@@ -1,6 +1,4 @@
-import { TimeAgo } from "../../Layouts";
-import Audience from "../Audience/Audience";
-
+import { TimeAgo,Audience } from "components/Layouts";
 import styles from "./timeAgoAndAudience.module.scss";
 
 function TimeAgoAndAudience({ timeAgo, audience }) {

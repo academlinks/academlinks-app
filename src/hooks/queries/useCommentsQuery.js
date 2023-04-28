@@ -14,9 +14,9 @@ import {
   getPostComments,
   // NaN API Handlers
   resetComments,
-} from "../../store/reducers/commentsDataReducer";
+} from "store/reducers/commentsDataReducer";
 
-import { extractTagsFromDraft } from "../../lib";
+import { extractTagsFromDraft } from "lib";
 
 function useCommentsQuery(thread, options, conditions) {
   const dispatch = useDispatch();

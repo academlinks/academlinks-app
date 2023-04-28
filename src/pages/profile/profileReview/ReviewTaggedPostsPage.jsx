@@ -5,19 +5,16 @@ import { useSelector } from "react-redux";
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../../store/selectors/postSelectors";
-import { useProfileReviewQuery, useDocTitle } from "../../../hooks";
+} from "store/selectors/postSelectors";
+import { useDocTitle } from "hooks/layoutBased";
+import { useProfileReviewQuery } from "hooks/queries";
 
-import {
-  Spinner,
-  Error,
-  EmptyContentMessage,
-} from "../../../components/Layouts";
-import ProfileReviewTaggedPosts from "../../../components/ProfileReview/ProfileReviewTaggedPosts";
+import { Spinner, Error, EmptyContentMessage } from "components/Layouts";
+import ProfileReviewTaggedPosts from "components/ProfileReview/ProfileReviewTaggedPosts";
 
-function ReviewTaggedPosts() {
+function ReviewTaggedPostsPage() {
   useDocTitle("Profile | Tagged Posts");
-  
+
   const { posts } = useSelector(selectPosts);
 
   const { loading, error, message } = useSelector(selectPostsLoadingState);
@@ -41,4 +38,4 @@ function ReviewTaggedPosts() {
   );
 }
 
-export default ReviewTaggedPosts;
+export default ReviewTaggedPostsPage;

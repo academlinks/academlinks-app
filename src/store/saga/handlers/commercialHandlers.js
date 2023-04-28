@@ -1,9 +1,9 @@
 import { call, put } from "redux-saga/effects";
-import { showError } from "./errorHandler";
+import { showError } from "store/saga/handlers/errorHandler";
 
-import { setCommercials } from "../../reducers/commercialReducer";
+import { setCommercials } from "store/reducers/commercialReducer";
 
-import { getCommercialsQuery } from "../api/commercialQueries";
+import { getCommercialsQuery } from "store/saga/api/commercialQueries";
 
 export function* getCommercialHandler({ payload }) {
   try {

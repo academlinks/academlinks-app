@@ -1,5 +1,5 @@
+import { Audience } from "components/Layouts";
 import styles from "./styles/optionsBody.module.scss";
-import { Audience } from "../";
 
 import {
   UpdateIcon,

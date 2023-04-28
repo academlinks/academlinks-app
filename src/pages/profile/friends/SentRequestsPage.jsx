@@ -2,19 +2,18 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  useRestrictPrivateRoute,
-  useFriendsQuery,
-  useDocTitle,
-} from "../../../hooks";
-import { resetFriends } from "../../../store/reducers/friendsReducer";
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
-import { selectSentRequestsPageState } from "../../../store/selectors/friendsSelector";
+import { useDocTitle } from "hooks/layoutBased";
+import { useFriendsQuery } from "hooks/queries";
+import { useRestrictPrivateRoute } from "hooks/auth";
 
-import { SentRequests as Requests } from "../../../components/FriendsPage";
-import { Spinner, Error } from "../../../components/Layouts";
+import { resetFriends } from "store/reducers/friendsReducer";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { selectSentRequestsPageState } from "store/selectors/friendsSelector";
 
-function SentRequests() {
+import { Spinner, Error } from "components/Layouts";
+import { SentRequests as Requests } from "components/FriendsPage";
+
+function SentRequestsPage() {
   useDocTitle("Friends | Sent Requests");
 
   useRestrictPrivateRoute();
@@ -40,4 +39,4 @@ function SentRequests() {
   );
 }
 
-export default SentRequests;
+export default SentRequestsPage;

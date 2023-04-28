@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { extractRootEndPointFromImg } from "../../../lib";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Thumbs } from "swiper";
 
@@ -8,7 +6,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { Image } from "../../Layouts";
+import { extractRootEndPointFromImg } from "lib";
+
+import { Image } from "components/Layouts";
 
 SwiperCore.use([Navigation, Thumbs]);
 

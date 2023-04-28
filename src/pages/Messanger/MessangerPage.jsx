@@ -6,18 +6,19 @@ import { useSelector } from "react-redux";
 import {
   selectNewConversationAlert,
   selectAllConversations,
-} from "../../store/selectors/conversationSelectors";
+} from "store/selectors/conversationSelectors";
+import { selectMessageCount } from "store/selectors/badgeSelectors";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
-import { selectMessageCount } from "../../store/selectors/badgeSelectors";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { IoContext } from "../../store/Io";
-import { useConversationQuery, useBadgeQuery, useDocTitle } from "../../hooks";
+import { IoContext } from "store/Io";
+import { useDocTitle } from "hooks/layoutBased";
+import { useConversationQuery, useBadgeQuery } from "hooks/queries";
 
-import MessangerContainer from "../../components/Messanger/MessangerContainer";
-import SideBar from "../../components/Messanger/SideBar";
-// import Feed from "../../components/Messanger/Feed";
+import MessangerContainer from "components/Messanger/MessangerContainer";
+import SideBar from "components/Messanger/SideBar";
+// import Feed from "components/Messanger/Feed";
 
-function Messanger() {
+function MessangerPage() {
   useDocTitle("Messanger");
 
   const { socket, socket_name_placeholders } = useContext(IoContext);
@@ -137,4 +138,4 @@ function Messanger() {
   );
 }
 
-export default Messanger;
+export default MessangerPage;

@@ -1,9 +1,10 @@
-import { usePost } from "../../hooks";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import { usePost } from "hooks/layoutBased";
+
+import { Post, CreatePost, ScrollEnd, BlockSpinner } from "components/Layouts";
 import "./styles/feedInfiniteScroll.scss";
 import styles from "./styles/feedContent.module.scss";
-import { Post, CreatePost, ScrollEnd, BlockSpinner } from "../Layouts";
 
 function FeedContent({ hasMore, handleNext, posts }) {
   const {

@@ -1,5 +1,5 @@
 import FragmentWrapper from "./FragmentWrapper";
-import { MaleIcon, FemaleIcon } from "../Icons/icons";
+import { MaleIcon, FemaleIcon } from "components/Layouts/Icons";
 
 function GenderFragment({
   data,

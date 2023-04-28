@@ -4,10 +4,10 @@ import {
   resetPosts,
   getFeedPosts,
   resetErrorOnLoadingState,
-} from "../../store/reducers/postsDataReducer";
-import { FEED_POSTS_COUNT_PER_REQ } from "../../lib/config";
-import { resetComments } from "../../store/reducers/commentsDataReducer";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+} from "store/reducers/postsDataReducer";
+import { resetComments } from "store/reducers/commentsDataReducer";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { FEED_POSTS_COUNT_PER_REQ } from "lib/config";
 
 export default function useFeedQuery() {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import { axiosQuery, axioss } from "../../axiosConfig";
+import { axiosQuery, axioss } from "store/axiosConfig";
 
 export async function queryPostComments(postId) {
   return await axioss(`/posts/${postId}/comments`);

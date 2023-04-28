@@ -1,11 +1,11 @@
 import { takeLatest } from "redux-saga/effects";
 
-import { searchUser, getUserProfile } from "../../reducers/userReducer";
+import { searchUser, getUserProfile } from "store/reducers/userReducer";
 
 import {
   searchUserHandler,
   getUserProfileHandler,
-} from "../handlers/userHandlers";
+} from "store/saga/handlers/userHandlers";
 
 export default function* userSaga() {
   yield takeLatest(getUserProfile, getUserProfileHandler);

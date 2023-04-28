@@ -1,5 +1,5 @@
 import FragmentWrapper from "./FragmentWrapper";
-import { EmailIcon } from "../Icons/icons";
+import { EmailIcon } from "components/Layouts/Icons";
 import styles from "./styles/fragmentWrapper.module.scss";
 
 function EmailFragment({

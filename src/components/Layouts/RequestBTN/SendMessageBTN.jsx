@@ -1,5 +1,5 @@
+import { EmailIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { EmailIcon } from '../Icons/icons';
 
 function SendMessageBTN({ onClick }) {
   return (
