@@ -1,6 +1,6 @@
 import { Validator } from "lib/Validators";
 
-export default class ValidateBlogPostCreate extends Validator {
+export default class ValidateCreateBlogPost extends Validator {
   createError = {
     error: false,
     title: {
