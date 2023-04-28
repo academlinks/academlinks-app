@@ -1,6 +1,6 @@
 import { Validator } from "lib/Validators";
 
-export default class ValidateConfirmRegister extends Validator {
+export default class ValidateConfirmRegistration extends Validator {
   error = {
     hasError: false,
     message: "",
