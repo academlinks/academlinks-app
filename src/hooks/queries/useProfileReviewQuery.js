@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   showOnProfile,
   removeTag,
@@ -7,11 +8,11 @@ import {
   resetPosts,
   getHiddenPosts,
   getPendingPosts,
-} from "../../store/reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
 
-import { resetComments } from "../../store/reducers/commentsDataReducer";
+import { resetComments } from "store/reducers/commentsDataReducer";
 
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
 function useProfileReviewQuery() {
   const dispatch = useDispatch();

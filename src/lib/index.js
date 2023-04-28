@@ -9,14 +9,3 @@ export { default as extractRootEndPointFromImg } from "./extractRootEndPointFrom
 export { default as generateLowerCaseData } from "./generateLowerCaseData";
 export { default as generateLinks } from "./generateLinks";
 export { default as extractTagsFromDraft } from "./extractTagsFromDraft";
-
-// validators
-
-export { default as ValidateCreateBlogPost } from "./Validators/validateCreateBlogPost";
-export { default as ValidateCreatePost } from "./Validators/validateCreatePost";
-export { default as ValidateUserInfo } from "./Validators/validateUserInfo";
-export { default as ValidateRegistrationInfo } from "./Validators/validateRegistrationInfo";
-export { default as ValidateLogin } from "./Validators/validateLogin";
-export { default as ValidateConfirmRegistration } from "./Validators/validateConfirmRegistration";
-export { default as ValidateForgotPassword } from "./Validators/validateForgotPassword";
-export { default as ValidateUpdateForgotPassword } from "./Validators/validateUpdateForgotPassword";

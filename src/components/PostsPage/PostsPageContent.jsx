@@ -1,6 +1,6 @@
-import { useForeignUser } from "../../hooks";
+import { useForeignUser } from "hooks/auth";
 
-import { CreatePost } from "../Layouts";
+import { CreatePost } from "components/Layouts";
 import PostsPagePostsList from "./components/PostsPagePostsList";
 
 function PostsPageContent({ posts, infinite }) {

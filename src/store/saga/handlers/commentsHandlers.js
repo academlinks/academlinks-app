@@ -1,5 +1,5 @@
 import { all, call, put, select } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setCommentsError,
@@ -14,7 +14,12 @@ import {
   setReactionOnCommentReply,
   setPinnedComment,
   setPinnedCommentReply,
-} from "../../reducers/commentsDataReducer";
+} from "store/reducers/commentsDataReducer";
+
+import {
+  encreasePostCommentCount,
+  decreasePostCommentCount,
+} from "store/reducers/postsDataReducer";
 
 import {
   queryPostComments,
@@ -28,12 +33,7 @@ import {
   queryReactionOnCommentReply,
   queryPinComment,
   queryPinCommentReply,
-} from "../api/commentsQueries";
-
-import {
-  encreasePostCommentCount,
-  decreasePostCommentCount,
-} from "../../reducers/postsDataReducer";
+} from "store/saga/api/commentsQueries";
 
 export function* getPostsCommentsHandler({ payload: postId }) {
   try {

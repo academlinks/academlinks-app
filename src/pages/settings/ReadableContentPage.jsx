@@ -1,4 +1,4 @@
-import { ReadableContent } from "../../components/Settings";
+import { ReadableContent } from "components/Settings";
 
 function ReadableContentPage() {
   return <ReadableContent />;

@@ -6,9 +6,9 @@ import {
   sendRegistrationRequest,
   sendForgotPassword,
   updateForgotPassword,
-} from "../../reducers/authenticationReducer";
+} from "store/reducers/authenticationReducer";
 
-import { login, logOut, deleteAccount } from "../../reducers/activeUserReducer";
+import { login, logOut, deleteAccount } from "store/reducers/activeUserReducer";
 
 import {
   loginHandler,
@@ -19,7 +19,7 @@ import {
   sendForgotPasswordHandler,
   sendUpdateForgotPasswordHandler,
   deleteAccountHandler,
-} from "../handlers/authenticationHandlers";
+} from "store/saga/handlers/authenticationHandlers";
 
 export default function* authenticationSaga() {
   yield takeLatest(login, loginHandler);

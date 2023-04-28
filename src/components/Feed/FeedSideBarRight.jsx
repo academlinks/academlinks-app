@@ -1,11 +1,11 @@
 import { memo } from "react";
+import { useSelector } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
-import { extractRootEndPointFromImg } from "../../lib";
+
+import { extractRootEndPointFromImg } from "lib";
+import { selectCommercialsRight } from "store/selectors/commercialSelectors";
 
 import styles from "./styles/feedSideBar.module.scss";
-
-import { useSelector } from "react-redux";
-import { selectCommercialsRight } from "../../store/selectors/commercialSelectors";
 
 const SideBarRight = memo(() => {
   const commercials = useSelector(selectCommercialsRight);

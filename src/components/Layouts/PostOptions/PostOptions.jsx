@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { useBlurOnBody } from '../../../hooks';
+import { useBlurOnBody } from "hooks/util";
 
-import styles from './styles/postOptions.module.scss';
-import DeletionPopUp from '../DeletionPopUp/DeletionPopUp';
-import OptionsBody from './OptionsBody';
-import { DotsHorizontalIcon } from '../Icons/icons';
+import OptionsBody from "./OptionsBody";
+import { DeletionPopUp } from "components/Layouts";
+import { DotsHorizontalIcon } from "components/Layouts/Icons";
+import styles from "./styles/postOptions.module.scss";
 
 function PostOptions({
   postId,
@@ -39,8 +39,8 @@ function PostOptions({
   const handleOnBlur = () => setOpen(false);
 
   const { blur, onFocus } = useBlurOnBody(handleOnFocus, handleOnBlur, [
-    'options--big--modal--window',
-    'options--big--modal--window--btn',
+    "options--big--modal--window",
+    "options--big--modal--window--btn",
   ]);
 
   return (
@@ -48,8 +48,9 @@ function PostOptions({
       <button
         onClick={onFocus}
         data-opt-btn
-        title='post options'
-        className={`${styles.openPostOptBtn} options--big--modal--window--btn`}>
+        title="post options"
+        className={`${styles.openPostOptBtn} options--big--modal--window--btn`}
+      >
         <DotsHorizontalIcon />
       </button>
       {open && !blur && (
@@ -64,7 +65,11 @@ function PostOptions({
         />
       )}
       {deletion && (
-        <DeletionPopUp setDeletion={setDeletion} deleteHandler={handleDelete} keyWord='post' />
+        <DeletionPopUp
+          setDeletion={setDeletion}
+          deleteHandler={handleDelete}
+          keyWord="post"
+        />
       )}
     </>
   );

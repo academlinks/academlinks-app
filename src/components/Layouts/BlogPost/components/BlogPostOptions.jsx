@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./styles/blogPostOptions.module.scss";
 import BlogPostOptionsBody from "./BlogPostOptionsBody";
 
-import { DotsHorizontalIcon } from "../../../Layouts/Icons/icons";
+import { DotsHorizontalIcon } from "components/Layouts/Icons";
 
 function BlogPostOptions({ postId }) {
   const [open, setOpen] = useState(false);

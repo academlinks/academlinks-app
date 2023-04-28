@@ -1,9 +1,10 @@
 import { useLocation, NavLink } from "react-router-dom";
 import { nanoid } from "@reduxjs/toolkit";
-import { VALID_BLOG_POST_CATEGORIES } from "../../../../lib/config";
+
+import { VALID_BLOG_POST_CATEGORIES } from "lib/config";
 
 import styles from "./styles/categoriesNav.module.scss";
-import { MultiCarousel } from "../../../Layouts";
+import { MultiCarousel } from "components/Layouts";
 
 const responsive = {
   desktop: {

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectPostOnZero } from "../../store/selectors/postSelectors";
+import { selectPostOnZero } from "store/selectors/postSelectors";
 
 import styles from "./components/ActiveBlogPost/styles/activeBlogPost.module.scss";
 import { LeftBar, RightBar, Content } from "./components/ActiveBlogPost";

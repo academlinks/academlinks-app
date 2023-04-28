@@ -1,9 +1,9 @@
 // import { useEffect, useState } from "react";
-// import { useWindowDimention } from "../../../hooks";
+// import { useWindowDimention } from "hooks/utils";
 
-import styles from "./components/styles/postAuthentic.module.scss";
 import { PostDescription, PostMedia } from "./components";
-import { UserIdentifier, BlogPost, Tags, DeletedPost } from "..";
+import { UserIdentifier, BlogPost, Tags, DeletedPost } from "components/Layouts";
+import styles from "./components/styles/postAuthentic.module.scss";
 
 /**
  * @Intro this element has three division, all of them are described below but in general and common to all, this element has one root element and shows user avatar, post description and post media files if post is shared or not. But if post is shared root element will get different className("shareAuthentic") and sets elements in different order. If this root element has not this className, elements row will be rendered in standard order. After All this element checks post type "post"||"blogPost" and shows up appropriate element Post||BlogPost. Both of the information, TYPE and SHARED, must be passed as a prop in all the cases.

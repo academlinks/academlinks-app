@@ -2,20 +2,20 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import activeUserReducer from "./activeUserReducer";
-import userReducer from "./userReducer";
-import postsDataReducer from "./postsDataReducer";
-import commentsDataReducer from "./commentsDataReducer";
-import aboutReducer from "./aboutReducer";
-import createPostReducer from "./createPostReducer";
-import portalReducer from "./portalReducer";
-import friendsReducer from "./friendsReducer";
-import conversationReducer from "./conversationReducer";
-import badgeReducer from "./badgeReducer";
-import settingsReducer from "./settingsReducer";
-import notificationReducer from "./notificationReducer";
-import commercialReducer from "./commercialReducer";
-import authenticationReducer from "./authenticationReducer";
+import activeUserReducer from "store/reducers/activeUserReducer";
+import userReducer from "store/reducers/userReducer";
+import postsDataReducer from "store/reducers/postsDataReducer";
+import commentsDataReducer from "store/reducers/commentsDataReducer";
+import aboutReducer from "store/reducers/aboutReducer";
+import createPostReducer from "store/reducers/createPostReducer";
+import portalReducer from "store/reducers/portalReducer";
+import friendsReducer from "store/reducers/friendsReducer";
+import conversationReducer from "store/reducers/conversationReducer";
+import badgeReducer from "store/reducers/badgeReducer";
+import settingsReducer from "store/reducers/settingsReducer";
+import notificationReducer from "store/reducers/notificationReducer";
+import commercialReducer from "store/reducers/commercialReducer";
+import authenticationReducer from "store/reducers/authenticationReducer";
 
 const persistedActvieUserConfig = {
   key: "ActiveUser",

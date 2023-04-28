@@ -1,12 +1,13 @@
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setSearchKey } from "../../store/reducers/friendsReducer";
-import { useForeignUser, useScroll } from "../../hooks";
-import { selectSearchKey } from "../../store/selectors/friendsSelector";
+import { useScroll } from "hooks/util";
+import { useForeignUser } from "hooks/auth";
+import { setSearchKey } from "store/reducers/friendsReducer";
+import { selectSearchKey } from "store/selectors/friendsSelector";
 
 import styles from "./components/styles/friendsPageNavigation.module.scss";
-import { SearchBar } from "../Layouts";
+import { SearchBar } from "components/Layouts";
 
 function Friends() {
   useScroll({ target: "elem", scrollTo: "friends__page--navigation-bar" });

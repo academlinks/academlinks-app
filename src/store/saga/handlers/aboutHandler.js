@@ -1,9 +1,9 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
-import { setUserAboutData, setAboutError } from "../../reducers/aboutReducer";
+import { setUserAboutData, setAboutError } from "store/reducers/aboutReducer";
 
-import { queryUserAboutData } from "../api/aboutQueries";
+import { queryUserAboutData } from "store/saga/api/aboutQueries";
 
 export function* getUserAboutDataHandler({ payload: userId }) {
   try {

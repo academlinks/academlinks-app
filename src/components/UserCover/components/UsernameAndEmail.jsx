@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectUserNameAndEmail } from "../../../store/selectors/userSelectors";
+
+import { selectUserNameAndEmail } from "store/selectors/userSelectors";
 
 import styles from "./styles/usernameAndEmail.module.scss";
 

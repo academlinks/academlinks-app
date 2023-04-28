@@ -1,5 +1,5 @@
 import styles from "./styles/fragmentWrapper.module.scss";
-import { EditIcon, DeleteIcon } from "../Icons/icons";
+import { EditIcon, DeleteIcon } from "components/Layouts/Icons";
 
 function FragmentWrapper({
   icon,

@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { isRoute } from "lib/window-location";
 
-import { isRoute } from "../../../lib/window-location";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setRequestError,
@@ -13,7 +13,9 @@ import {
   setSentRequests,
   setCanceledRequest,
   setDeletedFriend,
-} from "../../reducers/friendsReducer";
+} from "store/reducers/friendsReducer";
+
+import { setNewFriend } from "store/reducers/userReducer";
 
 import {
   querySendRequest,
@@ -24,9 +26,8 @@ import {
   queryGetAllFriends,
   queryGetPendingRequests,
   queryGetSentRequests,
-} from "../api/friendsQueries";
+} from "store/saga/api/friendsQueries";
 
-import { setNewFriend } from "../../reducers/userReducer";
 
 export function* sendRequestHandler({ payload: userId }) {
   try {

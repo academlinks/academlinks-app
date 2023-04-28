@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { useSettingsQuery } from "../../../../hooks";
-import { selectActiveUserLoadingState } from "../../../../store/selectors/activeUserSelectors";
+import { useSettingsQuery } from "hooks/queries";
+import { selectActiveUserLoadingState } from "store/selectors/activeUserSelectors";
 
+import { Input, BTN, BlockSpinner, Error } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
-import { Input, BTN, BlockSpinner, Error } from "../../../Layouts";
 
 function DeleteAccountForm() {
   const { loading, error, message } = useSelector(selectActiveUserLoadingState);

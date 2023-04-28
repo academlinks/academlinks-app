@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import styles from './styles/commentOptions.module.scss';
-import { DotsHorizontalIcon, DeleteIcon, PinIcon, UpdateIcon } from '../../Icons/icons';
-import DeletionPopUp from '../../DeletionPopUp/DeletionPopUp';
+import {
+  DotsHorizontalIcon,
+  DeleteIcon,
+  PinIcon,
+  UpdateIcon,
+} from "components/Layouts/Icons";
+import { DeletionPopUp } from "components/Layouts";
+import styles from "./styles/commentOptions.module.scss";
 
 function CommentOptions({
   commentBelongsToActiveUser,
@@ -30,7 +35,8 @@ function CommentOptions({
         <div className={styles.commentOptBox}>
           <button
             className={styles.commentOptMainBtn}
-            onClick={() => setOpenOptions((prevState) => !prevState)}>
+            onClick={() => setOpenOptions((prevState) => !prevState)}
+          >
             <DotsHorizontalIcon />
           </button>
           {openOptions && (
@@ -41,7 +47,8 @@ function CommentOptions({
                   onClick={() => {
                     pinHandler();
                     setOpenOptions(false);
-                  }}>
+                  }}
+                >
                   <PinIcon />
                   <span>pin</span>
                 </button>
@@ -52,7 +59,8 @@ function CommentOptions({
                   onClick={() => {
                     updateHandler();
                     setOpenOptions(false);
-                  }}>
+                  }}
+                >
                   <UpdateIcon />
                   <span>update</span>
                 </button>
@@ -60,7 +68,8 @@ function CommentOptions({
               {(postBelongsToActiveUser || commentBelongsToActiveUser) && (
                 <button
                   className={`${styles.optBtn} ${styles.deleteBtn}`}
-                  onClick={handleDeletePopUp}>
+                  onClick={handleDeletePopUp}
+                >
                   <DeleteIcon />
                   <span>delete</span>
                 </button>
@@ -70,7 +79,11 @@ function CommentOptions({
         </div>
       )}
       {deletion && (
-        <DeletionPopUp setDeletion={setDeletion} deleteHandler={handleDelete} keyWord='comment' />
+        <DeletionPopUp
+          setDeletion={setDeletion}
+          deleteHandler={handleDelete}
+          keyWord="comment"
+        />
       )}
     </>
   );

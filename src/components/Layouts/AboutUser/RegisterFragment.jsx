@@ -1,7 +1,7 @@
-import { formatDate } from "../../../lib";
+import { formatDate } from "lib";
 
 import FragmentWrapper from "./FragmentWrapper";
-import { RotateIcon } from "../Icons/icons";
+import { RotateIcon } from "components/Layouts/Icons";
 
 function RegisterFragment({
   data,

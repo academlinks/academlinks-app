@@ -1,12 +1,14 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { StandSpinner } from "./components/Layouts";
-import { Navigation } from "./components";
+import {
+  RestrictionAuthorised,
+  RestrictionUnAuthorised,
+  UnauthorisedPortals,
+} from "pages";
 
-import RestrictionAuthorised from "./pages/authentication/RestrictionAuthorised";
-import RestrictionUnAuthorised from "./pages/authentication/RestrictionUnAuthorised";
-import UnauthorisedPortals from "./pages/authentication/UnauthorisedPortals";
+import { Navigation } from "./components";
+import { StandSpinner } from "./components/Layouts";
 
 // SECTION: > Wellcome Page
 const WellcomePage = lazy(() => import("./pages/WellcomePage"));
@@ -16,7 +18,7 @@ const UnknownPage = lazy(() => import("./pages/UnknownPage/UnknownPage"));
 
 // SECTION: > Authentication Pages
 const LoginPage = lazy(() => import("./pages/authentication/LoginPage"));
-const Register = lazy(() => import("./pages/authentication/Register"));
+const RegisterPage = lazy(() => import("./pages/authentication/RegisterPage"));
 const ForgotPasswordPage = lazy(() =>
   import("./pages/authentication/ForgotPasswordPage")
 );
@@ -28,34 +30,34 @@ const RegistrationConfirmPasswordPage = lazy(() =>
 );
 
 // SECTION: > Feed Page
-const Feed = lazy(() => import("./pages/feed/Feed"));
+const FeedPage = lazy(() => import("./pages/feed/FeedPage"));
 
 // SECTION: > Profile Pages
 const UserPage = lazy(() => import("./pages/profile/UserPage"));
 const PostsPage = lazy(() => import("./pages/profile/PostsPage"));
-const About = lazy(() => import("./pages/profile/AboutPage"));
+const AboutPage = lazy(() => import("./pages/profile/AboutPage"));
 const BookmarksPage = lazy(() => import("./pages/profile/BookmarksPage"));
 
-const Friends = lazy(() => import("./pages/profile/friends/Friends"));
-const AllFriends = lazy(() => import("./pages/profile/friends/AllFriends"));
-const SentRequests = lazy(() => import("./pages/profile/friends/SentRequests"));
-const PendingRequests = lazy(() =>
-  import("./pages/profile/friends/PendingRequests")
+const FriendsPage = lazy(() => import("./pages/profile/friends/FriendsPage"));
+const AllFriendsPage = lazy(() => import("./pages/profile/friends/AllFriendsPage"));
+const SentRequestsPage = lazy(() => import("./pages/profile/friends/SentRequestsPage"));
+const PendingRequestsPage = lazy(() =>
+  import("./pages/profile/friends/PendingRequestsPage")
 );
 
-const ProfileReview = lazy(() =>
-  import("./pages/profile/profileReview/ProfileReview")
+const ProfileReviewPage = lazy(() =>
+  import("./pages/profile/profileReview/ProfileReviewPage")
 );
-const ReviewTaggedPosts = lazy(() =>
-  import("./pages/profile/profileReview/ReviewTaggedPosts")
+const ReviewTaggedPostsPage = lazy(() =>
+  import("./pages/profile/profileReview/ReviewTaggedPostsPage")
 );
-const ReviewHiddenPosts = lazy(() =>
-  import("./pages/profile/profileReview/ReviewHiddenPosts")
+const ReviewHiddenPostsPage = lazy(() =>
+  import("./pages/profile/profileReview/ReviewHiddenPostsPage")
 );
 
 // SECTION: > Messanger
-const Messanger = lazy(() => import("./pages/Messanger/Messanger"));
-const MessangerFeed = lazy(() => import("./pages/Messanger/MessangerFeed"));
+const MessangerPage = lazy(() => import("./pages/Messanger/MessangerPage"));
+const MessangerFeedPage = lazy(() => import("./pages/Messanger/MessangerFeedPage"));
 
 // SECTION: > Settings
 const SettingsPage = lazy(() => import("./pages/settings/Settings"));
@@ -71,7 +73,7 @@ const BlogPage = lazy(() => import("./pages/blog/BlogPage"));
 const ActiveBlogPost = lazy(() => import("./pages/blog/ActiveBlogPostPage"));
 
 // SECTION: > Redirected Post
-const Post = lazy(() => import("./pages/Post/Post"));
+const PostPage = lazy(() => import("./pages/Post/PostPage"));
 
 function App() {
   return (
@@ -84,7 +86,7 @@ function App() {
           <Route element={<RestrictionAuthorised />}>
             <Route path="/" element={<WellcomePage />} />
             <Route path="/authentication/login" element={<LoginPage />} />
-            <Route path="/authentication/register" element={<Register />} />
+            <Route path="/authentication/register" element={<RegisterPage />} />
             <Route
               path="/authentication/forgot-password"
               element={<ForgotPasswordPage />}
@@ -99,26 +101,26 @@ function App() {
             />
           </Route>
           <Route element={<RestrictionUnAuthorised />}>
-            <Route path="/feed" element={<Feed />} />
+            <Route path="/feed" element={<FeedPage />} />
             <Route path="/profile/:id" element={<UserPage />}>
               <Route path="posts" element={<PostsPage />} />
-              <Route path="about" element={<About />} />
-              <Route path="friends" element={<Friends />}>
-                <Route path="all-friends" element={<AllFriends />} />
-                <Route path="sent-requests" element={<SentRequests />} />
-                <Route path="pending-requests" element={<PendingRequests />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="friends" element={<FriendsPage />}>
+                <Route path="all-friends" element={<AllFriendsPage />} />
+                <Route path="sent-requests" element={<SentRequestsPage />} />
+                <Route path="pending-requests" element={<PendingRequestsPage />} />
               </Route>
               <Route path="bookmarks" element={<BookmarksPage />} />
-              <Route path="profile-review" element={<ProfileReview />}>
-                <Route path="tags" element={<ReviewTaggedPosts />} />
-                <Route path="hidden" element={<ReviewHiddenPosts />} />
+              <Route path="profile-review" element={<ProfileReviewPage />}>
+                <Route path="tags" element={<ReviewTaggedPostsPage />} />
+                <Route path="hidden" element={<ReviewHiddenPostsPage />} />
               </Route>
             </Route>
-            <Route path="/post/:id" element={<Post />} />
+            <Route path="/post/:id" element={<PostPage />} />
             <Route path="/blog" element={<BlogPage />} />
 
-            <Route path="/messanger" element={<Messanger />}>
-              <Route path=":id" element={<MessangerFeed />} />
+            <Route path="/messanger" element={<MessangerPage />}>
+              <Route path=":id" element={<MessangerFeedPage />} />
             </Route>
             <Route path="/settings/:id" element={<SettingsPage />}>
               <Route index element={<ReadableSettingsContentPage />} />

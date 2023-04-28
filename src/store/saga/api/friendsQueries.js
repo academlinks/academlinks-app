@@ -1,4 +1,4 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery } from "store/axiosConfig";
 
 export async function querySendRequest(userId) {
   return await axiosQuery.post(`/user/${userId}/request`);

@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
 
-import { selectActiveUserShortInfo } from "../../../../store/selectors/activeUserSelectors";
-// import { selectActiveSelectedMedia } from "../../../../store/selectors/createPostSelectors";
+import { useCreatePost } from "hooks/layoutBased";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
+// import { selectActiveSelectedMedia } from "store/selectors/createPostSelectors";
 
+import { UserIdentifier } from "components/Layouts";
+import { MultiMediaIcon } from "components/Layouts/Icons";
 import styles from "./styles/createPostTouch.module.scss";
-import { MultiMediaIcon } from "../../Icons/icons";
-import { UserIdentifier } from "../../";
-
-import { useCreatePost } from "../../../../hooks";
 
 /**
  * is component which one firstly communicates to the user, so the component which is represented before modal open

@@ -1,5 +1,5 @@
+import { ConfirmFriendRequestIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { ConfirmFriendRequestIcon } from '../Icons/icons';
 
 function ConfirmRequestBtn({ onClick }) {
   return (

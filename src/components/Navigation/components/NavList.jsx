@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
+
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 import styles from "./styles/navList.module.scss";
 
 function NavList({ activeNav, onBlurHandler }) {

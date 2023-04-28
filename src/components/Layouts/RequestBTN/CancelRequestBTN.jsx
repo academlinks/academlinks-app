@@ -1,5 +1,5 @@
+import { CancelFriendRequestIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { CancelFriendRequestIcon } from '../Icons/icons';
 
 function CancelRequestBTN({ onClick }) {
   return (

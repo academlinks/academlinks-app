@@ -1,5 +1,5 @@
-import DraftEditor from "../../TextArea/DraftEditor";
-import { SendIcon } from "../../Icons/icons";
+import { DraftEditor } from "components/Layouts";
+import { SendIcon } from "components/Layouts/Icons";
 import styles from "./styles/draftForComments.module.scss";
 
 function DraftForComments({ submitCommentQuery, setCommentText, text }) {

@@ -1,8 +1,8 @@
-import { usePostQuery } from "../../../hooks";
+import { usePostQuery } from "hooks/queries";
 
+import { ErrorIcon } from "components/Layouts/Icons";
+import { PostOptions } from "components/Layouts";
 import styles from "./deletedPost.module.scss";
-import { ErrorIcon } from "../Icons/icons";
-import PostOptions from "../PostOptions/PostOptions";
 
 function DeletedPost({ postId, showOptions = true }) {
   const { savePostQuery } = usePostQuery();

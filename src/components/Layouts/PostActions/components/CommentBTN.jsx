@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CommentIcon } from "../../../Layouts/Icons/icons";
+
+import { CommentIcon } from "components/Layouts/Icons";
 
 function CommentBTN({
   redirect = false,

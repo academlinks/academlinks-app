@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 
-import { useSettings } from "../../../../hooks";
+import { useSettings } from "hooks/layoutBased";
 import { editableKeys } from "../../config";
 
-import { WorkplaceFragment } from "../../../Layouts";
+import { WorkplaceFragment } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function CurrentWorkplaceDetails({ editable }) {

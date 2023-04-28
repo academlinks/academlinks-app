@@ -5,7 +5,8 @@ import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
 import createMentionsPlugin from "@draft-js-plugins/mention";
 import Editor from "@draft-js-plugins/editor";
 import createLinkifyPlugin from "@draft-js-plugins/linkify";
-import { axiosQuery } from "../../../store/axiosConfig";
+
+import { axiosQuery } from "store/axiosConfig";
 
 function DraftEditor({ text, setText, className, placeholder }) {
   // configure plugins

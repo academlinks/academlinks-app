@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
-import { extractRootEndPointFromImg } from "../../../lib";
+import { extractRootEndPointFromImg } from "lib";
 
-import { useUpdateUserCover, useForeignUser } from "../../../hooks";
-import { selectUserCover } from "../../../store/selectors/userSelectors";
+import { useForeignUser } from "hooks/auth";
+import { useUpdateUserCover } from "hooks/layoutBased";
+import { selectUserCover } from "store/selectors/userSelectors";
 
-import styles from "./styles/coverImage.module.scss";
-import { Image, Spinner } from "../../Layouts";
-import { CameraIcon } from "../../Layouts/Icons/icons";
+import { Image, Spinner } from "components/Layouts";
+import { CameraIcon } from "components/Layouts/Icons";
 import UpdateUserCoverBTN from "./UpdateUserCoverBTN";
+import styles from "./styles/coverImage.module.scss";
 
 function CoverImage({ mediaHandler }) {
   const { coverImg } = useSelector(selectUserCover);

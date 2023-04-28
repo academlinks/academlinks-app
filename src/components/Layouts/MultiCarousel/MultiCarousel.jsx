@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import styles from "./multiCarousel.module.scss";
-import { ArrowLeftRectingle, ArrowRightRectingle } from "../Icons/icons";
+import { ArrowLeftRectingle, ArrowRightRectingle } from "components/Layouts/Icons";
 
 const responsive = {
   desktop: {

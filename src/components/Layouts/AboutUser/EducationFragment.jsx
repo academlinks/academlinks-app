@@ -1,7 +1,7 @@
-import { formatDate } from "../../../lib";
+import { formatDate } from "lib";
 
 import FragmentWrapper from "./FragmentWrapper";
-import { GraduationIcon } from "../../Layouts/Icons/icons";
+import { GraduationIcon } from "components/Layouts/Icons";
 
 function EducationFragment({
   data,

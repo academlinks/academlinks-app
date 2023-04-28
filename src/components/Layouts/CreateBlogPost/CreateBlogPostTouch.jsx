@@ -1,20 +1,17 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import {
-  usePostQuery,
-  useCreatePost,
-  useRestrictBodyOverflow,
-} from "../../../hooks";
-import { selectCreatePost } from "../../../store/selectors/createPostSelectors";
-import { selectActiveUserShortInfo } from "../../../store/selectors/activeUserSelectors";
+import { fixLineBreaks } from "lib";
+import { usePostQuery } from "hooks/queries";
+import { useCreatePost } from "hooks/layoutBased";
+import { useRestrictBodyOverflow } from "hooks/util";
+import { selectCreatePost } from "store/selectors/createPostSelectors";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
-import { fixLineBreaks } from "../../../lib";
-
-import styles from "./components/styles/createBlogPostTouch.module.scss";
 import CreateBlogPostModal from "./CreateBlogPostModal";
-import { MultiMediaIcon } from "../Icons/icons";
-import { UserIdentifier } from "../";
+import { MultiMediaIcon } from "components/Layouts/Icons";
+import { UserIdentifier } from "components/Layouts";
+import styles from "./components/styles/createBlogPostTouch.module.scss";
 
 function CreateBlogPostTouch({ className }) {
   const { userName, image } = useSelector(selectActiveUserShortInfo);

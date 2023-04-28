@@ -1,4 +1,4 @@
-import { ValidateCreateBlogPost, ValidateCreatePost } from "../../lib";
+import { ValidateCreateBlogPost, ValidateCreatePost } from "lib/Validators";
 
 export default function useValidateCreatePost() {
   function validateCreateBlogPost(credentials) {

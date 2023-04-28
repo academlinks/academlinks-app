@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
+import { SendIcon } from "components/Layouts/Icons";
 import styles from "./styles/textArea.module.scss";
-import { SendIcon } from "../Icons/icons";
 
 function TextArea({
   handler = (text) => {},

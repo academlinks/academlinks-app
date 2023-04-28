@@ -3,12 +3,12 @@ import { useEffect, Suspense } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { selectSettingsStatus } from "../../store/selectors/settingsSelector";
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
 
 import { toRender } from "./config";
+import { Spinner } from "components/Layouts";
 import ContentContainer from "./components/ContentContainer";
 import styles from "./components/styles/detailed.module.scss";
-import { Spinner } from "../Layouts";
 
 function EditableContent() {
   const navigate = useNavigate();

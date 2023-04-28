@@ -1,9 +1,10 @@
-import { nanoid } from "@reduxjs/toolkit";
-import styles from "./styles/sideBar.module.scss";
-import { extractRootEndPointFromImg } from "../../../../lib";
-
 import { useSelector } from "react-redux";
-import { selectCommercialsRight } from "../../../../store/selectors/commercialSelectors";
+import { nanoid } from "@reduxjs/toolkit";
+
+import { extractRootEndPointFromImg } from "lib";
+import { selectCommercialsRight } from "store/selectors/commercialSelectors";
+
+import styles from "./styles/sideBar.module.scss";
 
 function RightBar() {
   const commercials = useSelector(selectCommercialsRight);

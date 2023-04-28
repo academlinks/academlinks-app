@@ -1,4 +1,4 @@
-import { DraftReader } from "../../";
+import { DraftReader } from "components/Layouts";
 import styles from "./styles/postDescription.module.scss";
 
 function PostDescription({ description, className }) {

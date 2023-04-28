@@ -5,18 +5,19 @@ import { useSelector } from "react-redux";
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../store/selectors/postSelectors";
-import { useFeedQuery, useCommercialQuery, useDocTitle } from "../../hooks";
+} from "store/selectors/postSelectors";
+import { useDocTitle } from "hooks/layoutBased";
+import { useFeedQuery, useCommercialQuery } from "hooks/queries";
 
 import {
   FeedContainer,
   FeedContent,
   FeedSideBarRight,
   FeedSideBarLeft,
-} from "../../components/Feed";
-import { StandSpinner, Error } from "../../components/Layouts";
+} from "components/Feed";
+import { StandSpinner, Error } from "components/Layouts";
 
-function Feed() {
+function FeedPage() {
   useDocTitle("Feed");
 
   const { loading, error, message } = useSelector(selectPostsLoadingState);
@@ -66,4 +67,4 @@ function Feed() {
   );
 }
 
-export default Feed;
+export default FeedPage;

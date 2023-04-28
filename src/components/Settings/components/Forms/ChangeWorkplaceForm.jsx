@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { selectUpdateableWorkplace } from "../../../../store/selectors/settingsSelector";
-import { useSettings, useSettingsQuery } from "../../../../hooks";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { selectUpdateableWorkplace } from "store/selectors/settingsSelector";
 
 import {
   Input,
@@ -12,7 +13,7 @@ import {
   DateForm,
   Error,
   BlockSpinner,
-} from "../../../Layouts";
+} from "components/Layouts";
 import UpdateButtons from "./UpdateButtons";
 import styles from "../styles/detailed.module.scss";
 

@@ -3,14 +3,14 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { useAuthenticationQuery } from "../../hooks";
 import {
   selectAuthLoadingState,
   selectResetPasswordIsSuccessfullySet,
-} from "../../store/selectors/authenticationSelectors";
+} from "store/selectors/authenticationSelectors";
+import { useAuthenticationQuery } from "hooks/queries";
 
+import { Input, StandSpinner, Error } from "components/Layouts";
 import styles from "./styles/auth.module.scss";
-import { Input, StandSpinner, Error } from "../Layouts";
 
 function ForgotPassword() {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import styles from "./unknowPage.module.scss";
-import { ArrowLeftRectingle } from "../../components/Layouts/Icons/icons";
+import { ArrowLeftRectingle } from "components/Layouts/Icons";
 
 function UnknownPage() {
   const navigate = useNavigate();

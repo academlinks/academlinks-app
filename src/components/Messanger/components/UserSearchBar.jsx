@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { useUserSearch, useConversationQuery } from "../../../hooks";
-import { selectSearchLoadingState } from "../../../store/selectors/userSelectors";
-import { extractRootEndPointFromImg } from "../../../lib";
+import { extractRootEndPointFromImg } from "lib";
+import { useConversationQuery, useUserSearch } from "hooks/queries";
+import { selectSearchLoadingState } from "store/selectors/userSelectors";
 
-import { SearchBar, Spinner, Error } from "../../Layouts";
+import { SearchBar, Spinner, Error } from "components/Layouts";
 import styles from "./styles/userSearchBar.module.scss";
 
 function UserSearchBar() {

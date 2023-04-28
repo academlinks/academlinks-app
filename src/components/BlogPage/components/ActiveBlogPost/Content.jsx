@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 import styles from "./styles/content.module.scss";
 import { Media, Article, RelatedPosts } from "./";
-import { PostActions, CommentsList } from "../../../Layouts";
+import { PostActions, CommentsList } from "components/Layouts";
 
 function Content({ post }) {
   const [showComments, setShowComments] = useState(false);

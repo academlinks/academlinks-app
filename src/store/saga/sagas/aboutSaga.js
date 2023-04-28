@@ -1,8 +1,8 @@
 import { takeLatest } from "redux-saga/effects";
 
-import { getUserAboutData } from "../../reducers/aboutReducer";
+import { getUserAboutData } from "store/reducers/aboutReducer";
 
-import { getUserAboutDataHandler } from "../handlers/aboutHandler";
+import { getUserAboutDataHandler } from "store/saga/handlers/aboutHandler";
 
 export default function* aboutSaga() {
   yield takeLatest(getUserAboutData, getUserAboutDataHandler);

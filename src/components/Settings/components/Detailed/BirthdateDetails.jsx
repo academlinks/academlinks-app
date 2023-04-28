@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 
-import { useSettings, useSettingsQuery } from "../../../../hooks";
 import { editableKeys } from "../../config";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
 
-import { BirthdateFragment } from "../../../Layouts";
 import AddBTN from "./AddBTN";
+import { BirthdateFragment } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function BirthdateDetails({ editable, withBtn = true }) {

@@ -1,4 +1,4 @@
-import { ShareIcon } from "../../../Layouts/Icons/icons";
+import { ShareIcon } from "components/Layouts/Icons";
 
 function ShareBTN({ shareHandler }) {
   return (

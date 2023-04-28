@@ -1,5 +1,5 @@
+import { SpinnerIcon } from 'components/Layouts/Icons';
 import styles from './spinner.module.scss';
-import { SpinnerIcon } from '../../Layouts/Icons/icons';
 
 function StandSpinner() {
   return (

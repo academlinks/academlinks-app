@@ -1,6 +1,6 @@
+import { MultiCarousel } from "components/Layouts";
+import { MultiMediaIcon, CloseXIcon } from "components/Layouts/Icons";
 import styles from "./styles/createBlogPostMedia.module.scss";
-import { MultiCarousel } from "../../";
-import { MultiMediaIcon, CloseXIcon } from "../../Icons/icons";
 
 const responsive = {
   desktop: {

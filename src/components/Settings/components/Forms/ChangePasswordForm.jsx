@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { useSettingsQuery } from "../../../../hooks";
-import { selectUpdateableStatus } from "../../../../store/selectors/settingsSelector";
+import { useSettingsQuery } from "hooks/queries";
+import { selectUpdateableStatus } from "store/selectors/settingsSelector";
 
 import styles from "../styles/detailed.module.scss";
-import { Input, BTN, BlockSpinner, Error } from "../../../Layouts";
+import { Input, BTN, BlockSpinner, Error } from "components/Layouts";
 
 function ChangePasswordForm() {
   const { loading, error, message } = useSelector(selectUpdateableStatus);

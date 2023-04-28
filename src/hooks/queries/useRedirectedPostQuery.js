@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
+
 import {
   getPost,
   resetPosts,
   resetErrorOnPostOperation,
   resetErrorOnLoadingState,
-} from "../../store/reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
 
 export default function useRedirectedPostQuery() {
   const dispatch = useDispatch();

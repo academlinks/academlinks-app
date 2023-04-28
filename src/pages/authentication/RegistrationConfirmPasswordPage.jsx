@@ -1,5 +1,5 @@
-import { RegistrationConfirmPassword } from "../../components/Authentication";
-import { useDocTitle } from "../../hooks";
+import { RegistrationConfirmPassword } from "components/Authentication";
+import { useDocTitle } from "hooks/layoutBased";
 
 function RegistrationConfirmPasswordPage() {
   useDocTitle("");

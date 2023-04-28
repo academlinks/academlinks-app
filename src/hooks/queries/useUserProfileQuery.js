@@ -1,8 +1,6 @@
 import { useDispatch } from "react-redux";
-import {
-  getUserProfile,
-  resetUserError,
-} from "../../store/reducers/userReducer";
+
+import { getUserProfile, resetUserError } from "store/reducers/userReducer";
 
 export default function useUserProfileQuery() {
   const dispatch = useDispatch();

@@ -1,5 +1,6 @@
+import { useScroll } from 'hooks/util';
+
 import styles from './styles/feedContainer.module.scss';
-import { useScroll } from '../../hooks';
 
 function Container({ children }) {
   useScroll({ target: 'window'});

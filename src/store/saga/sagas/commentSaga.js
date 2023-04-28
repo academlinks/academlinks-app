@@ -12,7 +12,7 @@ import {
   reactOnCommentReply,
   pinCommentReply,
   getPostComments,
-} from "../../reducers/commentsDataReducer";
+} from "store/reducers/commentsDataReducer";
 
 import {
   getPostsCommentsHandler,
@@ -26,7 +26,7 @@ import {
   reactOnCommentReplyHandler,
   pinCommentHandler,
   pinCommentReplyHandler,
-} from "../handlers/commentsHandlers";
+} from "store/saga/handlers/commentsHandlers";
 
 export default function* commentsSaga() {
   yield takeLatest(getPostComments, getPostsCommentsHandler);

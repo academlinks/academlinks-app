@@ -3,22 +3,20 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { useNotifications } from "hooks/layoutBased";
+import { useNotificationQuery, useBadgeQuery } from "hooks/queries";
+
 import {
   selectNotifications,
   selectNotificationsLoadingState,
-} from "../../store/selectors/notificationSelectors";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-import { selectNotificationCount } from "../../store/selectors/badgeSelectors";
+} from "store/selectors/notificationSelectors";
 
-import {
-  useNotificationQuery,
-  useBadgeQuery,
-  useNotifications,
-} from "../../hooks";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { selectNotificationCount } from "store/selectors/badgeSelectors";
 
 import styles from "./styles/notifications.module.scss";
 import NotificationBody from "./NotificationBody";
-import { BlockSpinner, Error } from "../Layouts";
+import { BlockSpinner, Error } from "components/Layouts";
 
 function Notifications() {
   const navigate = useNavigate();
@@ -123,7 +121,7 @@ function Notifications() {
         {!loading && !error && !notifications[0] && (
           <p className={styles.message}>there are no notifications</p>
         )}
-        
+
         {error && task === "get" && <Error msg={message} />}
       </div>
 

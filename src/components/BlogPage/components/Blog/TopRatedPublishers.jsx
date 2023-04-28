@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { useLocation, Link } from "react-router-dom";
-import { extractRootEndPointFromImg } from "../../../../lib";
 
+import { extractRootEndPointFromImg } from "lib";
 import {
   selectTopRatedPublishers,
   selectTopRatedPublishersLoadingState,
-} from "../../../../store/selectors/postSelectors";
+} from "store/selectors/postSelectors";
 
 import styles from "./styles/topRatedPublishers.module.scss";
-import { Image, Spinner, Error } from "../../../Layouts";
+import { Image, Spinner, Error } from "components/Layouts";
 
 function TopRatedPublishers() {
   const { state: pathState } = useLocation();

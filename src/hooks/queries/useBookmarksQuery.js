@@ -1,13 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { BOOKMARKS_POSTS_COUNT_PER_REQ } from "../../lib/config";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+import { BOOKMARKS_POSTS_COUNT_PER_REQ } from "lib/config";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
-import {
-  resetPosts,
-  getBookmarks,
-} from "../../store/reducers/postsDataReducer";
-import { resetComments } from "../../store/reducers/commentsDataReducer";
+import { resetPosts, getBookmarks } from "store/reducers/postsDataReducer";
+import { resetComments } from "store/reducers/commentsDataReducer";
 
 export default function useBookmarksQuery() {
   const dispatch = useDispatch();

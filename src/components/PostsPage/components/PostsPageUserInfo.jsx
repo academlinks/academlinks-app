@@ -1,16 +1,17 @@
 // import moment from 'moment';
 import { useSelector } from "react-redux";
-import { selectUserInfo } from "../../../store/selectors/userSelectors";
-import { formatDate } from "../../../lib";
 
-import styles from "./styles/postsPageUserInfo.module.scss";
+import { formatDate } from "lib";
+import { selectUserInfo } from "store/selectors/userSelectors";
+
 import {
   CalendarIcon,
   LocationIcon,
   CaseIcon,
   PersonIcon,
   RotateIcon,
-} from "../../Layouts/Icons/icons";
+} from "components/Layouts/Icons";
+import styles from "./styles/postsPageUserInfo.module.scss";
 
 function PostsPageUserInfo() {
   const {

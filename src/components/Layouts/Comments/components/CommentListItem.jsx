@@ -1,8 +1,8 @@
 import {
   useComments,
   useScrollOnNotifyAtCommentReply,
-} from "../../../../hooks";
-import { destructureCommentRepliesProps } from "../../../../lib/destructurers";
+} from "hooks/layoutBased";
+import { destructureCommentRepliesProps } from "lib/destructurers";
 
 import { Comment, RepliesThread } from "./";
 

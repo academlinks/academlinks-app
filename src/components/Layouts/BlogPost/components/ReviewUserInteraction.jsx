@@ -1,12 +1,12 @@
-import { useIsAuthenticatedUser } from "../../../../hooks";
+import { useIsAuthenticatedUser } from "hooks/auth";
 
-import styles from "./styles/reviewUserInteraction.module.scss";
 import {
   LikeIcon,
   DislikeIcon,
   CommentIcon,
-} from "../../../Layouts/Icons/icons";
+} from "components/Layouts/Icons";
 import BlogPostOptions from "./BlogPostOptions";
+import styles from "./styles/reviewUserInteraction.module.scss";
 
 function ReviewUserInteraction({
   commentsAmount,

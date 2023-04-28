@@ -1,4 +1,4 @@
-import { axiosQuery, axioss } from "../../axiosConfig";
+import { axiosQuery, axioss } from "store/axiosConfig";
 
 export async function loginQuery(body) {
   return await axioss.post("/authentication/login", body);

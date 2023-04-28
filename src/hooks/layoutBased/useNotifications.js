@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectIsActiveNotifications } from "../../store/selectors/notificationSelectors";
-
-import { setActiveNotifications } from "../../store/reducers/notificationReducer";
+import { selectIsActiveNotifications } from "store/selectors/notificationSelectors";
+import { setActiveNotifications } from "store/reducers/notificationReducer";
 
 export default function useNotifications() {
   const dispatch = useDispatch();

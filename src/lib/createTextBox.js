@@ -1,4 +1,4 @@
-import { fixLineBreaks, generateLinks } from "./";
+import { fixLineBreaks, generateLinks } from "lib";
 import { nanoid } from "@reduxjs/toolkit";
 
 export default function createTextBox({ str, id, parentClass, childClass }) {

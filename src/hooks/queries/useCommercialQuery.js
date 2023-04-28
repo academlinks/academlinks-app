@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { getCommercials } from "../../store/reducers/commercialReducer";
+import { getCommercials } from "store/reducers/commercialReducer";
 
 export default function useCommercialQuery() {
   const dispatch = useDispatch();

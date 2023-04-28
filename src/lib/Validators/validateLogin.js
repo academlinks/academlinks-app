@@ -1,4 +1,4 @@
-import { Validator } from "./validators";
+import { Validator } from "lib/Validators";
 
 export default class ValidateLogin extends Validator {
   error = {

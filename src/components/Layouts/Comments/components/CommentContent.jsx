@@ -1,9 +1,9 @@
-import { useForeignUser } from "../../../../hooks";
+import { useForeignUser } from "hooks/auth";
 
-import styles from "./styles/commentContent.module.scss";
 import CommentOptions from "./CommentOptions";
-import { LikeIcon } from "../../../Layouts/Icons/icons";
-import { DraftReader } from "../../../Layouts";
+import { LikeIcon } from "components/Layouts/Icons";
+import { DraftReader } from "components/Layouts";
+import styles from "./styles/commentContent.module.scss";
 
 /**
  * renders comment text and options

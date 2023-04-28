@@ -3,14 +3,15 @@ import { useSelector } from "react-redux";
 // import Cropper from "react-easy-crop";
 // import getCroppedImg from "../../../lib/cropImage";
 
-import { selectUserCover } from "../../../store/selectors/userSelectors";
-import { useUpdateUserCover, useForeignUser } from "../../../hooks";
-import { extractRootEndPointFromImg } from "../../../lib";
+import { extractRootEndPointFromImg } from "lib";
+import { useForeignUser } from "hooks/auth";
+import { useUpdateUserCover } from "hooks/layoutBased";
+import { selectUserCover } from "store/selectors/userSelectors";
 
-import styles from "./styles/profileImage.module.scss";
-import { Image, Spinner } from "../../Layouts";
-import { CameraIcon } from "../../Layouts/Icons/icons";
+import { Image, Spinner } from "components/Layouts";
+import { CameraIcon } from "components/Layouts/Icons";
 import UpdateUserCoverBTN from "./UpdateUserCoverBTN";
+import styles from "./styles/profileImage.module.scss";
 
 function ProfileImage({ mediaHandler }) {
   const { profileImg } = useSelector(selectUserCover);

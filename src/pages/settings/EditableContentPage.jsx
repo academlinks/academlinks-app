@@ -1,4 +1,4 @@
-import { EditableContent } from "../../components/Settings";
+import { EditableContent } from "components/Settings";
 
 function EditableContentPage() {
   return <EditableContent />;

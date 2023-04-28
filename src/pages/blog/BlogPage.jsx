@@ -6,11 +6,12 @@ import { useLocation } from "react-router-dom";
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../store/selectors/postSelectors";
-import { useBlogQuery, useDocTitle } from "../../hooks";
+} from "store/selectors/postSelectors";
+import { useBlogQuery } from "hooks/queries";
+import { useDocTitle } from "hooks/layoutBased";
 
-import { Blog } from "../../components/BlogPage";
-import { StandSpinner, Error } from "../../components/Layouts";
+import { Blog } from "components/BlogPage";
+import { StandSpinner, Error } from "components/Layouts";
 
 function BlogPage() {
   useDocTitle("Blog");

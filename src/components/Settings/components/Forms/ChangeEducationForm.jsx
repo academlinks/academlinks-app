@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { selectUpdateableEducation } from "../../../../store/selectors/settingsSelector";
-import { useSettings, useSettingsQuery } from "../../../../hooks";
-import { VALID_DEGREES } from "../../../../lib/config";
+import { VALID_DEGREES } from "lib/config";
+import { useSettings } from "hooks/layoutBased";
+import { useSettingsQuery } from "hooks/queries";
+import { selectUpdateableEducation } from "store/selectors/settingsSelector";
 
 import {
   Input,
@@ -14,7 +15,7 @@ import {
   Error,
   BlockSpinner,
   Select,
-} from "../../../Layouts";
+} from "components/Layouts";
 import UpdateButtons from "./UpdateButtons";
 import styles from "../styles/detailed.module.scss";
 

@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
+import { useIsAuthenticatedUser } from "hooks/auth";
+import { useCreatePost } from "hooks/layoutBased";
+import { usePostQuery, useProfileReviewQuery } from "hooks/queries";
+import { destructurePostUpdateData } from "lib/destructurers";
+
 import {
-  usePostQuery,
-  useProfileReviewQuery,
-  useCreatePost,
-  useIsAuthenticatedUser,
-} from "../../../../hooks";
+  BlogPostIdentifier,
+  PostOptions,
+  DraftReader,
+} from "components/Layouts";
 import styles from "./styles/article.module.scss";
-import { destructurePostUpdateData } from "../../../../lib/destructurers";
-import { BlogPostIdentifier, PostOptions, DraftReader } from "../../../Layouts";
 
 function Article({ post }) {
   const { isAuthenticatedUser } = useIsAuthenticatedUser();

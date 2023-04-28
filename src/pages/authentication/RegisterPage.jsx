@@ -1,5 +1,5 @@
-import { Register } from "../../components/Authentication";
-import { useDocTitle } from "../../hooks";
+import { Register } from "components/Authentication";
+import { useDocTitle } from "hooks/layoutBased";
 
 function RegisterPage() {
   useDocTitle("Register");

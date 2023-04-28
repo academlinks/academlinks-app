@@ -1,12 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+import { useDispatch, useSelector } from "react-redux";
 
-import {
-  ValidateUserInfo,
-  destructureFormData,
-  generateLowerCaseData,
-} from "../../lib";
+import { ValidateUserInfo } from "lib/Validators";
+import { destructureFormData, generateLowerCaseData } from "lib";
 
 import {
   addUserInfo,
@@ -16,9 +12,10 @@ import {
   getUserInfo,
   updatePassword,
   updateEmail,
-} from "../../store/reducers/settingsReducer";
+} from "store/reducers/settingsReducer";
 
-import { deleteAccount } from "../../store/reducers/activeUserReducer";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { deleteAccount } from "store/reducers/activeUserReducer";
 
 export default function useSettingsQuery() {
   const dispatch = useDispatch();

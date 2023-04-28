@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
 /**
  * @param {*} basedOn basedOnId | basedOnLocation

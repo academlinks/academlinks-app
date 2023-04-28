@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 import {
   selectAuthLoadingState,
   selectPasswordIsSuccessfullyUpdated,
-} from "../../store/selectors/authenticationSelectors";
-import { useAuthenticationQuery } from "../../hooks";
+} from "store/selectors/authenticationSelectors";
+import { useAuthenticationQuery } from "hooks/queries";
 
+import { Input, StandSpinner, Error } from "components/Layouts";
 import styles from "./styles/auth.module.scss";
-import { Input, StandSpinner, Error } from "../Layouts";
 
 function UpdateForgotPassword() {
   const navigate = useNavigate();

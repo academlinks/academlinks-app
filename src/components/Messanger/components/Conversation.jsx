@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { selectActiveUserId } from "../../../store/selectors/activeUserSelectors";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
+import { Avatar } from "components/Layouts";
 import styles from "./styles/conversation.module.scss";
-import { Avatar } from "../../Layouts";
 import ConversationInfoBox from "./ConversationInfoBox";
 import ConversationOptions from "./ConversationOptions";
 

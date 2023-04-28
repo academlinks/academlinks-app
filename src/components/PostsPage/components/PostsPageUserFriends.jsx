@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { extractRootEndPointFromImg } from "../../../lib";
 
-import { selectUserInfo } from "../../../store/selectors/userSelectors";
+import { extractRootEndPointFromImg } from "lib";
+import { selectUserInfo } from "store/selectors/userSelectors";
 
+import { Image } from "components/Layouts";
 import styles from "./styles/postsPageUserFriends.module.scss";
-import { Image } from "../../Layouts";
 
 function PostsPageUserFriends() {
   const { friends, friendsAmount, _id } = useSelector(selectUserInfo);

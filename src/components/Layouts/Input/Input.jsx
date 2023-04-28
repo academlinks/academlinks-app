@@ -1,6 +1,7 @@
 import { useState } from "react";
+
+import { EyeHideIcon, EyeShowIcon } from "components/Layouts/Icons";
 import styles from "./input.module.scss";
-import { EyeHideIcon, EyeShowIcon } from "../Icons/icons";
 
 function Input({
   onChange = () => {},

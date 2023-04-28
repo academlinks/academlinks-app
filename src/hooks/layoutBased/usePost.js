@@ -4,9 +4,8 @@ import {
   setMediaModalOpen,
   // setUpdatePostModalOpen,
   setSharePostModalOpen,
-} from "../../store/reducers/portalReducer";
-
-import useCreatePost from "./useCreatePost";
+} from "store/reducers/portalReducer";
+import { useCreatePost } from "hooks/layoutBased";
 
 /**
  * From the post is accessable three kind of modal. They are:

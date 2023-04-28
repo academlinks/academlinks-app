@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { extractRootEndPointFromImg } from "../../../lib";
 
-import { Image } from "../../Layouts";
+import { extractRootEndPointFromImg } from "lib";
+
+import { Image } from "components/Layouts";
 import styles from "./styles/request.module.scss";
 
 function RequestItemBody({ children, img, userName, userId, muntuals }) {

@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+
 import {
   getBlogPosts,
   getTopRatedPublishers,
@@ -10,12 +11,13 @@ import {
   resetErrorOnPostOperation,
   resetErrorOnLoadingState,
   setSliderBlogPosts,
-} from "../../store/reducers/postsDataReducer";
+} from "store/reducers/postsDataReducer";
+
 import {
   BLOG_POSTS_TOP_RATED_PUBLISHERS_COUNT,
   BLOG_POSTS_TOP_RATED_POSTS_COUNT,
   BLOG_POSTS_COUNT_PER_REQ,
-} from "../../lib/config";
+} from "lib/config";
 
 export default function useBlogQuery() {
   const dispatch = useDispatch();

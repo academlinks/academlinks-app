@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setNotificationError,
@@ -8,7 +8,7 @@ import {
   setDeleteAllNotifaction,
   setMarkedNotification,
   setAllNotificationAsRead,
-} from "../../reducers/notificationReducer";
+} from "store/reducers/notificationReducer";
 
 import {
   queryUserNotifications,
@@ -16,7 +16,7 @@ import {
   queryMarkNotificationAsRead,
   queryMarkAllNotificationAsRead,
   queryDeleteAllUserNotification,
-} from "../api/notificationQueries";
+} from "store/saga/api/notificationQueries";
 
 export function* getUserNotificationsHandler({ payload: userId }) {
   try {

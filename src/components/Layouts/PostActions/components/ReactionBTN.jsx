@@ -1,4 +1,4 @@
-import { DislikeIcon, LikeIcon } from "../../Icons/icons";
+import { DislikeIcon, LikeIcon } from "components/Layouts/Icons";
 
 function ReactionBTN({
   reactOnPostHandler,

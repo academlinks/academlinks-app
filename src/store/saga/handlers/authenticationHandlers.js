@@ -1,11 +1,11 @@
 import { call, put } from "redux-saga/effects";
-import { showError, errorMessages } from "./errorHandler";
+import { showError, errorMessages } from "store/saga/handlers/errorHandler";
 
 import {
   setActiveUser,
   setLoadingStateError,
   logOut,
-} from "../../reducers/activeUserReducer";
+} from "store/reducers/activeUserReducer";
 
 import {
   setLoadingStateError as setAuthLoadingError,
@@ -15,7 +15,7 @@ import {
   setRegistrationRequestSuccess,
   setSuccessfullForgotPassword,
   setSuccessfullUpdateForgotPassword,
-} from "../../reducers/authenticationReducer";
+} from "store/reducers/authenticationReducer";
 
 import {
   loginQuery,
@@ -26,7 +26,7 @@ import {
   sendForgotPasswordQuery,
   sendUpdateForgotPasswordQuery,
   deleteAccountQuery,
-} from "../api/authenticationQueries";
+} from "store/saga/api/authenticationQueries";
 
 export function* loginHandler({ payload }) {
   try {

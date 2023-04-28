@@ -2,13 +2,15 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { useForeignUser, useFriendsQuery, useScroll } from "../../hooks";
-import { selectAllFriendsPageState } from "../../store/selectors/friendsSelector";
-import { extractRootEndPointFromImg } from "../../lib";
+import { useScroll } from "hooks/util";
+import { useForeignUser } from "hooks/auth";
+import { useFriendsQuery } from "hooks/queries";
+import { extractRootEndPointFromImg } from "lib";
+import { selectAllFriendsPageState } from "store/selectors/friendsSelector";
 
 import styles from "./components/styles/allFriends.module.scss";
 import FriendOptions from "./components/FriendOptions";
-import { Image, Error, EmptyContentMessage } from "../Layouts";
+import { Image, Error, EmptyContentMessage } from "components/Layouts";
 
 function AllFriends() {
   const { isActiveUser } = useForeignUser("basedOnLocation");

@@ -1,7 +1,8 @@
-import { useSavePostQuery } from "../../../../hooks";
+import { useSavePostQuery } from "hooks/queries";
 
+import { Spinner } from "components/Layouts";
 import styles from "./styles/blogPostOptionsBody.module.scss";
-import { Spinner } from "../../../Layouts";
+
 import {
   // ErrorIcon,
   BookmarkOutlineIcon,

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectSettingsStatus } from "../../store/selectors/settingsSelector";
+
+import { selectSettingsStatus } from "store/selectors/settingsSelector";
 
 import styles from "./components/styles/sideBar.module.scss";
 import UserConstantInfo from "./components/UserConstantInfo";

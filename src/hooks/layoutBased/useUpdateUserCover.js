@@ -1,11 +1,10 @@
 import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { axiosFormDataQuery } from "../../store/axiosConfig";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
-
-import { setActiveUserUpdatedCover } from "../../store/reducers/postsDataReducer";
-import { setUpdatedUserCover } from "../../store/reducers/activeUserReducer";
+import { axiosFormDataQuery } from "store/axiosConfig";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
+import { setActiveUserUpdatedCover } from "store/reducers/postsDataReducer";
+import { setUpdatedUserCover } from "store/reducers/activeUserReducer";
 
 function useUpdateUserCover(field) {
   const dispatch = useDispatch();

@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { useAuthenticationQuery } from "../../hooks";
-import { selectActiveUserLoadingState } from "../../store/selectors/activeUserSelectors";
+import { useAuthenticationQuery } from "hooks/queries";
+import { selectActiveUserLoadingState } from "store/selectors/activeUserSelectors";
 
 import styles from "./styles/auth.module.scss";
-import { Input, StandSpinner, Error } from "../Layouts";
+import { Input, StandSpinner, Error } from "components/Layouts";
 
 function Login() {
   const { loginQuery, loginError, resetLoginErrorHandler } =

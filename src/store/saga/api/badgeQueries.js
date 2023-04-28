@@ -1,4 +1,4 @@
-import { axiosQuery } from "../../axiosConfig";
+import { axiosQuery } from "store/axiosConfig";
 
 export async function getUnseenRequestsCountQuery(userId) {
   return await axiosQuery(`/user/${userId}/pending-requests/count`);

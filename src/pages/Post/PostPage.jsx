@@ -3,21 +3,18 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useLocation } from "react-router-dom";
 
-import { useRedirectedPostQuery, useDocTitle } from "../../hooks";
+import { useDocTitle } from "hooks/layoutBased";
+import { useRedirectedPostQuery } from "hooks/queries";
 
 import {
   selectPosts,
   selectPostsLoadingState,
-} from "../../store/selectors/postSelectors";
+} from "store/selectors/postSelectors";
 
-import {
-  Post as SinglePost,
-  StandSpinner,
-  Error,
-} from "../../components/Layouts";
+import { Post as SinglePost, StandSpinner, Error } from "components/Layouts";
 import styles from "./post.module.scss";
 
-function Post() {
+function PostPage() {
   useDocTitle("Post");
 
   const { id } = useParams();
@@ -54,4 +51,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default PostPage;

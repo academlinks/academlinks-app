@@ -2,8 +2,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { useSearchQuery, useBlurOnBody } from "../";
-import { selectUserSearchResult } from "../../store/selectors/userSelectors";
+import { useBlurOnBody } from "hooks/util";
+import { useSearchQuery } from "hooks/queries";
+import { selectUserSearchResult } from "store/selectors/userSelectors";
 
 export default function useUserSearch({
   blurClassNames,

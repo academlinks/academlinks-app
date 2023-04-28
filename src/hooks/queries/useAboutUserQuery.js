@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   // deActivateTarget,
   getUserAboutData,
-} from "../../store/reducers/aboutReducer";
+} from "store/reducers/aboutReducer";
 
 // import { destructureFormData } from "../../lib";
 

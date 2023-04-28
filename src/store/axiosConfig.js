@@ -1,6 +1,6 @@
 import axios from "axios";
 import decode from "jwt-decode";
-import { getAPI_EndPoint } from "../lib/config";
+import { getAPI_EndPoint } from "lib/config";
 
 function getJWT() {
   return localStorage.getItem("academind_passport")

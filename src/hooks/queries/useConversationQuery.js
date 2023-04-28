@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { axiosQuery } from "../../store/axiosConfig";
+import { axiosQuery } from "store/axiosConfig";
 
 import {
   // API Tasks
@@ -17,8 +17,8 @@ import {
   setNewMessage,
   setMarkAsRead,
   resetConversationChatError,
-} from "../../store/reducers/conversationReducer";
-import { selectActiveUserId } from "../../store/selectors/activeUserSelectors";
+} from "store/reducers/conversationReducer";
+import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
 function useConversationQuery(props) {
   const dispatch = useDispatch();
@@ -33,8 +33,7 @@ function useConversationQuery(props) {
       navigate(`/messanger/${data.conversationId}`, {
         state: { isNew: data?.isNew },
       });
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 
   function markAsReadQuery({ conversationId, adressatId }) {

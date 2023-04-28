@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-import { useSavePostQuery, usePostQuery } from "../../../hooks";
+import { useSavePostQuery, usePostQuery } from "hooks/queries";
 
-import styles from "./styles/optionsBody.module.scss";
-import ActiveUserRelated from "./ActiveUserRelated";
-import { Spinner } from "../../Layouts";
 import {
   BookmarkFillIcon,
   BookmarkOutlineIcon,
   // ErrorIcon,
   RemoveIcon,
   HideIcon,
-} from "../Icons/icons";
+} from "components/Layouts/Icons";
+import { Spinner } from "components/Layouts";
+import ActiveUserRelated from "./ActiveUserRelated";
+import styles from "./styles/optionsBody.module.scss";
 
 function OptionsBody({
   postId,

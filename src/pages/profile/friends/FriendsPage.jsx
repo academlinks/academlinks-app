@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Container, FriendsPageNavigation } from '../../../components/FriendsPage';
+import { Container, FriendsPageNavigation } from 'components/FriendsPage';
 
 function Friends() {
   return (

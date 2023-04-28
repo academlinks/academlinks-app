@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { io } from "socket.io-client";
-import { getAPI_Origin } from "../lib/config";
+import { getAPI_Origin } from "lib/config";
 
 const initialState = {
   socket: null,

@@ -1,8 +1,8 @@
-import { useUserSearch } from "../../../hooks";
+import { useUserSearch } from "hooks/queries";
 
-import styles from "./styles/navSearchBar.module.scss";
 import { SearchBarWindow } from "./";
-import { SearchBar } from "../../Layouts";
+import { SearchBar } from "components/Layouts";
+import styles from "./styles/navSearchBar.module.scss";
 
 function NavSearchBar() {
   const {

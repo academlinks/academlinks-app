@@ -1,5 +1,5 @@
-import Wellcome from "../components/Wellcome/Wellcome";
-import { useDocTitle } from "../hooks";
+import Wellcome from "components/Wellcome/Wellcome";
+import { useDocTitle } from "hooks/layoutBased";
 
 function WellcomePage() {
   useDocTitle("")

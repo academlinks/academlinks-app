@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
-import { useForeignUser, usePost } from "../../hooks";
-import { useHelperQuery } from "../../hooks";
+import { usePost } from "hooks/layoutBased";
+import { useForeignUser } from "hooks/auth";
+import { useHelperQuery } from "hooks/queries";
 
-import styles from "./components/styles/userCover.module.scss";
 import {
   CoverImage,
   ProfileImage,
@@ -12,6 +12,7 @@ import {
   FriendShip,
   ProfileNavigation,
 } from "./components";
+import styles from "./components/styles/userCover.module.scss";
 
 function Profile() {
   const { isActiveUser, profileId } = useForeignUser("basedOnLocation");

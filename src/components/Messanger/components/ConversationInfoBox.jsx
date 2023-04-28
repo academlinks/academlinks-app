@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { TimeAgo } from "components/Layouts";
 import styles from "./styles/conversationInfoBox.module.scss";
-import { TimeAgo } from "../../Layouts";
 
 function ConversationInfoBox({
   userName,

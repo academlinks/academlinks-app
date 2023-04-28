@@ -1,5 +1,6 @@
-import { axiosQuery } from "../../store/axiosConfig";
 import { useState } from "react";
+
+import { axiosQuery } from "store/axiosConfig";
 
 function useHelperQuery() {
   const [loading, setLoading] = useState(false);

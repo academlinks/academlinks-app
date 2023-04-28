@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import styles from "./wellcome.module.scss";
+
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlinePublic } from "react-icons/md";
+import styles from "./wellcome.module.scss";
 
 function Wellcome(props) {
   return (

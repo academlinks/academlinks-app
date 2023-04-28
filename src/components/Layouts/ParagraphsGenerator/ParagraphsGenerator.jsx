@@ -1,4 +1,4 @@
-import { createTextBox } from "../../../lib";
+import { createTextBox } from "lib";
 import styles from "./paragraphsGenerator.module.scss";
 
 function ParagraphsGenerator({ text }) {

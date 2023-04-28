@@ -1,5 +1,5 @@
+import { DeleteFriendRequestIcon } from 'components/Layouts/Icons';
 import styles from './requestBtn.module.scss';
-import { DeleteFriendRequestIcon } from '../Icons/icons';
 
 function DeleteRequestBTN({ onClick }) {
   return (

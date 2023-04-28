@@ -1,5 +1,5 @@
-import { Login } from "../../components/Authentication";
-import { useDocTitle } from "../../hooks";
+import { Login } from "components/Authentication";
+import { useDocTitle } from "hooks/layoutBased";
 
 function LoginPage() {
   useDocTitle("Authentication");

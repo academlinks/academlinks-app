@@ -1,6 +1,6 @@
+import { CloseIcon } from "components/Layouts/Icons";
+import { Input } from "components/Layouts";
 import styles from "./styles/labels.module.scss";
-import { CloseIcon } from "../../Icons/icons";
-import { Input } from "../../";
 
 function Labels({ addLaebel, removeLabel, label, setLabel, labels, error }) {
   return (

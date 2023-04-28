@@ -1,8 +1,8 @@
-import { extractRootEndPointFromImg } from "../../../../lib";
+import { extractRootEndPointFromImg } from "lib";
 
+import { Image } from "components/Layouts";
+import { CloseXIcon, CloseIcon } from "components/Layouts/Icons";
 import styles from "./styles/createPostMedia.module.scss";
-import { CloseXIcon, CloseIcon } from "../../Icons/icons";
-import { Image } from "../../../Layouts";
 
 function CreatePostMedia({ files, handleDiscardMedia }) {
   return (

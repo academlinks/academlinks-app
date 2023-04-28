@@ -2,13 +2,13 @@ import { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { IoContext } from "../../store/Io";
-
 import {
   login,
   logOut,
   resetLoadingStateError,
-} from "../../store/reducers/activeUserReducer";
+} from "store/reducers/activeUserReducer";
+
+import { IoContext } from "store/Io";
 
 import {
   // Forgot Password
@@ -24,17 +24,16 @@ import {
   resetRegistrationpProccess,
   resetSuccessfullForgotPassword,
   resetSuccessfullUpdateForgotPassword,
-} from "../../store/reducers/authenticationReducer";
+} from "store/reducers/authenticationReducer";
 
 import {
-  destructureFormData,
   ValidateRegistrationInfo,
   ValidateLogin,
   ValidateConfirmRegistration,
   ValidateForgotPassword,
   ValidateUpdateForgotPassword,
-  generateLowerCaseData,
-} from "../../lib";
+} from "lib/Validators";
+import { destructureFormData, generateLowerCaseData } from "lib";
 
 export default function useAuthenticationQuery() {
   const { socket, socket_name_placeholders } = useContext(IoContext);

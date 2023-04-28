@@ -5,10 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   resetSharePostModal,
   setShareAudience,
-} from "../../store/reducers/portalReducer";
-import { useRestrictBodyOverflow, usePostQuery } from "../../hooks";
-import { selectSharePostPortal } from "../../store/selectors/portalSelectors";
-import { selectActiveUserShortInfo } from "../../store/selectors/activeUserSelectors";
+} from "store/reducers/portalReducer";
+import { usePostQuery } from "hooks/queries";
+import { useRestrictBodyOverflow } from "hooks/util";
+import { selectSharePostPortal } from "store/selectors/portalSelectors";
+import { selectActiveUserShortInfo } from "store/selectors/activeUserSelectors";
 
 import {
   Modal,
@@ -19,7 +20,7 @@ import {
   BTN,
   InlineStandSpinner,
   Error,
-} from "../Layouts";
+} from "components/Layouts";
 import styles from "./styles/sharePostPortal.module.scss";
 
 function SharePostPortal() {

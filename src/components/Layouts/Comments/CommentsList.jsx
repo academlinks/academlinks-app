@@ -2,21 +2,18 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import {
-  useCommentPin,
-  useComments,
-  useCommentsQuery,
-  useScrollOnNotifyAtComment,
-  useIsAuthenticatedUser,
-} from "../../../hooks";
+import { useCommentPin } from "hooks/util";
+import { useCommentsQuery } from "hooks/queries";
+import { useIsAuthenticatedUser } from "hooks/auth";
+import { useComments, useScrollOnNotifyAtComment } from "hooks/layoutBased";
 import {
   selectPostCommentsById,
   selectCommentsLoadingState,
-} from "../../../store/selectors/commentsSelector";
+} from "store/selectors/commentsSelector";
 
-import styles from "./components/styles/commentsList.module.scss";
-import { BlockSpinner, Error, EmptyContentMessage } from "../";
 import { CommentListItem, DraftForComments } from "./components";
+import { BlockSpinner, Error, EmptyContentMessage } from "components/Layouts";
+import styles from "./components/styles/commentsList.module.scss";
 
 function CommentsList({ postId, postAuthorId, notifyOnComment }) {
   const { isAuthenticatedUser } = useIsAuthenticatedUser();
@@ -82,11 +79,11 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
         (task === "add" || task === "update") && <Error msg={message} />}
 
       {isAuthenticatedUser && (
-          <DraftForComments
-            submitCommentQuery={submitCommentQuery}
-            setCommentText={setCommentText}
-            text={state.text}
-          />
+        <DraftForComments
+          submitCommentQuery={submitCommentQuery}
+          setCommentText={setCommentText}
+          text={state.text}
+        />
       )}
     </div>
   );
