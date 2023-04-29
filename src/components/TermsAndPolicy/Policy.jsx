@@ -32,21 +32,19 @@ function Policy(props) {
             </span>
           </p>
 
-          <p>
-            <span>Your name, username, and email address</span>
-            <span>
-              Your profile picture and other photos or videos you upload
-            </span>
-            <span>Information about your location</span>
-            <span>
+          <ul>
+            <li>Your name, username, and email address</li>
+            <li>Your profile picture and other photos or videos you upload</li>
+            <li>Information about your location</li>
+            <li>
               Information about your device, such as the type of device and
               operating system you use
-            </span>
-            <span>
+            </li>
+            <li>
               Information about your use of our social network, including your
               interactions with other users and the content you share or view.
-            </span>
-          </p>
+            </li>
+          </ul>
         </div>
 
         <div>
@@ -59,21 +57,21 @@ function Policy(props) {
             </span>
           </p>
 
-          <p>
-            <span>
+          <ul>
+            <li>
               Allowing you to create and maintain a profile and connect with
               other users
-            </span>
-            <span>
+            </li>
+            <li>
               Enabling you to share content and communicate with other users
-            </span>
-            <span>
+            </li>
+            <li>
               Providing you with personalized recommendations and advertising
-            </span>
-            <span>
+            </li>
+            <li>
               Analyzing how you use our social network to improve our services
-            </span>
-          </p>
+            </li>
+          </ul>
         </div>
 
         <div>
