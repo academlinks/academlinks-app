@@ -1,0 +1,9 @@
+@use "../../../styles/helpers/abstract/functions" as *;
+
+.termsAndPolicyLink {
+  text-decoration: underline;
+  letter-spacing: 1px;
+  font-size: size("smallSize");
+  width: 100%;
+  text-align: center;
+}

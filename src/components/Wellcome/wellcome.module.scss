@@ -7,7 +7,7 @@ $nav-from-right: 18rem;
 $nav-w: 22rem;
 $gap-between-nav: 10rem;
 
-.wellComeContainer {
+.wellcomeContainer {
   height: calc(100vh - $nav-height);
   margin-top: $nav-height;
   display: grid;
@@ -19,6 +19,7 @@ $gap-between-nav: 10rem;
   row-gap: 8rem;
   background: color("blueColor");
   color: color("whiteColor");
+  position: relative;
 
   @include media-1280 {
     column-gap: 10rem;
@@ -35,6 +36,7 @@ $gap-between-nav: 10rem;
     grid-column: 1;
     grid-row: 1;
     justify-self: end;
+    min-height: 30rem;
 
     img {
       width: 100%;
@@ -132,6 +134,21 @@ $gap-between-nav: 10rem;
 
     @include media-960 {
       margin: 0;
+    }
+  }
+
+  .termsAndPolicy {
+    position: fixed;
+    bottom: 2rem;
+    left: 4rem;
+    text-decoration: underline;
+    letter-spacing: 1px;
+    font-size: size("smallSize");
+
+    @include media-480 {
+      width: 100%;
+      left: 0;
+      text-align: center;
     }
   }
 }

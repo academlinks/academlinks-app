@@ -25,6 +25,7 @@ import {
   Error,
   StandSpinner,
 } from "components/Layouts";
+import TermsAndPolicyLink from "./TermsAndPolicyLink";
 import styles from "./styles/reg.module.scss";
 
 function Register() {
@@ -135,6 +136,7 @@ function Register() {
           label="email"
           name="email"
           placeholder="email"
+          anotation={"Please indicate institutional email"}
           className={styles.inpField}
           error={regError.email.hasError}
           message={regError.email.message}
@@ -295,6 +297,8 @@ function Register() {
         >
           send information
         </BTN>
+
+        <TermsAndPolicyLink />
       </form>
     </div>
   );

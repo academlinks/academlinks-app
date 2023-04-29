@@ -16,15 +16,25 @@ function Input({
   placeholder = "text",
   error = false,
   message = "",
+  anotation,
 }) {
   const [showPassword, setShowPassword] = useState(false);
   const [inpType, setInpType] = useState(type);
+
+  const [focus, setFocus] = useState(false);
 
   return (
     <div className={`${styles.inputField} ${className || ""}`}>
       {label && (
         <label htmlFor={id} className={styles.inpLabel} title={labelTitle}>
           {label}
+          {anotation && (
+            <span
+              className={`${styles.anotation} ${focus ? styles.active : ""}`}
+            >
+              {anotation}
+            </span>
+          )}
         </label>
       )}
 
@@ -39,6 +49,8 @@ function Input({
           onChange={onChange}
           name={name}
           className={styles.inp}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
           // value={defaultValue ? defaultValue : value}
           // value={value}
           // defaultValue={defaultValue || ""}
@@ -60,6 +72,7 @@ function Input({
         )}
       </div>
 
+      {/* {anotition && <p className={styles.anotition}>{anotition}</p>} */}
       {error && <p className={styles.inpErrMsg}>{message}</p>}
     </div>
   );

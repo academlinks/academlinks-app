@@ -4,4 +4,20 @@
 
 .inputField {
   @include inpField;
+
+  .anotation {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: weight("regullarWeight");
+    visibility: hidden;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  .anotation.active {
+    visibility: visible;
+    right: -1rem;
+  }
 }

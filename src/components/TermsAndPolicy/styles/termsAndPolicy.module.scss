@@ -1,0 +1,36 @@
+@use "../../../styles/helpers/helpers" as *;
+
+.policyContainer {
+  padding: 2rem 1rem;
+
+  .policy {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .policy div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .policy div h3,
+  .policy div h2 {
+    @include media-480 {
+      text-align: center;
+    }
+  }
+
+  .policy div p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .policy .link {
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: weight("mediumWeight");
+  }
+}

@@ -12,6 +12,11 @@ import { StandSpinner } from "./components/Layouts";
 
 // SECTION: > Wellcome Page
 const WellcomePage = lazy(() => import("./pages/WellcomePage"));
+const TermsAndPolicyPage = lazy(() =>
+  import("./pages/TermsAndPolicy/TermsAndPolicyPage")
+);
+const PolicyPage = lazy(() => import("./pages/TermsAndPolicy/PolicyPage"));
+const TermsPage = lazy(() => import("./pages/TermsAndPolicy/TermsPage"));
 
 // SECTION: > Unknown Page
 const UnknownPage = lazy(() => import("./pages/UnknownPage/UnknownPage"));
@@ -39,8 +44,12 @@ const AboutPage = lazy(() => import("./pages/profile/AboutPage"));
 const BookmarksPage = lazy(() => import("./pages/profile/BookmarksPage"));
 
 const FriendsPage = lazy(() => import("./pages/profile/friends/FriendsPage"));
-const AllFriendsPage = lazy(() => import("./pages/profile/friends/AllFriendsPage"));
-const SentRequestsPage = lazy(() => import("./pages/profile/friends/SentRequestsPage"));
+const AllFriendsPage = lazy(() =>
+  import("./pages/profile/friends/AllFriendsPage")
+);
+const SentRequestsPage = lazy(() =>
+  import("./pages/profile/friends/SentRequestsPage")
+);
 const PendingRequestsPage = lazy(() =>
   import("./pages/profile/friends/PendingRequestsPage")
 );
@@ -57,7 +66,9 @@ const ReviewHiddenPostsPage = lazy(() =>
 
 // SECTION: > Messanger
 const MessangerPage = lazy(() => import("./pages/Messanger/MessangerPage"));
-const MessangerFeedPage = lazy(() => import("./pages/Messanger/MessangerFeedPage"));
+const MessangerFeedPage = lazy(() =>
+  import("./pages/Messanger/MessangerFeedPage")
+);
 
 // SECTION: > Settings
 const SettingsPage = lazy(() => import("./pages/settings/Settings"));
@@ -83,6 +94,10 @@ function App() {
       <Suspense fallback={<StandSpinner />}>
         <Routes>
           <Route path="/blog/:id" element={<ActiveBlogPost />} />
+          <Route path="/terms-and-policy" element={<TermsAndPolicyPage />}>
+            <Route path="terms" element={<TermsPage />} />
+            <Route path="policy" element={<PolicyPage />} />
+          </Route>
           <Route element={<RestrictionAuthorised />}>
             <Route path="/" element={<WellcomePage />} />
             <Route path="/authentication/login" element={<LoginPage />} />
@@ -108,7 +123,10 @@ function App() {
               <Route path="friends" element={<FriendsPage />}>
                 <Route path="all-friends" element={<AllFriendsPage />} />
                 <Route path="sent-requests" element={<SentRequestsPage />} />
-                <Route path="pending-requests" element={<PendingRequestsPage />} />
+                <Route
+                  path="pending-requests"
+                  element={<PendingRequestsPage />}
+                />
               </Route>
               <Route path="bookmarks" element={<BookmarksPage />} />
               <Route path="profile-review" element={<ProfileReviewPage />}>

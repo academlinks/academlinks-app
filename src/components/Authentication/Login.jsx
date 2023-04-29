@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { useAuthenticationQuery } from "hooks/queries";
 import { selectActiveUserLoadingState } from "store/selectors/activeUserSelectors";
 
 import styles from "./styles/auth.module.scss";
+import TermsAndPolicyLink from "./TermsAndPolicyLink";
 import { Input, StandSpinner, Error } from "components/Layouts";
 
 function Login() {
@@ -54,6 +55,8 @@ function Login() {
         </Link>
 
         {!loading && <button type="submit">login</button>}
+
+        <TermsAndPolicyLink />
       </form>
 
       {loading && <StandSpinner />}
