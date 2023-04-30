@@ -98,10 +98,15 @@ export default function useAuthenticationQuery() {
       hasError: false,
       message: "",
     },
+    terms: {
+      hasError: false,
+      message: "",
+    },
   });
 
   function sendRegistrationRequestQuery(formEl) {
     const output = destructureFormData(formEl);
+
     const formData = {
       firstName: output.firstName,
       lastName: output.lastName,
@@ -121,6 +126,7 @@ export default function useAuthenticationQuery() {
         position: output.position,
         description: output.description,
       },
+      terms: output.terms,
     };
 
     const error = new ValidateRegistrationInfo(formData).init();

@@ -7,7 +7,7 @@ import { useAuthenticationQuery } from "hooks/queries";
 import { selectActiveUserLoadingState } from "store/selectors/activeUserSelectors";
 
 import styles from "./styles/auth.module.scss";
-import TermsAndPolicyLink from "./TermsAndPolicyLink";
+import TermsAndPolicyLink from "./components/TermsAndPolicyLink";
 import { Input, StandSpinner, Error } from "components/Layouts";
 
 function Login() {

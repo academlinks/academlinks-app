@@ -93,17 +93,4 @@
       margin-left: auto;
     }
   }
-
-  [data-policy-link] {
-    position: fixed;
-    bottom: 2rem;
-    left: 4rem;
-
-    @include media-480 {
-      // left:0
-      position: relative;
-      bottom: 0;
-      left: 0;
-    }
-  }
 }

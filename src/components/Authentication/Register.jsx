@@ -25,7 +25,7 @@ import {
   Error,
   StandSpinner,
 } from "components/Layouts";
-import TermsAndPolicyLink from "./TermsAndPolicyLink";
+import TermsCheckbox from "./components/TermsCheckbox";
 import styles from "./styles/reg.module.scss";
 
 function Register() {
@@ -287,6 +287,14 @@ function Register() {
               regError.description.hasError && resetFieldError("description");
             }}
           />
+
+          <TermsCheckbox
+            error={regError.terms.hasError}
+            message={regError.terms.message}
+            onChange={() => {
+              regError.terms.hasError && resetFieldError("terms");
+            }}
+          />
         </div>
 
         <BTN
@@ -297,8 +305,6 @@ function Register() {
         >
           send information
         </BTN>
-
-        <TermsAndPolicyLink />
       </form>
     </div>
   );
