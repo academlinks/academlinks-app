@@ -55,6 +55,10 @@ export default class ValidateRegistrationInfo extends Validator {
       hasError: false,
       message: "",
     },
+    terms: {
+      hasError: false,
+      message: "",
+    },
   };
 
   constructor(credentials) {
@@ -73,6 +77,7 @@ export default class ValidateRegistrationInfo extends Validator {
     this.validatePosition();
     this.validateDescription();
     this.validateBirthDate();
+    this.validateTerms();
 
     return this.error;
   }
@@ -294,5 +299,16 @@ export default class ValidateRegistrationInfo extends Validator {
 
     if (!this.error.error && this.error.description.hasError)
       this.error.error = true;
+  }
+
+  validateTerms() {
+    if (!this.credentials.terms) {
+      this.error.error = true;
+      this.error.terms = {
+        hasError: true,
+        message:
+          "please accept to all the terms and conditions before sending registration request.",
+      };
+    }
   }
 }

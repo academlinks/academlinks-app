@@ -1,0 +1,31 @@
+@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/components/layouts/inp" as *;
+
+.termsCheckbox {
+  display: flex;
+  flex-direction: column;
+
+  .termsCheckboxField {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: size("smallerSize");
+    font-weight: weight("boldWeight");
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  [data-policy-link] {
+    width: auto;
+    font-size: inherit;
+  }
+
+  .errorMessage {
+    @include errMsg;
+    text-align: left;
+  }
+}

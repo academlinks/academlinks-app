@@ -59,7 +59,7 @@ class Validator {
 
   checkWordCount({ data, min }) {
     if (typeof data !== "string" || !data.trim())
-      return { isEmpty: true, isValid: false, isLeft: NaN };
+      return { isEmpty: true, isValid: false, isLeft: min };
 
     const fragments = data
       .trim()
@@ -67,7 +67,7 @@ class Validator {
       .filter((w) => w.trim() !== "");
 
     if (Array.isArray(fragments) && !fragments[0])
-      return { isEmpty: true, isValid: false, isLeft: NaN };
+      return { isEmpty: true, isValid: false, isLeft: min };
     else if (Array.isArray(fragments) && fragments.length < min)
       return {
         isEmpty: false,
