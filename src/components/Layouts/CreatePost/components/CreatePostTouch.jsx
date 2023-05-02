@@ -46,7 +46,7 @@ function CreatePostTouch({
             type="text"
             className={styles.touchInp}
             placeholder="what's on your mind ?"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsOpen && setIsOpen(true)}
           />
         </>
       )}
@@ -54,7 +54,7 @@ function CreatePostTouch({
         className={styles.createPostFooter}
         htmlFor="postMediaFile"
         title="create post with media files"
-        onClick={() => (isOpen ? null : setIsOpen(true))}
+        onClick={() => (isOpen ? null : setIsOpen && setIsOpen(true))}
       >
         <MultiMediaIcon /> / Media
         <input

@@ -14,6 +14,7 @@ import styles from "./components/styles/createPost.module.scss";
 const CreatePost = memo(({ className }) => {
   const {
     createPostIsOpen,
+    updatePostModalIsOpen,
     postData,
     createPostError,
     loadingState: { loading, error, message },
@@ -57,7 +58,7 @@ const CreatePost = memo(({ className }) => {
   return (
     <div className={`${styles.createPost} ${className || ""}`}>
       <CreatePostTouch
-        setIsOpen={openCreatePostModal}
+        setIsOpen={!updatePostModalIsOpen ? openCreatePostModal : null}
         isOpen={createPostIsOpen}
         filesRef={filesRef}
       />
