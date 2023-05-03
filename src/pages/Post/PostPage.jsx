@@ -29,7 +29,7 @@ function PostPage() {
   useEffect(() => {
     getPostQuery(id);
     return () => resetState();
-  }, []);
+  }, [id]);
 
   return (
     <div className={styles.singlePost}>
