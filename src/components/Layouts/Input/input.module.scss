@@ -8,7 +8,7 @@
   .anotation {
     position: relative;
     font-size: 1.2rem;
-    font-weight: weight("regullarWeight");
+    font-weight: weight(base);
     visibility: hidden;
 
     &::first-letter {

@@ -7,7 +7,7 @@
   @include fieldContainer;
 
   &.error .textArea {
-    border-color: color("redColor");
+    border-color: color(red-b);
   }
 
   .textArea {
@@ -22,8 +22,8 @@
     border-radius: 0.5rem;
     font-family: inherit;
     @include scrollBar("&", 0.7rem);
-    background: color("whiteColor");
-    color: color("darkGreyColor");
+    background: color(light);
+    color: color(dark-shade);
 
     &::placeholder {
       padding: 0;

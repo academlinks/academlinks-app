@@ -46,12 +46,12 @@ div[data-popper-escaped] {
 
   & > div:first-child {
     :hover {
-      background: color("secondaryBlueTintColor");
+      background: color(blue-secondary);
     }
   }
 
   & div[aria-selected] {
-    background: color("secondaryBlueTintColor");
+    background: color(blue-secondary);
   }
 
   div[role="option"] {

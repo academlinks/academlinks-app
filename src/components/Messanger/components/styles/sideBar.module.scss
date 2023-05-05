@@ -7,7 +7,7 @@
 .sideBar {
   flex: 1;
   @include sideBarContainer;
-  border-right: 1px solid color("darkGrayColor");
+  border-right: 1px solid color(dark-shade);
 
   @include media-680 {
     &.isActiveConversation {

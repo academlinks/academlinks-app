@@ -4,14 +4,14 @@
 @use "../abstract/animation" as *;
 
 @mixin friendsPageContainer {
-  max-width: $container-width;
-  min-height: $nested-page-min-h;
+  max-width: app(container-w);
+  min-height: app(nested-page-min-h);
   margin-top: $space-top-under-user-cover;
   margin-bottom: $space-bottom-under-user-cover;
   padding-bottom: 2rem;
-  border-radius: $rounded-nested-page;
-  background: color("whiteColor");
-  box-shadow: $shadow-base;
+  border-radius: radius(2xs);
+  background: color(light);
+  box-shadow: shadow(radial);
   overflow: hidden;
 
   @include media-960 {
@@ -21,18 +21,18 @@
 }
 
 @mixin friendsPageNavigation {
-  font-size: size("smallSize");
-  font-weight: weight("boldWeight");
-  border-bottom: 1px solid color(darkGreyColor);
+  font-size: size(sm);
+  font-weight: weight(lg);
+  border-bottom: 1px solid color(dark-grey);
   text-transform: capitalize;
-  color: color("darkGreyColor");
+  color: color(dark-grey);
 
   @include media-480 {
-    font-size: size("smallerSize");
+    font-size: size(xs);
   }
 
   .friendsSearch {
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-grey);
     margin-right: 1rem;
   }
 
@@ -47,14 +47,14 @@
     }
 
     &:hover {
-      background-color: color("blueTintColor");
-      color: color("blueColor");
+      background-color: color(blue-tint);
+      color: color(blue-shade);
     }
   }
 
   .active {
-    border-bottom: 2px solid color("blueColor");
-    color: color("blueColor");
+    border-bottom: 2px solid color(blue-shade);
+    color: color(blue-shade);
   }
 }
 
@@ -71,8 +71,8 @@
 
   .friend {
     column-gap: 1rem;
-    border-radius: $rounded-sm;
-    box-shadow: $shadow-base-sm;
+    border-radius: radius(2xs);
+    box-shadow: shadow(radial-sm);
   }
 
   .friendImg {
@@ -81,10 +81,10 @@
 
   .friendName {
     margin-top: 0.8rem;
-    font-size: size("smallSize");
-    font-weight: weight(mediumWeight);
+    font-size: size(sm);
+    font-weight: weight(md);
     text-transform: capitalize;
-    color: color("darkGreyColor");
+    color: color(dark-grey);
 
     &:hover {
       text-decoration: underline;
@@ -92,17 +92,17 @@
   }
 
   .muntuals {
-    font-size: size("smallerSize");
+    font-size: size(xs);
     margin-top: -2rem;
   }
 }
 
 @mixin friendOptions {
   margin-right: 0.5rem;
-  color: color("darkGreyColor");
+  color: color(dark-grey);
 
   .optBtn {
-    font-size: size("bigSize");
+    font-size: size(lg);
     transition: all 0.25s;
   }
 
@@ -111,14 +111,14 @@
     top: 2rem;
     right: 0;
     padding: 0.5rem;
-    border-radius: $rounded-sm;
-    border: 1px solid color("darkGreyColor");
-    background: color("whiteColor");
+    border-radius: radius(2xs);
+    border: 1px solid color(dark-grey);
+    background: color(light);
     @include animateMoveTop;
     transition: all 0.1s;
 
     &:hover {
-      border-color: color("redColor");
+      border-color: color(red-b);
     }
   }
 }
@@ -141,21 +141,21 @@
     min-width: 18rem;
     max-width: 20rem;
     padding-bottom: 0.75rem;
-    border-radius: $rounded-sm;
-    background: color("whiteColor");
-    box-shadow: $shadow-base-sm;
+    border-radius: radius(2xs);
+    background: color(light);
+    box-shadow: shadow(radial-sm);
   }
 
   .friendName {
     margin-top: 0.4rem;
-    font-size: size("smallSize");
-    font-weight: weight(mediumWeight);
+    font-size: size(sm);
+    font-weight: weight(md);
     text-transform: capitalize;
-    color: color("darkGreyColor");
+    color: color(dark-grey);
   }
 
   .muntuals {
-    font-size: size("smallerSize");
+    font-size: size(xs);
   }
 
   .friendName,

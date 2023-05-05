@@ -1,7 +1,7 @@
 @use "../../../../../styles/helpers/variables/variables" as *;
 
 .postDescription {
-  font-size: $txt-base-sm;
+  font-size: size(sm);
   margin: 1rem 0 0.5rem 0.75rem;
-  color: $txt-dark;
+  color: color(dark-shade);
 }

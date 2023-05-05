@@ -9,8 +9,8 @@
   text-transform: capitalize;
 
   .message {
-    font-size: size("largeSize");
-    font-weight: weight("boldWeight");
+    font-size: size(xl);
+    font-weight: weight(lg);
   }
 
   .status {
@@ -18,9 +18,9 @@
   }
 
   .goBackBtn {
-    font-size: size("regullarSize");
+    font-size: size(base);
     background: color("redColor");
-    font-weight: weight("mediumWeight");
+    font-weight: weight(md);
     @include flexBox;
     @include flexProperty(center, center);
     gap: 0.5rem;

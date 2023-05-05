@@ -3,8 +3,8 @@
 @use "../abstract/media" as *;
 
 @mixin blogPageContainer {
-  color: color("darkGreyColor");
-  margin-top: $nav-height;
+  color: color(dark-grey);
+  margin-top: app(nav-h);
 
   .blogPageCreateBlogPostTouch {
     max-width: 80rem;
@@ -21,7 +21,7 @@
 }
 
 @mixin blogPageStand {
-  color: color("whiteColor");
+  color: color(light);
 
   @include media-960 {
     height: 40vw;
@@ -29,8 +29,8 @@
 }
 
 @mixin blogPageCategoriesNav {
-  background: color("whiteColor");
-  box-shadow: $shadow-base-v;
+  background: color(light);
+  box-shadow: shadow(vertical);
 
   @include media-960 {
     height: 5rem;
@@ -47,18 +47,18 @@
   }
 
   .listItem {
-    font-weight: weight("mediumWeight");
-    border-left: 1px solid color("darkGreyColor");
+    font-weight: weight(md);
+    border-left: 1px solid color(dark-grey);
     transition: all 0.2s;
 
     &.active {
-      color: color("blueColor");
+      color: color(blue-shade);
       text-decoration: underline;
     }
   }
 
   .activeCategory {
-    color: color(blueColor);
+    color: color(blue-shade);
   }
 }
 
@@ -67,16 +67,16 @@
   gap: 3rem;
   margin-top: 4rem;
   padding: 0 1rem 1rem;
-  border-radius: $rounded-lg;
-  background: color("whiteShadeColor");
+  border-radius: radius(sm);
+  background: color(white-shade);
   max-height: calc(100vh - 10rem);
 
   .rightBarBox {
     height: 30rem;
     gap: 2rem;
-    border-radius: $rounded-lg;
-    background: color("whiteColor");
-    box-shadow: $shadow-base;
+    border-radius: radius(sm);
+    background: color(light);
+    box-shadow: shadow(radial);
   }
 
   .topRatedPostsBox {
@@ -86,9 +86,9 @@
   .rightBarTitle {
     margin-bottom: -1rem;
     padding: 0.5rem 1rem;
-    font-size: size("bigSize");
-    font-weight: weight(boldWeight);
-    background: color("whiteColor");
+    font-size: size(lg);
+    font-weight: weight(lg);
+    background: color(light);
     text-transform: capitalize;
   }
 
@@ -132,15 +132,15 @@
   .topRatedPublisher a {
     gap: 0.75rem;
     padding: 0.5rem;
-    border-radius: $rounded-sm;
+    border-radius: radius(2xs);
     transition: all 0.2s;
 
     &.activeLink {
-      background: rgba(color(blueColor), 0.5);
+      background: rgba(color(blue-shade), 0.5);
     }
 
     &:hover:not(.activeLink) {
-      background: rgba(color(blueTintColor), 1);
+      background: rgba(color(blue-tint), 1);
     }
   }
 
@@ -157,12 +157,12 @@
 
   .userName {
     margin: 0;
-    font-weight: weight(mediumWeight);
-    font-size: size(regullarSize);
+    font-weight: weight(md);
+    font-size: size(base);
   }
 
   .postsAmount {
-    font-size: size("smallerSize");
+    font-size: size(xs);
     margin-top: -0.5rem;
   }
 }
@@ -170,7 +170,7 @@
 @mixin topRatedPosts {
   gap: 1rem;
   padding: 0 1rem;
-  font-size: size(smallestSize);
+  font-size: size(2xs);
 
   .topRatedBlogPost {
     [data-blog-post-identifier] {
@@ -178,23 +178,23 @@
     }
 
     [data-title] {
-      font-size: size(regullarSize);
+      font-size: size(base);
     }
 
     [data-categories-list] {
-      font-size: size(smallestSize);
+      font-size: size(2xs);
     }
 
     [data-user-interacion] {
-      font-size: size("smallerSize");
+      font-size: size(xs);
 
       & svg {
-        font-size: size(regullarSize);
+        font-size: size(base);
       }
     }
 
     [data-article-text] {
-      font-size: size(smallerSize);
+      font-size: size(xs);
     }
   }
 }

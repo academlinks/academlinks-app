@@ -3,9 +3,9 @@
 @use "../variables/variables" as *;
 
 @mixin activeBlogPostContainer {
-  margin-top: $nav-height;
-  background: $bg-light;
-  min-height: calc(100vh - $nav-height);
+  margin-top: app(nav-h);
+  background: color(light);
+  min-height: calc(100vh - app(nav-h));
 }
 
 @mixin blogPostMedia {
@@ -31,7 +31,7 @@
 
 @mixin blogPostArticle {
   padding: 0 2rem;
-  color: color("darkGreyColor");
+  color: dcolor(dark-grey);
 
   .article {
     margin-top: 2rem;
@@ -51,18 +51,18 @@
   }
 
   [data-title] {
-    font-size: size(regullarSize);
+    font-size: size(base);
   }
 
   [data-categories-list] {
-    font-size: size(smallestSize);
+    font-size: size(2xs);
   }
 
   [data-user-interacion] {
-    font-size: size("smallerSize");
+    font-size: size(xs);
 
     & svg {
-      font-size: size(regullarSize);
+      font-size: size(base);
     }
   }
 }

@@ -3,11 +3,11 @@
 @use "../variables/variables" as *;
 
 @mixin post {
-  width: min(100%, $post-w);
+  width: min(100%, app(post-w));
   padding: 1rem;
-  border-radius: $rounded-sm;
-  background: $bg-light;
-  box-shadow: $shadow-base-sm;
+  border-radius: radius(2xs);
+  background: color(light);
+  box-shadow: shadow(radial-sm);
 }
 
 @mixin postBodyUserIdentifier {
@@ -21,14 +21,14 @@
   order: -1;
 
   .postMedia {
-    border-radius: $rounded-sm;
+    border-radius: radius(2xs);
   }
 
   .multiLayOver {
-    font-size: $txt-big;
-    border-radius: $rounded-sm;
+    font-size: color(txt-big);
+    border-radius: radius(2xs);
     background: rgba(0, 0, 0, 0.6);
-    color: $txt-light;
+    color: color(txt-light);
   }
 }
 
@@ -36,8 +36,8 @@
   gap: 1rem;
   margin: 0.5rem 1.5rem 1rem 1.5rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: $rounded-xsm;
-  background: $bg-dark-light;
+  border-radius: radius(3xs);
+  background: color(white-shade);
 
   @include media-960 {
     margin: 0.5rem;
@@ -48,7 +48,7 @@
   }
 
   .postAuthenticIdentifier {
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
 
     & figure[data-img] {
       width: $identifier-fig-md;
@@ -58,7 +58,7 @@
 
   .description {
     margin-top: -0.5rem;
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
   }
 }
 
@@ -68,7 +68,7 @@
   }
 
   [data-title] {
-    font-size: $txt-base;
+    font-size: size(base);
   }
 
   & > [data-img] {
@@ -76,18 +76,18 @@
   }
 
   [data-categories-list] {
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
   }
 
   [data-user-interacion] {
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
 
     & svg {
-      font-size: $txt-base;
+      font-size: size(base);
     }
   }
 
   [data-article-text] {
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
   }
 }

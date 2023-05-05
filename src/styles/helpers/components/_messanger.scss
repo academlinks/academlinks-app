@@ -16,7 +16,7 @@
   max-width: 30rem;
   padding: 0rem;
   position: relative;
-  background: $bg-dark-light;
+  background: color(gray-shade);
 
   @include media-960 {
     min-width: 25rem;
@@ -37,15 +37,15 @@
 @mixin conversationBox {
   gap: 1rem;
   padding: 0.7rem 0.5rem;
-  border-radius: $rounded-sm;
+  border-radius: radius(2xs);
   margin-right: 0rem;
 
   &.activeConversationBox {
-    background: color("whiteColor");
+    background: color(light);
   }
 
   &:not(.activeConversationBox):hover {
-    background: color("blueTintColor");
+    background: color(blue-tint);
   }
 
   &.unRead .unReadDot {
@@ -55,7 +55,7 @@
   &.unRead:not(.activeConversationBox) .unReadDot {
     width: 1rem;
     height: 1rem;
-    background: color("blueColor");
+    background: color(blue-shade);
   }
 
   &.unRead:not(.activeConversationBox) .infoBox .conversationAuthor {
@@ -63,19 +63,19 @@
   }
 
   &.unRead:not(.activeConversationBox) {
-    background: color("blueTintColor");
+    background: color(blue-tint);
   }
 }
 
 @mixin conversationBoxInfo {
   .conversationAuthor {
-    font-size: $txt-base-sm;
-    font-weight: weight("mediumWeight");
+    font-size: size(sm);
+    font-weight: weight(md);
   }
 
   .miniBox {
     gap: 0.5rem;
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
   }
 
   .conversationDate {
@@ -89,31 +89,31 @@
   top: 1rem;
 
   .dotBtn {
-    font-size: $txt-big;
+    font-size: size(lg);
   }
 }
 
 @mixin conversationOptionsList {
   z-index: 1;
-  background: $bg-light;
+  background: color(light);
   right: 0.5rem;
   top: 1.5rem;
   width: max-content;
   padding: 0.75rem;
-  border-radius: $rounded-xsm;
-  font-size: $txt-base-sm;
-  box-shadow: $shadow-base-v-sm;
+  border-radius: radius(3xs);
+  font-size: size(sm);
+  box-shadow: shadow(vertical-sm);
 
   .optBtn {
     gap: 0.5rem;
 
     &.optDeleteBtn svg {
-      color: color("redColor");
-      font-size: $txt-big;
+      color: color(red-b);
+      font-size: size(lg);
     }
 
     svg {
-      font-size: $txt-base;
+      font-size: size(base);
     }
   }
 
@@ -127,21 +127,21 @@
 =========================*/
 
 $msg-item-base-radius: 0.35rem;
-$msg-fs: $txt-base-sm;
+$msg-fs: size(sm);
 
 @mixin messangerFeedContainer {
   padding: 1rem;
-  background: $bg-light;
+  background: color(light);
 }
 
 @mixin messangerFeedHeader {
   gap: 0.75rem;
   padding: 1rem 0;
-  border-bottom: 1px solid color(darkGreyColor);
+  border-bottom: 1px solid color(dark-grey);
 
   .feedAuthor {
-    font-size: $txt-base-sm;
-    font-weight: weight(mediumWeight);
+    font-size: size(sm);
+    font-weight: weight(md);
   }
 }
 
@@ -154,7 +154,7 @@ $msg-fs: $txt-base-sm;
 @mixin msgBox {
   gap: 0.5rem;
   width: 100%;
-  font-size: $txt-thumbnail;
+  font-size: size(xs);
 
   & [data-img] {
     width: $identifier-fig-xsm;
@@ -184,15 +184,15 @@ $msg-fs: $txt-base-sm;
 }
 
 @mixin msgGroupItem {
-  background: $bg-dark-light;
+  background: color(gray-shade);
   padding: 0.5rem 1rem;
   width: max-content;
   max-width: 70%;
   border-radius: 1rem;
 
   &.activeUserMsg {
-    background: color("blueColor");
-    color: color("whiteColor");
+    background: color(blue-shade);
+    color: color(light);
     margin-left: auto;
   }
 

@@ -15,11 +15,11 @@
   $footer-h: 11rem;
   $max-modal-h: 40vw;
   $max-modal-h-md: 50vw;
-  $max-modal-h-tablet: calc(100vh - $nav-height);
+  $max-modal-h-tablet: calc(100vh - app(nav-h));
   border-radius: inherit;
 
   [data-modal-close-btn] svg {
-    fill: color("darkGreyColor");
+    fill: color(dark-shade);
   }
 
   .createPostModalContentBox {
@@ -33,7 +33,7 @@
     padding: $space-around;
     padding-top: $header-h;
     padding-bottom: $footer-h;
-    background: color("whiteColor");
+    background: color(light);
     border-radius: inherit;
 
     @include media-1280 {
@@ -120,7 +120,7 @@
     overflow: auto;
     padding: 0.5rem;
     border: none;
-    font-size: size("smallSize");
+    font-size: size(sm);
     border-radius: 0rem;
 
     @include scrollBar("&");

@@ -8,15 +8,15 @@
 }
 
 @mixin label {
-  font-weight: weight("mediumWeight");
-  font-size: size("smallSize");
+  font-weight: weight(md);
+  font-size: size(sm);
   text-transform: capitalize;
   cursor: pointer;
 }
 
 @mixin inpPlaceHolder {
   text-transform: capitalize;
-  font-size: size("smallerSize");
+  font-size: size(xs);
   opacity: 0.5;
 }
 
@@ -26,13 +26,13 @@ $inp-h: 4rem;
   // may be actual input or box in which input is placed
   .inpField {
     @include flexBox;
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-grey);
     border-radius: 0.3rem;
     overflow: hidden;
-    background: color("whiteColor");
+    background: color(light);
 
     &.error {
-      border: 1px solid color("redColor");
+      border: 1px solid color(red-b);
     }
   }
 
@@ -42,9 +42,9 @@ $inp-h: 4rem;
     width: 100%;
     outline: none;
     height: $inp-h;
-    color: color("blackColor");
+    color: color(dark);
     padding: 0 1rem;
-    font-size: size("smallSize");
+    font-size: size(sm);
     border: none;
 
     &::placeholder {
@@ -53,13 +53,13 @@ $inp-h: 4rem;
   }
 
   .inpField.inp {
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-grey);
   }
 }
 
 @mixin errMsg {
-  color: color("redColor");
-  font-size: size("smallerSize");
+  color: color(red-b);
+  font-size: size(xs);
   text-align: center;
 
   &::first-letter {

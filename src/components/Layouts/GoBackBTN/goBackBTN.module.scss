@@ -5,9 +5,9 @@
   z-index: 99;
   top: 1rem;
   right: 1rem;
-  font-size: size("bigSize");
-  background: color("whiteShaderColor");
-  color: color("darkGreyColor");
+  font-size: size(lg);
+  background: color(gray-shade);
+  color: color(dark-shade);
   border-radius: 100%;
   width: 3rem;
   aspect-ratio: 1/1;

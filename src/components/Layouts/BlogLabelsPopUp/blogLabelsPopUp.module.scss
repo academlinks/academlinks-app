@@ -14,14 +14,14 @@ $white: #ffffff;
   height: 15vw;
   padding: 2rem;
   border-radius: 2rem;
-  background: color("whiteColor");
+  background: color(light);
   @include boxShadowBlack(0, 1rem, 0.2);
   @include animatePopUp;
 
   .popUpTitle {
-    font-size: size("largeSize");
+    font-size: size(xl);
     text-transform: capitalize;
-    color: color("darkLightGreyColor");
+    color: color(silver-shade);
     display: inline-block;
     width: 100%;
   }
@@ -45,9 +45,9 @@ $white: #ffffff;
     @include flexProperty(flex-start, center);
     gap: 0.4rem;
     padding: 0.4rem;
-    font-size: size("smallSize");
+    font-size: size(sm);
     text-transform: capitalize;
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-shade);
     border-radius: 0.5rem;
     cursor: pointer;
 
@@ -89,7 +89,7 @@ $white: #ffffff;
         left: 45%;
         top: 20%;
         transform: translate(-50%, -50%);
-        background-color: color("blueColor");
+        background-color: color(blue-shade);
         transition: background-color 0.15s, width 0.15, height 0.15s;
         backface-visibility: hidden;
         border: none;
@@ -121,15 +121,15 @@ $white: #ffffff;
     gap: 1rem;
     width: 100%;
     padding: 1rem 3rem;
-    background: color("whiteColor");
+    background: color(light);
 
     .cancelBtn {
-      background: color("whiteShadeColor");
-      color: color("darkGreyColor");
+      background: color(gray-b);
+      color: color(dark-shade);
     }
 
     & label {
-      font-size: size("smallerSize");
+      font-size: size(xs);
       @include flexBox;
       @include flexProperty(flex-start, center);
 

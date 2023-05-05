@@ -10,10 +10,10 @@
   padding-top: 0.2rem;
 
   .commentTimeAgo {
-    font-size: size('smallestSize');
+    font-size: size(2xs);
   }
 
   .userLiked svg {
-    color: color(blueColor);
+    color: color(blue-shade);
   }
 }

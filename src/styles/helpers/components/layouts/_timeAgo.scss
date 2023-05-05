@@ -2,7 +2,7 @@
 @use "../../variables/variables" as *;
 
 @mixin timeAgo {
-  font-size: $txt-thumbnail-sm;
-  font-weight: weight("thinWeight");
-  color: $txt-gray;
+  font-size: size(2xs);
+  font-weight: weight(sm);
+  color: color(dark-light);
 }

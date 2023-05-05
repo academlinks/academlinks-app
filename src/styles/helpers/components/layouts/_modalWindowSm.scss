@@ -11,10 +11,10 @@ $modal-list-gap: 0.5rem;
   justify-content: center;
   align-items: flex-start;
   gap: $modal-list-gap;
-  font-size: size("regullarSize");
+  font-size: size(base);
   border-radius: 0.5rem;
-  background: $bg-light;
-  color: $txt-dark;
+  background: color(light);
+  color: color(txt-dark);
   text-transform: capitalize;
   animation: moveTop 0.15s;
 
@@ -27,11 +27,11 @@ $modal-list-gap: 0.5rem;
     transition: all 0.2s ease-out;
 
     & svg {
-      font-size: size("bigSize");
+      font-size: size(lg);
     }
 
     &:hover {
-      color: color("blackColor");
+      color: color(dark);
     }
   }
 }

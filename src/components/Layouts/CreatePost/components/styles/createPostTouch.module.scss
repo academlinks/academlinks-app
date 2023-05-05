@@ -17,7 +17,7 @@
     }
 
     & span p:first-child {
-      font-size: size("smallerSize");
+      font-size: size(xs);
     }
   }
 }
@@ -27,12 +27,12 @@
   @include flexProperty(flex-start, center);
   gap: 0.5rem;
   padding-top: 1rem;
-  font-size: size("regullarSize");
-  border-top: 1px solid color("darkGreyColor");
+  font-size: size(base);
+  border-top: 1px solid color(dark-shade);
   cursor: pointer;
 
   @include media-480 {
-    font-size: size("smallSize");
+    font-size: size(sm);
   }
 
   & svg {
@@ -49,21 +49,21 @@
   outline: none;
   height: 3.5rem;
   border-radius: 10rem;
-  background: color("whiteShadeColor");
+  background: color(gray-b);
   padding-left: 2rem;
   margin: 1rem 0;
 
   &::placeholder {
     opacity: 0.5;
     font-style: italic;
-    font-size: size("smallSize");
+    font-size: size(sm);
   }
 
   @include media-480 {
     height: 3rem;
 
     &::placeholder {
-      font-size: size("smallerSize");
+      font-size: size(xs);
     }
   }
 }

@@ -5,21 +5,21 @@
 @use "./layouts/avatar" as *;
 
 @mixin onEveryNavModal {
-  border-radius: $rounded-sm;
-  font-size: $txt-base;
-  color: $txt-dark;
-  background: $bg-light;
-  box-shadow: $shadow-base-v-lg;
+  border-radius: radius(2xs);
+  font-size: size(base);
+  color: color(dark-shade);
+  background: color(light);
+  box-shadow: shadow(vertical-lg);
   @include animateMoveTop;
 }
 
 @mixin nav {
-  height: $nav-height;
+  height: app(nav-h);
   padding: 0 1rem;
   gap: 1rem;
-  background: color("blueColor");
-  color: $txt-light;
-  box-shadow: $shadow-base-v-lg;
+  background: color(blue-shade);
+  color: color(light);
+  box-shadow: shadow(vertical-lg);
 }
 
 @mixin navList {
@@ -84,9 +84,9 @@ $search-window-top: 8rem;
   top: -4rem;
   width: 100%;
   height: 30rem;
-  background: $bg-light;
-  color: $txt-dark;
-  box-shadow: $shadow-base-v-lg;
+  background: color(light);
+  color: color(dark-shade);
+  box-shadow: shadow(vertical-lg);
 
   .resultsList {
     z-index: 2;
@@ -115,7 +115,7 @@ $search-window-top: 8rem;
     height: 1.5rem;
     border-radius: 100%;
     font-size: 1.1rem;
-    background: color("redColor");
+    background: color(red-b);
   }
 
   @include media-680 {
@@ -123,7 +123,7 @@ $search-window-top: 8rem;
   }
 
   & svg {
-    font-size: size("bigSize");
+    font-size: size(lg);
   }
 }
 
@@ -137,7 +137,7 @@ $search-window-top: 8rem;
     top: 6rem;
     right: -1rem;
     overflow: hidden;
-    font-weight: weight("regullarWeight");
+    font-weight: weight(base);
     @include onEveryNavModal;
 
     & li {
@@ -145,12 +145,12 @@ $search-window-top: 8rem;
       transition: all 0.2s;
 
       &:hover {
-        background: color("blueTintColor");
+        background: color(blue-tint);
       }
     }
 
     & li:last-child {
-      font-weight: weight("boldWeight");
+      font-weight: weight(lg);
     }
   }
 }

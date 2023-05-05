@@ -11,7 +11,7 @@
   padding: 3rem;
   text-align: center;
   border-radius: 0.5rem;
-  background: color("whiteColor");
+  background: color(light);
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
 
   .message {
@@ -29,12 +29,12 @@
   }
 
   .btnCancel {
-    background: color("whiteShadeColor");
-    color: color("darkGreyColor");
+    background: color(gray-b);
+    color: color(dark-shade);
     margin-right: 1rem;
   }
 
   .btnDelete {
-    background: color("redColor");
+    background: color(red-b);
   }
 }

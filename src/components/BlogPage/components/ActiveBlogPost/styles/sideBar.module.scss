@@ -5,9 +5,9 @@
 .sideBar {
   width: 100%;
   position: sticky;
-  top: $nav-height;
+  top: app(nav-h);
   height: 100vh;
-  background: color("whiteShaderColor");
+  background: color(white-shader);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
     aspect-ratio: 1/1;
     overflow: hidden;
     border-radius: 0.5rem;
-    box-shadow: $shadow-base-sm;
+    box-shadow: shadow(radial-sm);
 
     img {
       width: 100%;

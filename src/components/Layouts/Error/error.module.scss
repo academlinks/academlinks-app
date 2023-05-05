@@ -2,10 +2,10 @@
 @use "../../../styles/helpers/variables/variables" as *;
 
 .error {
-  color: color("darkLightGreyColor");
+  color: color(silver-shade);
   // opacity: 0.6;
-  font-weight: weight("mediumWeight");
-  font-size: size("smallerSize");
+  font-weight: weight(md);
+  font-size: size(xs);
   text-align: center;
   word-wrap: break-word;
 
@@ -19,8 +19,8 @@
   }
 
   svg {
-    font-size: size("bigSize");
-    color: color("redColor");
+    font-size: size(lg);
+    color: color(red-b);
     margin-top: -0.1rem;
   }
 
@@ -31,7 +31,7 @@
   &.asModal {
     position: fixed;
     z-index: 99;
-    top: $nav-height;
+    top: app(nav-h);
     left: 0;
     right: 0;
     bottom: 0;
@@ -43,9 +43,9 @@
     .innerContainer {
       width: min(100%, 35rem);
       padding: calc(($btn-pad-y * 2) + ($btn-space-y * 2) + 3rem) 1rem;
-      border-radius: $rounded-sm;
-      box-shadow: $shadow-base;
-      background: color("whiteColor");
+      border-radius: radius(2xs);
+      box-shadow: shadow(radial);
+      background: color(light);
       position: relative;
       top: 50%;
       left: 50%;
@@ -55,10 +55,10 @@
     .closeBtn {
       display: block;
       position: absolute;
-      background: color("redColor");
-      color: color("whiteColor");
+      background: color(red-b);
+      color: color(light);
       padding: $btn-pad-y 3rem;
-      border-radius: $rounded-md;
+      border-radius: radius(xs);
       bottom: $btn-space-y;
       right: 1rem;
     }

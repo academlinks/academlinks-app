@@ -3,7 +3,7 @@
 @use "../../../../../styles/helpers/abstract/media" as *;
 
 .createBlogPostTouch {
-  background: color("whiteColor");
+  background: color(light);
   @include flexBox(column);
   gap: 2rem;
   padding: 2rem;
@@ -19,26 +19,26 @@
     outline: none;
     height: 3.5rem;
     border-radius: 10rem;
-    background: color("whiteShadeColor");
+    background: color(gray-b);
     padding-left: 2rem;
 
     &::placeholder {
       opacity: 0.5;
       font-style: italic;
-      font-size: size("smallSize");
+      font-size: size(sm);
     }
 
     @include media-480 {
       height: 3rem;
 
       &::placeholder {
-        font-size: size("smallerSize");
+        font-size: size(xs);
       }
     }
   }
 
   & label {
-    border-top: 1px solid color("darkGreyColor");
+    border-top: 1px solid color(dark-shade);
     padding-top: 1rem;
     @include flexBox;
     @include flexProperty(flex-start, center);

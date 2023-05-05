@@ -1,13 +1,12 @@
-@use '../variables/colors' as *;
-@use '../variables/fontSize' as *;
-@use '../variables/fontWeight' as *;
+@use "../variables/color" as *;
+@use "../variables/fontSize" as *;
+@use "../variables/fontWeight" as *;
+@use "../variables/borderRadius" as *;
+@use "../variables/shadow" as *;
+@use "../variables/app" as *;
 
 @function color($color) {
   @return map-get($colors, $color);
-}
-
-@function color-U($color) {
-  @return map-get($utility-colors, $color);
 }
 
 @function size($size) {
@@ -17,4 +16,15 @@
 @function weight($weight) {
   @return map-get($fontWeight, $weight);
 }
- 
+
+@function radius($size) {
+  @return map-get($borderRadius, $size);
+}
+
+@function shadow($size) {
+  @return map-get($shadow, $size);
+}
+
+@function app($util) {
+  @return map-get($app, $util);
+}

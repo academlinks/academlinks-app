@@ -3,14 +3,14 @@
 @use "../abstract/media" as *;
 
 @mixin profileReviewContainer {
-  width: min(100%, $container-width);
-  min-height: $nested-page-min-h;
+  width: min(100%, app(container-w));
+  min-height: app(nested-page-min-h);
   margin-top: $space-top-under-user-cover;
   margin-bottom: $space-bottom-under-user-cover;
   padding-bottom: 1rem;
   border-radius: 0.5rem;
-  background: color("whiteColor");
-  box-shadow: $shadow-base;
+  background: color(light);
+  box-shadow: shadow(radial);
   overflow: hidden;
 
   @include media-960 {
@@ -21,24 +21,24 @@
 
 @mixin profileReviewNav {
   gap: 2rem;
-  font-size: size("smallSize");
-  font-weight: weight("boldWeight");
+  font-size: size(sm);
+  font-weight: weight(lg);
   text-transform: capitalize;
-  border-bottom: 1px solid color("darkGreyColor");
-  color: color("darkGreyColor");
+  border-bottom: 1px solid color(dark-grey);
+  color: color(darkGreyColor);
 
   & a {
     padding: 1rem 2rem;
 
     &:hover {
-      background-color: color("blueTintColor");
-      color: color("blueColor");
+      background-color: color(blue-tint);
+      color: color(blue-shade);
     }
   }
 
   .active {
-    border-bottom: 2px solid color("blueColor");
-    color: color("blueColor");
+    border-bottom: 2px solid color(blue-shade);
+    color: color(blue-shade);
   }
 }
 
@@ -55,19 +55,19 @@
 
 @mixin reviewBtnBox {
   .reviewBtnBox {
-    width: min(100%, $post-w);
+    width: min(100%, app(post-w));
     margin-top: 1rem;
     gap: 2rem;
   }
 
   .removeTagBtn {
     background: none;
-    color: color("darkGreyColor");
+    color: color(dark-grey);
     box-shadow: none;
   }
 
   .hideBtn {
-    background: color("whiteShaderColor");
-    color: color("darkGreyColor");
+    background: color(white-shader);
+    color: color(dark-grey);
   }
 }

@@ -3,7 +3,7 @@
 @use '../../../styles/helpers/abstract/media' as *;
 
 .searchField {
-  background: color('whiteShadeColor');
+  background: color(gray-b);
   @include flexBox;
   @include flexProperty(flex-start, center);
   gap: 0.5rem;
@@ -14,7 +14,7 @@
   min-width: 18rem;
 
   .searchFieldLabel {
-    color: color('darkGreyColor');
+    color: color(dark-shade);
     @include flexBox;
     @include flexProperty(flex-start, center);
   }
@@ -23,12 +23,12 @@
     outline: none;
     border: none;
     background: inherit;
-    color: color('darkGreyColor');
-    font-size: size('smallSize');
+    color: color(dark-shade);
+    font-size: size(sm);
     width: 100%;
 
     &::placeholder {
-      font-weight: weight('thinWeight');
+      font-weight: weight(sm);
       font-style: italic;
     }
   }

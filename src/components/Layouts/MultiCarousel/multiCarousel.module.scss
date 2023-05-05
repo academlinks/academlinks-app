@@ -7,7 +7,7 @@
   width: 5rem;
   @include flexBox;
   @include flexProperty(center, center);
-  background: color('whiteColor');
+  background: color(light);
 
   &.left {
     left: 0;

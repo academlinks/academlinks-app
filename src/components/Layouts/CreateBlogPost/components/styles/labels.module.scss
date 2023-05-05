@@ -18,14 +18,14 @@
       gap: 0.5rem;
       padding: 0.35rem 1rem;
       border-radius: 0.5rem;
-      background: color("blueColor");
-      color: color("whiteColor");
+      background: color(blue-shade);
+      color: color(light);
 
       & button {
         @include flexBox;
         @include flexProperty(flex-start, center);
         margin-top: -0.2rem;
-        font-size: size("bigSize");
+        font-size: size(lg);
       }
     }
   }

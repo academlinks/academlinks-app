@@ -1,55 +1,3 @@
-@use "../abstract/functions" as *;
-
-$message-fade-color: rgb(95, 98, 102);
-
-// ========================= Base Colors
-$txt-dark: color-U("txt-dark");
-$txt-light: color-U("txt-light");
-$txt-gray: color-U("txt-gray");
-$bg-light: color-U("bg-light");
-$bg-dark-light: color-U("bg-dark-light");
-
-// ========================= Typography
-$txt-big: size("bigSize");
-$txt-base: size("regullarSize");
-$txt-base-sm: size("smallSize");
-$txt-thumbnail: size("smallerSize");
-$txt-thumbnail-sm: size("smallestSize");
-
-// ========================= Border-radius
-
-$rounded-nested-page: 0.5rem;
-$rounded-xsm: 0.3rem;
-$rounded-sm: 0.5rem;
-$rounded-md: 0.75rem;
-$rounded-lg: 1rem;
-
-// ========================= Shadows
-
-// radials
-$shadow-base: 0 0 1.2rem 0.3rem rgba(0, 0, 0, 0.15);
-$shadow-base-lg: 0 0 2rem -0.3rem rgba(0, 0, 0, 0.25);
-$shadow-base-sm: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.15);
-
-// vertical
-$shadow-base-v: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
-$shadow-base-v-lg: 0 0.75rem 1.5rem -0.5rem rgba(0, 0, 0, 0.15);
-$shadow-base-v-sm: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
-
-// =========================
-$options-list-min-h: 8rem;
-
-// ========================= Components
-
-$container-width: 1140px;
-$nested-page-min-h: 40rem;
-
-// Nav
-$nav-height: 6rem;
-
-// Post
-$post-w: 60rem;
-
 //Identifier fig
 $identifier-fig-lg: 4rem;
 $identifier-fig-md: 3.5rem;
@@ -58,6 +6,6 @@ $identifier-fig-sm: 2rem;
 
 // spacers
 $space-top-under-user-cover: 6rem;
+$space-bottom-under-user-cover: 6rem;
 $space-top-under-user-cover-sm: 4rem;
-$space-bottom-under-user-cover: 4rem;
 $space-bottom-under-user-cover-sm: 0rem;

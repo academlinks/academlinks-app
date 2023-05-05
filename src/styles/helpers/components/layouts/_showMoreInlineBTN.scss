@@ -4,7 +4,7 @@
 @mixin showMoreBtn {
   padding: 0 0.5rem;
   margin-left: 0.25rem;
-  font-weight: weight("mediumWeight");
+  font-weight: weight(md);
   border-radius: 1rem;
-  background: $bg-dark-light;
+  background: color(white-shade);
 }

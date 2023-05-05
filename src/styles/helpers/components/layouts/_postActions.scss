@@ -3,7 +3,7 @@
 
 @mixin postActions {
   gap: 1rem;
-  border-top: 1px solid color("blackColor");
+  border-top: 1px solid color(dark);
   padding: 1rem 0.5rem 0;
 
   & button a,
@@ -12,11 +12,11 @@
   }
 
   & button span {
-    font-size: $txt-base-sm;
+    font-size: size(sm);
   }
 
   & button svg {
-    font-size: $txt-big;
+    font-size: size(lg);
   }
 
   & button:nth-child(3) {
@@ -24,6 +24,6 @@
   }
 
   [data-user-liked] svg {
-    color: color("blueColor");
+    color: color(blue-shade);
   }
 }

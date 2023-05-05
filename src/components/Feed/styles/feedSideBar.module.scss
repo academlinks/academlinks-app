@@ -8,9 +8,9 @@
   min-width: 30rem;
   max-width: 30rem;
   position: sticky;
-  top: $nav-height;
-  min-height: calc(100vh - $nav-height);
-  background: color("whiteShaderColor");
+  top: app(nav-h);
+  min-height: calc(100vh - app(nav-h));
+  background: color(white-shader);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
     width: 100%;
     aspect-ratio: 1/1;
     overflow: hidden;
-    box-shadow: $shadow-base-sm;
+    box-shadow: shadow(radial-sm);
     border-radius: 0.5rem;
 
     img {
@@ -42,12 +42,12 @@
   @include media-1280 {
     min-width: 23rem;
     max-width: 23rem;
-    
+
     figure {
       width: 100%;
     }
   }
-  
+
   @include media-960 {
     min-width: 18rem;
     max-width: 18rem;

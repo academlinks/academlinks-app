@@ -21,13 +21,13 @@
     transition: all 0.2s ease;
 
     &:hover {
-      background: color(darkLightGreyColor);
-      color: color(whiteColor);
+      background: color(silver-shade);
+      color: color(light);
     }
   }
 
   .navLink.activeNavLink {
-    background: color("blueColor");
-    color: color("whiteColor");
+    background: color(blue-shade);
+    color: color(light);
   }
 }

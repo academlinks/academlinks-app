@@ -40,9 +40,9 @@
 
   .friendName {
     display: inline-block;
-    color: color("blackColor");
+    color: color(dark);
     text-transform: capitalize;
-    font-weight: weight("mediumWeight");
+    font-weight: weight(md);
 
     &:hover {
       text-decoration: underline;

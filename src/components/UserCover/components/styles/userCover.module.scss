@@ -1,5 +1,6 @@
 @use "../../../../styles/helpers/components/user-cover" as *;
 @use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/abstract//functions" as *;
 
 $container-h: 42vw;
 $container-h-md: 48vw;
@@ -36,7 +37,7 @@ $space-for-content-on-mobile: 30rem;
 
 $rows-for-content: 5;
 
-$nav-height: 5rem;
+// $nav-height: 5rem;
 
 $profile-img-w: 16rem;
 $profile-img-w-on-md: 13rem;
@@ -48,14 +49,14 @@ $profile-img-w-on-md: 13rem;
   grid-template-rows:
     calc(100% - $space-for-content) repeat(
       $rows-for-content,
-      calc(($space-for-content - $nav-height) / $rows-for-content)
+      calc(($space-for-content - app(nav-h)) / $rows-for-content)
     )
-    $nav-height;
+    app(nav-h);
 
   grid-template-columns:
     1fr $profile-img-w minmax(
       max-content,
-      calc($container-width - $profile-img-w)
+      calc(app(container-w) - $profile-img-w)
     )
     1fr;
 
@@ -63,14 +64,14 @@ $profile-img-w-on-md: 13rem;
     grid-template-rows:
       calc(100% - $space-for-content-on-md) repeat(
         $rows-for-content,
-        calc(($space-for-content-on-md - $nav-height) / $rows-for-content)
+        calc(($space-for-content-on-md - app(nav-h)) / $rows-for-content)
       )
-      $nav-height;
+      app(nav-h);
 
     grid-template-columns:
       1fr $profile-img-w-on-md minmax(
         max-content,
-        calc($container-width - $profile-img-w-on-md)
+        calc(app(container-w) - $profile-img-w-on-md)
       )
       1fr;
   }
@@ -79,9 +80,9 @@ $profile-img-w-on-md: 13rem;
     grid-template-rows:
       calc(100% - $space-for-content-on-mobile) repeat(
         $rows-for-content,
-        calc(($space-for-content-on-mobile - $nav-height) / $rows-for-content)
+        calc(($space-for-content-on-mobile - app(nav-h)) / $rows-for-content)
       )
-      $nav-height;
+      app(nav-h);
 
     grid-template-columns: repeat(1, 1fr);
   }

@@ -12,9 +12,9 @@
   padding-top: 1rem;
   height: 100%;
   overflow: auto;
-  font-weight: weight("mediumWeight");
+  font-weight: weight(md);
   text-transform: capitalize;
-  border-top: 1px solid color("darkGrayColor");
+  border-top: 1px solid color(dark-shade);
 
   &::-webkit-scrollbar {
     display: none;
@@ -28,12 +28,12 @@
     border-radius: 0.5rem;
 
     &:not(.active):hover {
-      background: color("blueTintColor");
+      background: color(blue-tint);
     }
 
     &.active {
-      background: color("blueColor");
-      color: $txt-light;
+      background: color(blue-shade);
+      color: color(light);
     }
 
     @include media-680 {

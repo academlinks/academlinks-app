@@ -43,7 +43,7 @@
   @include formsContainer;
 
   [data-select-box] {
-    font-size: size("smallSize");
+    font-size: size(sm);
   }
 
   .form {
@@ -78,14 +78,14 @@
 }
 
 .addBTN {
-  background: color("blueColor");
-  color: color("whiteColor");
+  background: color(blue-shade);
+  color: color(light);
   width: calc(100% - 2rem);
   display: block;
   margin: 0 auto;
   margin-top: -1rem;
   margin-bottom: 1rem;
   padding: 1.2rem 0;
-  border-radius: $rounded-sm;
+  border-radius: radius(2xs);
   text-transform: capitalize;
 }

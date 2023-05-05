@@ -7,14 +7,14 @@ $header-h: 8rem;
 $footer-h: 6rem;
 $max-modal-h: 40vw;
 $max-modal-h-md: 50vw;
-$max-modal-h-tablet: calc(100vh - $nav-height);
+$max-modal-h-tablet: calc(100vh - app(nav-h));
 
 @mixin mediaPortal {
   width: 90vw;
   height: 80vh;
 
   @include media-960 {
-    height: calc(100vh - $nav-height + 1.5rem);
+    height: calc(100vh - app(nav-h) + 1.5rem);
     width: 100vw;
   }
 }
@@ -28,7 +28,7 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
   }
 
   & [data-modal-close-btn] svg {
-    color: color("darkGreyColor");
+    color: color(dark-grey);
   }
 }
 
@@ -44,7 +44,7 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
   padding: $space-around;
   padding-top: $header-h;
   padding-bottom: $footer-h;
-  background: color("whiteColor");
+  background: color(light);
 
   %wrapper {
     position: fixed;
@@ -72,7 +72,7 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
     height: $header-h;
     padding: $space-around;
     align-items: flex-start;
-    background: color("whiteColor");
+    background: color(light);
   }
 
   .btnWrapper {
@@ -80,7 +80,7 @@ $max-modal-h-tablet: calc(100vh - $nav-height);
     height: $footer-h;
     bottom: 0;
     padding: $space-around;
-    background: color("whiteColor");
+    background: color(light);
     outline: none;
 
     @include media-480 {

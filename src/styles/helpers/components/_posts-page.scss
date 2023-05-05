@@ -9,7 +9,7 @@ $space-x: 4rem;
 $space-x-md: 2rem;
 
 @mixin postsPageContainer {
-  width: min(100%, $container-width);
+  width: min(100%, app(container-w));
   gap: $space-x;
   padding-top: $space-top-under-user-cover;
 
@@ -43,13 +43,13 @@ $space-x-md: 2rem;
 @mixin postsPageUserInfo {
   gap: 1.5rem;
   padding: 2rem 1rem;
-  font-size: size("smallSize");
-  border-radius: $rounded-lg;
-  background: color("whiteColor");
-  box-shadow: $shadow-base;
+  font-size: size(sm);
+  border-radius: radius(sm);
+  background: color(light);
+  box-shadow: shadow(radial);
 
   @include media-480 {
-    // font-size: size("smallerSize");
+    // font-size: size(xs);
   }
 
   & li {
@@ -57,56 +57,56 @@ $space-x-md: 2rem;
     line-height: 1.3;
 
     & strong {
-      color: color("blackColor");
+      color: color(dark);
       text-transform: capitalize;
-      font-weight: weight("boldWeight");
+      font-weight: weight(lg);
     }
   }
 
   .icon {
-    font-size: size("regullarSize");
+    font-size: size(base);
     width: 2rem;
 
     @include media-480 {
-      font-size: size("smallSize");
+      font-size: size(sm);
     }
   }
 
   .smallIcon {
-    font-size: size("bigSize");
+    font-size: size(lg);
 
     @include media-480 {
-      font-size: size("regullarSize");
+      font-size: size(base);
     }
   }
 }
 
 @mixin postsPageUserFriends {
   padding: 1rem;
-  border-radius: $rounded-lg;
-  font-size: size("smallerSize");
-  background: color("whiteColor");
-  box-shadow: $shadow-base;
+  border-radius: radius(sm);
+  font-size: size(xs);
+  background: color(light);
+  box-shadow: shadow(radial);
 
   .userFriendsIntro {
     margin-bottom: 1rem;
     padding: 0 0.8rem;
     text-transform: capitalize;
-    color: color("blackColor");
+    color: color(dark);
   }
 
   .introTitle {
-    font-size: size("regullarSize");
-    font-weight: weight("boldWeight");
+    font-size: size(base);
+    font-weight: weight(lg);
   }
 
   .showAll {
-    color: color("blueColor");
+    color: color(blue-shade);
   }
 
   .friendImg {
     height: 8.5rem;
-    border-radius: $rounded-sm;
+    border-radius: radius(2xs);
     overflow: hidden;
     aspect-ratio: 1/1;
 

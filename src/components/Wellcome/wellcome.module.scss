@@ -8,8 +8,8 @@ $nav-w: 22rem;
 $gap-between-nav: 10rem;
 
 .wellcomeContainer {
-  height: calc(100vh - $nav-height);
-  margin-top: $nav-height;
+  height: calc(100vh - app(nav-h));
+  margin-top: app(nav-h);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: max-content;
@@ -17,8 +17,8 @@ $gap-between-nav: 10rem;
   align-content: center;
   column-gap: 28rem;
   row-gap: 8rem;
-  background: color("blueColor");
-  color: color("whiteColor");
+  background: color(blue-shade);
+  color: color(light);
   position: relative;
 
   @include media-1280 {
@@ -75,7 +75,7 @@ $gap-between-nav: 10rem;
     }
 
     .punch {
-      font-weight: weight("boldWeight");
+      font-weight: weight(lg);
     }
 
     @include media-960 {
@@ -113,7 +113,7 @@ $gap-between-nav: 10rem;
     grid-column: 1;
     grid-row: 2;
     justify-self: end;
-    background: color("orangeColor");
+    background: color(orange-b);
     padding: 2rem 6rem;
     font-size: 2.6rem;
     border-radius: 12rem;
@@ -143,7 +143,7 @@ $gap-between-nav: 10rem;
     left: 4rem;
     text-decoration: underline;
     letter-spacing: 1px;
-    font-size: size("smallSize");
+    font-size: size(sm);
 
     @include media-480 {
       width: 100%;

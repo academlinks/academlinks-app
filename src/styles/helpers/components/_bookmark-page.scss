@@ -3,15 +3,15 @@
 @use "../abstract/media" as *;
 
 @mixin bookmarkPage {
-  max-width: $container-width;
-  min-height: $nested-page-min-h;
+  max-width: app(container-w);
+  min-height: app(nested-page-min-h);
   margin-top: $space-top-under-user-cover;
   margin-bottom: $space-bottom-under-user-cover;
   gap: 4rem;
   padding: 3rem 4rem 2rem 4rem;
-  background: $bg-light;
-  border-radius: $rounded-nested-page;
-  box-shadow: $shadow-base;
+  background: color(light);
+  border-radius: radius(2xs);
+  box-shadow: shadow(radial);
   transition: all 5.3s ease-out;
 
   @include media-960 {

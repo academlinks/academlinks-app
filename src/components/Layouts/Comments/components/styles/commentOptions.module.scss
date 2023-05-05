@@ -10,10 +10,10 @@
   .commentOptMainBtn {
     @include flexBox;
     @include flexProperty(center, center);
-    color: color("darkLightGreyColor");
+    color: color(silver-shade);
 
     & svg {
-      font-size: size("bigSize");
+      font-size: size(lg);
     }
   }
 
@@ -27,9 +27,9 @@
     @include flexProperty(flex-start, flex-start);
     gap: 0.5rem;
     padding: 1rem;
-    font-size: size("regullarSize");
+    font-size: size(base);
     text-transform: capitalize;
-    background: color("whiteColor");
+    background: color(light);
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
 
     & .optBtn {
@@ -41,15 +41,15 @@
     }
 
     & .optBtn:hover {
-      color: color("blackColor");
+      color: color(dark);
     }
 
     & .deleteBtn.deleteBtn:hover {
-      color: color("redColor");
+      color: color(red-b);
     }
 
     & svg {
-      font-size: size("bigSize");
+      font-size: size(lg);
     }
   }
 }

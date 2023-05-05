@@ -9,7 +9,7 @@
 
   $modal-h: 35vw;
   $modal-h-md: 40vw;
-  $modal-h-tablet: calc(100vh - $nav-height);
+  $modal-h-tablet: calc(100vh - app(nav-h));
 
   $header-h: 9rem;
   $footer-h: 6.5rem;
@@ -25,7 +25,7 @@
   width: $modal-w;
   height: 100%;
   max-height: $modal-h;
-  background: color("whiteColor");
+  background: color(light);
   border-radius: $radius !important;
   overflow: hidden;
 
@@ -40,7 +40,7 @@
   }
 
   [data-modal-close-btn] svg {
-    fill: color("darkGreyColor");
+    fill: color(dark-shade);
   }
 
   .fields {
@@ -76,7 +76,7 @@
     z-index: 99;
     padding: $space-around;
     border-radius: $radius;
-    background: color("whiteColor");
+    background: color(light);
 
     @include media-960 {
       border-radius: 0;
@@ -117,7 +117,7 @@
 
   .articleField {
     width: calc(100% - 1rem);
-    border-bottom: 1px solid color("darkGreyColor");
+    border-bottom: 1px solid color(dark-shade);
 
     .articleFieldHead {
       label {
@@ -145,7 +145,7 @@
     left: 0;
     right: 0;
     padding: $space-around;
-    background: color("whiteColor");
+    background: color(light);
     border-radius: $radius;
 
     .publishBlogPostBtn {

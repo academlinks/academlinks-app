@@ -11,9 +11,9 @@ $forms-inner-container-w: 40rem;
 @mixin settingsHeading {
   padding: 3rem $heading-v-pad;
   margin-bottom: $heading-space-bottom;
-  border-bottom: 1px solid color("darkGreyColor");
+  border-bottom: 1px solid color(dark-shade);
   text-transform: capitalize;
-  background: $bg-light;
+  background: color(light);
 
   @include media-680 {
     padding: 1.5rem;
@@ -23,9 +23,9 @@ $forms-inner-container-w: 40rem;
 @mixin settingsHeadingSecondary {
   padding: 1.5rem $heading-v-pad;
   margin: 1.5rem 0;
-  border-bottom: 1px solid color("darkGreyColor");
+  border-bottom: 1px solid color(dark-grey);
   text-transform: capitalize;
-  font-weight: weight("boldWeight");
+  font-weight: weight(lg);
 }
 
 @mixin listedContent {
@@ -77,7 +77,7 @@ $forms-inner-container-w: 40rem;
     padding: 1rem 0;
 
     &.deleteAccountBtn {
-      background: color("redColor");
+      background: color(red-b);
     }
   }
 }
@@ -89,8 +89,8 @@ $forms-inner-container-w: 40rem;
   .cancelBtn,
   .updateBtn {
     padding: 0.75rem 4rem;
-    border-radius: $rounded-sm;
-    box-shadow: $shadow-base-sm;
+    border-radius: radius(2xs);
+    box-shadow: shadow(radial-sm);
     text-transform: capitalize;
     transition: all 0.2s;
 
@@ -100,11 +100,11 @@ $forms-inner-container-w: 40rem;
   }
 
   .cancelBtn {
-    background: color("whiteShaderColor");
+    background: color(white-shader);
   }
 
   .updateBtn {
-    background: color("blueColor");
-    color: color("whiteColor");
+    background: color(blue-shade);
+    color: color(light);
   }
 }

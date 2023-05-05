@@ -21,7 +21,7 @@
     @include flexProperty(center, center);
 
     & svg {
-      font-size: size("bigSize");
+      font-size: size(lg);
     }
   }
 
@@ -33,8 +33,8 @@
     border-radius: 6rem;
     padding: 0.8rem 1.5rem;
     @extend %discardMediaBtn;
-    background: rgba(color("darkGreyColor"), 0.6);
-    color: color("whiteColor");
+    background: rgba(color(dark-shade), 0.6);
+    color: color(light);
   }
 
   .discardMediaBtn {
@@ -43,12 +43,12 @@
     right: 1rem;
     border-radius: 100%;
     padding: 0.2rem;
-    background: rgba(color("darkGreyColor"), 0.7);
-    color: color("whiteColor");
+    background: rgba(color(dark-shade), 0.7);
+    color: color(light);
     @extend %discardMediaBtn;
 
     & svg {
-      font-size: size("bigSize");
+      font-size: size(lg);
     }
   }
 
@@ -180,11 +180,11 @@
     grid-row: 2;
     grid-column: 3;
     position: relative;
-    background: rgba(color("darkGreyColor"), 0.5);
+    background: rgba(color(dark-shade), 0.5);
     border-radius: 0.5rem;
     @include flexBox;
     @include flexProperty(center, center);
-    font-size: size("largeSize");
-    color: color("whiteColor");
+    font-size: size(xl);
+    color: color(light);
   }
 }

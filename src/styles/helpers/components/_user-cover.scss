@@ -6,15 +6,15 @@
 @use "../variables/variables" as *;
 
 @mixin userCoverContainer {
-  margin-top: $nav-height;
-  font-size: size("smallSize");
-  border-bottom: 1px solid rgba(color("darkGreyColor"), 0.3);
-  background: color("whiteColor");
-  box-shadow: $shadow-base-v;
+  margin-top: app(nav-h);
+  font-size: size(sm);
+  border-bottom: 1px solid rgba(color(dark-shade), 0.3);
+  background: color(light);
+  box-shadow: shadow(vertical);
 }
 
 @mixin userCoverContent {
-  color: color("darkLightGreyColor");
+  color: color(silver-shade);
 }
 
 %change-media--btn {
@@ -23,10 +23,10 @@
   @include flexProperty(center, center);
   width: 4rem;
   height: 4rem;
-  background: rgba(color("darkLightGreyColor"), 0.7);
-  font-size: size("largeSize");
+  background: rgba(color(silver-shade), 0.7);
+  font-size: size(xl);
   border-radius: 50%;
-  color: color("whiteColor");
+  color: color(light);
   cursor: pointer;
 }
 
@@ -42,7 +42,7 @@
   .profileImg {
     aspect-ratio: 1/1;
     border-radius: 50%;
-    border: 2px solid color("whiteColor");
+    border: 2px solid color(light);
     overflow: hidden;
 
     & img {
@@ -55,7 +55,7 @@
     bottom: 1.2rem;
     right: 0.6rem;
 
-    @include media-680{
+    @include media-680 {
       right: -0.3rem;
     }
   }
@@ -65,26 +65,26 @@
   gap: 2rem;
 
   .cancelUpdateBtn {
-    background: color("whiteShadeColor");
-    color: color("darkGreyColor");
+    background: color(white-shade);
+    color: color(dark-grey);
   }
 }
 
 @mixin userNameAndEmail {
   .userName {
-    font-size: size("bigSize");
-    font-weight: weight("boldWeight");
+    font-size: size(lg);
+    font-weight: weight(lg);
     text-transform: capitalize;
-    color: color("blackColor");
+    color: color(dark);
   }
 
   .email {
-    color: $txt-gray;
+    color: color(dark-shade);
   }
 
   @include media-680 {
     .userName {
-      font-size: size("regullarSize");
+      font-size: size(base);
     }
   }
 }
@@ -96,17 +96,17 @@
 @mixin profileNavigation {
   height: 100%;
   padding: 0 3rem;
-  font-weight: weight("boldWeight");
+  font-weight: weight(lg);
   text-transform: capitalize;
-  border-top: 1px solid color("darkGreyColor");
-  color: color("darkGreyColor");
+  border-top: 1px solid color(dark-shade);
+  color: color(dark-shade);
 
   @include media-680 {
     padding: 0 1rem;
   }
 
   @include media-480 {
-    font-size: size("smallSize");
+    font-size: size(sm);
     padding: 0 0.5rem;
   }
 
@@ -115,7 +115,7 @@
 
     & li {
       padding: 0.5rem 1rem;
-      border-radius: $rounded-xsm;
+      border-radius: radius(3xs);
     }
 
     @include media-680 {
@@ -132,7 +132,7 @@
   }
 
   .active {
-    color: color("blueColor");
-    background: color("blueTintColor");
+    color: color(blue-shade);
+    background: color(blue-tint);
   }
 }

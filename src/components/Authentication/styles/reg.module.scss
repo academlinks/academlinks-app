@@ -4,15 +4,15 @@
 @use "../../../styles/helpers/components/layouts/inp" as *;
 
 .regContainer {
-  margin-top: $nav-height;
-  min-height: calc(100vh - $nav-height);
+  margin-top: app(nav-h);
+  min-height: calc(100vh - app(nav-h));
   padding: 3rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .regForm {
-    width: min(100%, $container-width);
+    width: min(100%, app(container-w));
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -67,7 +67,7 @@
 
   .successModalContainer {
     position: fixed;
-    top: $nav-height;
+    top: app(nav-h);
     left: 0;
     right: 0;
     bottom: 0;
@@ -79,13 +79,13 @@
     backdrop-filter: blur(4px);
 
     .successModal {
-      background: color("whiteColor");
+      background: color(light);
       padding: 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      border-radius: $rounded-sm;
-      box-shadow: $shadow-base;
+      border-radius: radius(2xs);
+      box-shadow: shadow(radial);
     }
 
     button {

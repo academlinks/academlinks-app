@@ -2,7 +2,7 @@
 @use "../../variables/variables" as *;
 
 @mixin userIdentifier {
-  color: $txt-dark;
-  font-weight: weight("boldWeight");
-  font-size: $txt-base-sm;
+  color: color(dark-shade);
+  font-weight: weight(lg);
+  font-size: size(sm);
 }

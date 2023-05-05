@@ -6,7 +6,7 @@
 .contentContainer {
   position: relative;
   flex: 5;
-  background: $bg-light;
+  background: color(light);
 
   @include media-680 {
     display: none;

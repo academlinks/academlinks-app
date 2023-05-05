@@ -20,12 +20,12 @@ html {
 }
 
 html body {
-  font-size: size("regullarSize");
-  font-weight: weight("regullarWeight");
+  font-size: size(base);
+  font-weight: weight(base);
   line-height: 1.4;
   font-family: "Poppins", sans-serif;
-  background: color("whiteShadeColor");
-  color: color("lightGrey");
+  background: color(white-shade);
+  color: color(light-grey);
   overflow: auto;
   overflow-x: hidden;
 }
@@ -80,12 +80,12 @@ html body ul li {
 html body a::selection,
 html body input::selection,
 html body textarea::selection {
-  background: color("blueColor");
-  color: color("whiteColor");
+  background: color(blue-shade);
+  color: color(light);
 }
 
 img {
-  font-size: size("smallerSize");
+  font-size: size(xs);
   text-align: center;
 }
 

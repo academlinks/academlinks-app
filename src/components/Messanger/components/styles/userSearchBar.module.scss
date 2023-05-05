@@ -6,7 +6,7 @@ $bar-p: 0.5rem;
 
 .userSearchBar {
   position: relative;
-  background: color("whiteColor");
+  background: color(light);
   padding: $bar-p;
 
   @include media-680 {
@@ -30,7 +30,7 @@ $bar-p: 0.5rem;
     min-height: 8rem;
     max-height: 8rem;
     overflow: auto;
-    background: color("whiteColor");
+    background: color(light);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
@@ -57,7 +57,7 @@ $bar-p: 0.5rem;
     padding: 0.5rem;
 
     &:hover {
-      background: color("blueTintColor");
+      background: color(blue-tint);
     }
 
     .searchBarItemFig {
@@ -75,8 +75,8 @@ $bar-p: 0.5rem;
     }
 
     .searchBarItemUserName {
-      font-size: size("smallSize");
-      font-weight: weight("mediumWeight");
+      font-size: size(sm);
+      font-weight: weight(md);
     }
   }
 }

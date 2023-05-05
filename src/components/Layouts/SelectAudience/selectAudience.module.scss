@@ -5,16 +5,16 @@
 .selectAudienceBox {
   position: relative;
   text-transform: capitalize;
-  font-size: size("smallSize");
+  font-size: size(sm);
   overflow: hidden;
   border-radius: 0.5rem;
-  background: color("whiteColor");
+  background: color(light);
 
   .selectAudienceMainBtn {
     @include flexBox;
     @include flexProperty(flex-start, center);
     gap: 0.25rem;
-    border: 1px solid color(darkGreyColor);
+    border: 1px solid color(dark-shade);
     width: 12rem;
     padding: 0.5rem;
     border-radius: inherit;
@@ -44,9 +44,9 @@
     border-radius: inherit;
     border-top-left-radius: 0rem;
     border-top-right-radius: 0rem;
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-shade);
     border-top: none;
-    background: color("whiteColor");
+    background: color(light);
     @include animateMoveBottom(0.2s);
 
     & button {

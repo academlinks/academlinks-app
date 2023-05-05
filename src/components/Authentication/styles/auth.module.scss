@@ -20,29 +20,29 @@ $form-w: 30rem;
 
   button {
     border-radius: 0.5rem;
-    background: color("blueColor");
-    color: color("whiteColor");
+    background: color(blue-shade);
+    color: color(light);
     text-transform: capitalize;
     padding: 1.5rem 2rem;
   }
 
   .forgotPassword {
-    color: color("blueColor");
+    color: color(blue-shade);
     text-decoration: underline;
-    font-size: size("smallSize");
+    font-size: size(sm);
     align-self: center;
     text-transform: capitalize;
   }
 
   .resetPswMsg {
-    font-size: size("smallSize");
-    font-weight: weight("boldWeight");
+    font-size: size(sm);
+    font-weight: weight(lg);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border: 1px solid color("darkGreyColor");
+    border: 1px solid color(dark-shade);
     padding: 0.5rem;
     border-radius: 0.5rem;
   }
@@ -63,10 +63,10 @@ $form-w: 30rem;
 
 .successModalBackDrop {
   position: fixed;
-  top: $nav-height;
+  top: app(nav-h);
   left: 0;
   z-index: 99;
-  height: calc(100vh - $nav-height);
+  height: calc(100vh - app(nav-h));
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
@@ -77,9 +77,9 @@ $form-w: 30rem;
     width: 30rem;
     height: 14rem;
     padding: 1rem;
-    border-radius: $rounded-sm;
-    box-shadow: $shadow-base;
-    background: color("whiteColor");
+    border-radius: radius(2xs);
+    box-shadow: shadow(radial);
+    background: color(light);
     @include flexBox(column);
     @include flexProperty(center, center);
     gap: 1.5rem;

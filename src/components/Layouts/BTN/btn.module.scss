@@ -6,10 +6,10 @@
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   text-transform: capitalize;
-  font-weight: weight("mediumWeight");
-  font-size: size("smallSize");
-  background: color("blueColor");
-  color: color("whiteColor");
+  font-weight: weight(md);
+  font-size: size(sm);
+  background: color(blue-shade);
+  color: color(light);
   transition: all 0.2s ease;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 

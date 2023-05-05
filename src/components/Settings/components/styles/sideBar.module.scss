@@ -10,7 +10,7 @@
   @include flexBox(column);
   gap: 1rem;
   padding: 1rem;
-  background: $bg-light;
+  background: color(light);
 
   @include media-680 {
     &.active {
@@ -18,7 +18,7 @@
     }
   }
 
-  @include media-480{
+  @include media-480 {
     width: 100%;
     max-width: 100%;
   }

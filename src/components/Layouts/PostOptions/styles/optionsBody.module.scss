@@ -13,7 +13,7 @@
   @include modalWindowSm;
 
   .postOptBtnDelete:hover {
-    color: color("redColor");
+    color: color(red-b);
   }
 
   & span {
@@ -22,7 +22,7 @@
   }
 
   .bookmark svg {
-    font-size: size("regullarSize");
+    font-size: size(base);
   }
 
   .audienceBox {
