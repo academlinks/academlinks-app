@@ -1,31 +1,31 @@
-@use '../../../styles/helpers/abstract/mixins' as *;
-@use '../../../styles/helpers/abstract/functions' as *;
-@use '../../../styles/helpers/abstract/media' as *;
+@use "../../../styles/helpers/helpers" as *;
 
 .searchField {
-  background: color(gray-b);
   @include flexBox;
   @include flexProperty(flex-start, center);
   gap: 0.5rem;
   height: 2.5rem;
-  padding: 0 0.75rem;
-  border-radius: 0.25rem;
-  text-transform: none;
   min-width: 18rem;
+  padding: 0 0.75rem;
+  text-transform: none;
+  border-radius: radius(xs-2);
+  background: color(gray-tint);
 
   .searchFieldLabel {
-    color: color(dark-shade);
     @include flexBox;
     @include flexProperty(flex-start, center);
+    color: color(dark-shade);
   }
 
   .searchFieldInp {
-    outline: none;
-    border: none;
-    background: inherit;
-    color: color(dark-shade);
-    font-size: size(sm);
     width: 100%;
+    height: 100%;
+    font-size: size(sm);
+    font-weight: weight(base);
+    border: none;
+    outline: none;
+    background: transparent;
+    color: color(dark-shade);
 
     &::placeholder {
       font-weight: weight(sm);
@@ -34,12 +34,29 @@
   }
 
   @include media-680 {
+    &:not(.active) {
+      padding: 0;
+    }
+
+    overflow: hidden;
+
     .searchFieldInp {
       display: none;
     }
 
-    .searchFieldInp.active {
+    &.active .searchFieldInp {
       display: block;
+    }
+
+    .searchFieldLabel {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+    }
+
+    &.active .searchFieldInp + .searchFieldLabel {
+      width: auto;
+      height: auto;
     }
   }
 }

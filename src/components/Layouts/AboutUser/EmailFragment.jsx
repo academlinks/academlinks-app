@@ -19,7 +19,7 @@ function EmailFragment({
         onDelete={onDelete}
       >
         <p>
-          Email <strong className={styles.lower}>{data}</strong>
+          <strong className={styles.lower}>{data}</strong>
         </p>
       </FragmentWrapper>
     )

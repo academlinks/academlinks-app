@@ -1,19 +1,44 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "./user-cover-variables" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .nav {
-  grid-column: 2/4;
-  grid-row: 7/8;
-  @include profileNavigation;
+  padding: 0 3rem;
+  height: $profile-nav-h;
+  font-weight: weight(lg);
+  text-transform: capitalize;
+  border-top: 1px solid color(dark-shade);
+  color: color(dark-shade);
+
+  @include media-680 {
+    padding: 0 1rem;
+  }
 
   .navList {
     height: 100%;
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 2.5rem;
+
+    & li {
+      padding: 0.5rem 1rem;
+      border-radius: radius(xs-3);
+    }
+
+    @include media-680 {
+      gap: 0.5rem;
+    }
+
+    @include media-480 {
+      gap: 0.25rem;
+
+      & li {
+        padding: 0.5rem;
+      }
+    }
   }
 
-  @include media-680 {
-    grid-column: 1/1;
+  .active {
+    color: color(blue-shade);
+    background: color(blue-tint);
   }
 }

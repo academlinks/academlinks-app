@@ -11,7 +11,11 @@ function SearchBar({
   setAccumulator,
 }) {
   return (
-    <div className={`${styles.searchField} ${className || ""}`}>
+    <div
+      className={`${styles.searchField} ${accumulator ? styles.active : ""} ${
+        className || ""
+      }`}
+    >
       <input
         onFocus={() => onFocus(true)}
         onChange={onChange}
@@ -20,9 +24,7 @@ function SearchBar({
         id="search"
         placeholder="search..."
         data-search-bar-input
-        className={`${styles.searchFieldInp} ${
-          accumulator ? styles.active : ""
-        } navigation--searchBar`}
+        className={`${styles.searchFieldInp} navigation--searchBar`}
       />
       <label
         htmlFor="search"

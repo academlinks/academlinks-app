@@ -1,3 +1,5 @@
+@use "./functions" as *;
+
 @mixin animateMoveInRight(
   $duration: 0.2s,
   $edge: 1rem,
@@ -61,9 +63,38 @@
   }
 }
 
+@mixin animateSlideInBgToRight(
+  $bg-color: color(blue-tint),
+  $txt-color: color(dark-shade),
+  $duration: 0.2s,
+  $function: ease-in
+) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 100%;
+    background: $bg-color;
+    transition: all $duration $function;
+  }
+
+  &:hover {
+    color: $txt-color;
+    
+    &::after {
+      right: 0;
+    }
+  }
+}
+
 @mixin animatePopUp($duration: 0.3s, $fn: ease, $loop: forwards) {
   animation: popUp $duration $fn $loop;
-  
+
   @keyframes popUp {
     0% {
       transform: translate(-50%, -50%) scale(0.9);

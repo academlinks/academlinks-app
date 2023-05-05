@@ -36,11 +36,11 @@ function NewVersion() {
           <GenderFragment data={data.gender} />
         </div>
         <div className={styles.infoBlock}>
-          <h4 className={styles.infoBlockHeading}>birthplace</h4>
+          <h4 className={styles.infoBlockHeading}>livingplace</h4>
           <LivingplaceFragment data={data.currentLivingPlace} />
         </div>
         <div className={styles.infoBlock}>
-          <h4 className={styles.infoBlockHeading}>livingplace</h4>
+          <h4 className={styles.infoBlockHeading}>birthplace</h4>
           <FromFragment data={data.from} />
         </div>
         <div className={styles.infoBlock}>
@@ -54,7 +54,7 @@ function NewVersion() {
         <div className={styles.infoBlock}>
           <h4 className={styles.infoBlockHeading}>current workplace</h4>
           <div className={styles.nestedList}>
-            <WorkplaceFragment data={data.currentWorkplace} />
+            <WorkplaceFragment data={data.currentWorkplace} current={true} />
           </div>
         </div>
         <div className={styles.infoBlock}>

@@ -1,7 +1,13 @@
-@use "../../../../styles/helpers/components/profile-review" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .reviewContainer {
   @include flexBox(column);
-  @include profileReviewInnerContainer;
+  margin-top: 4rem;
+  padding: 0 2rem;
+  gap: 4rem;
+
+  @include media-680 {
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
 }

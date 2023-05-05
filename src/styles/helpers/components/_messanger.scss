@@ -37,7 +37,7 @@
 @mixin conversationBox {
   gap: 1rem;
   padding: 0.7rem 0.5rem;
-  border-radius: radius(2xs);
+  border-radius: radius(xs-2);
   margin-right: 0rem;
 
   &.activeConversationBox {
@@ -100,7 +100,7 @@
   top: 1.5rem;
   width: max-content;
   padding: 0.75rem;
-  border-radius: radius(3xs);
+  border-radius: radius(xs-3);
   font-size: size(sm);
   box-shadow: shadow(vertical-sm);
 
@@ -137,7 +137,7 @@ $msg-fs: size(sm);
 @mixin messangerFeedHeader {
   gap: 0.75rem;
   padding: 1rem 0;
-  border-bottom: 1px solid color(dark-grey);
+  border-bottom: 1px solid color(dark-shade);
 
   .feedAuthor {
     font-size: size(sm);

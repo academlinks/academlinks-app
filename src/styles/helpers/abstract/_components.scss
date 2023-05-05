@@ -1,9 +1,14 @@
-@use './functions' as *;
-@use './animation' as *;
+@use "./functions" as *;
+@use "./animation" as *;
 
-@mixin scrollBar($element, $width: 1rem, $radius: 2rem, $blockStart: 0rem, $blockEnd: 0rem) {
+@mixin scrollBar(
+  $element: "&",
+  $width: 1rem,
+  $radius: 1rem,
+  $blockStart: 0rem,
+  $blockEnd: 0rem
+) {
   #{$element} {
-    overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -18,7 +23,7 @@
   }
 
   #{$element}::-webkit-scrollbar-thumb:hover {
-    background: color(dark-grey);
+    background: color(dark-shade);
   }
 
   #{$element}::-webkit-scrollbar-track {

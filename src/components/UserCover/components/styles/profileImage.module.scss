@@ -1,26 +1,49 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
+@use "./user-cover-variables" as *;
+@use "../../../../styles/helpers/helpers" as *;
+@use "../../../../styles/helpers/components/change-user-profile-media-button" as *;
 
 .profile {
-  grid-row: 2/5;
-  grid-column: 2/3;
-  justify-self: start;
-  align-self: center;
-  position: relative;
-  @include profileImage;
+  width: $profile-image-w;
+  height: $profile-image-w;
+  aspect-ratio: 1/1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
 
   @include media-1280 {
-    grid-row: 3/5;
-    transform: translateX(3rem);
+    left: 1rem;
+  }
+
+  @include media-960 {
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   @include media-680 {
-    grid-column: 1/1;
-    width: 13rem;
-    justify-self: center;
-    transform: translateX(0);
+    width: $profile-image-w-md;
+    height: $profile-image-w-md;
+  }
+
+  .profileImg {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid color(light);
+    overflow: hidden;
+
+    & img {
+      @include fitImage;
+    }
+  }
+
+  .changeMediaBtn {
+    @include changeUserProfileMediaBtn;
+    bottom: 1.2rem;
+    right: 0.6rem;
+
+    @include media-680 {
+      right: -0.3rem;
+    }
   }
 }
 

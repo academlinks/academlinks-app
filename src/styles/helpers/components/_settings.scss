@@ -23,7 +23,7 @@ $forms-inner-container-w: 40rem;
 @mixin settingsHeadingSecondary {
   padding: 1.5rem $heading-v-pad;
   margin: 1.5rem 0;
-  border-bottom: 1px solid color(dark-grey);
+  border-bottom: 1px solid color(dark-shade);
   text-transform: capitalize;
   font-weight: weight(lg);
 }
@@ -89,7 +89,7 @@ $forms-inner-container-w: 40rem;
   .cancelBtn,
   .updateBtn {
     padding: 0.75rem 4rem;
-    border-radius: radius(2xs);
+    border-radius: radius(xs-2);
     box-shadow: shadow(radial-sm);
     text-transform: capitalize;
     transition: all 0.2s;

@@ -1,21 +1,22 @@
-@use "../../../../styles/helpers/components/friends-page" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/helpers" as *;
+@use "../../../../styles/helpers/components/nested-page-navigation" as *;
 
 .friendsNav {
-  @include flexBox;
-  @include flexProperty(space-between, center);
-  @include friendsPageNavigation;
+  @include nestedPageNavigation;
+  justify-content: space-between;
 
   .friendsSearch {
     width: max-content;
+    height: 3.5rem;
+    margin-right: 1rem;
+    border: 1px solid color(gray-shade);
+
+    svg {
+      font-size: size(lg);
+    }
 
     @include media-680 {
       display: none;
     }
-  }
-
-  & a {
-    display: inline-block;
   }
 }

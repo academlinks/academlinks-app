@@ -21,6 +21,7 @@ function BTN({
       disabled={disabled}
       type={type}
       className={`${styles.btnRe} ${className || ""}`}
+      data-button-re
     >
       {children}
     </button>

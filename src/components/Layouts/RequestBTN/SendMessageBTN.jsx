@@ -3,7 +3,7 @@ import styles from './requestBtn.module.scss';
 
 function SendMessageBTN({ onClick }) {
   return (
-    <button className={`${styles.btn} ${styles.sendMessageBtn}`} onClick={onClick}>
+    <button className={`${styles.requestBtn} ${styles.sendMessageBtn}`} onClick={onClick}>
       <EmailIcon /> <span>send message</span>
     </button>
   );

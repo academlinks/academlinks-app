@@ -28,7 +28,7 @@ $max-modal-h-tablet: calc(100vh - app(nav-h));
   }
 
   & [data-modal-close-btn] svg {
-    color: color(dark-grey);
+    color: color(dark-shade);
   }
 }
 

@@ -3,7 +3,7 @@
 @use "../abstract/media" as *;
 
 @mixin blogPageContainer {
-  color: color(dark-grey);
+  color: color(dark-shade);
   margin-top: app(nav-h);
 
   .blogPageCreateBlogPostTouch {
@@ -48,7 +48,7 @@
 
   .listItem {
     font-weight: weight(md);
-    border-left: 1px solid color(dark-grey);
+    border-left: 1px solid color(dark-shade);
     transition: all 0.2s;
 
     &.active {
@@ -132,7 +132,7 @@
   .topRatedPublisher a {
     gap: 0.75rem;
     padding: 0.5rem;
-    border-radius: radius(2xs);
+    border-radius: radius(xs-2);
     transition: all 0.2s;
 
     &.activeLink {

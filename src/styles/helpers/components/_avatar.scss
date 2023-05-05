@@ -1,6 +1,6 @@
-@use "../../abstract/mixins" as *;
+@use "../helpers" as *;
 
-@mixin avatarFig {
+@mixin avatar {
   width: 4.5rem;
   height: 4.5rem;
   aspect-ratio: 1/1;

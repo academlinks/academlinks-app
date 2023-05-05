@@ -51,7 +51,7 @@
 @mixin notificationItem {
   gap: 0.75rem;
   padding: 0.5rem;
-  border-radius: radius(2xs);
+  border-radius: radius(xs-2);
   transition: all 0.2s;
 
   &.unRead {
@@ -84,7 +84,7 @@
   width: 13rem;
   padding: 0.5rem;
   gap: 0.25rem;
-  border-radius: radius(3xs);
+  border-radius: radius(xs-3);
   text-transform: capitalize;
   background: color(light);
   color: color(dark-light-grey);
@@ -100,7 +100,7 @@
     }
 
     &:hover {
-      color: color(dark-grey);
+      color: color(dark-shade);
     }
 
     &:last-child:hover {

@@ -34,17 +34,19 @@ function Profile() {
 
   return (
     <div className={styles.landscape}>
+      <CoverImage mediaHandler={activatePostMediaHandler} />
       <div className={styles.content}>
-        <CoverImage mediaHandler={activatePostMediaHandler} />
-        <ProfileImage mediaHandler={activatePostMediaHandler} />
-        <UsernameAndEmail />
-        {!isActiveUser && (
-          <FriendShip
-            friendShip={friendShip}
-            profileId={profileId}
-            setFriendShip={setFriendShip}
-          />
-        )}
+        <div className={styles.userBase}>
+          <ProfileImage mediaHandler={activatePostMediaHandler} />
+          <UsernameAndEmail />
+          {!isActiveUser && (
+            <FriendShip
+              friendShip={friendShip}
+              profileId={profileId}
+              setFriendShip={setFriendShip}
+            />
+          )}
+        </div>
         <ProfileNavigation />
       </div>
     </div>

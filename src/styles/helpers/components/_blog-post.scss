@@ -4,7 +4,7 @@
 
 @mixin blogPostContainer {
   border: 1px solid color(dark-light-grey);
-  border-radius: radius(2xs);
+  border-radius: radius(xs-2);
   background: color(light);
   box-shadow: shadow(radial-sm);
   // overflow: hidden;

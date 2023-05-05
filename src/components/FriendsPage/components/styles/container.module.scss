@@ -1,7 +1,7 @@
-@use "../../../../styles/helpers/components/friends-page" as *;
+@use "../../../../styles/helpers/helpers" as *;
+@use "../../../../styles/helpers/components/nested-page-container" as *;
 
 .container {
-  position: relative;
-  margin: 0 auto;
-  @include friendsPageContainer;
+  @include nestedPageContainer;
+  padding-bottom: 2rem;
 }

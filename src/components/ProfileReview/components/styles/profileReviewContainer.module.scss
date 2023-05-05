@@ -1,7 +1,6 @@
-@use "../../../../styles/helpers/components/profile-review" as *;
+@use "../../../../styles/helpers/components/nested-page-container" as *;
 
 .profileReviewContainer {
-  margin: 0 auto;
-  position: relative;
-  @include profileReviewContainer;
+  @include nestedPageContainer;
+  padding-bottom: 2rem;
 }

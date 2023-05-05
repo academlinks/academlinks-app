@@ -26,7 +26,7 @@ $inp-h: 4rem;
   // may be actual input or box in which input is placed
   .inpField {
     @include flexBox;
-    border: 1px solid color(dark-grey);
+    border: 1px solid color(dark-shade);
     border-radius: 0.3rem;
     overflow: hidden;
     background: color(light);
@@ -53,7 +53,7 @@ $inp-h: 4rem;
   }
 
   .inpField.inp {
-    border: 1px solid color(dark-grey);
+    border: 1px solid color(dark-shade);
   }
 }
 

@@ -1,14 +1,65 @@
-@use "../../../../styles/helpers/components/profile-review" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .postWrapper {
   @include flexBox(column);
   @include flexProperty(center, center);
   width: 100%;
-  @include reviewBtnBox;
 
   .reviewBtnBox {
     @include flexBox;
     @include flexProperty(flex-end, center);
+    width: min(100%, app(post-w));
+    margin-top: 3rem;
+    gap: 2.5rem;
+  }
+
+  .removeTagBtn {
+    background: color(red-tint);
+    color: color(light);
+    box-shadow: none;
+
+    &:hover {
+      background: color(red-b);
+    }
+  }
+
+  .hideBtn {
+    background: color(gray-shade);
+    color: color(dark-shade);
+
+    &:hover {
+      background: color(gray-tint);
+    }
+  }
+
+  .addBtn {
+    &:hover {
+      background: color(blue-light);
+    }
+  }
+
+  &.hiddenPosts .addBtn {
+    margin-left: auto;
+  }
+
+  [data-button-re]:hover {
+    transform: scale(1.05) translateY(-0.5rem);
+    box-shadow: shadow(vertical);
+  }
+
+  @include media-480 {
+    .reviewBtnBox {
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+
+    [data-button-re] {
+      padding: 1rem 1.5rem;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
   }
 }

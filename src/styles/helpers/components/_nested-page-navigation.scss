@@ -1,0 +1,42 @@
+@use "../helpers" as *;
+
+@mixin nestedPageNavigation() {
+  height: 5rem;
+  box-sizing: content-box;
+  @include flexBox;
+  @include flexProperty(flex-start, center);
+  padding-left: 1.75rem;
+  font-size: size(sm);
+  font-weight: weight(lg);
+  text-transform: capitalize;
+  color: color(dark-shade);
+  border-bottom: 1px solid color(gray-shade);
+
+  @include media-480 {
+    // font-size: size(xs);
+    padding-left: 0;
+  }
+
+  & a {
+    box-sizing: content-box;
+    height: 100%;
+    @include flexBox;
+    @include flexProperty(center, center);
+    padding: 0 2rem;
+    transition: color 0.2s, background-color 0.2s;
+
+    @include media-480 {
+      padding: 0 0.75rem;
+    }
+
+    &:hover:not(.active) {
+      background-color: color(blue-tint);
+      color: color(blue-shade);
+    }
+  }
+
+  .active {
+    border-bottom: 3px solid color(blue-light);
+    color: color(blue-light);
+  }
+}

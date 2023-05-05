@@ -43,7 +43,7 @@
     .innerContainer {
       width: min(100%, 35rem);
       padding: calc(($btn-pad-y * 2) + ($btn-space-y * 2) + 3rem) 1rem;
-      border-radius: radius(2xs);
+      border-radius: radius(xs-2);
       box-shadow: shadow(radial);
       background: color(light);
       position: relative;

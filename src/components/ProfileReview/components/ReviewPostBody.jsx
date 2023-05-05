@@ -12,7 +12,9 @@ function ReviewPostBody({
   const { activatePostMediaHandler } = usePost();
 
   return (
-    <div className={styles.postWrapper}>
+    <div
+      className={`${styles.postWrapper} ${onHiddens ? styles.hiddenPosts : ""}`}
+    >
       <Post data={post} activatePostMediaHandler={activatePostMediaHandler} />
       <div className={styles.reviewBtnBox}>
         {!onHiddens && (
