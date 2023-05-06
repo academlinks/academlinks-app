@@ -1,6 +1,5 @@
 @use "../../../../styles/helpers/helpers" as *;
-@use "../../../../styles/helpers/components/avatar" as *;
-@use "../../../../styles/helpers/components/nav-modal" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .navAvatarBox {
   position: relative;
@@ -20,14 +19,9 @@
 
     & li {
       padding: 0.55rem 1rem;
-
-      // @include animateSlideInBgToRight(color(blue-shade), color(light));
-      // @include animateSlideInBgToRight();
-
       transition: all 0.2s ease;
 
       &:hover {
-        // background: color(blue-tint);
         color: color(light);
         background: color(blue-shade);
       }

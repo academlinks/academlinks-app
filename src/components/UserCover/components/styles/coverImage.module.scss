@@ -1,6 +1,6 @@
 @use "./user-cover-variables" as *;
 @use "../../../../styles/helpers/helpers" as *;
-@use "../../../../styles/helpers/components/change-user-profile-media-button" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .cover {
   position: relative;

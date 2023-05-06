@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./textField.module.scss";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -16,9 +17,13 @@ function TextField({
   message,
   id,
 }) {
+  const [focused, setFocused] = useState(false);
+
   return (
     <div
-      className={`${styles.textFieldContainer} ${error ? styles.error : ""}`}
+      className={`${styles.textFieldContainer} ${
+        focused ? styles.focused : ""
+      } ${error ? styles.error : ""}`}
       data-txt-field-container
     >
       {label && (
@@ -32,6 +37,8 @@ function TextField({
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         autoFocus={focus}
         className={`${styles.textArea} ${className ? className : ""}`}
         value={value}

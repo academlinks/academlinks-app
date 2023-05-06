@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { EyeHideIcon, EyeShowIcon } from "components/Layouts/Icons";
+import InputLabel from "./InputLabel";
+import PasswordToggleButton from "./PasswordToggleButton";
 import styles from "./input.module.scss";
 
 function Input({
@@ -18,62 +19,49 @@ function Input({
   message = "",
   anotation,
 }) {
-  const [showPassword, setShowPassword] = useState(false);
-  const [inpType, setInpType] = useState(type);
+  const [inputType, setInputType] = useState(type);
 
   const [focus, setFocus] = useState(false);
 
   return (
-    <div className={`${styles.inputField} ${className || ""}`}>
+    <div
+      className={`${styles.inputContainer} ${className || ""}`}
+      data-form-input
+    >
       {label && (
-        <label htmlFor={id} className={styles.inpLabel} title={labelTitle}>
-          {label}
-          {anotation && (
-            <span
-              className={`${styles.anotation} ${focus ? styles.active : ""}`}
-            >
-              {anotation}
-            </span>
-          )}
-        </label>
+        <InputLabel
+          id={id}
+          label={label}
+          labelTitle={labelTitle}
+          anotation={anotation}
+          focus={focus}
+        />
       )}
 
       <div
-        className={`${styles.inpField} ${error ? styles.error : ""}`}
+        className={`${styles.inputField} ${focus ? styles.focused : ""} ${
+          error ? styles.error : ""
+        }`}
         data-inp-box
       >
         <input
-          type={inpType}
+          type={inputType}
           id={id}
           placeholder={placeholder}
           onChange={onChange}
           name={name}
-          className={styles.inp}
+          className={styles.input}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
-          // value={defaultValue ? defaultValue : value}
-          // value={value}
-          // defaultValue={defaultValue || ""}
           {...(defaultValue ? { defaultValue } : { value })}
         />
 
         {type === "password" && (
-          <span
-            onClick={(e) => {
-              e.preventDefault();
-              setShowPassword((prev) => !prev);
-              setInpType((prev) => (prev === "password" ? "text" : "password"));
-            }}
-            className={styles.iconBox}
-          >
-            {!showPassword && <EyeShowIcon />}
-            {showPassword && <EyeHideIcon />}
-          </span>
+          <PasswordToggleButton setInputType={setInputType} />
         )}
       </div>
 
-      {/* {anotition && <p className={styles.anotition}>{anotition}</p>} */}
-      {error && <p className={styles.inpErrMsg}>{message}</p>}
+      {error && <p className={styles.errorMessage}>{message}</p>}
     </div>
   );
 }

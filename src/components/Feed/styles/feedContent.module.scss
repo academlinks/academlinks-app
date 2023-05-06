@@ -1,13 +1,18 @@
-@use "../../../styles/helpers/components/feed" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers/helpers" as *;
 
 .feedContent {
   flex: 1;
   @include flexBox(column);
-  // @include flexProperty(flex-start, center);
-  @include feed;
+  padding: 1rem;
+  padding-top: 4rem;
+  gap: 4rem;
+
+  @include media-480 {
+    padding-top: 2rem;
+  }
 
   .feedInfiniteScroll {
     @include flexBox(column);
+    gap: 4rem;
   }
 }

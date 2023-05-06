@@ -11,8 +11,9 @@ import {
 import { selectActiveUser } from "store/selectors/activeUserSelectors";
 import { useAuthenticationQuery } from "hooks/queries";
 
-import styles from "./styles/auth.module.scss";
 import { BTN, Input, StandSpinner, Error } from "components/Layouts";
+import SuccessfullRegistrationPopUp from "./components/SuccessfullRegistrationPopUp";
+import styles from "./styles/forgotPassword.module.scss";
 
 function RegistrationConfirmPassword() {
   const { registrationId, tokenId } = useParams();
@@ -115,18 +116,11 @@ function RegistrationConfirmPassword() {
       )}
 
       {successModalIsOpen && (
-        <div className={styles.successModalBackDrop}>
-          <div className={styles.successModalBox}>
-            <p>You are registered successfully !</p>
-            <BTN
-              onClick={() =>
-                navigate("/authentication/login", { replace: true })
-              }
-            >
-              go for authorization
-            </BTN>
-          </div>
-        </div>
+        <SuccessfullRegistrationPopUp
+          onClick={() => navigate("/authentication/login", { replace: true })}
+        >
+          <p>You are registered successfully !</p>
+        </SuccessfullRegistrationPopUp>
       )}
     </div>
   );

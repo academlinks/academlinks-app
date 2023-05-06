@@ -1,17 +1,35 @@
-@use "../../../../../styles/helpers/components/blog-page" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/helpers" as *;
 
 .topRatedPublishers {
   @include flexBox(column);
-  @include topRatedPublishers;
+  gap: 1rem;
+  text-transform: capitalize;
+  padding: 0 0.5rem;
 
   .topRatedPublisher a {
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: radius(xs-2);
+    transition: all 0.2s;
     cursor: pointer;
+
+    &.activeLink {
+      background: color(blue-shade);
+      color: color(light);
+    }
+
+    &:hover:not(.activeLink) {
+      background: rgba(color(blue-tint), 1);
+    }
   }
 
   .userImg {
+    width: 4rem;
+    height: 4rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
     overflow: hidden;
     position: relative;
 
@@ -22,5 +40,17 @@
 
   .details {
     @include flexBox(column);
+    gap: 0.25rem;
+  }
+
+  .userName {
+    margin: 0;
+    font-weight: weight(md);
+    font-size: size(base);
+  }
+
+  .postsAmount {
+    font-size: size(xs);
+    margin-top: -0.5rem;
   }
 }

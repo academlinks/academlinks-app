@@ -1,21 +1,19 @@
-@use "../../../styles/helpers/abstract/media" as *;
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/variables/variables" as *;
+@use "../../../styles/helpers/helpers" as *;
 
 .feedSideBar {
+  position: sticky;
+  top: app(nav-h);
   align-self: flex-start;
   width: max-content;
   min-width: 30rem;
   max-width: 30rem;
-  position: sticky;
-  top: app(nav-h);
   min-height: calc(100vh - app(nav-h));
-  background: color(white-shader);
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  background: color(white-shader);
 
   &.left {
     box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.2);

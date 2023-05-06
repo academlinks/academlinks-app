@@ -50,7 +50,7 @@ function TextArea({
           autoFocus={focus}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={textAreaSubmit}
-          className={`${styles.textArea} ${className}`}
+          className={`${styles.textArea} ${className || ""}`}
         />
         {withBtn && (
           <button className={styles.textAreaBtn} type="submit">

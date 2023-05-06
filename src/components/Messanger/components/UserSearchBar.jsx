@@ -34,7 +34,11 @@ function UserSearchBar() {
   }
 
   return (
-    <div className={styles.userSearchBar}>
+    <div
+      className={`${styles.userSearchBar} ${
+        activeWindow && styles.activeSearchBar
+      }`}
+    >
       <SearchBar
         allowToggle={false}
         accumulator={activeWindow}

@@ -1,5 +1,6 @@
-@use "../../abstract/functions" as *;
-@use "../../abstract/mixins" as *;
+@use "../helpers" as *;
+
+$inp-h: 4rem;
 
 @mixin fieldContainer {
   display: flex;
@@ -14,22 +15,25 @@
   cursor: pointer;
 }
 
-@mixin inpPlaceHolder {
+@mixin inputPlaceholder {
   text-transform: capitalize;
   font-size: size(xs);
   opacity: 0.5;
 }
 
-$inp-h: 4rem;
-
-@mixin inp {
+@mixin input {
   // may be actual input or box in which input is placed
-  .inpField {
+  .inputField {
     @include flexBox;
-    border: 1px solid color(dark-shade);
-    border-radius: 0.3rem;
     overflow: hidden;
     background: color(light);
+    border-radius: radius(xs-2);
+    border: 1px solid color(dark-shade);
+    transition: all 0.2s ease;
+
+    &.focused {
+      border: 1px solid color(blue-light);
+    }
 
     &.error {
       border: 1px solid color(red-b);
@@ -37,10 +41,10 @@ $inp-h: 4rem;
   }
 
   // is actual input
-  .inp {
+  .input {
+    outline: none;
     display: inline-block;
     width: 100%;
-    outline: none;
     height: $inp-h;
     color: color(dark);
     padding: 0 1rem;
@@ -48,16 +52,16 @@ $inp-h: 4rem;
     border: none;
 
     &::placeholder {
-      @include inpPlaceHolder();
+      @include inputPlaceholder();
     }
   }
 
-  .inpField.inp {
+  .inputField.input {
     border: 1px solid color(dark-shade);
   }
 }
 
-@mixin errMsg {
+@mixin errorMessage {
   color: color(red-b);
   font-size: size(xs);
   text-align: center;
@@ -67,10 +71,10 @@ $inp-h: 4rem;
   }
 }
 
-@mixin inpField {
+@mixin inputField {
   @include fieldContainer;
 
-  @include inp;
+  @include input;
 
   .iconBox {
     width: 3rem;
@@ -80,16 +84,16 @@ $inp-h: 4rem;
     border: none;
     background: inherit;
 
-    svg{
+    svg {
       font-size: 2.2rem;
     }
   }
 
-  .inpLabel {
+  .inputLabel {
     @include label;
   }
 
-  .inpErrMsg {
-    @include errMsg;
+  .errorMessage {
+    @include errorMessage;
   }
 }

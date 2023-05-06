@@ -1,6 +1,7 @@
-@use "../../../../styles/helpers/components/messanger" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .messangerContainer {
   display: flex;
-  @include messanger;
+  height: calc(100vh - app(nav-h));
+  margin-top: 6rem;
 }

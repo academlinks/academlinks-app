@@ -16,6 +16,7 @@ function Select({
 }) {
   const [defaultValue, setDefaultValue] = useState(data.default);
   const [fieldValue, setFieldValue] = useState("");
+  const [focus, setFocus] = useState(false);
 
   function generateSelectionOptions() {
     const { values } = data;
@@ -40,27 +41,32 @@ function Select({
   }
 
   return (
-    <div className={styles.selectContainer} data-select-box>
-      {label && <label className={styles.inpLabel}>{label}</label>}
+    <div className={styles.formSelect} data-select-box>
+      {label && <label className={styles.inputLabel}>{label}</label>}
 
       <SelectEl
         name={name || ""}
         value={fieldValue || defaultValue}
         onChange={handleSelection}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         options={generateSelectionOptions()}
         classNames={{
-          container: () => styles.selContainer,
-          control: () => `${styles.selControl} ${error ? styles.error : ""}`,
-          placeholder: () => styles.selPlaceholder,
+          container: () => styles.selectContainer,
+          control: () =>
+            `${styles.selectControl} ${error ? styles.error : ""} ${
+              focus ? styles.focused : ""
+            }`,
+          placeholder: () => styles.selectPlaceholder,
           indicatorsContainer: () => styles.indicatorContainer,
-          indicatorSeparator: () => styles.selSeparator,
+          indicatorSeparator: () => styles.selectSeparator,
           menu: () => styles.optionsContainer,
           menuList: () => styles.optionMenu,
-          option: () => styles.selOption,
+          option: () => styles.selectOption,
         }}
       />
 
-      {error && <p className={styles.inpErrMsg}>{message}</p>}
+      {error && <p className={styles.errorMessage}>{message}</p>}
     </div>
   );
 }

@@ -1,13 +1,12 @@
-@use "../../../../../styles/helpers/components/blog-page" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers/helpers" as *;
 
 .stand {
   grid-row: 1;
   grid-column: 1/3;
-  @include blogPageStand;
+  color: color(light);
 
   @include media-960 {
+    height: 40vw;
     align-self: stretch;
   }
 

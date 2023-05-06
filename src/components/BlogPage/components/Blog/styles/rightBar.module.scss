@@ -1,37 +1,73 @@
-@use "../../../../../styles/helpers/components/blog-page" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/helpers" as *;
 
 .rightBar {
   position: sticky;
+  max-height: calc(100vh - 10rem);
+  top: 8rem;
   grid-row: 3;
   grid-column: 2;
   align-self: start;
   @include flexBox(column);
-  @include blogPageRightBar;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding: 0 1rem 1rem;
+  border-radius: radius(sm);
+  background: color(white-shade);
 
   .rightBarBox {
     position: relative;
-    @include flexBox(column);
+    height: 30rem;
     overflow: auto;
+    @include flexBox(column);
+    gap: 2rem;
+    border-radius: radius(sm);
+    box-shadow: shadow(radial);
+    background: color(light);
 
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include media-680 {
+      width: 100%;
+    }
+  }
+
+  .topRatedPostsBox {
+    height: 35rem;
   }
 
   .rightBarTitle {
     position: sticky;
     z-index: 1;
     top: 0;
+    margin-bottom: -1rem;
+    padding: 0.5rem 1rem;
+    font-size: size(lg);
+    font-weight: weight(lg);
+    text-transform: capitalize;
+    background: color(light);
   }
 
   @include media-960 {
     position: relative;
-    flex-direction: row;
-    align-self: center;
-    width: 100%;
     top: 0;
+    width: 100%;
+    max-width: 80rem;
+    align-self: center;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    .rightBarBox {
+      width: 40%;
+      height: 35rem;
+    }
+
+    .topRatedPostsBox {
+      width: 60%;
+    }
   }
 
   @include media-480 {

@@ -1,22 +1,26 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/components/layouts/inp" as *;
+@use "../../../styles/helpers/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
 $border-w: 1px;
 $border: $border-w solid color(dark-shade);
 $selection-w: 15rem;
 
-.selectContainer {
-  @include inpField;
+.formSelect {
+  @include inputField;
   width: $selection-w;
 
-  .selContainer {
-    .selControl {
-      min-height: $inp-h !important;
-      height: $inp-h;
+  .selectContainer {
+    .selectControl {
+      border-radius: radius(xs-2);
       outline: none;
-      border: 1px solid color(dark-shade);
-      box-shadow: none;
       cursor: pointer;
+      box-shadow: none;
+      border: none;
+      border: 1px solid color(dark-shade);
+
+      &.focused {
+        border: 1px solid color(blue-light);
+      }
 
       &.error {
         border: 1px solid color(red-b);
@@ -25,17 +29,17 @@ $selection-w: 15rem;
       .indicatorContainer {
         height: $inp-h;
 
-        .selSeparator {
+        .selectSeparator {
           display: none;
         }
       }
     }
 
-    .selPlaceholder {
-      @include inpPlaceHolder;
+    .selectPlaceholder {
+      @include inputPlaceholder;
     }
 
-    .selControl:hover {
+    .selectControl:hover {
       border: 1px solid color(dark-shade) !important;
     }
 
@@ -65,7 +69,7 @@ $selection-w: 15rem;
         }
       }
 
-      .selOption {
+      .selectOption {
         cursor: pointer;
         pointer-events: all;
       }

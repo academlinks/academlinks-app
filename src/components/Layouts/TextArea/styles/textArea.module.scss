@@ -39,7 +39,7 @@
     .textAreaBtn {
       @include flexBox;
       @include flexProperty(center, center);
-      font-size: size(2xl);
+      font-size: size(xl-2);
       color: color(blue-shade);
       margin-top: 0.55rem;
     }

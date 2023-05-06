@@ -1,13 +1,17 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .conversationOptions {
   position: absolute;
   display: none;
-  @include conversationOptions;
+  right: 0.75rem;
+  top: 1rem;
 
   @include media-680 {
     display: block;
+  }
+
+  .dotBtn {
+    font-size: size(lg);
   }
 }
 

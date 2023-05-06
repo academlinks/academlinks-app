@@ -1,18 +1,52 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 .optBtnBox {
   position: absolute;
+  z-index: 1;
+  top: 1.5rem;
+  right: 0.5rem;
+  width: max-content;
   text-transform: capitalize;
-  @include conversationOptionsList;
+  font-size: size(sm);
+  background: color(light);
+  border-radius: radius(xs-2);
+  overflow: hidden;
+  box-shadow: shadow(vertical);
+  @include animateMoveTop;
 
   .optBtn {
+    width: 100%;
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+    
+    &:last-child {
+      padding-bottom: 1rem;
+    }
+
+    &.optDeleteBtn svg {
+      color: color(red-b);
+      font-size: size(lg);
+    }
+
+    svg {
+      font-size: size(base);
+    }
+
+    &:hover {
+      background: color(blue-tint);
+    }
   }
 
   .optIconBox {
     @include flexBox;
     @include flexProperty(center, center);
+    width: 1.8rem;
   }
 }

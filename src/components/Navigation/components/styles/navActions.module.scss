@@ -23,10 +23,14 @@
   &BurgerBtn,
   .actionBtn a,
   .actionBtn {
+    height: max-content;
+  }
+
+  .actionBtn a,
+  .actionBtn {
     position: relative;
     @include flexBox;
     @include flexProperty(center, center);
-    height: max-content;
   }
 
   .actionBadge {

@@ -1,8 +1,4 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/components" as *;
-@use "../../../../styles/helpers/abstract/animation" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers/helpers" as *;
 
 %psd {
   content: "";
@@ -12,13 +8,15 @@
   transform: translateY(-50%);
   height: 0.5px;
   width: 100%;
-  background: color(dark-shade);
+  background: color(gray-shade);
 }
 
 .feedContentBox {
   height: 100%;
   @include flexBox(column);
-  @include msgList;
+  gap: 0.75rem;
+  margin: 0 1rem 0 0;
+  padding: 1rem;
 
   @include scrollBar("&", 1rem, 2rem, 1rem, 1rem);
 
@@ -26,6 +24,8 @@
     position: relative;
     margin: 0 auto;
     font-weight: 500;
+    color:color(dark-shade);
+    font-size: size(xs);
 
     &::after,
     &::before {
@@ -44,18 +44,25 @@
   }
 
   .isReadLabel {
-    margin-left: auto;
     position: relative;
+    margin-left: auto;
+    margin-top: -0.5rem;
     @include flexBox;
     @include flexProperty(flex-start, center);
+    font-size: 1rem;
     @include animateMoveBottom(0.2s, -0.5rem);
-    @include isReadLabel;
+
+    $is-read-label-w: 1rem;
 
     &::before {
       content: "";
       position: absolute;
+      right: calc(100% + $is-read-label-w / 4);
+      width: $is-read-label-w;
+      height: $is-read-label-w;
       background-position: center;
       background-size: 100%;
+      background: url("../../../../../public/icons/check.webp");
     }
   }
 }

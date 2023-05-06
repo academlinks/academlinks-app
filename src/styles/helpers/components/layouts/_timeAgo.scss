@@ -2,7 +2,7 @@
 @use "../../variables/variables" as *;
 
 @mixin timeAgo {
-  font-size: size(2xs);
+  font-size: size(xs-2);
   font-weight: weight(sm);
   color: color(dark-light);
 }

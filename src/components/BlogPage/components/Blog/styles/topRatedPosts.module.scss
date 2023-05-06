@@ -1,13 +1,35 @@
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers/helpers" as *;
 
 .topRatedPosts {
   @include flexBox(column);
-  @include topRatedPosts;
+  gap: 1rem;
+  padding: 0 1rem;
+  font-size: size(xs-2);
 
   .topRatedBlogPost {
+    [data-blog-post-identifier] {
+      gap: 0.75rem;
+    }
+
+    [data-title] {
+      font-size: size(base);
+    }
+
     [data-categories-list] {
+      font-size: size(xs-2);
       justify-content: center;
+    }
+
+    [data-user-interacion] {
+      font-size: size(xs);
+
+      & svg {
+        font-size: size(base);
+      }
+    }
+
+    [data-article-text] {
+      font-size: size(xs);
     }
   }
 }

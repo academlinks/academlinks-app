@@ -1,9 +1,6 @@
+@use "../../../../styles/helpers/helpers" as *;
 @use "../../../../styles/helpers/components/settings" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
-@use "../../../../styles/helpers/components/layouts/inp" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .settingsHeading {
   @include settingsHeading;
@@ -52,7 +49,7 @@
   }
 
   [data-user-info-error-box] {
-    @include errMsg;
+    @include errorMessage;
   }
 
   [data-select-box] {

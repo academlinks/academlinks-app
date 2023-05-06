@@ -1,12 +1,11 @@
-@use "../../../../../styles/helpers/components/blog-page" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/helpers" as *;;
 
 .blogPage {
   display: grid;
   grid-template: 30vw 6rem 24rem 1fr / 1fr 40rem;
   position: relative;
-  @include blogPageContainer;
+  color: color(dark-shade);
+  margin-top: app(nav-h);
 
   @include media-960 {
     @include flexBox(column);
@@ -16,11 +15,18 @@
   .blogPageCreateBlogPostTouch {
     grid-column: 1;
     grid-row: 3;
-    width: 100%;
     justify-self: center;
+    width: 100%;
+    max-width: 80rem;
+    margin-top: 4rem;
+
+    @include media-1280 {
+      padding: 0 2rem;
+    }
   }
 
   .blogPostsScrollBox {
     @include flexBox(column);
+    gap: 4rem;
   }
 }

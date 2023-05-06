@@ -8,17 +8,20 @@ function FeedHeader({ adressat }) {
 
   return (
     <div className={styles.feedHeadingBox}>
-      <Avatar img={adressat?.profileImg} />
+      <div className={styles.user}>
+        <Avatar img={adressat?.profileImg} />
+        <Link
+          to={adressat?._id ? `/profile/${adressat._id}/posts` : ""}
+          className={styles.feedAuthor}
+        >
+          {adressat?.userName || adressat?.cachedUserName}
+        </Link>
+      </div>
+
       <GoBackBTN
         handler={() => navigate("/messanger")}
         className={styles.conversationGoBackBtn}
       />
-      <Link
-        to={adressat?._id ? `/profile/${adressat._id}/posts` : ""}
-        className={styles.feedAuthor}
-      >
-        {adressat?.userName || adressat?.cachedUserName}
-      </Link>
     </div>
   );
 }

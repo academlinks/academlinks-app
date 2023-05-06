@@ -1,10 +1,8 @@
-@use "../../../../../styles/helpers/components/active-blog-post" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers/helpers" as *;
 
 .actionsBox {
   grid-column: 2;
-
-  @include blogPostActionsBox;
+  padding-bottom: 1rem;
 
   @include media-1280 {
     order: 5;

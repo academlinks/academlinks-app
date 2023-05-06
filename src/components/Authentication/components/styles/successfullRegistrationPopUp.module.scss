@@ -1,0 +1,35 @@
+@use "../../../../styles/helpers/helpers" as *;
+
+.successModalContainer {
+  position: fixed;
+  top: app(nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+
+  .successModal {
+    background: color(light);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: radius(xs-2);
+    box-shadow: shadow(radial);
+    @include animatePopUp;
+  }
+
+  & .successModal [data-button-re] {
+    padding: 1.5rem 6rem;
+    margin-right: 0;
+
+    &:hover {
+      background: color(blue-light);
+    }
+  }
+}
