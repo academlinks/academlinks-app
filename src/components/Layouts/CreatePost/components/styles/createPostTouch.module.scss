@@ -1,6 +1,4 @@
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .identifierPostTouch {
   & [data-identifier-userName] {
@@ -29,6 +27,7 @@
   padding-top: 1rem;
   font-size: size(base);
   border-top: 1px solid color(dark-shade);
+  background: color(light);
   cursor: pointer;
 
   @include media-480 {

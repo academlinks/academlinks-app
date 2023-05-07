@@ -1,18 +1,39 @@
-@use "../../../../styles/helpers/components/posts-page" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 .postsPageUserFriends {
   width: 100%;
   overflow: hidden;
-  @include postsPageUserFriends;
+  padding: 2rem 1rem;
+  border-radius: radius(sm);
+  font-size: size(base);
+  background: color(light);
+  box-shadow: shadow(radial);
 
   .userFriendsIntro {
     display: grid;
     grid-template: repeat(2, min-content) / repeat(2, 1fr);
-  }
+    margin-bottom: 1rem;
+    padding: 0 0.8rem;
+    text-transform: capitalize;
+    color: color(dark);
 
-  .showAll {
-    justify-self: end;
+    .introTitle {
+      font-size: size(base);
+      font-weight: weight(lg);
+    }
+
+    .showAll {
+      justify-self: end;
+      color: color(blue-shade);
+
+      &:hover {
+        color: color(blue-light);
+      }
+    }
+
+    .friendsAmount {
+      font-size: size(xs);
+    }
   }
 
   .friendsList {
@@ -29,23 +50,35 @@
     @include media-480 {
       grid-template: repeat(3, 10rem) / repeat(3, 1fr);
     }
-  }
 
-  .friend {
-    display: grid;
-    grid-template-rows: 1fr min-content;
-    justify-items: center;
-    row-gap: 0.35rem;
-  }
+    .friendImg {
+      height: 9rem;
+      aspect-ratio: 1/1;
+      border-radius: radius(xs-2);
+      overflow: hidden;
 
-  .friendName {
-    display: inline-block;
-    color: color(dark);
-    text-transform: capitalize;
-    font-weight: weight(md);
+      & img {
+        @include fitImage;
+      }
+    }
 
-    &:hover {
-      text-decoration: underline;
+    .friend {
+      display: grid;
+      grid-template-rows: 1fr min-content;
+      justify-items: center;
+      row-gap: 0.35rem;
+    }
+
+    .friendName {
+      display: inline-block;
+      font-weight: weight(md);
+      font-size: size(sm);
+      color: color(dark);
+      text-transform: capitalize;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

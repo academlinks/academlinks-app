@@ -1,4 +1,4 @@
-@use "../helpers" as *;
+@use "../" as *;
 
 @mixin nestedPageNavigation() {
   height: 5rem;

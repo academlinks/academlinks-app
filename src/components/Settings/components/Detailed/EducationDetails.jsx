@@ -29,6 +29,7 @@ function EducationDetails({ editable, withBtn = true }) {
           }}
         />
       )}
+      
       {userEducation && (
         <div className={`${styles.listedContent} ${styles.fragmentsContainer}`}>
           {userEducation.map((edu) => (

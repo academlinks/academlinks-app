@@ -1,3 +1,4 @@
+import { BTN } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function UpdateButtons({
@@ -7,7 +8,7 @@ function UpdateButtons({
 }) {
   return (
     <div className={styles.updateBtnBox}>
-      <button
+      <BTN
         onClick={(e) => {
           e.preventDefault();
           cancelHandler();
@@ -15,8 +16,8 @@ function UpdateButtons({
         className={styles.cancelBtn}
       >
         cancel
-      </button>
-      <button
+      </BTN>
+      <BTN
         {...(updaterType !== "submit"
           ? {
               onClick: (e) => {
@@ -29,7 +30,7 @@ function UpdateButtons({
         type={updaterType}
       >
         update
-      </button>
+      </BTN>
     </div>
   );
 }

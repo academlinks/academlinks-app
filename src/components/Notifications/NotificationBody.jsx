@@ -29,8 +29,9 @@ function NotificationBody({
       const message = notify.message.split(`${"PostAuthorPlaceholder"}`);
       return (
         <>
-          <strong className={styles.userName}>{notify.from?.userName}</strong>{" "}
-          <span>{message[0]}</span>{" "}
+          <strong className={styles.userName}>{notify.from?.userName}</strong>
+          &nbsp;
+          <span>{message[0]}</span>&nbsp;
           <strong>{notify.target.options.postAuthorUserName}</strong>
           <span>{message[1]}</span>
         </>
@@ -59,7 +60,7 @@ function NotificationBody({
         <TimeAgo date={notify.createdAt} className={styles.notifyTime} />
       </p>
       <div className={styles.notifyPopUpBox}>
-        <button className={styles.notifyOptBtn} onClick={activateNotifyOpt}>
+        <button onClick={activateNotifyOpt}>
           <DotsHorizontalIcon />
         </button>
         {activeNotifyModal && activeNotification === notify._id && (

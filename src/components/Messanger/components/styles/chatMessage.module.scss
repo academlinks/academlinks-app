@@ -1,5 +1,5 @@
 @use "./messanger-variables" as *;
-@use "../../../../styles/helpers/helpers" as *;
+@use "../../../../styles/helpers" as *;
 
 .chatMessageGroupBox {
   @include flexBox(column);

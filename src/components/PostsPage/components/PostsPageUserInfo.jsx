@@ -28,56 +28,56 @@ function PostsPageUserInfo() {
       {birthDate && (
         <li>
           <CalendarIcon className={styles.icon} />
-          <span>
+          <div>
             <span>Birthdate </span>
             <strong>{formatDate(birthDate, "verbal")}</strong>
-          </span>
+          </div>
         </li>
       )}
       {Object.values(from)[0] && (
         <li>
           <LocationIcon className={`${styles.icon} ${styles.smallIcon}`} />
-          <span>
+          <div>
             <span>From </span>
             <strong>{from.city} </strong>
             <strong>{from.country}</strong>
-          </span>
+          </div>
         </li>
       )}
       {Object.values(currentLivingPlace)[0] && (
         <li>
           <LocationIcon className={`${styles.icon} ${styles.smallIcon}`} />
-          <span>
+          <div>
             <span>Lives in </span>
             <strong>{currentLivingPlace.city} </strong>
             <strong>{currentLivingPlace.country}</strong>
-          </span>
+          </div>
         </li>
       )}
       {Object.values(workplace)[0] && (
         <li>
           <CaseIcon className={styles.icon} />
-          <span>
+          <div>
             <span>Currently works at </span>
             <strong>{workplace.institution} </strong>
             <span>as </span>
             <strong>{workplace.position}</strong>
-          </span>
+          </div>
         </li>
       )}
       <li>
         <PersonIcon className={`${styles.icon} ${styles.smallIcon}`} />
-        <span>
+        <div>
           <span>Friends </span>
           <strong>{friendsAmount}</strong>
-        </span>
+        </div>
       </li>
       <li>
         <RotateIcon className={`${styles.icon} ${styles.smallIcon}`} />
-        <span>
+        <div>
           <span>Joined at </span>
           <strong>{formatDate(createdAt, "verbal")}</strong>
-        </span>
+        </div>
       </li>
     </ul>
   );

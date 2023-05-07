@@ -23,7 +23,7 @@ function MediaPortal() {
     <Modal
       isOpen={mediaModalIsOpen}
       setIsOpen={deactivateHandler}
-      className={styles.postModal}
+      className={styles.mediaModal}
     >
       {activeMediaIndex >= 0 && (
         <SwiperSlider mediaFiles={mediaFiles} initialSlide={activeMediaIndex} />

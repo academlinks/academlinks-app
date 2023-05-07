@@ -122,6 +122,7 @@ function ChangeEducationForm() {
             id="dateFrom"
             name="dateFrom"
           />
+          
           <DateForm
             date={education.years?.to}
             label="date to"

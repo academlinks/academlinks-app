@@ -53,44 +53,44 @@ function SharePostPortal() {
       isOpen={sharePostModalIsOpen}
       setIsOpen={deactivateHandler}
       extraStyles={{ background: "white" }}
-      modalClassName={styles.modalMain}
+      modalClassName={styles.shareModal}
     >
       {loading && <InlineStandSpinner />}
 
-      <div className={styles.sharePostModal}>
-        <UserIdentifier
-          img={image}
-          userName={userName}
-          withTime={false}
-          className={styles.shareIdentifier}
-        >
-          <div className={styles.shareSelectAudience}>
-            <SelectAudience
-              audience={shareAudience}
-              handleAudience={handleAudience}
-            />
-          </div>
-        </UserIdentifier>
+      <div className={styles.modalContent}>
+        <div className={styles.portalHeader}>
+          <UserIdentifier img={image} userName={userName} withTime={false}>
+            <div data-portal-audience>
+              <SelectAudience
+                audience={shareAudience}
+                handleAudience={handleAudience}
+              />
+            </div>
+          </UserIdentifier>
+        </div>
 
         {error && <Error msg={message} />}
 
-        <DraftEditor
-          setText={setText}
-          placeholder="description"
-          className={styles.descriptionField}
-        />
+        <div className={styles.portalEditor}>
+          <DraftEditor
+            setText={setText}
+            placeholder="description"
+            className={styles.descriptionField}
+          />
+        </div>
 
-        <PostAuthentic
-          shared={true}
-          type={sharePostData.type}
-          authenticType={sharePostData.authenticType}
-          data={sharePostData}
-          proccessShare={true}
-        />
+        <div className={styles.portalContent}>
+          <PostAuthentic
+            shared={true}
+            type={sharePostData.type}
+            authenticType={sharePostData.authenticType}
+            data={sharePostData}
+            proccessShare={true}
+          />
+        </div>
 
-        <span className={styles.btnWrapper}>
+        <div className={styles.portalFooter}>
           <BTN
-            className={styles.confirmShareBtn}
             onClick={() =>
               sharePostQuery(sharePostData._id, {
                 audience: shareAudience,
@@ -100,7 +100,7 @@ function SharePostPortal() {
           >
             post
           </BTN>
-        </span>
+        </div>
       </div>
     </Modal>
   );

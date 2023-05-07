@@ -55,6 +55,7 @@ function CreatePostTouch({
         htmlFor="postMediaFile"
         title="create post with media files"
         onClick={() => (isOpen ? null : setIsOpen && setIsOpen(true))}
+        data-post-media-label
       >
         <MultiMediaIcon /> / Media
         <input

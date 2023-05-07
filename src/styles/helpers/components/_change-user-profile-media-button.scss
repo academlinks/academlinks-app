@@ -1,4 +1,4 @@
-@use "../helpers" as *;
+@use "../" as *;
 
 @mixin changeUserProfileMediaBtn() {
   position: absolute;

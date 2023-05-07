@@ -54,6 +54,7 @@ function ChangeBirthDateForm() {
       )}
 
       {loading && <BlockSpinner />}
+      
       {error && <Error msg={message} />}
 
       <UpdateButtons
