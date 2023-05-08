@@ -1,5 +1,4 @@
-@use '../../../../../styles/helpers/abstract/mixins' as *;
-@use '../../../../../styles/helpers/abstract/functions' as *;
+@use "../../../../../styles/helpers" as *;
 
 .commentActions {
   @include flexBox;
@@ -14,6 +13,6 @@
   }
 
   .userLiked svg {
-    color: color(blue-shade);
+    color: color(blue-light);
   }
 }

@@ -8,6 +8,10 @@
   @include flexBox(column);
   gap: $space-y;
 
+  .postSpinner{
+    margin-top: 3.5rem;
+  }
+
   .postsPageContentScroll {
     @include flexBox(column);
     row-gap: $space-y;

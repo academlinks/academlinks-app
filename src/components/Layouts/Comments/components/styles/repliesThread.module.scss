@@ -1,8 +1,8 @@
-@use '../../../../../styles/helpers/abstract/media' as *;
+@use "../../../../../styles/helpers" as *;
 
 .nestedList {
-  width: calc(100% - 4rem);
-  margin-left: 4rem;
+  @include flexBox(column);
+  gap: 1rem;
 
   .commentRepliesTextArea {
     width: calc(100% - 4rem);

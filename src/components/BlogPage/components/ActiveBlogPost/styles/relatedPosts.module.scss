@@ -4,7 +4,7 @@
   grid-column: 2;
   display: flex;
   gap: 4rem;
-  padding: 2rem;
+  padding: 8rem 4rem 6rem 4rem;
 
   @include media-1280 {
     order: 4;
@@ -12,6 +12,7 @@
 
   @include media-680 {
     flex-direction: column;
+    padding: 4rem 1rem;
   }
 
   [data-blog-post-identifier] {
@@ -48,6 +49,11 @@
 
     [data-categories-list] {
       justify-content: center;
+    }
+
+    @include media-680 {
+      width: 100%;
+      max-width: 100%;
     }
   }
 

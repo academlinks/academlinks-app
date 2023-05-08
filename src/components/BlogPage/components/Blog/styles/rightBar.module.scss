@@ -21,15 +21,11 @@
     @include flexBox(column);
     gap: 2rem;
     border-radius: radius(sm);
-    box-shadow: shadow(radial);
+    box-shadow: shadow(radial-xl);
     background: color(light);
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    @include media-680 {
-      width: 100%;
     }
   }
 
@@ -70,7 +66,14 @@
     }
   }
 
-  @include media-480 {
+  @include media-680 {
     flex-direction: column;
+    padding: 0 1rem;
+    gap: 4rem;
+    margin-top: 4rem;
+
+    .rightBarBox {
+      width: 100%;
+    }
   }
 }

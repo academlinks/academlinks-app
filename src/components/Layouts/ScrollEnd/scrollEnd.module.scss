@@ -1,8 +1,9 @@
-@use '../../../styles/helpers/variables/variables' as *;
+@use "../../../styles/helpers" as *;
 
 .scrollEnd {
   text-align: center;
   text-transform: capitalize;
   padding-bottom: 2rem;
   color: color(message-fade);
+  font-weight: weight(md);
 }

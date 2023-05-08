@@ -1,8 +1,0 @@
-@use "../../abstract/functions" as *;
-@use "../../variables/variables" as *;
-
-@mixin timeAgo {
-  font-size: size(xs-2);
-  font-weight: weight(sm);
-  color: color(dark-light);
-}

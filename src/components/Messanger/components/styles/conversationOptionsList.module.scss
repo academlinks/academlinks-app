@@ -9,9 +9,9 @@
   text-transform: capitalize;
   font-size: size(sm);
   background: color(light);
-  border-radius: radius(xs-2);
+  border-radius: radius(xs);
   overflow: hidden;
-  box-shadow: shadow(vertical);
+  box-shadow: shadow(vertical-xl);
   @include animateMoveTop;
 
   .optBtn {

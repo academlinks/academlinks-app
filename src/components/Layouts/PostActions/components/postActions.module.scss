@@ -1,13 +1,31 @@
-@use "../../../../styles/helpers/components/layouts/postActions" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .postActions {
   @include flexBox;
-  @include postActions;
+  gap: 1rem;
+  border-top: 1px solid color(dark);
+  padding: 1rem 0.5rem 0;
 
   & button a,
   & button {
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.4rem;
+  }
+
+  & button span {
+    font-size: size(sm);
+  }
+
+  & button svg {
+    font-size: size(lg);
+  }
+
+  & button:nth-child(3) {
+    margin-left: auto;
+  }
+
+  [data-user-liked] svg {
+    color: color(blue-light);
   }
 }

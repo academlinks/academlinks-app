@@ -1,6 +1,5 @@
-@use "./helpers/abstract/functions" as *;
-@use "./helpers/abstract/media" as *;
-@use "./helpers/abstract/components" as *;
+@use "./helpers" as *;
+@use "./helpers/components" as *;
 
 *,
 *::before,

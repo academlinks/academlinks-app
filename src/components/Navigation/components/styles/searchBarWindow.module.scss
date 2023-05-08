@@ -1,5 +1,6 @@
 @use "./nav-variables" as *;
 @use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .searchWindow {
   position: absolute;

@@ -1,14 +1,16 @@
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import { inverseLineBreaks } from "lib";
+import { useForeignUser } from "hooks/auth";
 import { useCommentsQuery } from "hooks/queries";
 import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 import { selectCommentsLoadingState } from "store/selectors/commentsSelector";
 
-import styles from "./styles/comment.module.scss";
-import { UserIdentifier, Tags, Error } from "components/Layouts";
 import { PinIcon } from "components/Layouts/Icons";
-import { CommentContent, CommentActions } from "./";
+import { UserIdentifier, Tags, Error } from "components/Layouts";
+import { CommentContent, CommentActions, CommentOptions } from "./";
+import styles from "./styles/comment.module.scss";
 
 /**
  * This component represents the comment body, like user identifier, comment text, timeAgo text and action buttons-: like and reply. After all this component is used by "CommentListItem" as well as "RepliesThread" so this is the crossroad to access actions like options, reactions and reply for parent comment as well as for comment from replies thread.
@@ -23,10 +25,31 @@ function Comment({ type, data, handlers, className }) {
   const { reactOnCommentQuery, pinCommentQuery, deleteCommentQuery } =
     useCommentsQuery();
 
+  const { error, message, target, task } = useSelector(
+    selectCommentsLoadingState
+  );
+
   const commentId = type === "Parent" ? comment._id : parentId;
   const replyId = type === "Reply" ? comment._id : "";
 
   const activeUserId = useSelector(selectActiveUserId);
+
+  const commentAuthorId = useMemo(() => {
+    return comment.cachedUser && comment.cachedUser.isDeleted
+      ? comment.cachedUser.cachedUserId
+      : comment.author._id;
+  }, [comment]);
+
+  const { isActiveUser: postBelongsToActiveUser } = useForeignUser(
+    "basedOnId",
+    postAuthorId
+  );
+
+  const { isActiveUser: commentBelongsToActiveUser } = useForeignUser(
+    "basedOnId",
+    commentAuthorId
+  );
+
   function handleReplyCredentials() {
     handlers.setCommentReply({
       commentId,
@@ -47,15 +70,14 @@ function Comment({ type, data, handlers, className }) {
     });
   }
 
-  const { error, message, target, task } = useSelector(
-    selectCommentsLoadingState
-  );
-
   return (
     <>
       <div className={`${styles.comment} ${className || ""}`} id={comment._id}>
         <div className={styles.commentHeader}>
           <UserIdentifier
+            withTime={false}
+            img={comment.author?.profileImg}
+            className={styles.commentUserIdentifier}
             userId={
               comment.cachedUser && comment.cachedUser.isDeleted
                 ? "DELETED_LINK"
@@ -66,31 +88,30 @@ function Comment({ type, data, handlers, className }) {
                 ? comment.cachedUser.userName
                 : comment.author?.userName
             }
-            img={comment.author?.profileImg}
-            withTime={false}
-            className={styles.commentUserIdentifier}
           >
             {comment.tags[0] && <Tags tags={comment.tags} keyWord="to" />}
           </UserIdentifier>
+
           {comment.pin && <PinIcon className={styles.pinIcon} />}
         </div>
+
+        <CommentOptions
+          postBelongsToActiveUser={postBelongsToActiveUser}
+          commentBelongsToActiveUser={commentBelongsToActiveUser}
+          updateHandler={handleUpdateCredentials}
+          pinHandler={() =>
+            pinCommentQuery({ type, postId, commentId, replyId })
+          }
+          deleteHandler={() =>
+            deleteCommentQuery({ type, postId, commentId, replyId })
+          }
+        />
 
         <CommentContent
           text={comment.text}
           likesCount={comment.likesAmount}
           postAuthorId={postAuthorId}
-          commentAuthorId={
-            comment.cachedUser && comment.cachedUser.isDeleted
-              ? comment.cachedUser.cachedUserId
-              : comment.author._id
-          }
-          handlePinComment={() =>
-            pinCommentQuery({ type, postId, commentId, replyId })
-          }
-          handleUpdateCredentials={handleUpdateCredentials}
-          handleDeleteComment={() =>
-            deleteCommentQuery({ type, postId, commentId, replyId })
-          }
+          commentAuthorId={commentAuthorId}
         />
 
         {!comment.cachedUser?.isDeleted && (
@@ -104,6 +125,7 @@ function Comment({ type, data, handlers, className }) {
           />
         )}
       </div>
+
       {error &&
         (task === "deletion" || task === "pin") &&
         target === type.toLowerCase() && <Error msg={message} />}

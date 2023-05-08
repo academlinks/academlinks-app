@@ -9,6 +9,7 @@ import "swiper/css/thumbs";
 import { extractRootEndPointFromImg } from "lib";
 
 import { Image } from "components/Layouts";
+import styles from "./swiperSliderContainer.module.scss";
 
 SwiperCore.use([Navigation, Thumbs]);
 
@@ -16,7 +17,7 @@ function SwiperSlider({ mediaFiles = [], initialSlide }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <>
+    <div data-swiper-slider-container className={styles.swiperSliderContainer}>
       <Swiper
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
@@ -58,7 +59,7 @@ function SwiperSlider({ mediaFiles = [], initialSlide }) {
           ))}
         </Swiper>
       )}
-    </>
+    </div>
   );
 }
 

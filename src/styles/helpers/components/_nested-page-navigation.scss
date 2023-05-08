@@ -6,7 +6,7 @@
   @include flexBox;
   @include flexProperty(flex-start, center);
   padding-left: 1.75rem;
-  font-size: size(sm);
+  font-size: size(base);
   font-weight: weight(lg);
   text-transform: capitalize;
   color: color(dark-shade);

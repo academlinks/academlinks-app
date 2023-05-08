@@ -8,7 +8,7 @@
   max-width: 80rem;
   margin-top: 4rem;
 
-  @include media-1280 {
-    padding: 0 2rem;
+  .infinite-scroll-component {
+    padding-top: 1.5rem;
   }
 }

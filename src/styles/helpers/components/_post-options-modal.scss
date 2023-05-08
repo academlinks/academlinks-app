@@ -1,0 +1,35 @@
+@use "../" as *;
+
+$modal-list-gap: 0.5rem;
+
+@mixin postOptionsModal {
+  @include flexBox(column);
+  @include flexProperty(center, flex-start);
+  // gap: $modal-list-gap;
+  font-size: size(base);
+  border-radius: radius(xs);
+  text-transform: capitalize;
+  box-shadow: shadow(vertical-xl);
+  color: color(dark-shade);
+  background: color(light);
+  overflow: hidden;
+  @include animateMoveTop;
+
+  [data-modal-sm-btn] {
+    width: 100%;
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-out;
+
+    & svg {
+      font-size: size(lg);
+    }
+
+    &:hover {
+      color: color(dark);
+      background: color(blue-tint);
+    }
+  }
+}

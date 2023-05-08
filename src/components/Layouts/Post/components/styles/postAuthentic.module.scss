@@ -8,7 +8,7 @@
   padding: 0.75rem 1rem 0.5rem 1rem;
   background: color(gray-tint);
   border-radius: radius(xs-2);
-  // background: cornflowerblue;
+  box-shadow: shadow(radial-sm);
 
   @include media-960 {
     margin: 0.5rem;
@@ -43,7 +43,7 @@
 
 .postBody .postAuthenticIdentifier {
   font-size: size(base);
-  
+
   & figure[data-img] {
     width: $identifier-fig-lg;
     height: $identifier-fig-lg;
@@ -52,6 +52,8 @@
 
 .shareAuthentic .referencedBlogPost,
 .postBody .referencedBlogPost {
+  box-shadow: shadow(radial-sm);
+
   [data-blog-post-identifier] {
     gap: 0.75rem;
   }

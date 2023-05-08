@@ -1,5 +1,5 @@
 @use "../../../../styles/helpers" as *;
-@use "../../../../styles/helpers/components/layouts/modalWindowSm" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .postOptionsModal {
   position: absolute;
@@ -8,7 +8,7 @@
   top: 3rem;
   min-height: 6rem;
   min-width: 20rem;
-  @include modalWindowSm;
+  @include postOptionsModal;
 
   .postOptBtnDelete:hover {
     color: color(red-b);

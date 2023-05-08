@@ -1,30 +1,27 @@
 @use "../../../../../styles/helpers" as *;
 @use "../../../../../styles/helpers/components" as *;
 
+$modal-w: 70vw;
+
+$modal-h: 35vw;
+$modal-h-md: 40vw;
+$modal-h-tablet: calc(100vh - app(nav-h));
+
+$inner-min-h: calc($header-h + $footer-h);
+
+$inner-container-h: calc($modal-h - $inner-min-h);
+$inner-container-h-md: calc($modal-h-md - $inner-min-h);
+$inner-container-h-tablet: calc($modal-h-tablet - $inner-min-h);
+
 .createBlogPostModal {
-  $modal-w: 70vw;
+  border-radius: radius(md-1);
+}
 
-  $modal-h: 35vw;
-  $modal-h-md: 40vw;
-  $modal-h-tablet: calc(100vh - app(nav-h));
-
-  $header-h: 9rem;
-  $footer-h: 6.5rem;
-
-  $inner-container-h: calc($modal-h - $header-h - $footer-h);
-  $inner-container-h-md: calc($modal-h-md - $header-h - $footer-h);
-  $inner-container-h-tablet: calc($modal-h-tablet - $header-h - $footer-h);
-
-  $space-around: 1rem;
-
-  $radius: 0.5rem;
-
+.createBlogPostModalWindow {
   width: $modal-w;
-  height: 100%;
   max-height: $modal-h;
-  background: color(light);
-  border-radius: $radius !important;
   overflow: hidden;
+  background: color(light);
 
   @include media-1280 {
     max-height: $modal-h-md;
@@ -36,21 +33,17 @@
     width: 100vw;
   }
 
-  [data-modal-close-btn] svg {
-    fill: color(dark-shade);
-  }
-
-  .fields {
+  .createBlogPostContent {
     position: relative;
-    width: 100%;
+    top: $header-h;
+    min-height: $inner-container-h;
     max-height: $inner-container-h;
-    margin-top: calc($header-h + 2rem);
-    margin-bottom: calc($footer-h + 2rem);
-    padding: 1rem;
+    width: 100%;
+    padding: $space-around;
     @include flexBox(column);
     gap: 2rem;
-
     overflow: auto;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -64,23 +57,11 @@
     }
   }
 
-  .blogPostIdentifier {
-    position: fixed;
-    height: $header-h;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    padding: $space-around;
-    border-radius: $radius;
-    background: color(light);
-
-    @include media-960 {
-      border-radius: 0;
-    }
+  .createBlogPostHeader {
+    @extend %postCrudModalHeader;
   }
 
-  .titleAndCategoryBox {
+  .createBlogPostForm {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $space-around;
@@ -101,20 +82,9 @@
     }
   }
 
-  .blogPostAudience {
-    position: absolute;
-    left: 6rem;
-    top: 5.5rem;
-
-    @include media-480 {
-      left: 6rem;
-      top: 5.5rem;
-    }
-  }
-
-  .articleField {
-    width: calc(100% - 1rem);
-    border-bottom: 1px solid color(dark-shade);
+  .createBlogPostEditor {
+    @extend %postCrudModalEditor;
+    margin-top: 0;
 
     .articleFieldHead {
       label {
@@ -125,37 +95,15 @@
         @include errorMessage;
       }
     }
-
-    .blogPostTextField {
-      min-height: 5rem;
-      margin: 0 auto;
-      border-radius: 0rem !important;
-      border: none;
-      padding: 0;
-    }
   }
 
-  .publishBtnBox {
-    position: fixed;
-    height: $footer-h;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: $space-around;
-    background: color(light);
-    border-radius: $radius;
+  .createBlogPostAssets {
+    @extend %postCrudModalContent;
+    margin: 0;
+    padding: 0;
+  }
 
-    .publishBlogPostBtn {
-      width: 100%;
-      padding: 1.25rem 0;
-    }
-
-    @include media-960 {
-      border-radius: 0;
-    }
-
-    @include media-480 {
-      top: calc(100% - $footer-h * 2);
-    }
+  .createBlogPostFooter {
+    @extend %postCrudModalFooter;
   }
 }

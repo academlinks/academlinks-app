@@ -1,14 +1,12 @@
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .createBlogPostTouch {
-  background: color(light);
   @include flexBox(column);
   gap: 2rem;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  background: color(light);
+  box-shadow: shadow(radial-xl);
 
   @include media-480 {
     padding: 1rem;
@@ -19,7 +17,7 @@
     outline: none;
     height: 3.5rem;
     border-radius: 10rem;
-    background: color(gray-b);
+    background: color(gray-tint);
     padding-left: 2rem;
 
     &::placeholder {

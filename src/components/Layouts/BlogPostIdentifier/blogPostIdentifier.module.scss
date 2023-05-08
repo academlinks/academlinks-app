@@ -1,24 +1,43 @@
-@use "../../../styles/helpers/components/blog-post" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
 
 .reviewDetails {
   @include flexBox(column);
   width: 100%;
-  @include blogPostReviewDetails;
+  gap: 1rem;
+
+  .blogPostTitle {
+    max-width: 90%;
+    text-transform: capitalize;
+
+    h3 {
+      font-size: size(lg);
+      font-weight: weight(lg);
+      width: max(40%, 100%);
+    }
+  }
 
   .publisher {
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.25rem;
 
     .blogPostUserName {
       text-transform: capitalize;
-
+      
       &:hover {
         text-decoration: underline;
       }
     }
 
+    .blogPostUserName,
+    [data-tags] {
+      font-size: size(sm);
+      font-weight: weight(md);
+    }
+
     [data-img] {
+      max-width: $identifier-fig-xsm;
+      max-height: $identifier-fig-xsm;
       border-radius: 50%;
       overflow: hidden !important;
     }
@@ -28,10 +47,25 @@
     @include flexBox;
     @include flexProperty(flex-start, center);
     flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: size(sm);
+
+    span {
+      background: color(blue-tint);
+      padding: 0.15rem 1rem;
+      border-radius: radius(sm);
+    }
   }
 
   .categoryBox {
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.3rem;
+    text-transform: capitalize;
+    font-size: size(sm);
+
+    .category {
+      font-weight: weight(md);
+    }
   }
 }

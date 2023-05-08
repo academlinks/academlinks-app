@@ -8,6 +8,7 @@
   .reviewBtnBox {
     @include flexBox;
     @include flexProperty(flex-end, center);
+    flex-wrap: wrap;
     width: min(100%, app(post-w));
     margin-top: 3rem;
     gap: 2.5rem;
@@ -50,7 +51,7 @@
   @include media-480 {
     .reviewBtnBox {
       gap: 1.5rem;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     [data-button-re] {

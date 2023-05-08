@@ -1,6 +1,4 @@
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .comment {
   position: relative;
@@ -27,12 +25,12 @@
   }
 
   .commentUserIdentifier figure[data-img] {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 
   .pinIcon {
-    color: color(blue-shade);
+    color: color(blue-light);
     margin-right: -2rem;
   }
 }

@@ -8,20 +8,27 @@
   text-transform: capitalize;
   border-top: 1px solid color(dark-shade);
   color: color(dark-shade);
+  font-size: size(base);
 
   @include media-680 {
     padding: 0 1rem;
   }
 
+  .navFoldList,
   .navList {
     height: 100%;
     @include flexBox;
     @include flexProperty(flex-start, center);
     gap: 2.5rem;
 
-    & li {
-      padding: 0.5rem 1rem;
+    & li a {
       border-radius: radius(xs-3);
+      padding: 0.5rem 1.5rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: color(blue-tint);
+      }
     }
 
     @include media-680 {
@@ -37,8 +44,63 @@
     }
   }
 
+  .navFoldBtn {
+    display: none;
+    font-size: size(lg);
+    height: 100%;
+    @include flexProperty(center, center);
+    transition: all 0.2s ease;
+
+    &.activeFoldBtn {
+      transform: rotate(180deg);
+      color: color(blue-light);
+    }
+
+    &:hover {
+      color: color(blue-light);
+    }
+
+    @include media-960 {
+      display: flex;
+    }
+  }
+
+  .navigationFold {
+    position: relative;
+    @include media-960 {
+      display: none;
+
+      &.activeFold {
+        display: block;
+      }
+
+      &.activeFold .navFoldList {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        position: absolute;
+        z-index: 99;
+        right: 0;
+        top: 1.5rem;
+        height: auto;
+        width: 18rem;
+        background: color(light);
+        box-shadow: shadow(vertical-xl);
+        border-radius: radius(xs);
+        overflow: hidden;
+        @include animateMoveTop;
+
+        li,
+        li a {
+          width: 100%;
+        }
+      }
+    }
+  }
+
   .active {
-    color: color(blue-shade);
+    color: color(blue-light);
     background: color(blue-tint);
   }
 }

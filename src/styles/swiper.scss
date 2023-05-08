@@ -94,7 +94,7 @@ $active-media-h-m: calc(100% - $thumb-item-w-m - ($swiper-gap * 2));
   }
 
   .thumbItem.swiper-slide-thumb-active {
-    border: 3px solid color(blue-shade);
+    border: 3px solid color(blue-light);
 
     @include media-480 {
       border-width: 2px;

@@ -1,5 +1,7 @@
-@use "../../../styles//helpers/components/layouts/timeAgo" as *;
+@use "../../../styles/helpers" as *;
 
 .timeAgo {
-  @include timeAgo;
+  font-size: size(xs-2);
+  font-weight: weight(sm);
+  color: color(dark-light);
 }

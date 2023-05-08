@@ -1,8 +1,0 @@
-@use "../../abstract/functions" as *;
-@use "../../variables/variables" as *;
-
-@mixin userIdentifier {
-  color: color(dark-shade);
-  font-weight: weight(lg);
-  font-size: size(base);
-}

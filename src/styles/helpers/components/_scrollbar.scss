@@ -1,5 +1,4 @@
-@use "./functions" as *;
-@use "./animation" as *;
+@use "../" as *;
 
 @mixin scrollBar(
   $element: "&",
@@ -10,7 +9,7 @@
 ) {
   #{$element} {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow: auto;
   }
 
   #{$element}::-webkit-scrollbar {
@@ -32,13 +31,4 @@
     margin-block-start: $blockStart;
     margin-block-end: $blockEnd;
   }
-}
-
-@mixin spinner {
-  animation: spinner 1s infinite;
-  width: 4rem;
-  height: 4rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
 }

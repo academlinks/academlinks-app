@@ -58,29 +58,27 @@ function CreateBlogPost({
     <Modal
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      className={styles.createBlogPostModal}
+      modalClassName={styles.createBlogPostModal}
+      className={styles.createBlogPostModalWindow}
     >
-      <div className={styles.fields}>
+      <main className={styles.createBlogPostContent}>
         {loading && <InlineStandSpinner />}
 
-        <UserIdentifier
-          userName={userName}
-          img={image}
-          withTime={false}
-          className={styles.blogPostIdentifier}
-        >
-          <div className={styles.blogPostAudience}>
-            <SelectAudience
-              audience={audience}
-              handleAudience={handleAudience}
-              isBlogPostAudience={true}
-            />
-          </div>
-        </UserIdentifier>
+        <header className={styles.createBlogPostHeader}>
+          <UserIdentifier userName={userName} img={image} withTime={false}>
+            <div data-portal-audience>
+              <SelectAudience
+                audience={audience}
+                handleAudience={handleAudience}
+                isBlogPostAudience={true}
+              />
+            </div>
+          </UserIdentifier>
+        </header>
 
         {error && <Error msg={message} />}
 
-        <div className={styles.titleAndCategoryBox}>
+        <div className={styles.createBlogPostForm}>
           <Input
             label="title"
             placeholder="title"
@@ -119,7 +117,7 @@ function CreateBlogPost({
           />
         </div>
 
-        <div className={styles.articleField}>
+        <div className={styles.createBlogPostEditor}>
           <div className={styles.articleFieldHead}>
             <label>Article</label>
             {validationError.article.hasError && (
@@ -132,18 +130,20 @@ function CreateBlogPost({
           <DraftEditor setText={handleText} placeholder="article" text={text} />
         </div>
 
-        <CreateBlogPostMedia
-          handleMediaFiles={handleMediaFiles}
-          files={files}
-          handleRemoveMediaFile={handleRemoveMediaFile}
-        />
+        <div className={styles.createBlogPostAssets}>
+          <CreateBlogPostMedia
+            handleMediaFiles={handleMediaFiles}
+            files={files}
+            handleRemoveMediaFile={handleRemoveMediaFile}
+          />
+        </div>
 
-        <div className={styles.publishBtnBox}>
+        <footer className={styles.createBlogPostFooter}>
           <BTN className={styles.publishBlogPostBtn} onClick={publishPost}>
             POST
           </BTN>
-        </div>
-      </div>
+        </footer>
+      </main>
     </Modal>
   );
 }

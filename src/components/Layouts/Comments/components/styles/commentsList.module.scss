@@ -1,15 +1,16 @@
-@use "../../../../../styles/helpers/abstract/components" as *;
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/variables/variables" as *;
+@use "../../../../../styles/helpers" as *;
+@use "../../../../../styles/helpers/components" as *;
 
-.commentsList {
-  position: relative;
-  @include flexBox(column);
-  gap: 1.5rem;
-  max-height: 45rem;
-  @include scrollBar("&", 1rem, 1rem, 1rem, 5.5rem);
-  padding-top: 2rem;
-  margin-top: 1rem;
-  border-top: 1px solid color(dark-shade);
+.commentsContainer {
+  .commentsList {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    min-height: 10rem;
+    max-height: 45rem;
+    border-top: 1px solid color(dark-shade);
+    @include scrollBar("&", 1rem, 1rem, 1.5rem, 1.5rem);
+    @include flexBox(column);
+    gap: 1rem;
+  }
 }

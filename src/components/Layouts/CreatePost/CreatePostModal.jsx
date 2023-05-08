@@ -53,10 +53,10 @@ function CreatePostModal({
       // className={styles.createPostModal}
       modalClassName={styles.createPostModal}
     >
-      <div className={styles.modalContent}>
+      <main className={styles.modalContent}>
         {loading && <InlineStandSpinner />}
 
-        <div className={styles.portalHeader}>
+        <header className={styles.portalHeader}>
           <UserIdentifier
             img={image}
             userName={userName}
@@ -71,7 +71,7 @@ function CreatePostModal({
               />
             </div>
           </UserIdentifier>
-        </div>
+        </header>
 
         {(error || validationError.error) && (
           <Error
@@ -121,13 +121,13 @@ function CreatePostModal({
           )}
         </div>
 
-        <div className={styles.portalFooter}>
+        <footer className={styles.portalFooter}>
           <CreatePostTouch withTextField={false} />
           <BTN onClick={handlePost} disabled={loading}>
             POST
           </BTN>
-        </div>
-      </div>
+        </footer>
+      </main>
     </Modal>
   );
 }

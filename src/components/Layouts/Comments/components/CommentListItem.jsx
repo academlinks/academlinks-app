@@ -5,6 +5,7 @@ import {
 import { destructureCommentRepliesProps } from "lib/destructurers";
 
 import { Comment, RepliesThread } from "./";
+import styles from "./styles/commentListItem.module.scss";
 
 /**
  * This component is individual for each comment which belongs to comments main thread. It renders his own replies thread if comment from main thread has replies.
@@ -35,29 +36,39 @@ function CommentListItem({
   });
 
   return (
-    <>
+    <div className={styles.commentListItem}>
       <Comment
         type="Parent"
         handlers={{ setCommentReply, setUpdateComment: setUpdateParentComment }}
         data={{ comment, postId, postAuthorId }}
       />
+
       {comment?.replies && (
-        <RepliesThread
-          state={state}
-          data={{
-            postId,
-            postAuthorId,
-            ...destructureCommentRepliesProps(comment),
-          }}
-          handlers={{
-            setCommentText,
-            handleShowReplies,
-            resetCommentCredentials,
-            setUpdateComment,
-          }}
-        />
+        <div
+          className={`${styles.repliesThread} ${
+            state.activeReply ||
+            (Array.isArray(comment?.replies) && comment.replies[0])
+              ? styles.meme
+              : ""
+          }`}
+        >
+          <RepliesThread
+            state={state}
+            data={{
+              postId,
+              postAuthorId,
+              ...destructureCommentRepliesProps(comment),
+            }}
+            handlers={{
+              setCommentText,
+              handleShowReplies,
+              resetCommentCredentials,
+              setUpdateComment,
+            }}
+          />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 

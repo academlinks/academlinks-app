@@ -1,10 +1,14 @@
 @use "../../../../../styles/helpers" as *;
 
-.actionsBox {
+.postActionsBox {
   grid-column: 2;
-  padding-bottom: 1rem;
+  padding: 1rem 4rem;
 
   @include media-1280 {
     order: 5;
+  }
+
+  @include media-480 {
+    padding: 1rem 1rem;
   }
 }

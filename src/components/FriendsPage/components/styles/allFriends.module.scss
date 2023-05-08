@@ -4,20 +4,20 @@
   position: relative;
   display: grid;
   gap: 2rem 3rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(34rem, max-content));
   align-items: start;
   margin-top: 4rem;
   padding: 0 2rem;
 
   @include media-680 {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
     margin-top: 3rem;
     padding: 0 1rem;
     gap: 0rem 3rem;
   }
 
   @include media-480 {
-    grid-template-columns: repeat(1, 1fr);
+    // grid-template-columns: repeat(1, 1fr);
     row-gap: 2rem;
   }
 
