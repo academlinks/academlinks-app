@@ -15,13 +15,16 @@
   }
 
   @include media-960 {
-    padding: 0 1rem;
-    padding-top: $space-top-under-user-cover-sm;
     gap: $space-x-md;
   }
 
   @include media-680 {
     flex-direction: column;
     gap: 4rem;
+  }
+
+  @include media-480 {
+    padding: 0;
+    padding-top: $space-top-under-user-cover-sm;
   }
 }

@@ -50,7 +50,6 @@
   .audienceSelectionsList {
     @include flexBox(column);
     @include flexProperty(center, flex-start);
-    margin-top: -0.2rem;
     border-radius: inherit;
     background: color(light);
     @include animateMoveBottom(0.2s);

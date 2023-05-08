@@ -15,6 +15,10 @@
     &::-webkit-scrollbar {
       display: none;
     }
+
+    @include media-480 {
+      padding: 0 1rem;
+    }
   }
 
   @include media-680 {
@@ -26,5 +30,9 @@
 
   @include media-480 {
     max-width: 100%;
+    
+    .postsPageCreatePost {
+      margin: 0 1rem;
+    }
   }
 }

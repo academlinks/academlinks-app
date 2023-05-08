@@ -3,7 +3,6 @@
 
 .createPostModal {
   border-radius: radius(md-1);
-  overflow: hidden;
 
   @include media-480 {
     border-radius: 0rem;

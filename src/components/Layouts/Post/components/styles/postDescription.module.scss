@@ -1,7 +1,10 @@
 @use "../../../../../styles/helpers" as *;
 
 .postDescription {
-  font-size: size(sm);
-  margin: 1rem 0 0.5rem 0.75rem;
+  font-size: size(base);
   color: color(dark-shade);
+
+  &.spaceY {
+    margin: 1rem 0;
+  }
 }

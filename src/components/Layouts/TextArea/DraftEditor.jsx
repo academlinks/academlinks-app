@@ -88,6 +88,7 @@ function DraftEditor({ text, setText, className, placeholder }) {
       onClick={() => ref.current.focus()}
       className={className || ""}
       style={{ cursor: "text" }}
+      data-draft-container
     >
       <Editor
         editorKey="editor"

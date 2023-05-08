@@ -15,7 +15,9 @@ function FeedContent({ hasMore, handleNext, posts }) {
 
   return (
     <div className={`${styles.feedContent} feed-page__container`}>
-      <CreatePost />
+      <div className={styles.feedCreatePost}>
+        <CreatePost />
+      </div>
       <InfiniteScroll
         hasMore={hasMore}
         next={handleNext}

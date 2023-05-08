@@ -50,7 +50,7 @@ function CreatePostModal({
     <Modal
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      className={styles.createPostModal}
+      // className={styles.createPostModal}
       modalClassName={styles.createPostModal}
     >
       <div className={styles.modalContent}>

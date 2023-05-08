@@ -7,7 +7,7 @@
   padding: 2rem;
   border-radius: 1rem;
   background: color(light);
-  box-shadow: shadow(radial);
+  box-shadow: shadow(radial-xl);
 
   @include media-480 {
     padding: 1rem;

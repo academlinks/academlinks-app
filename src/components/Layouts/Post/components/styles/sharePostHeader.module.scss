@@ -1,6 +1,8 @@
 @use "../../../../../styles/helpers" as *;
 
 .sharedPostHeaderIdentifier {
+  font-size: size(base) !important;
+
   & figure[data-img] {
     width: $identifier-fig-lg;
     height: $identifier-fig-lg;

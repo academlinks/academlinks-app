@@ -3,7 +3,11 @@ import styles from "./styles/postDescription.module.scss";
 
 function PostDescription({ description, className }) {
   return (
-    <div className={`${styles.postDescription} ${className || ""}`}>
+    <div
+      className={`${styles.postDescription} ${
+        description ? styles.spaceY : ""
+      } ${className || ""}`}
+    >
       <DraftReader text={description} limit={150} />
     </div>
   );
