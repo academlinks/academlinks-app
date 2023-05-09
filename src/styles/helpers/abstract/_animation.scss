@@ -97,17 +97,33 @@
 
   @keyframes popUp {
     0% {
-      // transform: translate(-50%, -50%) scale(0.9);
       transform: scale(0.9);
       opacity: 0;
     }
     50% {
       transform: scale(1.15);
-      // transform: translate(-50%, -50%) scale(1.15);
     }
     100% {
       transform: scale(1);
-      // transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animatePopUpTransformed($duration: 0.3s, $fn: ease, $loop: forwards) {
+  animation: popUp $duration $fn $loop;
+
+  @keyframes popUp {
+    0% {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.15);
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
       opacity: 1;
     }
   }

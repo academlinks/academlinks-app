@@ -2,17 +2,17 @@
 
 .confirmationPopUp {
   position: absolute;
-  z-index: 99;
+  z-index: 9999;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 50rem;
-  min-width: 30rem;
+  width: min(40rem, 100%);
   padding: 3rem;
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: radius(xs);
   background: color(light);
-  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+  box-shadow: shadow(radial-xl);
+  @include animatePopUpTransformed;
 
   .message {
     margin-bottom: 1rem;
@@ -23,18 +23,15 @@
     }
   }
 
-  .btn {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+  .btnBox {
+    @include flexBox;
+    @include flexProperty(center, center);
+    gap: 2rem;
+    margin-top: 3rem;
 
-  .btnCancel {
-    background: color(gray-b);
-    color: color(dark-shade);
-    margin-right: 1rem;
-  }
-
-  .btnDelete {
-    background: color(red-b);
+    [data-button-re] {
+      width: max-content;
+      padding: 1rem 4rem;
+    }
   }
 }

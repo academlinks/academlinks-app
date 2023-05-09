@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useSettingsQuery } from "hooks/queries";
 import { selectActiveUserLoadingState } from "store/selectors/activeUserSelectors";
 
-import { Input, BTN, BlockSpinner, Error } from "components/Layouts";
+import { Input, BTN, Error, DeletionPopUp } from "components/Layouts";
 import styles from "../styles/detailed.module.scss";
 
 function DeleteAccountForm() {
@@ -22,14 +22,16 @@ function DeleteAccountForm() {
           id="password"
         />
       </div>
-      {loading && <BlockSpinner />}
+      {loading && (
+        <DeletionPopUp
+          showButtons={false}
+          showSpinner={loading}
+          message={"this will may take couple of minutes"}
+        />
+      )}
       {error && <Error msg={message} />}
 
-      <BTN
-        type="submit"
-        btnType="delete"
-        className={`${styles.singleBtn} ${styles.deleteAccountBtn}`}
-      >
+      <BTN type="submit" btnType="delete" className={styles.singleBtn}>
         delete account
       </BTN>
     </form>
