@@ -9,7 +9,7 @@ function FriendOptions({ deleteFriendHandler }) {
   return (
     <div className={styles.friendOptBox}>
       <button
-        className={styles.optBtn}
+        className={styles.optionTriggerBtn}
         data-friend-opt-btn
         onClick={() => setOpen((prev) => !prev)}
       >
@@ -18,12 +18,15 @@ function FriendOptions({ deleteFriendHandler }) {
       {open && (
         <div className={styles.friendOptWindow}>
           <button
+            data-options-modal-button
+            data-options-modal-delete-button
             onClick={() => {
               deleteFriendHandler();
               setOpen(false);
             }}
           >
-            <DeleteFriendIcon /> delete friend
+            <DeleteFriendIcon />
+            <span>delete friend</span>
           </button>
         </div>
       )}

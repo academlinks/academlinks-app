@@ -12,31 +12,37 @@ function DateForm({
   defaultValue,
 }) {
   const [currDate, setCurrDate] = useState(date || undefined);
+  const [focus, setFocus] = useState(false);
 
   return (
-    <div className={styles.dateField} data-date-box>
+    <div className={`${styles.dateField} `} data-date-box>
       {label && (
-        <label htmlFor={id} className={styles.inpLabel}>
+        <label htmlFor={id} className={styles.inputLabel}>
           {label}
         </label>
       )}
 
-      <input
-        name={name || ""}
-        type="date"
-        id={label ? id : ""}
-        className={`${styles.inpField} ${styles.inp} ${
+      <div
+        className={`${styles.inputField} ${focus ? styles.focused : ""} ${
           error ? styles.error : ""
         }`}
-        value={currDate ? createDateStr(new Date(currDate)) : ""}
-        // defaultValue={defaultValue ? createDateStr(new Date(defaultValue)) : ""}
-        onChange={(e) => {
-          setCurrDate(e.target.value);
-          handler(new Date(e.target.value));
-        }}
-      />
+      >
+        <input
+          name={name || ""}
+          type="date"
+          id={label ? id : ""}
+          className={styles.input}
+          value={currDate ? createDateStr(new Date(currDate)) : ""}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          onChange={(e) => {
+            setCurrDate(e.target.value);
+            handler(new Date(e.target.value));
+          }}
+        />
+      </div>
 
-      {error && <p className={styles.inpErrMsg}>{message}</p>}
+      {error && <p className={styles.errorMessage}>{message}</p>}
     </div>
   );
 }

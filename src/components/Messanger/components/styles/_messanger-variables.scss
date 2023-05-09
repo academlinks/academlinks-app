@@ -1,0 +1,6 @@
+@use "../../../../styles/helpers" as *;
+
+$msg-item-base-radius: radius(xs);
+$msg-fs: size(sm);
+$active-user-message-color:color(blue-shade);
+$adressat-user-message-color:color(gray-tint);

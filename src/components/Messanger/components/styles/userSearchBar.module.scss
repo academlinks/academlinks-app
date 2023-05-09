@@ -1,18 +1,35 @@
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/abstract/animation" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 $bar-p: 0.5rem;
 
 .userSearchBar {
   position: relative;
-  background: color("whiteColor");
+  background: inherit;
   padding: $bar-p;
 
-  @include media-680 {
-    .searchField {
+  &.activeSearchBar {
+    background: color(light);
+  }
+
+  &.activeSearchBar .searchField {
+    border: none;
+    border-bottom: 1px solid color(gray-shade);
+    border-radius: 0;
+  }
+
+  .searchField {
+    border: 1px solid color(gray-shade);
+    height: 3.5rem;
+    background: color(light);
+    padding: 0 0.75rem;
+
+    @include media-680 {
       input {
         display: unset;
+      }
+
+      label {
+        width: max-content;
       }
     }
   }
@@ -23,22 +40,22 @@ $bar-p: 0.5rem;
     top: 100;
     left: 0;
     right: 0;
+    min-height: 6.5rem;
+    max-height: 6.5rem;
+    overflow: auto;
     padding: $bar-p;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    min-height: 8rem;
-    max-height: 8rem;
-    overflow: auto;
-    background: color("whiteColor");
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: radius(xs);
+    border-bottom-right-radius: radius(xs);
+    box-shadow: shadow(vertical-xl);
+    background: color(light);
     transition: all 0.3s ease;
     @include animateMoveTop;
 
     &.fullFieldModal {
-      max-height: 20rem;
+      max-height: 25rem;
     }
 
     &::-webkit-scrollbar {
@@ -57,7 +74,7 @@ $bar-p: 0.5rem;
     padding: 0.5rem;
 
     &:hover {
-      background: color("blueTintColor");
+      background: color(blue-tint);
     }
 
     .searchBarItemFig {
@@ -75,8 +92,8 @@ $bar-p: 0.5rem;
     }
 
     .searchBarItemUserName {
-      font-size: size("smallSize");
-      font-weight: weight("mediumWeight");
+      font-size: size(sm);
+      font-weight: weight(md);
     }
   }
 }

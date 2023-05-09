@@ -28,21 +28,21 @@ function BirthdateDetails({ editable, withBtn = true }) {
         />
       )}
       {birthDate && (
-        <div className={styles.fragmentsContainer}>
-          <BirthdateFragment
-            data={birthDate}
-            editable={editable === false ? false : true}
-            deleteAble={true}
-            onEdit={() => {
-              handleEditingTarget({
-                editableKey: editableKeys.changeBirthdate,
-                pathParams: { operation: "update" },
-              });
-              handleUpdateBirthdate(birthDate);
-            }}
-            onDelete={() => deleteUserInfoQuery({ field: "birthDate" })}
-          />
-        </div>
+          <div className={styles.fragmentsContainer}>
+            <BirthdateFragment
+              data={birthDate}
+              editable={editable === false ? false : true}
+              deleteAble={true}
+              onEdit={() => {
+                handleEditingTarget({
+                  editableKey: editableKeys.changeBirthdate,
+                  pathParams: { operation: "update" },
+                });
+                handleUpdateBirthdate(birthDate);
+              }}
+              onDelete={() => deleteUserInfoQuery({ field: "birthDate" })}
+            />
+          </div>
       )}
     </>
   );

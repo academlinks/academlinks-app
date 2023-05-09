@@ -1,25 +1,42 @@
-@use "../../../../styles/helpers/components/posts-page" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "./posts-page-variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .postsPageContent {
   flex: 4;
   position: relative;
   min-height: 40rem;
   @include flexBox(column);
-  @include postsPageContent;
+  gap: $space-y;
+
+  .postSpinner{
+    margin-top: 3.5rem;
+  }
 
   .postsPageContentScroll {
     @include flexBox(column);
+    row-gap: $space-y;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    @include media-480 {
+      padding: 0 1rem;
     }
   }
 
   @include media-680 {
     flex: 1;
     align-self: center;
+    width: 100%;
+    max-width: 80%;
+  }
+
+  @include media-480 {
+    max-width: 100%;
+    
+    .postsPageCreatePost {
+      margin: 0 1rem;
+    }
   }
 }
-

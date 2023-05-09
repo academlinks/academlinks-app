@@ -1,19 +1,38 @@
-@use "../../../../../styles/helpers/components/active-blog-post" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .blogPostsRelated {
   grid-column: 2;
   display: flex;
-  padding-top: 2rem;
-  @include relatedPostsContainer;
+  gap: 4rem;
+  padding: 8rem 4rem 6rem 4rem;
 
   @include media-1280 {
     order: 4;
   }
 
   @include media-680 {
-  flex-direction: column;
+    flex-direction: column;
+    padding: 4rem 1rem;
+  }
+
+  [data-blog-post-identifier] {
+    gap: 0.75rem;
+  }
+
+  [data-title] {
+    font-size: size(base);
+  }
+
+  [data-categories-list] {
+    font-size: size(xs-2);
+  }
+
+  [data-user-interacion] {
+    font-size: size(xs);
+
+    & svg {
+      font-size: size(base);
+    }
   }
 
   .relatedBlogPost {
@@ -30,6 +49,11 @@
 
     [data-categories-list] {
       justify-content: center;
+    }
+
+    @include media-680 {
+      width: 100%;
+      max-width: 100%;
     }
   }
 

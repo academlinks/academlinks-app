@@ -1,26 +1,18 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 .updateUserCoverBtn {
-  grid-row: 4/6;
-  grid-column: 3/4;
-  justify-self: end;
-  align-self: end;
   @include flexBox;
   @include flexProperty(flex-start, center);
   gap: 2rem;
   height: 100%;
-  @include updateCoverButtons;
+  margin-left: auto;
 
-  @include media-1280 {
-    transform: translateX(-3rem);
+  @include media-960 {
+    margin: auto;
+    margin-bottom: 2rem;
   }
 
-  @include media-680 {
-    grid-column: 1/1;
-    grid-row: 6/7;
-    transform: translate(0);
-    justify-self: center;
+  [data-button-re] {
+    padding: 1rem 4rem;
   }
 }

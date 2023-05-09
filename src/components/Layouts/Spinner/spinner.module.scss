@@ -1,11 +1,9 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/animation" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
 
 %spinner {
   display: block;
   font-size: 3.5rem;
-  color: color("blueColor");
+  color: color(blue-shade);
 }
 
 .spinnerBox {
@@ -34,7 +32,7 @@
 }
 
 .standSpinnerBox {
-  background: rgba(color(darkGreyColor), 0.5);
+  background: rgba(color(dark-shade), 0.5);
   backdrop-filter: blur(1px);
   position: fixed;
   width: 100%;
@@ -57,7 +55,7 @@
   bottom: 0;
   width: 100%;
   left: 0;
-  background: rgba(color(darkGreyColor), 0.5);
+  background: rgba(color(dark-shade), 0.5);
   backdrop-filter: blur(1px);
 
   .spinner {
@@ -69,8 +67,8 @@
 
 .blockSpinnerBox {
   text-align: center;
-  font-size: size("extraLargeSize");
-  color: color("blueColor");
+  font-size: size(xl-2);
+  color: color(blue-shade);
 
   .spinner {
     @include animateSpinnerFixed;

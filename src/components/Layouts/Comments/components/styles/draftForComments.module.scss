@@ -1,5 +1,5 @@
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/components" as *;
+@use "../../../../../styles/helpers" as *;
+@use "../../../../../styles/helpers/components" as *;
 
 .draftForCommentsForm {
   display: flex;
@@ -19,10 +19,15 @@
 
   .sendBtn {
     transform: translateY(0.25rem);
+    transition: color 0.2s ease;
+    color: color(blue-shade);
 
     svg {
-      color: color("blueColor");
       font-size: 3rem;
+    }
+
+    &:hover {
+      color: color(blue-light);
     }
   }
 }

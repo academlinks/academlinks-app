@@ -1,19 +1,52 @@
-@use "../../../../styles/helpers/components/posts-page" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .postsPageUserShortInfoList {
   @include flexBox(column);
-  @include postsPageUserInfo;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  font-size: size(base);
+  border-radius: radius(sm);
+  background: color(light);
+  box-shadow: shadow(radial-xl);
 
   & li {
     display: grid;
     grid-template-columns: min-content 1fr;
     justify-items: start;
     align-items: center;
+    gap: 0.5rem;
+    line-height: 1.3;
 
     & svg {
       grid-column: 1;
       align-self: start;
+    }
+
+    div {
+      width: 100%;
+
+      & strong {
+        color: color(dark);
+        font-weight: weight(lg);
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .icon {
+    font-size: size(base);
+    width: 2rem;
+
+    @include media-480 {
+      font-size: size(sm);
+    }
+  }
+
+  .smallIcon {
+    font-size: size(lg);
+
+    @include media-480 {
+      font-size: size(base);
     }
   }
 }

@@ -1,9 +1,53 @@
-@use "../../../../styles/helpers/components/navigation" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "./nav-variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .mainNavSearch {
   position: relative;
+  padding: 0 1rem;
   @include flexBox;
   @include flexProperty(center, flex-start);
-  @include searchBar;
+
+  .mainNavSearchBar {
+    height: 3.5rem;
+    min-width: 26rem;
+  }
+
+  @include media-680 {
+    .mainNavSearchBar {
+      min-width: auto;
+      height: 2.8rem;
+      width: 2.8rem;
+    }
+
+    &.active .mainNavSearchBar {
+      min-width: 22rem;
+    }
+  }
+
+  @include media-480 {
+    &.active {
+      position: absolute;
+      z-index: 99;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: calc(100vh + $search-window-top);
+    }
+
+    &.active .mainNavSearchBar {
+      position: sticky;
+      top: 1rem;
+      width: 100%;
+      height: 3rem;
+    }
+
+    &.active [data-searchbar-window] {
+      height: 100%;
+    }
+
+    &.active [data-searchbar-result-list] {
+      padding-top: 2rem;
+    }
+  }
 }

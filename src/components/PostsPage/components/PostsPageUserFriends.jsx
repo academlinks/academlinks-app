@@ -22,7 +22,7 @@ function PostsPageUserFriends() {
           show all friends
         </Link>
 
-        <p className={styles.introAmount}>{friendsAmount} friends</p>
+        <p className={styles.friendsAmount}>{friendsAmount} friends</p>
       </div>
 
       <div className={styles.friendsList}>

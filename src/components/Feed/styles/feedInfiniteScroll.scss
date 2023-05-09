@@ -1,4 +1,8 @@
 .feed-page__container .infinite-scroll-component__outerdiv {
   margin-top: 0;
   padding: 0;
+
+  .infinite-scroll-component {
+    padding-top: 1.5rem;
+  }
 }

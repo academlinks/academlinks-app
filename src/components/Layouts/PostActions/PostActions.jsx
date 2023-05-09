@@ -48,7 +48,10 @@ function PostActions({ className, setShowCommnents, data, redirect }) {
   );
 
   return (
-    <form className={`${styles.postActions} ${className || ""}`}>
+    <form
+      className={`${styles.postActions} ${className || ""}`}
+      data-post-actions
+    >
       {isAuthenticatedUser && (
         <>
           <ReactionBTN

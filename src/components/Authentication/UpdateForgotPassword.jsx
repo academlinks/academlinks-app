@@ -9,8 +9,8 @@ import {
 } from "store/selectors/authenticationSelectors";
 import { useAuthenticationQuery } from "hooks/queries";
 
-import { Input, StandSpinner, Error } from "components/Layouts";
 import styles from "./styles/auth.module.scss";
+import { Input, StandSpinner, Error, BTN } from "components/Layouts";
 
 function UpdateForgotPassword() {
   const navigate = useNavigate();
@@ -87,7 +87,11 @@ function UpdateForgotPassword() {
 
         {error && <Error msg={message} />}
 
-        {!loading && <button type="submit">update password</button>}
+        {!loading && (
+          <BTN type="submit">
+            update password
+          </BTN>
+        )}
       </form>
 
       {loading && <StandSpinner />}

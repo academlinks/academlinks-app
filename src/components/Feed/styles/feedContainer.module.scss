@@ -1,6 +1,7 @@
-@use "../../../styles/helpers/components/feed" as *;
+@use "../../../styles/helpers" as *;
 
 .feedContainer {
   display: flex;
-  @include feedContainer;
+  gap: 2rem;
+  margin-top: app(nav-h);
 }

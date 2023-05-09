@@ -1,4 +1,4 @@
-@use '../../../styles/helpers/helpers' as *;
+@use '../../../styles/helpers' as *;
 
 .sideBarBtnInp {
   display: none;
@@ -45,8 +45,8 @@
   flex: 1;
   padding: 0.5rem;
   backface-visibility: hidden;
-  background: color('whiteColor');
-  color: color('darkLightGreyColor');
+  background: color(light);
+  color: color(silver-shade);
   @include boxShadowBlack(0, 1rem, 0.3);
   transition: all 0.3s ease;
 
@@ -62,7 +62,7 @@
     transform: translateX(50%);
     border-radius: 0.7rem;
     cursor: pointer;
-    background: color('whiteColor');
+    background: color(light);
     @include boxShadowBlack(0, 1rem, 0.3);
 
     & svg {
@@ -92,13 +92,13 @@
     }
 
     &:hover {
-      background: color('blueTintColor');
-      color: color('blueColor');
+      background: color(blue-tint);
+      color: color(blue-shade);
     }
 
     & svg.col-1 {
       margin-top: -0.25rem;
-      font-size: size('bigSize');
+      font-size: size(lg);
     }
 
     & span.col-2 {
@@ -118,13 +118,13 @@
     align-self: start;
     display: inline-block;
     margin-top: 0.8rem;
-    font-weight: weight(boldWeight);
-    font-size: size(regullarSize);
+    font-weight: weight(lg);
+    font-size: size(base);
   }
 
   .email {
     margin-top: -3.5rem;
-    font-size: size('smallestSize');
+    font-size: size(xs-2);
   }
 
   .menuCaption {

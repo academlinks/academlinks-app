@@ -1,13 +1,29 @@
-@use "../../../../../styles/helpers/components/active-blog-post" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .media {
-  @include blogPostMedia;
   grid-column: 2;
+  height: 100%;
+  min-height: 25vw;
+  padding: 1.5rem 2rem 0 2rem;
+  overflow: hidden;
 
   @include media-1280 {
+    min-height: 35vw;
     width: 100%;
     aspect-ratio: 3/1;
     order: 1;
+  }
+
+  @include media-960 {
+    min-height: 45vw;
+  }
+
+  @include media-680 {
+    min-height: 58vw;
+  }
+
+  @include media-480 {
+    min-height: 27rem;
+    padding: 1.5rem 0 0 0;
   }
 }

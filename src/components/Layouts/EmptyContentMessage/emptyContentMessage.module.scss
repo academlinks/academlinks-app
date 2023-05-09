@@ -1,9 +1,9 @@
-@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers" as *;
 
 .message {
-  font-weight: weight("boldWeight");
+  font-weight: weight(lg);
   text-transform: capitalize;
   text-align: center;
-  color: color("darkLightGreyColor");
+  color: color(silver-shade);
   width: 100%;
 }

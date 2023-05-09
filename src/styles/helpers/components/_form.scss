@@ -1,0 +1,99 @@
+@use "../" as *;
+
+$inp-h: 4rem;
+
+@mixin fieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@mixin label {
+  font-weight: weight(md);
+  font-size: size(sm);
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+@mixin inputPlaceholder {
+  text-transform: capitalize;
+  font-size: size(xs);
+  opacity: 0.5;
+}
+
+@mixin input {
+  // may be actual input or box in which input is placed
+  .inputField {
+    @include flexBox;
+    overflow: hidden;
+    background: color(light);
+    border-radius: radius(xs-2);
+    border: 1px solid color(dark-shade);
+    transition: all 0.2s ease;
+
+    &.focused {
+      border: 1px solid color(blue-light);
+    }
+
+    &.error {
+      border: 1px solid color(red-b);
+    }
+  }
+
+  // is actual input
+  .input {
+    outline: none;
+    display: inline-block;
+    width: 100%;
+    height: $inp-h;
+    color: color(dark);
+    padding: 0 1rem;
+    font-size: size(sm);
+    border: none;
+
+    &::placeholder {
+      @include inputPlaceholder();
+    }
+  }
+
+  .inputField.input {
+    border: 1px solid color(dark-shade);
+  }
+}
+
+@mixin errorMessage {
+  color: color(red-b);
+  font-size: size(xs);
+  text-align: center;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+@mixin inputField {
+  @include fieldContainer;
+
+  @include input;
+
+  .iconBox {
+    width: 3rem;
+    @include flexBox;
+    @include flexProperty(center, center);
+    cursor: pointer;
+    border: none;
+    background: inherit;
+
+    svg {
+      font-size: 2.2rem;
+    }
+  }
+
+  .inputLabel {
+    @include label;
+  }
+
+  .errorMessage {
+    @include errorMessage;
+  }
+}

@@ -56,6 +56,7 @@ function RepliesThread({ state, data, handlers }) {
   return (
     <>
       <ShowRepliesBTN
+        handleShowReplies={handleShowReplies}
         conditions={{ showReplies, activeReply, updateReply }}
         data={{
           adressatId: authorId,
@@ -63,7 +64,6 @@ function RepliesThread({ state, data, handlers }) {
           replies,
           repliesAmount,
         }}
-        handleShowReplies={handleShowReplies}
       />
 
       {(showReplies || activeReply || updateReply) && (

@@ -1,16 +1,16 @@
-@use "../../../styles//helpers/abstract/functions" as *;
-@use "../../../styles//helpers/abstract/mixins" as *;
-@use "../../../styles//helpers/components/layouts/inp" as *;
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
-.inputField {
-  @include inpField;
+.inputContainer {
+  @include inputField;
 
   .anotation {
     position: relative;
     font-size: 1.2rem;
-    font-weight: weight("regullarWeight");
+    font-weight: weight(base);
     visibility: hidden;
-
+    color: color(blue-light);
+   
     &::first-letter {
       text-transform: capitalize;
     }

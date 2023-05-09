@@ -1,5 +1,4 @@
-@use '../../../styles/helpers/abstract/mixins' as *;
-@use '../../../styles/helpers/abstract/functions' as *;
+@use '../../../styles/helpers' as *;
 
 .btn {
   position: absolute;
@@ -7,7 +6,7 @@
   width: 5rem;
   @include flexBox;
   @include flexProperty(center, center);
-  background: color('whiteColor');
+  background: color(light);
 
   &.left {
     left: 0;

@@ -1,15 +1,23 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/components" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .sideBar {
   flex: 1;
-  @include sideBarContainer;
-  border-right: 1px solid color("darkGrayColor");
+  min-width: 30rem;
+  max-width: 30rem;
+  position: relative;
+  padding: 0rem;
+  background: color(gray-tint);
+  border-right: 1px solid color(gray-shade);
+
+  @include media-960 {
+    min-width: 25rem;
+    max-width: 25rem;
+  }
 
   @include media-680 {
+    min-width: 100%;
+
     &.isActiveConversation {
       display: none;
     }
@@ -17,6 +25,9 @@
 
   .contentBox {
     @include flexBox(column);
+    gap: 0.25rem;
+    height: 85vh;
+    padding: 2rem 1rem;
     @include scrollBar("&");
   }
 }

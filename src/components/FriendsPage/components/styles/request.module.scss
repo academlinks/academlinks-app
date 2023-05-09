@@ -1,36 +1,65 @@
-@use "../../../../styles/helpers/components/friends-page" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .requestsList {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(21rem, max-content));
+  gap: 2rem 2.7rem;
   align-items: start;
-  @include requestsList;
-  @include requestItem;
+  padding: 0 2rem;
+  margin-top: 4rem;
 
   @include media-680 {
-    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(3, 1fr);
+    gap: 0rem 2rem;
+    margin-top: 3rem;
+    padding: 0 1rem;
   }
 
   @include media-480 {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
+  }
+
+  .requestItem {
+    overflow: hidden;
+    // max-width: 20rem;
+    // min-width: 18rem;
+    display: grid;
+    row-gap: 0.75rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 15rem) repeat(3, max-content);
+    padding-bottom: 1.2rem;
+    border-radius: radius(xs);
+    background: color(light);
+    box-shadow: shadow(radial-sm);
+  }
+
+  .friendName {
+    grid-row: 2;
+    margin-top: 0.4rem;
+    font-size: size(base);
+    font-weight: weight(md);
+    text-transform: capitalize;
+    color: color(dark-shade);
+  }
+
+  .muntuals {
+    grid-row: 3;
+    font-size: size(xs);
+  }
+
+  .friendName,
+  .muntuals {
+    padding: 0 0.75rem;
+  }
+
+  button[data-req-btn] {
+    margin: 0 0.75rem;
+    margin-top: 0.75rem;
   }
 
   .emptyRequestsMessage {
     grid-column: 1/-1;
-  }
-
-  .requestItem {
-    display: grid;
-    grid-template-rows: repeat(1, 15rem) repeat(3, max-content);
-    grid-template-columns: repeat(1, 1fr);
-    overflow: hidden;
-
-    &:hover .optBtn {
-      opacity: 1;
-    }
   }
 
   .friendImg {
@@ -41,13 +70,5 @@
     & img {
       @include fitImage(cover, center);
     }
-  }
-
-  .friendName {
-    grid-row: 2;
-  }
-
-  .muntuals {
-    grid-row: 3;
   }
 }

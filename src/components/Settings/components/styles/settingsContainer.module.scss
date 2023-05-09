@@ -1,8 +1,7 @@
-@use "../../../../styles/helpers/abstract/media.scss" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .settingsContainer {
-  margin-top: $nav-height;
+  margin-top: app(nav-h);
   display: flex;
   gap: 1rem;
   height: calc(100vh - 6rem);

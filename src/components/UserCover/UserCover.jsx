@@ -11,6 +11,7 @@ import {
   UsernameAndEmail,
   FriendShip,
   ProfileNavigation,
+  UpdateUserCoverBTN,
 } from "./components";
 import styles from "./components/styles/userCover.module.scss";
 
@@ -32,19 +33,42 @@ function Profile() {
     if (!isActiveUser) getFriendshipInfo();
   }, [isActiveUser, profileId]);
 
+  const [updateUserMedia, setUpdateUserMedia] = useState({
+    isProccessing: false,
+    saveChangeHandler: () => {},
+    cancelChangeHandler: () => {},
+  });
+
   return (
     <div className={styles.landscape}>
+      <CoverImage
+        mediaHandler={activatePostMediaHandler}
+        setUpdateUserMedia={setUpdateUserMedia}
+      />
       <div className={styles.content}>
-        <CoverImage mediaHandler={activatePostMediaHandler} />
-        <ProfileImage mediaHandler={activatePostMediaHandler} />
-        <UsernameAndEmail />
-        {!isActiveUser && (
-          <FriendShip
-            friendShip={friendShip}
-            profileId={profileId}
-            setFriendShip={setFriendShip}
+        <div className={styles.userBase}>
+          <ProfileImage
+            mediaHandler={activatePostMediaHandler}
+            setUpdateUserMedia={setUpdateUserMedia}
           />
-        )}
+
+          <UsernameAndEmail />
+
+          {updateUserMedia.isProccessing && (
+            <UpdateUserCoverBTN
+              cancelHandler={updateUserMedia.cancelChangeHandler}
+              submitHandler={updateUserMedia.saveChangeHandler}
+            />
+          )}
+
+          {!isActiveUser && (
+            <FriendShip
+              friendShip={friendShip}
+              profileId={profileId}
+              setFriendShip={setFriendShip}
+            />
+          )}
+        </div>
         <ProfileNavigation />
       </div>
     </div>

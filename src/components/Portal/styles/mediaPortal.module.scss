@@ -1,5 +1,15 @@
-@use "../../../styles/helpers/components/portal" as *;
+@use "../../../styles/helpers" as *;
 
-.postModal {
-  @include mediaPortal;
+.mediaModal {
+  width: 90vw;
+  height: 80vh;
+
+  button[data-modal-close-btn] svg{
+    color: color(light);
+  }
+
+  @include media-960 {
+    height: calc(100vh - app(nav-h) + 1.5rem);
+    width: 100vw;
+  }
 }

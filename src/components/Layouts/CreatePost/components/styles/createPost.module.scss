@@ -1,16 +1,13 @@
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
-@use "../../../../../styles/helpers/variables/variables" as *;
+@use "../../../../../styles/helpers" as *;
 
 .createPost {
-  width: min(100%, $post-w);
+  width: min(100%, app(post-w));
   margin: 0 auto;
   @include flexBox(column);
   padding: 2rem;
   border-radius: 1rem;
-  background: color("whiteColor");
-  box-shadow: $shadow-base;
+  background: color(light);
+  box-shadow: shadow(radial-xl);
 
   @include media-480 {
     padding: 1rem;

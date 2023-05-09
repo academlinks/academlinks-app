@@ -1,5 +1,4 @@
-@use '../../../../styles/helpers/abstract/functions' as *;
-@use '../../../../styles/helpers/abstract/mixins' as *;
+@use '../../../../styles/helpers' as *;
 
 .openPostOptBtn {
   position: absolute;
@@ -7,7 +6,7 @@
   top: 1rem;
   @include flexBox;
   @include flexProperty(center, center);
-  font-size: size('largeSize');
+  font-size: size(xl);
 }
 
 

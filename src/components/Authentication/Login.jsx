@@ -8,7 +8,7 @@ import { selectActiveUserLoadingState } from "store/selectors/activeUserSelector
 
 import styles from "./styles/auth.module.scss";
 import TermsAndPolicyLink from "./components/TermsAndPolicyLink";
-import { Input, StandSpinner, Error } from "components/Layouts";
+import { Input, StandSpinner, Error, BTN } from "components/Layouts";
 
 function Login() {
   const { loginQuery, loginError, resetLoginErrorHandler } =
@@ -54,8 +54,7 @@ function Login() {
           forgot password
         </Link>
 
-        {!loading && <button type="submit">login</button>}
-
+        <BTN type="submit">log in</BTN>
         <TermsAndPolicyLink />
       </form>
 

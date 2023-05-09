@@ -1,5 +1,5 @@
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/components/layouts/inp" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .termsCheckbox {
   display: flex;
@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: size("smallerSize");
-    font-weight: weight("boldWeight");
+    font-size: size(xs);
+    font-weight: weight(lg);
   }
 
   label {
@@ -25,7 +25,7 @@
   }
 
   .errorMessage {
-    @include errMsg;
+    @include errorMessage;
     text-align: left;
   }
 }

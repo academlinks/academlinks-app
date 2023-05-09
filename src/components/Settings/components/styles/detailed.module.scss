@@ -1,62 +1,103 @@
-@use "../../../../styles/helpers/components/settings" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
-@use "../../../../styles/helpers/components/layouts/inp" as *;
+@use "./settings-variables" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .settingsHeading {
-  @include settingsHeading;
   position: sticky;
-  z-index: 2;
   top: 0;
-}
+  z-index: 2;
+  padding: 3rem $heading-v-pad;
+  text-transform: capitalize;
+  background: color(light);
+  border-bottom: 1px solid color(dark-shade);
 
-.settingsHeadingSecondary {
-  @include settingsHeadingSecondary;
-}
-
-.listedContent {
-  @include flexBox(column);
-  @include listedContent;
-}
-
-.fragmentsContainer {
-  @include fragmentsContainer;
+  @include media-680 {
+    padding: 1.5rem;
+  }
 }
 
 .allDetailsContainer {
   @include flexBox(column);
-  @include allDetailsContainer;
-}
-
-.updateBtnBox {
-  display: flex;
-  justify-content: flex-end;
-  @include updateBtnBox;
 }
 
 .formsContainer {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include formsContainer;
-
-  [data-select-box] {
-    font-size: size("smallSize");
-  }
+  gap: $base-space-between; // space between form and update btns
+  padding: 0 1rem;
 
   .form {
     display: flex;
     justify-content: center;
+    gap: $base-space-between; // space between form fields
+    width: $forms-inner-container-w;
   }
 
-  [data-user-info-error-box] {
-    @include errMsg;
+  .textFieldDesc {
+    min-height: 8rem;
+  }
+
+  .singleBtn {
+    width: max-content;
+    min-width: 40rem;
   }
 
   [data-select-box] {
     width: 100%;
+    font-size: size(sm);
+  }
+
+  [data-user-info-error-box] {
+    @include errorMessage;
+  }
+
+  [data-date-box] {
+    width: 100%;
+  }
+}
+
+.infoBlock {
+  @include flexBox(column);
+  gap: 1rem;
+  padding-bottom: $heading-v-pad;
+  border-bottom: 1px solid color(dark-shade);
+
+  &:last-child {
+    border: none;
+  }
+
+  .settingsHeadingSecondary {
+    padding: 1.5rem $heading-v-pad;
+    text-transform: capitalize;
+    font-weight: weight(lg);
+  }
+
+  .fragmentsContainer {
+    padding-top: 0;
+  }
+}
+
+.fragmentsContainer {
+  padding-top: 2rem;
+  padding-left: calc($heading-v-pad * 2);
+}
+
+.listedContent {
+  @include flexBox(column);
+  gap: $base-space-between;
+}
+
+.updateBtnBox {
+  display: flex;
+  justify-content: center;
+  gap: $base-space-between;
+  width: $forms-inner-container-w;
+  margin-top: 2rem;
+
+  [data-button-re] {
+    width: max(50%, 100%);
   }
 }
 
@@ -74,18 +115,15 @@
   .dateBox {
     display: flex;
     justify-content: space-between;
+    gap: $base-space-between; // space between date fields
   }
 }
 
 .addBTN {
-  background: color("blueColor");
-  color: color("whiteColor");
-  width: calc(100% - 2rem);
   display: block;
+  width: calc(100% - 2rem);
   margin: 0 auto;
-  margin-top: -1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   padding: 1.2rem 0;
-  border-radius: $rounded-sm;
-  text-transform: capitalize;
 }

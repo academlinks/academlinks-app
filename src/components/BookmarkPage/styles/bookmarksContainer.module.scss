@@ -1,9 +1,13 @@
-@use "../../../styles/helpers/components/bookmark-page" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
 .bookmarksConainer {
-  position: relative;
-  margin: 0 auto;
+  @include nestedPageContainer;
   @include flexBox(column);
-  @include bookmarkPage;
+  gap: 4rem;
+  padding: 3rem 4rem 2rem 4rem;
+
+  @include media-480 {
+    padding: 2rem 1rem;
+  }
 }

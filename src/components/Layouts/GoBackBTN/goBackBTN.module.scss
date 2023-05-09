@@ -1,21 +1,27 @@
-@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers" as *;
 
 .goBackBtn {
   position: absolute;
   z-index: 99;
   top: 1rem;
   right: 1rem;
-  font-size: size("bigSize");
-  background: color("whiteShaderColor");
-  color: color("darkGreyColor");
-  border-radius: 100%;
-  width: 3rem;
+  width: 3.5rem;
   aspect-ratio: 1/1;
+  font-size: size(lg);
+  border-radius: 100%;
+  border: 1px solid color(gray-tint);
+  color: color(dark-shade);
+  @include flexBox;
+  @include flexProperty(center, center);
 
   svg {
-    position: absolute;
+    position: inherit;
     top: 50%;
     left: 50%;
-    transform: translate(-55%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover svg {
+    color: color(blue-light);
   }
 }

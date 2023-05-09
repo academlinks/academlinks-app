@@ -1,7 +1,11 @@
-@use "../../../../../styles/helpers/components/blog-post" as *;
+@use "../../../../../styles/helpers" as *;
 
 .blogPostOptions {
   align-self: flex-end;
   position: relative;
-  @include blogPostOptions;
+  z-index: auto;
+
+  .blogPostOptBtn {
+    font-size: size(lg);
+  }
 }

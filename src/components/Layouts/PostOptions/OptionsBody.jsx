@@ -41,7 +41,7 @@ function OptionsBody({
           <button
             className={`${styles.postOptBtn} ${styles.bookmark}`}
             onClick={handleSavePost}
-            data-modal-sm-btn
+            data-options-modal-button
           >
             {optionsRules?.isBookmarked && <BookmarkFillIcon />}
             {!optionsRules?.isBookmarked && <BookmarkOutlineIcon />}
@@ -62,7 +62,7 @@ function OptionsBody({
             <button
               className={styles.postOptBtn}
               onClick={removeTagHandler}
-              data-modal-sm-btn
+              data-options-modal-button
             >
               <RemoveIcon />
               <span>remove tag</span>
@@ -74,7 +74,7 @@ function OptionsBody({
               <button
                 className={styles.postOptBtn}
                 onClick={hideFromProfileHandler}
-                data-modal-sm-btn
+                data-options-modal-button
               >
                 <HideIcon />
                 <span>hide from profile</span>

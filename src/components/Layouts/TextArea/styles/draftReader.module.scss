@@ -1,12 +1,12 @@
-@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers" as *;
 
 .showMoreBtn {
-  background: color("whiteShaderColor");
+  background: color(gray-tint);
   display: inline-block;
-  border-radius: 0.25rem;
-  padding: 0 0.25rem;
-  font-weight: 500;
+  border-radius: radius(xs-2);
+  padding: 0 1rem;
+  font-weight: weight(md);
   text-transform: capitalize;
   text-decoration: underline;
-  font-size: inherit;
+  font-size: size(sm);
 }

@@ -1,22 +1,35 @@
-@use "../../../styles/helpers/abstract/mixins" as *;
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/animation" as *;
+@use "../../../styles/helpers" as *;
 
 .selectAudienceBox {
   position: relative;
   text-transform: capitalize;
-  font-size: size("smallSize");
+  font-size: size(sm);
   overflow: hidden;
-  border-radius: 0.5rem;
-  background: color("whiteColor");
+  border-radius: radius(xs-2);
+  background: color(light);
+  transition: all 0.2s ease-out;
+
+  &.activeSelection {
+    box-shadow: shadow(vertical-xl);
+    transform: scale(1.05) translateX(0.5rem);
+    padding-top: 0.5rem;
+  }
+
+  svg {
+    font-size: size(base);
+  }
+
+  button > span {
+    line-height: 1;
+  }
 
   .selectAudienceMainBtn {
     @include flexBox;
     @include flexProperty(flex-start, center);
-    gap: 0.25rem;
-    border: 1px solid color(darkGreyColor);
-    width: 12rem;
-    padding: 0.5rem;
+    gap: 0.5rem;
+    border: 1px solid color(gray-shade);
+    width: 14rem;
+    padding: 0.5rem 1rem;
     border-radius: inherit;
   }
 
@@ -27,34 +40,31 @@
 
   &.activeSelection .selectAudienceIndicator {
     transform: rotate(180deg);
+    color: color(blue-light);
   }
 
   &.activeSelection .selectAudienceMainBtn {
-    border-bottom: none;
-    border-bottom-left-radius: 0rem;
-    border-bottom-right-radius: 0rem;
+    border: none;
   }
 
   .audienceSelectionsList {
     @include flexBox(column);
     @include flexProperty(center, flex-start);
-    gap: 0.25rem;
-    padding-top: 0;
-    margin-top: -0.2rem;
     border-radius: inherit;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
-    border: 1px solid color("darkGreyColor");
-    border-top: none;
-    background: color("whiteColor");
+    background: color(light);
     @include animateMoveBottom(0.2s);
 
     & button {
       @include flexBox;
       @include flexProperty(flex-start, center);
-      gap: 0.25rem;
+      gap: 0.5rem;
       width: 100%;
-      padding: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: color(blue-tint);
+      }
     }
   }
 }

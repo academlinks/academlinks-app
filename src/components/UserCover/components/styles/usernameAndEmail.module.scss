@@ -1,23 +1,25 @@
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/components/user-cover" as *;
+@use "../../../../styles/helpers" as *;
 
 .userNameAndEmail {
-  padding: 0.5rem 0 0 1rem;
-  grid-row: 4/6;
-  grid-column: 3/4;
-  width: 40%;
-  @include userNameAndEmail;
+  min-width: max-content;
+  padding: 0.5rem;
 
-  @include media-1280 {
-    transform: translateX(3rem);
+  @include media-960 {
+    text-align: center;
   }
 
-  @include media-680 {
-    grid-column: 1/1;
-    grid-row: 5/6;
-    justify-self: center;
-    text-align: center;
-    width: max-content;
-    transform: translate(0, 1.25rem);
+  .userName {
+    font-size: size(lg);
+    font-weight: weight(lg);
+    text-transform: capitalize;
+    color: color(dark);
+
+    @include media-680 {
+      // font-size: size(base);
+    }
+  }
+
+  .email {
+    color: color(dark-shade);
   }
 }

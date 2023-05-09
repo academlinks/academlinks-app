@@ -1,4 +1,4 @@
-@use "../../../styles/helpers/components/layouts/showMoreInlineBTN" as *;
+@use "../../../styles/helpers" as *;
 
 .inlineBtnLink {
   display: inline;
@@ -6,7 +6,11 @@
   .showMoreBtn {
     display: inline;
     font-size: inherit;
-    @include showMoreBtn;
+    padding: 0 0.5rem;
+    margin-left: 0.25rem;
+    font-weight: weight(md);
+    border-radius: 1rem;
+    background: color(gray-shade);
   }
 }
 

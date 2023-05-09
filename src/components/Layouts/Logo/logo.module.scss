@@ -1,11 +1,10 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/media" as *;
+@use "../../../styles/helpers" as *;
 
 .logo {
   height: 100%;
   padding: 1rem;
-  font-size: size("headingSmallSize");
-  font-weight: weight("boldWeight");
+  font-size: size(h-2);
+  font-weight: weight(lg);
 
   figure {
     width: 4rem;
@@ -23,6 +22,6 @@
   }
 
   @include media-480 {
-    font-size: size("headingSecondarySize");
+    font-size: size(h-3);
   }
 }

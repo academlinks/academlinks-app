@@ -50,26 +50,28 @@ function CreatePostModal({
     <Modal
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      className={styles.createPostModal}
-      modalClassName={styles.modalMain}
+      // className={styles.createPostModal}
+      modalClassName={styles.createPostModal}
     >
-      <div className={styles.createPostModalContentBox}>
+      <main className={styles.modalContent}>
         {loading && <InlineStandSpinner />}
 
-        <UserIdentifier
-          img={image}
-          userName={userName}
-          userId={_id}
-          withTime={false}
-          className={styles.createPostHeader}
-        >
-          <div className={styles.createPostAudience}>
-            <SelectAudience
-              handleAudience={handleAudience}
-              audience={audience}
-            />
-          </div>
-        </UserIdentifier>
+        <header className={styles.portalHeader}>
+          <UserIdentifier
+            img={image}
+            userName={userName}
+            userId={_id}
+            withTime={false}
+            className={styles.createPostHeader}
+          >
+            <div data-portal-audience>
+              <SelectAudience
+                handleAudience={handleAudience}
+                audience={audience}
+              />
+            </div>
+          </UserIdentifier>
+        </header>
 
         {(error || validationError.error) && (
           <Error
@@ -78,14 +80,16 @@ function CreatePostModal({
           />
         )}
 
-        <div className={styles.content}>
+        <div className={styles.portalEditor}>
           <DraftEditor
             text={text}
             setText={setText}
             className={styles.draftPost}
             placeholder="what's on your mind ?"
           />
+        </div>
 
+        <div className={styles.portalContent}>
           {!shared && (
             <CreatePostMedia
               files={files}
@@ -117,17 +121,13 @@ function CreatePostModal({
           )}
         </div>
 
-        <div className={styles.createPostFooterBox}>
+        <footer className={styles.portalFooter}>
           <CreatePostTouch withTextField={false} />
-          <BTN
-            onClick={handlePost}
-            disabled={loading}
-            className={styles.postBtn}
-          >
+          <BTN onClick={handlePost} disabled={loading}>
             POST
           </BTN>
-        </div>
-      </div>
+        </footer>
+      </main>
     </Modal>
   );
 }

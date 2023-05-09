@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-import {
-  ArrowDownRectingle,
-  PublicIcon,
-  LockIcon,
-  FriendIcon,
-  GroupIcon,
-} from "components/Layouts/Icons";
-import { Audience } from "components/Layouts";
+import TriggerButton from "./TriggerButton";
+import OptionsList from "./OptionsList";
 import styles from "./selectAudience.module.scss";
 
 function SelectAudience({
@@ -28,44 +22,15 @@ function SelectAudience({
         activateSelection ? styles.activeSelection : ""
       }`}
     >
-      <button
-        className={styles.selectAudienceMainBtn}
-        onClick={() => setActivateSelection((prev) => !prev)}
-      >
-        <Audience audience={audience} />
-        <span>{audience === "users" ? "only users" : audience}</span>
-        <ArrowDownRectingle className={styles.selectAudienceIndicator} />
-      </button>
+      <TriggerButton
+        setActivateSelection={setActivateSelection}
+        audience={audience}
+      />
       {activateSelection && (
-        <div className={styles.audienceSelectionsList}>
-          <button name="public" onClick={(e) => handleSelection(e.target.name)}>
-            <PublicIcon /> public
-          </button>
-          {isBlogPostAudience && (
-            <button
-              name="users"
-              onClick={(e) => handleSelection(e.target.name)}
-            >
-              <GroupIcon /> only users
-            </button>
-          )}
-          {!isBlogPostAudience && (
-            <>
-              <button
-                name="friends"
-                onClick={(e) => handleSelection(e.target.name)}
-              >
-                <FriendIcon /> friends
-              </button>
-              <button
-                name="private"
-                onClick={(e) => handleSelection(e.target.name)}
-              >
-                <LockIcon /> private
-              </button>
-            </>
-          )}
-        </div>
+        <OptionsList
+          handleSelection={handleSelection}
+          isBlogPostAudience={isBlogPostAudience}
+        />
       )}
     </div>
   );

@@ -1,9 +1,10 @@
-@use "../../../../styles/helpers/abstract/functions" as *;
+@use "../../../../styles/helpers" as *;
 
 .termsAndPolicyLink {
   text-decoration: underline;
   letter-spacing: 1px;
-  font-size: size("smallSize");
+  font-size: size(sm);
+  font-weight: weight(md);
   width: 100%;
   text-align: center;
 }

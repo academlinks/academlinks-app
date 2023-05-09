@@ -24,7 +24,7 @@ function PostsPagePostsList({ children, data, infinite }) {
     <div className={`${styles.postsPageContent} posts-page__container`}>
       {children}
 
-      {loading && <Spinner />}
+      {loading && <Spinner className={styles.postSpinner} />}
 
       {error && <Error msg={message} />}
 

@@ -1,6 +1,4 @@
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 .fragmentWrapper {
   position: relative;
@@ -31,7 +29,7 @@
   .fragmentBtnsBox {
     visibility: hidden;
     position: absolute;
-    right: 0.5rem;
+    right: 1.5rem;
     top: 0.5rem;
     @include flexBox;
     @include flexProperty(center, center);
@@ -48,12 +46,25 @@
   }
 
   .editableBtn {
-    background: color("blueTintColor");
+    background: color(blue-tint);
     width: 3.5rem;
     height: 3.5rem;
     aspect-ratio: 1/1;
     @include flexBox;
     @include flexProperty(center, center);
     border-radius: 100%;
+    transition: all 0.15s ease;
+
+    &:hover {
+      transform: scale(1.2);
+
+      svg {
+        color: color(blue-light);
+      }
+
+      &.editableDeleteBtn svg {
+        color: color(red-b);
+      }
+    }
   }
 }

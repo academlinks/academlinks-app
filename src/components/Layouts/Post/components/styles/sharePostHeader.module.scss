@@ -1,5 +1,10 @@
-@use "../../../../../styles/helpers/components/post" as *;
+@use "../../../../../styles/helpers" as *;
 
 .sharedPostHeaderIdentifier {
-  @include postBodyUserIdentifier;
+  font-size: size(base) !important;
+
+  & figure[data-img] {
+    width: $identifier-fig-lg;
+    height: $identifier-fig-lg;
+  }
 }

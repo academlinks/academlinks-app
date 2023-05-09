@@ -9,7 +9,7 @@ import {
 } from "store/selectors/authenticationSelectors";
 import { useAuthenticationQuery } from "hooks/queries";
 
-import { Input, StandSpinner, Error } from "components/Layouts";
+import { Input, StandSpinner, Error, BTN } from "components/Layouts";
 import styles from "./styles/auth.module.scss";
 
 function ForgotPassword() {
@@ -54,7 +54,7 @@ function ForgotPassword() {
 
         {error && <Error msg={message} />}
 
-        {!loading && <button type="submit">send email</button>}
+        {!loading && <BTN type="submit">send email</BTN>}
       </form>
 
       {loading && <StandSpinner />}

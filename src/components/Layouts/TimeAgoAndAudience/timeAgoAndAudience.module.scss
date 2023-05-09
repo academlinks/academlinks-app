@@ -1,4 +1,4 @@
-@use "../../../styles/helpers/variables/variables" as *;
+@use "../../../styles/helpers" as *;
 
 .timeAndAudience {
   grid-column: 2/4;
@@ -9,6 +9,6 @@
   gap: 0.5rem;
 
   & svg {
-    font-size: $txt-thumbnail;
+    font-size: size(xs);
   }
 }

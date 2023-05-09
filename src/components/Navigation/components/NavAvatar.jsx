@@ -49,7 +49,7 @@ function NavAvatar() {
               Settings
             </Link>
           </li>
-          <li onClick={logOutQuery}>Logout</li>
+          <li onClick={logOutQuery}>Log Out</li>
         </ul>
       )}
     </div>

@@ -1,6 +1,4 @@
-@use "../../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .commentContent {
   @include flexBox;
@@ -12,8 +10,8 @@
 
   .commentText {
     margin-left: 4rem;
-    color: color("darkGreyColor");
-    font-size: size("smallSize");
+    color: color(dark-shade);
+    font-size: size(sm);
     max-width: calc(85% - 4rem);
   }
 
@@ -26,21 +24,21 @@
     padding: 0 0.5rem;
     border-radius: 5rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
-    background: color("whiteColor");
+    background: color(light);
     cursor: pointer;
 
     & span {
-      font-size: size("smallSize");
+      font-size: size(sm);
     }
   }
 
   .showMoreBtn {
     cursor: pointer;
-    background: color("whiteShadeColor");
-    color: color("blackColor");
+    background: color(gray-b);
+    color: color(dark);
     padding: 0 0.5rem;
     border-radius: 1rem;
-    font-size: size("smallerSize");
+    font-size: size(xs);
   }
 
   [data-draft-show-more-btn] {

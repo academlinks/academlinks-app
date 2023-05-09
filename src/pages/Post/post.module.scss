@@ -1,8 +1,9 @@
 @use "../../styles/helpers/variables/variables" as *;
 @use "../../styles/helpers/abstract/media" as *;
+@use "../../styles/helpers/abstract/functions" as *;
 
 .singlePost {
-  margin-top: $nav-height;
+  margin-top: app(nav-h);
   padding-top: 6rem;
 
   @include media-680 {

@@ -1,42 +1,59 @@
-@use "../../../styles/helpers/components/notifications" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
 .notifyBody {
   @include flexBox;
   @include flexProperty(flex-start, flex-start);
+  gap: 0.75rem;
+  padding: 0.5rem;
   cursor: pointer;
-  @include notificationItem;
+  border-radius: radius(xs-2);
+  transition: all 0.2s;
+
+  &.unRead {
+    background: color(blue-tint);
+  }
+
+  &:not(.unRead):hover {
+    background: color(gray-tint);
+  }
 
   figure[data-img] {
-    min-width: 4rem;
-    max-width: 4rem;
-    min-height: 4rem;
-    max-height: 4rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+
+    @include media-480 {
+      min-width: 4rem;
+      min-height: 4rem;
+    }
+  }
+
+  .notifyTime {
+    display: block;
+    font-size: size(xs-2);
   }
 
   .userName {
     text-transform: capitalize;
   }
 
-  .notifyTime {
-    display: block;
-  }
-
   .notifyPopUpBox {
     position: relative;
     margin-left: auto;
+
+    svg {
+      font-size: size(lg);
+    }
   }
 
   .notifyOptionsList {
     position: absolute;
-    @include flexBox(column);
-    @include flexProperty(center, flex-start);
-    @include notificationOptionsList;
-
-    & button {
-      @include flexBox;
-      @include flexProperty(flex-start, center);
-      width: 100%;
-    }
+    z-index: 9;
+    top: 2rem;
+    right: 0.5rem;
+    width: 18rem;
+    @include optionsModal;
   }
 }

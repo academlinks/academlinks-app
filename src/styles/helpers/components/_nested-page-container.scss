@@ -1,0 +1,19 @@
+@use "../" as *;
+
+@mixin nestedPageContainer() {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: min(100%, app(container-w));
+  min-height: app(nested-page-min-h);
+  margin-top: $space-top-under-user-cover;
+  margin-bottom: $space-bottom-under-user-cover;
+  background: color(light);
+  box-shadow: shadow(radial-blue-light);
+  border-radius: radius(xs);
+
+  @include media-960 {
+    margin-top: $space-top-under-user-cover-sm;
+    margin-bottom: $space-bottom-under-user-cover-sm;
+  }
+}

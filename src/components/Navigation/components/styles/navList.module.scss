@@ -1,17 +1,42 @@
-@use "../../../../styles/helpers/components/navigation" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components/nav-modal" as *;
 
 .mainNavList {
   flex: 4;
-  text-transform: uppercase;
   @include flexBox;
-  @include navList;
+  gap: 1.75rem;
+  text-transform: uppercase;
 
   @include media-960 {
     display: none;
+    overflow: hidden;
+    width: 20rem;
     position: absolute;
+    top: calc(app(nav-h) + 2rem);
+    right: calc(50% - 10rem);
     flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    @include navModal;
+
+    li {
+      width: 100%;
+      transition: all 0.2s ease;
+      // @include animateSlideInBgToRight;
+
+      &:hover {
+        // background: color(blue-tint);
+        color: color(light);
+        background: color(blue-shade);
+      }
+
+      a {
+        height: 100%;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: inherit;
+      }
+    }
 
     &.activeNav {
       display: flex;

@@ -3,7 +3,7 @@ import styles from "./styles/termsCheckbox.module.scss";
 
 function TermsCheckbox({ error, message, onChange }) {
   return (
-    <div className={styles.termsCheckbox}>
+    <div className={styles.termsCheckbox} data-terms-checkbox>
       <div className={styles.termsCheckboxField}>
         <input type="checkbox" id="terms" name="terms" onChange={onChange} />
         <label htmlFor="terms">

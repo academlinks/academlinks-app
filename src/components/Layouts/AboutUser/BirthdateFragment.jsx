@@ -20,7 +20,7 @@ function BirthdateFragment({
         onDelete={onDelete}
       >
         <p>
-          Birthdate <strong>{formatDate(data, "verbal")}</strong>
+          <strong>{formatDate(data, "verbal")}</strong>
         </p>
       </FragmentWrapper>
     )

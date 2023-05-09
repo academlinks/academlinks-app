@@ -1,14 +1,22 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 .feedHeadingBox {
   position: relative;
   @include flexBox;
-  @include flexProperty(flex-start, center);
-  @include messangerFeedHeader;
+  @include flexProperty(space-between, center);
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color(gray-shade);
+
+  .user {
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 0.75rem;
+  }
 
   .feedAuthor {
+    font-size: size(sm);
+    font-weight: weight(md);
     text-transform: capitalize;
 
     &:hover {
@@ -18,11 +26,14 @@
 
   .conversationGoBackBtn {
     display: none;
-    top: 50%;
-    transform: translateY(-50%);
+    position: unset;
+
+    svg {
+      transform: none;
+    }
 
     @include media-680 {
-      display: block;
+      display: flex;
     }
   }
 }

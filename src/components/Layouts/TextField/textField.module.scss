@@ -1,13 +1,16 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/components" as *;
-@use "../../../styles/helpers/components/layouts/inp" as *;
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
 .textFieldContainer {
   width: 100%;
   @include fieldContainer;
 
   &.error .textArea {
-    border-color: color("redColor");
+    border-color: color(red-b);
+  }
+
+  &.focused .textArea {
+    border-color: color(blue-light);
   }
 
   .textArea {
@@ -22,8 +25,8 @@
     border-radius: 0.5rem;
     font-family: inherit;
     @include scrollBar("&", 0.7rem);
-    background: color("whiteColor");
-    color: color("darkGreyColor");
+    background: color(light);
+    color: color(dark-shade);
 
     &::placeholder {
       padding: 0;
@@ -38,6 +41,6 @@
   }
 
   .txtFieldError {
-    @include errMsg;
+    @include errorMessage;
   }
 }

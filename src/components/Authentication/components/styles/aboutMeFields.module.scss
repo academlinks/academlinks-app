@@ -1,0 +1,20 @@
+@use "../../../../styles/helpers" as *;
+
+.workplaceFieldsContainer {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 4rem;
+
+  @include media-960 {
+    column-gap: 1.5rem;
+  }
+
+  [data-txt-field-container] {
+    grid-column: 1/-1;
+
+    .textFieldDesc {
+      min-height: 8rem;
+    }
+  }
+}

@@ -1,14 +1,53 @@
-@use "../../../styles/helpers/components/notifications" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
 
 .notificationPopUp {
   position: fixed;
   z-index: 99;
+  right: 2rem;
+  top: calc(app(nav-h) + 2rem);
+  max-width: 36rem;
+  min-height: 6rem;
+  max-height: 12rem;
+  padding: 0.5rem;
+  overflow: auto;
   @include flexBox(column);
-  @include notificationsModal;
+  gap: 0.25rem;
+  font-size: size(sm);
+  border-radius: radius(xs);
+  background: color(light);
+  box-shadow: shadow(vertical-xl);
+  transition: all 0.3s ease-out;
+  @include animateMoveBottom(0.3s, 3rem);
+
+  @include media-480 {
+    width: 32rem;
+    font-size: size(xs);
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.expanded {
+    max-height: 40rem;
+  }
 
   .cleanerBtnsBox {
     @include flexBox;
     @include flexProperty(space-between, center);
+    margin: 0.75rem 0;
+    text-transform: capitalize;
+    color: color(blue-shade);
+
+    & button:hover {
+      color: color(blue-light);
+    }
+  }
+
+  .message {
+    padding: 1rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: color(silver-shade);
   }
 }

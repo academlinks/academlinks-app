@@ -50,33 +50,37 @@ function CommentsList({ postId, postAuthorId, notifyOnComment }) {
   useScrollOnNotifyAtComment({ notifyOnComment });
 
   return (
-    <div className={styles.commentsList}>
-      {loading && <BlockSpinner />}
+    <div className={styles.commentsContainer}>
+      <div className={styles.commentsList}>
+        {loading && <BlockSpinner />}
 
-      {!loading &&
-        (!error || (error && target !== "global")) &&
-        comments?.map((comment) => (
-          <CommentListItem
-            comment={comment}
-            setUpdateParentComment={setUpdateParentComment}
-            postId={postId}
-            postAuthorId={postAuthorId}
-            notifyOnComment={notifyOnComment?.replyId ? notifyOnComment : null}
-            key={comment._id}
-          />
-        ))}
+        {!loading &&
+          (!error || (error && target !== "global")) &&
+          comments?.map((comment) => (
+            <CommentListItem
+              comment={comment}
+              setUpdateParentComment={setUpdateParentComment}
+              postId={postId}
+              postAuthorId={postAuthorId}
+              notifyOnComment={
+                notifyOnComment?.replyId ? notifyOnComment : null
+              }
+              key={comment._id}
+            />
+          ))}
 
-      {!loading && !error && !comments[0] && (
-        <EmptyContentMessage message="there are no comments yet" />
-      )}
+        {!loading && !error && !comments[0] && (
+          <EmptyContentMessage message="there are no comments yet" />
+        )}
 
-      {error && target === "global" && task === "get" && (
-        <Error msg={message} />
-      )}
+        {error && target === "global" && task === "get" && (
+          <Error msg={message} />
+        )}
 
-      {error &&
-        target === "parent" &&
-        (task === "add" || task === "update") && <Error msg={message} />}
+        {error &&
+          target === "parent" &&
+          (task === "add" || task === "update") && <Error msg={message} />}
+      </div>
 
       {isAuthenticatedUser && (
         <DraftForComments

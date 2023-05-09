@@ -24,7 +24,7 @@ function GenderFragment({
         onDelete={onDelete}
       >
         <p>
-          Gender <strong>{data}</strong>
+          <strong>{data}</strong>
         </p>
       </FragmentWrapper>
     )

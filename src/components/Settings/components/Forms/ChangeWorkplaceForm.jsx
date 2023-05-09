@@ -48,7 +48,7 @@ function ChangeWorkplaceForm() {
           type="text"
           name="institution"
           label="institution"
-          placeholder="institutioninstitution"
+          placeholder="institution"
           defaultValue={workplace.institution}
           error={workplaceError.institution.hasError}
           message={workplaceError.institution.message}

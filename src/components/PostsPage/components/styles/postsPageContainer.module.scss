@@ -1,15 +1,30 @@
-@use "../../../../styles/helpers/components/posts-page" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "./posts-page-variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .postsPageContainer {
   margin: 0 auto;
+  width: min(100%, app(container-w));
+  padding-top: $space-top-under-user-cover;
   @include flexBox;
   @include flexProperty(space-between, flex-start);
-  @include postsPageContainer;
+  gap: $space-x;
+
+  @include media-1280 {
+    padding: 0 1rem;
+    padding-top: $space-top-under-user-cover;
+  }
+
+  @include media-960 {
+    gap: $space-x-md;
+  }
 
   @include media-680 {
     flex-direction: column;
     gap: 4rem;
+  }
+
+  @include media-480 {
+    padding: 0;
+    padding-top: $space-top-under-user-cover-sm;
   }
 }

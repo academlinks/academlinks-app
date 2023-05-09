@@ -1,9 +1,10 @@
-@use "../../../../../styles/helpers/components/blog-post" as *;
-@use "../../../../../styles/helpers/components/layouts/modalWindowSm" as *;
+@use "../../../../../styles/helpers" as *;
+@use "../../../../../styles/helpers/components" as *;
 
 .blogPostOptionsList {
   position: absolute;
-
-  @include blogPostOptionsList;
-  @include modalWindowSm;
+  right: -6.5rem;
+  top: 2.25rem;
+  width: 15rem;
+  @include optionsModal;
 }

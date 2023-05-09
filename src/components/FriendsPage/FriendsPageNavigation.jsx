@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useScroll } from "hooks/util";
@@ -14,12 +14,6 @@ function Friends() {
 
   const dispatch = useDispatch();
 
-  const { pathname } = useLocation();
-
-  function activeRoute(route) {
-    if (pathname.includes(route)) return styles.active;
-  }
-
   const { isActiveUser, profileId } = useForeignUser("basedOnId");
 
   const searchKey = useSelector(selectSearchKey);
@@ -29,26 +23,26 @@ function Friends() {
 
   return (
     <nav className={styles.friendsNav} id="friends__page--navigation-bar">
-      <Link
+      <NavLink
         to={`/profile/${profileId}/friends/all-friends`}
-        className={activeRoute("all-friends")}
+        className={({ isActive }) => (isActive ? styles.active : "")}
       >
         all friends
-      </Link>
+      </NavLink>
       {isActiveUser && (
         <>
-          <Link
+          <NavLink
             to={`/profile/${profileId}/friends/sent-requests`}
-            className={activeRoute("sent-requests")}
+            className={({ isActive }) => (isActive ? styles.active : "")}
           >
             sent request
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to={`/profile/${profileId}/friends/pending-requests`}
-            className={activeRoute("pending-request")}
+            className={({ isActive }) => (isActive ? styles.active : "")}
           >
             pending request
-          </Link>
+          </NavLink>
         </>
       )}
       <SearchBar

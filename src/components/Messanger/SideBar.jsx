@@ -6,23 +6,18 @@ import {
   selectAllConversationLoadingState,
   selectConversationChatLoadingState,
 } from "store/selectors/conversationSelectors.js";
-import { getConversationLastMsg } from "lib";
 import { useConversationQuery } from "hooks/queries";
 import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
+import {
+  getUserFromConversation,
+  getLastMessageDateCreation,
+} from "./functions";
+
 import { Error, BlockSpinner } from "components/Layouts";
-import styles from "./components/styles/sideBar.module.scss";
 import Conversation from "./components/Conversation";
 import UserSearchBar from "./components/UserSearchBar.jsx";
-
-export function checkDeletedUser(conversation, activeUserId) {
-  return (
-    conversation.deletedUsers &&
-    conversation.deletedUsers.some(
-      (u) => u.isDeleted && u.cachedUserId !== activeUserId
-    )
-  );
-}
+import styles from "./components/styles/sideBar.module.scss";
 
 function SideBar() {
   const { id } = useParams();
@@ -41,10 +36,6 @@ function SideBar() {
     message: conversationErrorMessage,
   } = useSelector(selectConversationChatLoadingState);
 
-  function getLatsMsgDateCreation(conversation) {
-    return new Date(getConversationLastMsg(conversation)?.createdAt).getTime();
-  }
-
   const { handleResetChatError } = useConversationQuery();
 
   return (
@@ -61,28 +52,26 @@ function SideBar() {
         <div className={styles.contentBox}>
           {[...conversations]
             ?.sort(
-              (a, b) => getLatsMsgDateCreation(b) - getLatsMsgDateCreation(a)
+              (conversationA, conversationB) =>
+                getLastMessageDateCreation({ conversation: conversationB }) -
+                getLastMessageDateCreation({ conversation: conversationA })
             )
             .map((conversation) => (
               <Conversation
                 key={conversation._id}
-                author={
-                  checkDeletedUser(conversation, activeUserId)
-                    ? conversation.deletedUsers.find(
-                        (u) => u.isDeleted && u.cachedUserId !== activeUserId
-                      )
-                    : conversation.users.find(
-                        (user) => user._id !== activeUserId
-                      )
-                }
                 conversationId={conversation._id}
                 lastMessage={conversation.lastMessage}
+                author={
+                  getUserFromConversation({
+                    conversation,
+                    activeUserId,
+                  }).user
+                }
                 adressatId={
-                  checkDeletedUser(conversation, activeUserId)
-                    ? conversation.deletedUsers.find(
-                        (u) => u.isDeleted && u.cachedUserId !== activeUserId
-                      ).cachedUserId
-                    : conversation.users.find((u) => u._id !== activeUserId)._id
+                  getUserFromConversation({
+                    conversation,
+                    activeUserId,
+                  }).userId
                 }
               />
             ))}

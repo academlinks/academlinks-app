@@ -1,0 +1,10 @@
+@use "../" as *;
+
+@mixin navModal {
+  border-radius: radius(xs-2);
+  font-size: size(base);
+  color: color(dark-shade);
+  background: color(light);
+  box-shadow: shadow(radial-lg);
+  @include animateMoveTop;
+}

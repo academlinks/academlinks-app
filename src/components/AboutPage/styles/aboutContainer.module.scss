@@ -1,0 +1,9 @@
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
+
+.newVersionContainer {
+  @include nestedPageContainer;
+  padding: 1.5rem;
+  @include flexBox(column);
+  gap: 2rem;
+}

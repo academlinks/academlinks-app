@@ -1,11 +1,12 @@
-@use "../../../styles/helpers/components/layouts/userIdentifier" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
 
 .userIdentifierRe {
   @include flexBox;
   @include flexProperty(flex-start, center);
   gap: 0.5rem;
-  @include userIdentifier;
+  color: color(dark-shade);
+  font-weight: weight(lg);
+  font-size: size(base);
 
   .identifierInlineContainer {
     @include flexBox(column);

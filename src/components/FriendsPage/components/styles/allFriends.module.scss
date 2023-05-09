@@ -1,33 +1,35 @@
-@use "../../../../styles/helpers/components/friends-page" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .allFriends {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(34rem, max-content));
   align-items: start;
-  @include allFriendsPage;
-
-  .emptyFriendsMessage {
-    grid-column: 1/-1;
-  }
+  margin-top: 4rem;
+  padding: 0 2rem;
 
   @include media-680 {
-    grid-template-columns: repeat(2, 1fr);
+    // grid-template-columns: repeat(2, 1fr);
+    margin-top: 3rem;
+    padding: 0 1rem;
+    gap: 0rem 3rem;
   }
 
   @include media-480 {
-    grid-template-columns: repeat(1, 1fr);
+    // grid-template-columns: repeat(1, 1fr);
     row-gap: 2rem;
   }
 
   .friend {
     display: grid;
+    column-gap: 1rem;
+    grid-template-rows: repeat(2, 4.5rem);
     grid-template-columns: max-content 1fr;
-    grid-template-rows: repeat(2, 4rem);
     justify-items: start;
     align-items: center;
+    box-shadow: shadow(radial-sm);
+    border-radius: radius(xs);
 
     &:hover button[data-friend-opt-btn] {
       opacity: 1;
@@ -37,8 +39,11 @@
   .friendImg {
     grid-row: 1/-1;
     height: 100%;
-    overflow: hidden;
     aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 
     & img {
       @include fitImage;
@@ -48,10 +53,25 @@
   .friendName {
     grid-row: 1;
     grid-column: 2;
+    margin-top: 0.8rem;
+    font-size: size(base);
+    font-weight: weight(md);
+    text-transform: capitalize;
+    color: color(dark-shade);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .muntuals {
-    grid-column: 2;
     grid-row: 2;
+    grid-column: 2;
+    margin-top: -2rem;
+    font-size: size(xs);
+  }
+
+  .emptyFriendsMessage {
+    grid-column: 1/-1;
   }
 }

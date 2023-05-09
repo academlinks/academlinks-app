@@ -1,15 +1,19 @@
-@use "../../../../styles/helpers/components/navigation" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .mainNav {
   position: fixed;
+  z-index: 9999;
   left: 0;
   right: 0;
   top: 0rem;
-  z-index: 9999;
+  height: app(nav-h);
   @include flexBox;
   @include flexProperty(flex-start, center);
-  @include nav;
+  padding: 0 1rem;
+  gap: 1rem;
+  background: color(blue-shade);
+  color: color(light);
+  box-shadow: shadow(vertical-lg);
 
   &Logo {
     flex: 1;

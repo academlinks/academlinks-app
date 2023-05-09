@@ -1,8 +1,7 @@
-@use "../../../../styles/helpers/components/profile-review" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components/nested-page-navigation" as *;
 
 .profileReviewNav {
-  @include flexBox;
-  @include flexProperty(flex-start, center);
-  @include profileReviewNav;
+  @include nestedPageNavigation;
+  gap: 2rem;
 }

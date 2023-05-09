@@ -1,29 +1,41 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "./user-cover-variables" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .cover {
-  grid-row: 1/4;
-  grid-column: 1/-1;
   position: relative;
-  @include coverImage;
+  width: 100%;
+  height: calc($landscape-h - $content-h);
+
+  @include media-1280 {
+    height: calc($landscape-h-md - $content-h);
+  }
+
+  @include media-960 {
+    height: calc($landscape-h-tablet - $content-h);
+  }
+
+  @include media-680 {
+    height: calc($landscape-h-mobile-lg - $content-h);
+  }
+  
+  @include media-480 {
+    height: calc($landscape-h-mobile - $content-h);
+  }
+
+  .changeMediaBtn {
+    @include changeUserProfileMediaBtn;
+    top: 1rem;
+    right: 1rem;
+  }
 
   .coverImg {
     width: 100%;
     height: 100%;
-    aspect-ratio: 2/1;
 
     & img {
       @include fitImage;
       border-radius: inherit;
-    }
-  }
-
-  @include media-680 {
-    grid-column: 1/1;
-
-    .coverImg {
-      aspect-ratio: unset;
     }
   }
 }

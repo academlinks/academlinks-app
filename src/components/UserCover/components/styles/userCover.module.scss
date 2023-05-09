@@ -1,88 +1,65 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-
-$container-h: 42vw;
-$container-h-md: 48vw;
-$container-h-tablet: 55vw;
-$container-h-mobile-lg: 70vw;
-$container-h-mobile: 50vh;
+@use "./user-cover-variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .landscape {
-  position: relative;
+  margin-top: app(nav-h);
   width: 100%;
-  height: 42vw;
-  @include userCoverContainer;
+  min-height: $landscape-h;
+  font-size: size(sm);
+  background: color(light);
+  box-shadow: shadow(vertical);
+  border-bottom: 1px solid rgba(color(dark-shade), 0.3);
 
   @include media-1280 {
-    height: $container-h-md;
+    min-height: $landscape-h-md;
   }
 
   @include media-960 {
-    height: $container-h-tablet;
+    min-height: $landscape-h-tablet;
   }
 
   @include media-680 {
-    height: $container-h-mobile-lg;
+    min-height: $landscape-h-mobile-lg;
   }
 
   @include media-480 {
-    height: $container-h-mobile;
+    min-height: $landscape-h-mobile;
   }
 }
 
-$space-for-content: 13vw;
-$space-for-content-on-md: 20rem;
-$space-for-content-on-mobile: 30rem;
-
-$rows-for-content: 5;
-
-$nav-height: 5rem;
-
-$profile-img-w: 16rem;
-$profile-img-w-on-md: 13rem;
-
 .content {
-  height: 100%;
-  display: grid;
-  @include userCoverContent;
-  grid-template-rows:
-    calc(100% - $space-for-content) repeat(
-      $rows-for-content,
-      calc(($space-for-content - $nav-height) / $rows-for-content)
-    )
-    $nav-height;
+  position: relative;
+  margin: 0 auto;
+  width: min(100%, app(container-w));
+  height: $content-h;
+  @include flexBox(column);
+  justify-content: space-between;
 
-  grid-template-columns:
-    1fr $profile-img-w minmax(
-      max-content,
-      calc($container-width - $profile-img-w)
-    )
-    1fr;
-
-  @include media-1280 {
-    grid-template-rows:
-      calc(100% - $space-for-content-on-md) repeat(
-        $rows-for-content,
-        calc(($space-for-content-on-md - $nav-height) / $rows-for-content)
-      )
-      $nav-height;
-
-    grid-template-columns:
-      1fr $profile-img-w-on-md minmax(
-        max-content,
-        calc($container-width - $profile-img-w-on-md)
-      )
-      1fr;
+  @include media-960 {
+    height: 100%;
   }
 
-  @include media-680 {
-    grid-template-rows:
-      calc(100% - $space-for-content-on-mobile) repeat(
-        $rows-for-content,
-        calc(($space-for-content-on-mobile - $nav-height) / $rows-for-content)
-      )
-      $nav-height;
+  .userBase {
+    max-height: 100%;
+    width: calc(100% - $profile-image-w);
+    align-self: flex-end;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
 
-    grid-template-columns: repeat(1, 1fr);
+    @include media-1280 {
+      padding: 0 1rem;
+    }
+
+    @include media-960 {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin-top: calc($profile-image-w / 2) + 1rem;
+    }
+
+    @include media-680 {
+      margin-top: calc($profile-image-w-md / 2);
+    }
   }
 }

@@ -11,8 +11,8 @@ import { useConversationQuery } from "hooks/queries";
 import { groupMessages, fixLineBreaks } from "lib";
 import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 
+import { getUserFromConversation } from "./functions";
 
-import { checkDeletedUser } from "./SideBar";
 import FeedHeader from "./components/FeedHeader";
 import FeedMessagesList from "./components/FeedMessagesList";
 import { TextArea, Spinner, Error } from "components/Layouts";
@@ -41,14 +41,7 @@ function Feed() {
 
   const adressat = useMemo(() => {
     if (!conversation) return;
-
-    const isDeletedUser = checkDeletedUser(conversation, activeUserId);
-
-    return isDeletedUser
-      ? conversation.deletedUsers.find(
-          (u) => u.isDeleted && u.cachedUserId !== activeUserId
-        )
-      : conversation.users?.find((user) => user._id !== activeUserId);
+    return getUserFromConversation({ conversation, activeUserId }).user;
   }, [conversation?.users, activeUserId]);
 
   const { sendMessageQuery } = useConversationQuery();
@@ -94,7 +87,8 @@ function Feed() {
       {!adressat?.isDeleted && (
         <TextArea
           withBtn={false}
-          placeholder="message"
+          placeholder="write message..."
+          className={styles.chatTextBox}
           handler={handleMessage}
           onFocus={onFocusHandler}
         />

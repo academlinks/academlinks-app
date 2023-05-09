@@ -1,6 +1,4 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
-@use "../../../styles/helpers/abstract/media" as *;
+@use "../../../styles/helpers" as *;
 
 .deletedPost {
   position: relative;
@@ -10,17 +8,17 @@
   gap: 1rem;
   margin: 0 auto;
   padding: 4rem;
-  font-size: size("largeSize");
-  font-weight: weight("boldWeight");
+  font-size: size(xl);
+  font-weight: weight(lg);
   text-transform: capitalize;
   text-align: center;
   border-radius: 0.5rem;
-  background: color("whiteColor");
+  background: color(light);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 
   & > svg {
-    font-size: size("headingSecondarySmallSize");
-    color: color("redColor");
+    font-size: size(xl-3);
+    color: color(red-b);
   }
 
   @include media-960 {
@@ -28,6 +26,6 @@
   }
 
   @include media-480 {
-    font-size: size("regullarSize");
+    font-size: size(base);
   }
 }

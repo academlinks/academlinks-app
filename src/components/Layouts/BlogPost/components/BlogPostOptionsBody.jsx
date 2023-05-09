@@ -17,7 +17,7 @@ function BlogPostOptionsBody({ postId }) {
       {loading && <Spinner />}
       {!loading && (
         <>
-          <button onClick={handleSavePost} data-modal-sm-btn>
+          <button onClick={handleSavePost} data-options-modal-button>
             {optionsRules?.isBookmarked && <BookmarkFillIcon />}
             {!optionsRules?.isBookmarked && <BookmarkOutlineIcon />}
             <span>save</span>

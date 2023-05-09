@@ -1,6 +1,3 @@
-import { useForeignUser } from "hooks/auth";
-
-import CommentOptions from "./CommentOptions";
 import { LikeIcon } from "components/Layouts/Icons";
 import { DraftReader } from "components/Layouts";
 import styles from "./styles/commentContent.module.scss";
@@ -8,24 +5,7 @@ import styles from "./styles/commentContent.module.scss";
 /**
  * renders comment text and options
  */
-function CommentContent({
-  postAuthorId,
-  commentAuthorId,
-  text,
-  likesCount,
-  handlePinComment,
-  handleUpdateCredentials,
-  handleDeleteComment,
-}) {
-  const { isActiveUser: postBelongsToActiveUser } = useForeignUser(
-    "basedOnId",
-    postAuthorId
-  );
-  const { isActiveUser: commentBelongsToActiveUser } = useForeignUser(
-    "basedOnId",
-    commentAuthorId
-  );
-
+function CommentContent({ text, likesCount }) {
   return (
     <div className={styles.commentContent}>
       <div className={styles.commentText}>
@@ -37,13 +17,6 @@ function CommentContent({
           <span>{likesCount}</span>
         </p>
       )}
-      <CommentOptions
-        postBelongsToActiveUser={postBelongsToActiveUser}
-        commentBelongsToActiveUser={commentBelongsToActiveUser}
-        pinHandler={handlePinComment}
-        updateHandler={handleUpdateCredentials}
-        deleteHandler={handleDeleteComment}
-      />
     </div>
   );
 }

@@ -1,0 +1,140 @@
+@use "../" as *;
+@use "./scrollbar" as *;
+
+$max-modal-h: 40vw;
+$max-modal-h-md: 50vw;
+$max-modal-h-tablet: calc(100vh - app(nav-h));
+
+$header-h: 8rem;
+
+$editor-min-h: 8rem;
+
+$footer-h: 10rem;
+
+$space-around: 1rem;
+
+// PARTIALS
+%postCrudModalInnerWraper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: inherit;
+}
+
+%postCrudModalHeader {
+  @extend %postCrudModalInnerWraper;
+  z-index: 99;
+  top: 0;
+  height: $header-h;
+  padding: $space-around;
+  background: color(light);
+
+  [data-user-identifier] {
+    align-items: flex-start;
+  }
+
+  [data-portal-audience] {
+    position: absolute;
+    left: 6rem;
+    top: 3.2rem;
+
+    // @include media-480 {
+    //   left: 6rem;
+    //   top: 5.5rem;
+    // }
+  }
+}
+
+%postCrudModalFooter {
+  @extend %postCrudModalInnerWraper;
+  bottom: 0;
+  height: max-content;
+  max-height: $footer-h;
+  padding: $space-around;
+  @include flexBox(column);
+  @include flexProperty(flex-end, flex-start);
+  gap: 2rem;
+  background: color(light);
+  outline: none;
+
+  @include media-480 {
+    bottom: calc(($footer-h / 2) + 1rem);
+  }
+
+  [data-post-media-label] {
+    width: 100%;
+  }
+}
+
+%postCrudModalEditor {
+  margin-top: $header-h;
+  padding: $space-around;
+
+  [data-draft-container] {
+    min-height: 4rem;
+    max-height: 15rem;
+    overflow: auto;
+
+    @include scrollBar;
+  }
+}
+
+%postCrudModalContent {
+  margin-bottom: $footer-h;
+  padding: $space-around;
+}
+
+// MAIN
+%postCrudModal {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 42vw;
+  max-height: $max-modal-h;
+  border-radius: inherit;
+  overflow: auto;
+  background: color(light);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  // @include scrollBar(
+  //   "&",
+  //   1rem,
+  //   1rem,
+  //   calc($header-h + 0.5rem),
+  //   calc($footer-h + 0.5rem)
+  // );
+
+  @include media-1280 {
+    width: 52vw;
+    max-height: $max-modal-h-md;
+  }
+
+  @include media-960 {
+    max-height: none;
+    width: 100vw;
+    height: $max-modal-h-tablet;
+    margin: 0;
+  }
+
+  .portalHeader {
+    @extend %postCrudModalHeader;
+  }
+
+  .portalEditor {
+    @extend %postCrudModalEditor;
+  }
+
+  .portalContent {
+    @extend %postCrudModalContent;
+  }
+
+  .portalFooter {
+    @extend %postCrudModalFooter;
+  }
+}

@@ -1,13 +1,35 @@
-@use "../../../../../styles/helpers/components/post" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers" as *;
 
 // all elements selected under the .shareAuthentic defines different order of post elements if post is shared--> you can see more information in jsx code !!!
 .shareAuthentic {
   @include flexBox(column);
-  @include authenticPost;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem 0.5rem 1rem;
+  background: color(gray-tint);
+  border-radius: radius(xs-2);
+  box-shadow: shadow(radial-sm);
+
+  @include media-960 {
+    margin: 0.5rem;
+  }
 
   .media {
+    order: -1;
     margin: 0;
+  }
+
+  .postAuthenticIdentifier {
+    font-size: size(sm);
+
+    & figure[data-img] {
+      width: $identifier-fig-md;
+      height: $identifier-fig-md;
+    }
+  }
+
+  .description {
+    font-size: size(sm);
   }
 
   [data-deleted-post] {
@@ -20,11 +42,43 @@
 }
 
 .postBody .postAuthenticIdentifier {
-  // align-items: flex-start;
-  @include postBodyUserIdentifier;
+  font-size: size(base);
+
+  & figure[data-img] {
+    width: $identifier-fig-lg;
+    height: $identifier-fig-lg;
+  }
 }
 
 .shareAuthentic .referencedBlogPost,
 .postBody .referencedBlogPost {
-  @include sharedBlogPost;
+  box-shadow: shadow(radial-sm);
+
+  [data-blog-post-identifier] {
+    gap: 0.75rem;
+  }
+
+  [data-title] {
+    font-size: size(base);
+  }
+
+  & > [data-img] {
+    aspect-ratio: 2/1;
+  }
+
+  [data-categories-list] {
+    font-size: size(xs);
+  }
+
+  [data-user-interacion] {
+    font-size: size(xs);
+
+    & svg {
+      font-size: size(base);
+    }
+  }
+
+  [data-article-text] {
+    font-size: size(xs);
+  }
 }

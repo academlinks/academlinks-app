@@ -5,6 +5,7 @@ import { CaseIcon } from "components/Layouts/Icons";
 
 function WorkplaceFragment({
   data,
+  current,
   editable = false,
   onEdit = () => {},
   deleteAble = false,
@@ -20,7 +21,8 @@ function WorkplaceFragment({
         onDelete={onDelete}
       >
         <p>
-          Worked in <strong>{data.institution}</strong> as{" "}
+          <span>{current ? "Workes in" : "Worked in"}</span>&nbsp;
+          <strong>{data.institution}</strong> as&nbsp;
           <strong>{data.position}</strong>
           {data.workingYears && (
             <>

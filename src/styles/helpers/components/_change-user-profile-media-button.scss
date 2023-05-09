@@ -1,0 +1,14 @@
+@use "../" as *;
+
+@mixin changeUserProfileMediaBtn() {
+  position: absolute;
+  @include flexBox;
+  @include flexProperty(center, center);
+  width: 4rem;
+  height: 4rem;
+  background: rgba(color(silver-shade), 0.7);
+  font-size: size(xl);
+  border-radius: 50%;
+  color: color(light);
+  cursor: pointer;
+}

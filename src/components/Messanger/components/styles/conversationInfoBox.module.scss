@@ -1,11 +1,11 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .infoBox {
   @include flexBox(column);
-  @include conversationBoxInfo;
 
   .conversationAuthor {
+    font-size: size(sm);
+    font-weight: weight(md);
     text-transform: capitalize;
 
     &:hover {
@@ -16,5 +16,12 @@
   .miniBox {
     @include flexBox;
     @include flexProperty(flex-start, center);
+    gap: 0.5rem;
+    font-size: size(xs);
+  }
+
+  .conversationDate {
+    margin-top: 0.1rem;
+    display: inline-block;
   }
 }

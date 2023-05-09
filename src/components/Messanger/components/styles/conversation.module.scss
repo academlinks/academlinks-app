@@ -1,16 +1,41 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
 
 .conversationBox {
   position: relative;
   @include flexBox;
   @include flexProperty(flex-start, center);
+  gap: 1rem;
+  padding: 0.7rem 0.5rem;
+  margin-right: 0rem;
   cursor: pointer;
+  border-radius: radius(xs-2);
   transition: all 0.15s ease;
-  @include conversationBox;
+
+  &.activeConversationBox {
+    background: color(light);
+  }
+
+  &:not(.activeConversationBox):hover {
+    background: color(blue-tint);
+  }
 
   &.unRead .unReadDot {
+    margin-top: 0.75rem;
     border-radius: 100%;
     margin-left: auto;
+  }
+
+  &.unRead:not(.activeConversationBox) {
+    background: color(blue-tint);
+  }
+
+  &.unRead:not(.activeConversationBox) .unReadDot {
+    width: 1rem;
+    height: 1rem;
+    background: color(blue-shade);
+  }
+
+  &.unRead:not(.activeConversationBox) .infoBox .conversationAuthor {
+    font-weight: 700;
   }
 }

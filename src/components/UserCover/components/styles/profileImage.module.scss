@@ -1,121 +1,48 @@
-@use "../../../../styles/helpers/components/user-cover" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
-@use "../../../../styles/helpers/abstract/functions" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
+@use "./user-cover-variables" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .profile {
-  grid-row: 2/5;
-  grid-column: 2/3;
-  justify-self: start;
-  align-self: center;
-  position: relative;
-  @include profileImage;
+  width: $profile-image-w;
+  height: $profile-image-w;
+  aspect-ratio: 1/1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
 
   @include media-1280 {
-    grid-row: 3/5;
-    transform: translateX(3rem);
+    left: 1rem;
+  }
+
+  @include media-960 {
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   @include media-680 {
-    grid-column: 1/1;
-    width: 13rem;
-    justify-self: center;
-    transform: translateX(0);
-  }
-}
-
-.cropModal {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-
-  .cropWindow {
-    width: 80rem;
-    height: 70rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    transform: translateY($nav-height / 2);
-    background: color("whiteColor");
-    border-radius: 1rem;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-
-    @include media-1680 {
-      width: 65rem;
-      height: 52rem;
-    }
+    width: $profile-image-w-md;
+    height: $profile-image-w-md;
   }
 
-  .cropWrapper {
-    position: relative;
-    height: calc(100% - 5rem - 2rem);
-    width: 100%;
-    border-radius: inherit;
-    border-bottom-left-radius: 0rem;
-    border-bottom-right-radius: 0rem;
+  .profileImg {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid color(light);
     overflow: hidden;
 
-    .cropContainer {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .cropMedia {
-    }
-
-    .cropArea {
+    & img {
+      @include fitImage;
     }
   }
 
-  .cropControllerBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+  .changeMediaBtn {
+    @include changeUserProfileMediaBtn;
+    bottom: 1.2rem;
+    right: 0.6rem;
 
-    input {
-      -webkit-appearance: none;
-      width: 80%;
-      height: 1.2rem;
-      border-radius: 1rem;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: 0.2s;
-      transition: opacity 0.2s;
-      background: color("whiteShaderColor");
-
-      &:hover {
-        opacity: 1;
-      }
-
-      &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 100%;
-        background: color("blueColor");
-        opacity: 1;
-        cursor: pointer;
-      }
+    @include media-680 {
+      right: -0.3rem;
     }
-  }
-
-  .saveActions {
-    height: 5rem;
-    margin-top: auto;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 1.5rem;
   }
 }

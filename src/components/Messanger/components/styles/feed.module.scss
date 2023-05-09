@@ -1,11 +1,24 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/abstract/media" as *;
+@use "../../../../styles/helpers" as *;
 
 .messangerFeedContainer {
   flex: 3;
+  height: 100%;
   position: relative;
   @include flexBox(column);
+  padding: 1rem;
+  background: color(light);
+
+  [data-text-area-form-box] {
+    margin-top: auto;
+
+    .chatTextBox {
+      border-radius: radius(xs);
+
+      &::placeholder{
+        font-style: italic;
+      }
+    }
+  }
 
   @include media-680 {
     display: none;
@@ -13,13 +26,5 @@
     &.isActiveConversation {
       display: flex;
     }
-  }
-
-  position: relative;
-  height: 100%;
-  @include messangerFeedContainer;
-
-  [data-text-area-form-box] {
-    margin-top: auto;
   }
 }

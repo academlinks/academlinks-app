@@ -1,10 +1,36 @@
-@use "../../../../styles/helpers/components/navigation" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .navAvatarBox {
   position: relative;
   cursor: pointer;
-  @include avatar;
+
+  .avatar {
+    @include avatar;
+  }
+
+  .navAvatarModal {
+    min-width: 18rem;
+    @include navModal;
+    top: calc(app(nav-h) + 0.5rem);
+    right: -1rem;
+    font-weight: weight(base);
+    overflow: hidden;
+
+    & li {
+      padding: 0.55rem 1rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: color(light);
+        background: color(blue-shade);
+      }
+    }
+
+    & li:last-child {
+      font-weight: weight(lg);
+    }
+  }
 
   .navAvatarModal {
     position: absolute;

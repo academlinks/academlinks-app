@@ -1,8 +1,15 @@
-@use "../../../../styles/helpers/components/messanger" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
+@use "./messanger-variables" as *;
+@use "../../../../styles/helpers" as *;
 
 .messageBox {
   @include flexBox;
-  @include flexProperty(flex-start,flex-start);
-  @include msgBox;
+  @include flexProperty(flex-start, flex-start);
+  gap: 0.5rem;
+  width: 100%;
+  font-size: size(xs);
+
+  & [data-img] {
+    width: $identifier-fig-xsm;
+    height: $identifier-fig-xsm;
+  }
 }

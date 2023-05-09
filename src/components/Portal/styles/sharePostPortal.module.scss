@@ -1,27 +1,25 @@
-@use "../../../styles/helpers/components/portal" as *;
-@use "../../../styles/helpers/abstract/components" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
-@use "../../../styles/helpers/abstract/functions" as *;
+@use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
-.sharePostModal {
-  @include sharePortal;
-  // @include scrollBar("&", 1rem, 1rem, 2rem, 2rem);
-  @include flexBox(column);
-  padding-top: 4rem;
+.shareModal {
+  border-radius: radius(md-1);
+  overflow: hidden;
 
-  .descriptionField {
+  @include media-960 {
     border-radius: 0rem;
-    border: none;
-    font-size: size("smallSize");
-    margin-top: 5rem;
-    min-height: 8rem;
-    max-height: 20rem;
-    overflow: auto;
-
-    @include scrollBar("&");
   }
 
-  .shareSelectAudience {
-    position: absolute;
+  .modalContent {
+    @extend %postCrudModal;
+
+    .descriptionField {
+      border-radius: 0rem;
+      border: none;
+      font-size: size(sm);
+      max-height: 20rem;
+      overflow: auto;
+
+      @include scrollBar("&");
+    }
   }
 }

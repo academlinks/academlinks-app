@@ -1,12 +1,16 @@
-@use "../../../../../styles/helpers/components/active-blog-post" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .postIntro {
-  @include blogPostArticle;
   grid-column: 2;
+  padding: 2rem 4rem 0 4rem;
+  color: dcolor(dark-shade);
 
   @include media-1280 {
     order: 2;
+  }
+
+  @include media-480 {
+    padding: 2rem 1rem;
   }
 
   .articleHead {
@@ -21,5 +25,6 @@
   .article {
     grid-column: 1;
     grid-row: 3;
+    margin-top: 2rem;
   }
 }

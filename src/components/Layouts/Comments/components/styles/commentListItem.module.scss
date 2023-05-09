@@ -1,0 +1,16 @@
+@use "../../../../../styles/helpers" as *;
+
+.commentListItem {
+  @include flexBox(column);
+  position: relative;
+
+  .repliesThread.meme {
+    display: block;
+  }
+
+  .repliesThread {
+    width: calc(100% - 4rem);
+    margin-left: 4rem;
+    display: none;
+  }
+}

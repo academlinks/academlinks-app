@@ -1,27 +1,39 @@
-@use "../../../../styles/helpers/components/navigation" as *;
-@use "../../../../styles/helpers/abstract/components" as *;
-@use "../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../styles/helpers/variables/variables" as *;
+@use "./nav-variables" as *;
+@use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .searchWindow {
   position: absolute;
   text-transform: capitalize;
-  @include searchWindow;
+  z-index: -1;
+  top: -4rem;
+  width: 100%;
+  height: 30rem;
+  background: color(light);
+  color: color(dark-shade);
+  box-shadow: shadow(vertical-lg);
 
   .resultsList {
     position: absolute;
     @include flexBox(column);
+    z-index: 2;
+    top: $search-window-top;
+    width: 100%;
+    max-height: calc(100% - $search-window-top);
+    gap: 0.8rem;
+    padding: 0 1rem 1rem 1rem;
     overflow: auto;
     @include scrollBar("&");
 
     &Item {
       @include flexBox;
       @include flexProperty(flex-start, center);
+      gap: 1rem;
     }
   }
 
   .searchError {
     position: relative;
-    top: $nav-height;
+    top: app(nav-h);
   }
 }

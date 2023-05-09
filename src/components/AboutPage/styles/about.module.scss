@@ -1,0 +1,21 @@
+@use "../../../styles/helpers" as *;
+
+.newVersionInlineContainer {
+  .infoBlock {
+    @include flexBox(column);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid color(gray-shade);
+    }
+  }
+
+  .infoBlockHeading {
+    text-transform: capitalize;
+  }
+
+  .nestedList {
+    @include flexBox(column);
+    gap: 2rem;
+  }
+}

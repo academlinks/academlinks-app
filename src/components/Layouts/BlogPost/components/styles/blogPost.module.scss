@@ -1,11 +1,17 @@
-@use "../../../../../styles/helpers/components/blog-post" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
+@use "../../../../../styles/helpers" as *;
 
 .blogPost {
   position: relative;
-  @include blogPostContainer;
+  border-radius: radius(xs-2);
+  background: color(light);
+  box-shadow: shadow(radial-xl);
+  border: 1px solid color(gray-shade);
 
   .blogPostMedia {
+    width: 100%;
+    aspect-ratio: 3/1;
+    margin: 0 1rem 0 0;
+    border-radius: inherit !important;
     overflow: hidden;
     border-top-left-radius: 0.2rem;
     border-top-right-radius: 0.2rem;
@@ -17,9 +23,13 @@
 
   .blogPostInfo {
     flex: 5;
+    padding: 1rem;
   }
 
   .blogPostShortDesc {
+    margin-top: 1rem;
+    font-size: size(sm);
+    color: color(txt-dark);
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;

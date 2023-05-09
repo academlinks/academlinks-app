@@ -1,10 +1,12 @@
-@use "../../../../../styles/helpers/components/post" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/abstract/media" as *;
+@use "../../../../../styles/helpers" as *;
 
 .post {
   position: relative;
-  margin: 0 auto;
   @include flexBox(column);
-  @include post;
+  width: min(100%, app(post-w));
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: radius(xs);
+  background: color(light);
+  box-shadow: shadow(radial-xl);
 }

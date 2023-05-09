@@ -1,20 +1,19 @@
-@use "../../../styles/helpers/abstract/functions" as *;
-@use "../../../styles/helpers/abstract/animation" as *;
-@use "../../../styles/helpers/abstract/mixins" as *;
+@use "../../../styles/helpers" as *;
 
-.btn {
-  font-size: size("smallerSize");
-  text-transform: capitalize;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+.requestBtn {
   @include flexBox;
   @include flexProperty(flex-start, center);
-  gap: 0.5rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: size(sm);
   outline: none;
+  text-transform: capitalize;
+  border-radius: radius(xs);
+  box-shadow: shadow(radial-sm);
+  transition: all 0.2s;
 
   & > svg {
-    font-size: size("regullarSize");
+    font-size: size(lg);
   }
 
   & span {
@@ -25,23 +24,31 @@
   &.sendBtn,
   &.deleteBtn,
   &.cancelBtn {
-    background: color("whiteShaderColor");
-    color: color("darkGreyColor");
-    transition: all 0.2s;
+    background: color(gray-shade);
+    color: color(dark-shade);
 
-    &:hover {
-      filter: brightness(90%);
+    &:hover:not(.active) {
+      background: color(gray-tint);
     }
   }
 
   &.sendMessageBtn,
   &.confirmBtn {
-    background: color("blueColor");
-    color: color("whiteColor");
-    transition: all 0.2s;
+    background: color(blue-shade);
+    color: color(light);
 
     &:hover {
-      filter: brightness(110%);
+      background: color(blue-light);
+    }
+  }
+
+  @include media-1280 {
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: radius(xs-2);
+
+    & > svg {
+      font-size: size(base);
     }
   }
 }
@@ -49,12 +56,24 @@
 .requestBtnBox {
   position: relative;
 
+  .isFriendBtn svg:last-child {
+    transition: all 0.2s ease;
+  }
+
+  .isFriendBtn.active svg:last-child {
+    transform: rotate(180deg);
+  }
+
+  .isFriendBtn.active {
+    background: color(gray-tint);
+  }
+
   .requestBtnModal {
     position: absolute;
-    bottom: -4rem;
+    bottom: -4.5rem;
     width: max-content;
-    background: color("whiteColor");
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    background: color(light);
+    box-shadow: shadow(vertical-sm);
     border-radius: 0.5rem;
     @include animateMoveTop;
   }
@@ -65,6 +84,6 @@
   }
 
   .deleteFromFriendsBtn:hover {
-    color: color("redColor");
+    color: color(red-b);
   }
 }

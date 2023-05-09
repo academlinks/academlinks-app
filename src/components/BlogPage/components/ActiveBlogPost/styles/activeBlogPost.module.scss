@@ -1,13 +1,13 @@
-@use "../../../../../styles/helpers/abstract/media" as *;
-@use "../../../../../styles/helpers/abstract/mixins" as *;
-@use "../../../../../styles/helpers/components/active-blog-post" as *;
+@use "../../../../../styles/helpers" as *;
 
 .activeBlogPostBox {
+  margin-top: app(nav-h);
+  min-height: calc(100vh - app(nav-h));
   position: relative;
   display: grid;
   grid-template-columns: 32rem 1fr 32rem;
   grid-template-rows: repeat(4, max-content);
-  @include activeBlogPostContainer;
+  background: color(light);
 
   @include media-1280 {
     @include flexBox(column);

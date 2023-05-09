@@ -1,9 +1,14 @@
-@use "../../../../../styles/helpers/components/blog-page" as *;
+@use "../../../../../styles/helpers" as *;
 
 .blog-page--container .infinite-scroll-component__outerdiv {
   grid-row: 4;
   grid-column: 1;
   justify-self: center;
   width: 100%;
-  @include blogPageInfiniteScroll;
+  max-width: 80rem;
+  margin-top: 4rem;
+
+  .infinite-scroll-component {
+    padding-top: 1.5rem;
+  }
 }

@@ -55,7 +55,9 @@ function Navigation() {
 
   return (
     <div className={styles.mainNav}>
-      <Logo className={styles.mainNavLogo} />
+      <div className={styles.mainNavLogo}>
+        <Logo />
+      </div>
       {isAuthenticated && (
         <>
           <NavList activeNav={activeNav} onBlurHandler={onBlurHandler} />
