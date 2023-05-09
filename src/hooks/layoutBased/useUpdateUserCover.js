@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { axiosFormDataQuery } from "store/axiosConfig";
@@ -6,7 +7,7 @@ import { selectActiveUserId } from "store/selectors/activeUserSelectors";
 import { setActiveUserUpdatedCover } from "store/reducers/postsDataReducer";
 import { setUpdatedUserCover } from "store/reducers/activeUserReducer";
 
-function useUpdateUserCover(field) {
+function useUpdateUserCover(field, setUpdateUserMedia) {
   const dispatch = useDispatch();
 
   const fileRef = useRef();
@@ -49,14 +50,22 @@ function useUpdateUserCover(field) {
     setFile(null);
   }
 
-  return {
-    fileRef,
-    file,
-    setFile,
-    saveChangeHandler,
-    cancelChangeHandler,
-    loading,
-  };
+  useEffect(() => {
+    if (!file)
+      return setUpdateUserMedia({
+        isProccessing: false,
+        saveChangeHandler: () => {},
+        cancelChangeHandler: () => {},
+      });
+
+    setUpdateUserMedia({
+      isProccessing: true,
+      saveChangeHandler,
+      cancelChangeHandler,
+    });
+  }, [file]);
+
+  return { fileRef, file, setFile, loading };
 }
 
 export default useUpdateUserCover;

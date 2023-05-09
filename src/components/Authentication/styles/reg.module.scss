@@ -41,10 +41,7 @@
 
   & .regForm [data-button-re] {
     padding: 1.5rem 8rem;
-
-    &:hover {
-      background: color(blue-light);
-    }
+    width: max-content;
 
     @include media-680 {
       border-radius: radius(xs-2);

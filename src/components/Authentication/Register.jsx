@@ -213,6 +213,7 @@ function Register() {
         />
 
         <BTN
+          btnType="primaryRadial"
           onClick={(e) => {
             e.preventDefault();
             sendRegistrationRequestQuery(formRef.current);

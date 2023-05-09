@@ -9,15 +9,17 @@ function UpdateButtons({
   return (
     <div className={styles.updateBtnBox}>
       <BTN
+        btnType="secondaryRadial"
         onClick={(e) => {
           e.preventDefault();
           cancelHandler();
         }}
-        className={styles.cancelBtn}
       >
         cancel
       </BTN>
       <BTN
+        type={updaterType}
+        btnType="primaryRadial"
         {...(updaterType !== "submit"
           ? {
               onClick: (e) => {
@@ -26,8 +28,6 @@ function UpdateButtons({
               },
             }
           : {})}
-        className={styles.updateBtn}
-        type={updaterType}
       >
         update
       </BTN>

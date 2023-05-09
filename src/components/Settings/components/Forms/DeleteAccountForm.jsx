@@ -27,6 +27,7 @@ function DeleteAccountForm() {
 
       <BTN
         type="submit"
+        btnType="delete"
         className={`${styles.singleBtn} ${styles.deleteAccountBtn}`}
       >
         delete account

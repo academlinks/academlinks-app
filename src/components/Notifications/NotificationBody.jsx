@@ -66,6 +66,7 @@ function NotificationBody({
         {activeNotifyModal && activeNotification === notify._id && (
           <div className={styles.notifyOptionsList}>
             <button
+              data-options-modal-button
               onClick={(e) => {
                 e.stopPropagation();
                 handleMarkAsRead(notify._id);
@@ -76,6 +77,8 @@ function NotificationBody({
               mark as read
             </button>
             <button
+              data-options-modal-button
+              data-options-modal-delete-button
               onClick={(e) => {
                 e.stopPropagation();
                 handleDeleteNotify(notify._id);

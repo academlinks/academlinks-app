@@ -1,4 +1,5 @@
 @use "../../../styles/helpers" as *;
+@use "../../../styles/helpers/components" as *;
 
 .notifyBody {
   @include flexBox;
@@ -50,32 +51,9 @@
   .notifyOptionsList {
     position: absolute;
     z-index: 9;
-    right: 0.5rem;
     top: 2rem;
+    right: 0.5rem;
     width: 18rem;
-    text-transform: capitalize;
-    border-radius: radius(xs-2);
-    background: color(light);
-    color: color(dark-light-grey);
-    box-shadow: shadow(vertical);
-    @include animateMoveTop(0.2s);
-
-    & button {
-      width: 100%;
-      @include flexBox;
-      @include flexProperty(flex-start, center);
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      transition: all 0.2s;
-
-      &:hover {
-        color: color(dark-shade);
-        background: color(blue-tint);
-      }
-
-      &:last-child:hover {
-        color: color(red-b);
-      }
-    }
+    @include optionsModal;
   }
 }

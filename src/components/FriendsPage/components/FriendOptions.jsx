@@ -18,7 +18,8 @@ function FriendOptions({ deleteFriendHandler }) {
       {open && (
         <div className={styles.friendOptWindow}>
           <button
-            className={styles.optionBtn}
+            data-options-modal-button
+            data-options-modal-delete-button
             onClick={() => {
               deleteFriendHandler();
               setOpen(false);

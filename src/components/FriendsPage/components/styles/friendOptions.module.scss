@@ -1,4 +1,5 @@
 @use "../../../../styles/helpers" as *;
+@use "../../../../styles/helpers/components" as *;
 
 .friendOptBox {
   position: relative;
@@ -18,30 +19,6 @@
     width: 15rem;
     top: 2.5rem;
     right: -100%;
-    padding: 0.75rem;
-    border-radius: radius(xs-3);
-    border: 1px solid color(gray-shade);
-    background: color(light);
-    @include animateMoveTop(0.12s);
-    box-shadow: shadow(vertical-sm);
-
-    .optionBtn {
-      @include flexBox;
-      @include flexProperty(flex-start, center);
-      gap: 0.75rem;
-      text-transform: capitalize;
-
-      span {
-        transition: color 0.2s ease;
-      }
-
-      svg {
-        font-size: size(lg);
-      }
-
-      &:hover > span {
-        color: color(red-b);
-      }
-    }
+    @include optionsModal;
   }
 }

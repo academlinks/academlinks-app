@@ -26,10 +26,11 @@ function ActiveUserRelated({
         <button
           className={styles.audienceMainBtn}
           onClick={() => setActiveAudience((prev) => !prev)}
-          data-modal-sm-btn
+          data-options-modal-button
+          data-options-modal-nested-modal-button
         >
-          <Audience audience={audience} />{" "}
-          {audience === "users" ? "only users" : audience}
+          <Audience audience={audience} />
+          <span>{audience === "users" ? "only users" : audience}</span>
           <ArrowDownRectingle
             className={`${styles.arrowIndicator} ${
               activeAudience ? styles.arrowIndicatorActive : ""
@@ -41,19 +42,21 @@ function ActiveUserRelated({
             <button
               name="public"
               onClick={(e) => handleAudience(e.target.name)}
-              data-modal-sm-btn
+              data-options-modal-button
+              data-options-modal-nested-button
             >
               <PublicIcon />
-              public
+              <span>public</span>
             </button>
             {isBlogPostOptions && (
               <button
                 name="users"
                 onClick={(e) => handleAudience(e.target.name)}
-                data-modal-sm-btn
+                data-options-modal-button
+                data-options-modal-nested-button
               >
                 <GroupIcon />
-                only users
+                <span>only users</span>
               </button>
             )}
             {!isBlogPostOptions && (
@@ -61,18 +64,20 @@ function ActiveUserRelated({
                 <button
                   name="friends"
                   onClick={(e) => handleAudience(e.target.name)}
-                  data-modal-sm-btn
+                  data-options-modal-button
+                  data-options-modal-nested-button
                 >
                   <FriendIcon />
-                  friends
+                  <span>friends</span>
                 </button>
                 <button
                   name="private"
                   onClick={(e) => handleAudience(e.target.name)}
-                  data-modal-sm-btn
+                  data-options-modal-button
+                  data-options-modal-nested-button
                 >
                   <LockIcon />
-                  private
+                  <span>private</span>
                 </button>
               </>
             )}
@@ -82,7 +87,7 @@ function ActiveUserRelated({
       <button
         className={styles.postOptBtn}
         onClick={handleUpdate}
-        data-modal-sm-btn
+        data-options-modal-button
       >
         <UpdateIcon />
         <span>update</span>
@@ -90,7 +95,8 @@ function ActiveUserRelated({
       <button
         className={`${styles.postOptBtn} ${styles.postOptBtnDelete}`}
         onClick={handleDeletePopUp}
-        data-modal-sm-btn
+        data-options-modal-button
+        data-options-modal-delete-button
       >
         <DeleteIcon />
         <span>delete</span>

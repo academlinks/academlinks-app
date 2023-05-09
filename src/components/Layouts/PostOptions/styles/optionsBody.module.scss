@@ -8,16 +8,7 @@
   top: 3rem;
   min-height: 6rem;
   min-width: 20rem;
-  @include postOptionsModal;
-
-  .postOptBtnDelete:hover {
-    color: color(red-b);
-  }
-
-  & span {
-    align-self: flex-end;
-    margin-top: 0.25rem;
-  }
+  @include optionsModal;
 
   .bookmark svg {
     font-size: size(base);
@@ -42,9 +33,6 @@
     .audienceOptionsList {
       width: 85%;
       align-self: flex-end;
-      @include flexBox(column);
-      @include flexProperty(center, flex-start);
-      gap: $modal-list-gap;
       @include animateMoveBottom(0.2s);
     }
   }

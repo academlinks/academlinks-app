@@ -8,17 +8,8 @@
   margin-top: 20rem;
   gap: 2rem;
 
-  button {
-    border-radius: radius(xs-2);
-    background: color(blue-shade);
-    color: color(light);
-    text-transform: capitalize;
-    padding: 1.5rem 2rem;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: color(blue-light);
-    }
+  [data-button-re] {
+    padding: 1.5rem auto;
   }
 
   .forgotPassword {

@@ -22,7 +22,10 @@ function FragmentWrapper({
       {editable && (
         <div className={styles.fragmentBtnsBox}>
           {deleteAble && (
-            <button className={styles.editableBtn} onClick={onDelete}>
+            <button
+              className={`${styles.editableBtn} ${styles.editableDeleteBtn}`}
+              onClick={onDelete}
+            >
               <DeleteIcon />
             </button>
           )}

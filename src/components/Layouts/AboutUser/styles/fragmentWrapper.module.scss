@@ -29,7 +29,7 @@
   .fragmentBtnsBox {
     visibility: hidden;
     position: absolute;
-    right: 0.5rem;
+    right: 1.5rem;
     top: 0.5rem;
     @include flexBox;
     @include flexProperty(center, center);
@@ -53,5 +53,18 @@
     @include flexBox;
     @include flexProperty(center, center);
     border-radius: 100%;
+    transition: all 0.15s ease;
+
+    &:hover {
+      transform: scale(1.2);
+
+      svg {
+        color: color(blue-light);
+      }
+
+      &.editableDeleteBtn svg {
+        color: color(red-b);
+      }
+    }
   }
 }

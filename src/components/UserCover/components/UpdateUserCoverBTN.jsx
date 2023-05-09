@@ -4,10 +4,16 @@ import styles from "./styles/updateUserCoverBtn.module.scss";
 function UpdateUserCoverBTN({ cancelHandler, submitHandler }) {
   return (
     <div className={styles.updateUserCoverBtn}>
-      <BTN onClick={cancelHandler} className={styles.cancelUpdateBtn}>
+      <BTN
+        btnType="secondaryRadial"
+        onClick={cancelHandler}
+        className={styles.cancelUpdateBtn}
+      >
         cancel
       </BTN>
-      <BTN onClick={submitHandler}>save</BTN>
+      <BTN btnType="primaryRadial" onClick={submitHandler}>
+        save
+      </BTN>
     </div>
   );
 }

@@ -40,22 +40,8 @@
   }
 
   .singleBtn {
+    width: max-content;
     min-width: 40rem;
-    padding: 1rem 0;
-    border-radius: radius(xs-2);
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: color(blue-light);
-    }
-
-    &.deleteAccountBtn {
-      background: color(red-b);
-
-      &:hover {
-        background: color(red-tint);
-      }
-    }
   }
 
   [data-select-box] {
@@ -110,29 +96,8 @@
   width: $forms-inner-container-w;
   margin-top: 2rem;
 
-  .cancelBtn,
-  .updateBtn {
-    padding: 1rem 6rem;
-    text-transform: capitalize;
+  [data-button-re] {
     width: max(50%, 100%);
-  }
-
-  .cancelBtn {
-    background: color(gray-shade);
-    color: color(dark-shade);
-
-    &:hover {
-      background: color(gray-tint);
-    }
-  }
-
-  .updateBtn {
-    background: color(blue-shade);
-    color: color(light);
-
-    &:hover {
-      background: color(blue-light);
-    }
   }
 }
 
@@ -161,13 +126,4 @@
   margin-top: 2rem;
   margin-bottom: 1rem;
   padding: 1.2rem 0;
-  text-transform: capitalize;
-  border-radius: radius(xs-2);
-  color: color(light);
-  background: color(blue-shade);
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: color(blue-light);
-  }
 }

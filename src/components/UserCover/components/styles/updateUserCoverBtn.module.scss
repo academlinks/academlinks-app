@@ -5,20 +5,14 @@
   @include flexProperty(flex-start, center);
   gap: 2rem;
   height: 100%;
+  margin-left: auto;
 
-  @include media-1280 {
-    transform: translateX(-3rem);
+  @include media-960 {
+    margin: auto;
+    margin-bottom: 2rem;
   }
 
-  @include media-680 {
-    grid-column: 1/1;
-    grid-row: 6/7;
-    transform: translate(0);
-    justify-self: center;
-  }
-
-  .cancelUpdateBtn {
-    background: color(white-shade);
-    color: color(dark-shade);
+  [data-button-re] {
+    padding: 1rem 4rem;
   }
 }

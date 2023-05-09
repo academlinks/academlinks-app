@@ -4,14 +4,49 @@
   display: inline-block;
   width: max-content;
   padding: 1rem 2.5rem;
-  border-radius: radius(xl-3);
   text-transform: capitalize;
   font-size: size(sm);
   font-weight: weight(md);
-  color: color(light);
-  background: color(blue-shade);
   transition: all 0.15s ease;
   box-shadow: shadow(radial-sm);
+  border-radius: radius(xs-2);
+  width: 100%;
+
+  &.primary,
+  &.primaryRadial {
+    color: color(light);
+    background: color(blue-shade);
+
+    &:hover {
+      background: color(blue-light);
+    }
+  }
+
+  &.secondary,
+  &.secondaryRadial {
+    background: color(gray-tint);
+    color: color(dark-shade);
+
+    &:hover {
+      background: color(gray-shade);
+    }
+  }
+
+  &.delete,
+  &.deleteRadial {
+    background: color(red-tint);
+    color: color(light);
+
+    &:hover {
+      background: color(red-b);
+    }
+  }
+
+  &.secondaryRadial,
+  &.primaryRadial,
+  &.deleteRadial {
+    border-radius: radius(xl-3);
+  }
 
   &:disabled {
     opacity: 0.6;

@@ -13,29 +13,27 @@ function ConversationOptionsList({
   return (
     <div className={styles.optBtnBox}>
       <button
-        className={styles.optBtn}
+        data-options-modal-button
         onClick={(e) => {
           e.stopPropagation();
           setOpenConversationOption(false);
           markAsReadQuery({ conversationId, adressatId });
         }}
       >
-        <span className={styles.optIconBox}>
-          <ReadIcon />
-        </span>
+        <ReadIcon />
+
         <span>mark as read</span>
       </button>
       <button
-        className={`${styles.optBtn} ${styles.optDeleteBtn}`}
+        data-options-modal-button
+        data-options-modal-delete-button
         onClick={(e) => {
           e.stopPropagation();
           setOpenConversationOption(false);
           deleteConversationQuery(conversationId);
         }}
       >
-        <span className={styles.optIconBox}>
-          <DeleteIcon />
-        </span>
+        <DeleteIcon />
         <span>delete conversation</span>
       </button>
     </div>

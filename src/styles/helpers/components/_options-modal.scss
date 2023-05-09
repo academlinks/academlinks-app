@@ -1,0 +1,56 @@
+@use "../" as *;
+
+$modal-list-gap: 0.5rem;
+
+@mixin optionsModal {
+  @include flexBox(column);
+  @include flexProperty(center, flex-start);
+  // gap: $modal-list-gap;
+  font-size: size(base);
+  text-transform: capitalize;
+  border-radius: radius(xs);
+  overflow: hidden;
+  box-shadow: shadow(vertical-xl);
+  color: color(dark-shade);
+  background: color(light);
+  @include animateMoveTop;
+
+  [data-options-modal-button] {
+    width: 100%;
+    @include flexBox;
+    @include flexProperty(flex-start, center);
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease-out;
+
+    &:first-child:not([data-options-modal-nested-modal-button]):not(
+        [data-options-modal-nested-button]:first-child
+      ) {
+      padding-top: 1rem;
+    }
+
+    &:last-child:not([data-options-modal-nested-modal-button]):not(
+        [data-options-modal-nested-button]:last-child
+      ) {
+      padding-bottom: 1rem;
+    }
+
+    & svg {
+      font-size: size(lg);
+      line-height: 1;
+    }
+
+    span {
+      line-height: 1;
+    }
+
+    &:hover {
+      color: color(dark);
+      background: color(blue-tint);
+    }
+
+    &[data-options-modal-delete-button]:hover {
+      color: color(red-b);
+    }
+  }
+}
