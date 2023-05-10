@@ -266,7 +266,10 @@ export default function useSettingsQuery() {
     dispatch(
       updatePassword({
         userId: activeUserId,
-        body: output,
+        body: {
+          password: output.currPassword,
+          newPassword: output.newPassword,
+        },
       })
     );
   }

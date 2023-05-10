@@ -5,6 +5,7 @@
   display: grid;
   gap: 2rem 3rem;
   grid-template-columns: repeat(auto-fill, minmax(34rem, max-content));
+  justify-content: center;
   align-items: start;
   margin-top: 4rem;
   padding: 0 2rem;
@@ -13,7 +14,7 @@
     // grid-template-columns: repeat(2, 1fr);
     margin-top: 3rem;
     padding: 0 1rem;
-    gap: 0rem 3rem;
+    // gap: 0rem 3rem;
   }
 
   @include media-480 {

@@ -264,7 +264,7 @@ export default class ValidateUserInfo extends Validator {
 
   validatePassword() {
     const { hasError: passwordHasError, message: passwordMessage } =
-      this.executePasswordValidation(this.credentials.password);
+      this.executePasswordValidation(this.credentials.currPassword);
 
     const { hasError: newPasswordHasError, message: newPasswordMessage } =
       this.executePasswordValidation(this.credentials.newPassword);

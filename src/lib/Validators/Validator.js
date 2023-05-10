@@ -33,7 +33,7 @@ class Validator {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     onlyLatinLetters: /^[A-Za-z\s]*$/,
     onlyLatinLettersAndDash: /^[A-Za-z\s-]*$/,
-    validPassword: /^([a-zA-Z0-9-_.]{6,})*$/g,
+    validPassword: /^([a-zA-Z0-9-_.]{6,})*$/,
     isWord: /\w/g,
   };
 
@@ -114,11 +114,12 @@ class Validator {
   }
 
   validPassword({ value }) {
-    return (
-      value?.trim() &&
-      this.regs.validPassword.test(value) &&
-      !this.regs.whiteSpace.test(value)
-    );
+    const password = value;
+    const isNotEmpty = typeof value === "string" && value?.trim() !== "";
+    const notIncludesWhiteSpace = !this.regs.whiteSpace.test(value);
+    const isPassword = this.regs.validPassword.test(password);
+
+    return isNotEmpty && notIncludesWhiteSpace && isPassword;
   }
 
   // helpers
@@ -174,15 +175,13 @@ class Validator {
   }
 
   executePasswordValidation(pass) {
-    const isValidPassword = this.validPassword({
-      value: pass,
-    });
+    const isValidPassword = this.validPassword({ value: pass });
 
     return !isValidPassword
       ? {
           hasError: true,
           message:
-            "Invalid password. Password must contain only: latin letters, numbers from 0-9, symbosls(' . ' ' _ ' ' - ') and must contain min 6 letter.",
+            "Invalid password. Password must contain only: latin letters, numbers from 0-9, symbols(' . ' ' _ ' ' - ') and must contain min 6 letter.",
         }
       : { hasError: false, message: "" };
   }

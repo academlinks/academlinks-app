@@ -3,15 +3,16 @@
 .requestsList {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(21rem, max-content));
-  gap: 2rem 2.7rem;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 26rem));
+  gap: 4rem;
   align-items: start;
   padding: 0 2rem;
   margin-top: 4rem;
 
   @include media-680 {
     // grid-template-columns: repeat(3, 1fr);
-    gap: 0rem 2rem;
+    // gap: 0rem 2rem;
+    justify-content: center;
     margin-top: 3rem;
     padding: 0 1rem;
   }
@@ -22,12 +23,10 @@
 
   .requestItem {
     overflow: hidden;
-    // max-width: 20rem;
-    // min-width: 18rem;
     display: grid;
     row-gap: 0.75rem;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 15rem) repeat(3, max-content);
+    grid-template-rows: repeat(1, 18rem) repeat(3, max-content);
     padding-bottom: 1.2rem;
     border-radius: radius(xs);
     background: color(light);
