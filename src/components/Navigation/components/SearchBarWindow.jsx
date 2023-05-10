@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectSearchLoadingState } from "store/selectors/userSelectors";
 
 import styles from "./styles/searchBarWindow.module.scss";
-import { Avatar, Spinner, Error } from "components/Layouts";
+import { Avatar, Error, BlockSpinner } from "components/Layouts";
 
 function SearchBarWindow({ result, onChooseHandler }) {
   const { loading, error, message } = useSelector(selectSearchLoadingState);
@@ -14,7 +14,7 @@ function SearchBarWindow({ result, onChooseHandler }) {
       className={`${styles.searchWindow}  searchbar-window`}
       data-searchbar-window
     >
-      {loading && <Spinner />}
+      {loading && <BlockSpinner />}
 
       {!loading && !error && (
         <div className={styles.resultsList} data-searchbar-result-list>
@@ -31,7 +31,7 @@ function SearchBarWindow({ result, onChooseHandler }) {
           ))}
         </div>
       )}
-      
+
       {error && <Error msg={message} className={styles.searchError} />}
     </div>
   );
