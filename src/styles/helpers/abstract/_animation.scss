@@ -43,7 +43,7 @@
 }
 
 @mixin animateMoveBottom(
-  $duration: 0.5s,
+  $duration: 0.2s,
   $fromTop: -1rem,
   $fn: ease-out,
   $loop: forwards

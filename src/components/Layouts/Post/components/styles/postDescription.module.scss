@@ -3,6 +3,7 @@
 .postDescription {
   font-size: size(base);
   color: color(dark-shade);
+  overflow: hidden;
 
   &.spaceY {
     margin: 1rem 0;

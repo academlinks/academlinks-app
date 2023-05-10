@@ -8,27 +8,39 @@
   z-index: -1;
   top: -4rem;
   width: 100%;
-  height: 30rem;
+  min-height: 14rem;
+  max-height: $search-list-max-h;
+  padding-top: $search-window-top;
+  overflow: hidden;
   background: color(light);
   color: color(dark-shade);
-  box-shadow: shadow(vertical-lg);
+  box-shadow: shadow(vertical-xl);
+  border-bottom-left-radius: radius(xs);
+  border-bottom-right-radius: radius(xs);
+  @include animateMoveBottom;
 
   .resultsList {
-    position: absolute;
+    max-width: 100%;
+    max-height: calc($search-list-max-h - $search-window-top);
     @include flexBox(column);
-    z-index: 2;
-    top: $search-window-top;
-    width: 100%;
-    max-height: calc(100% - $search-window-top);
     gap: 0.8rem;
-    padding: 0 1rem 1rem 1rem;
-    overflow: auto;
-    @include scrollBar("&");
+    margin: 0 0.5rem;
+    padding: 1rem 0;
+    border-radius: inherit;
+    @include scrollBar("&", 1rem, 1rem, 1rem, 1rem);
 
     &Item {
       @include flexBox;
       @include flexProperty(flex-start, center);
       gap: 1rem;
+      padding: 0.5rem;
+      margin-right: 0.5rem;
+      border-radius: radius(xs-2);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: color(blue-tint);
+      }
     }
   }
 

@@ -44,6 +44,8 @@
 
     &.active [data-searchbar-window] {
       height: 100%;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     &.active [data-searchbar-result-list] {
