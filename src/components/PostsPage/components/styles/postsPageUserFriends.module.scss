@@ -38,18 +38,10 @@
 
   .friendsList {
     display: grid;
-    grid-template: repeat(3, 10rem) / repeat(3, 10rem);
+    grid-template-columns: repeat(3, minmax(12rem, max-content));
     justify-content: space-between;
     justify-items: center;
     gap: 1rem;
-
-    @include media-680 {
-      grid-template: repeat(3, 13rem) / repeat(3, 1fr);
-    }
-
-    @include media-480 {
-      grid-template: repeat(3, 10rem) / repeat(3, 1fr);
-    }
 
     .friendImg {
       height: 9rem;
